@@ -1,0 +1,14 @@
+/* Hide the hamburger button on screens larger than or equal to 769px */
+@media screen and (min-width: 769px) {
+    .hide-on-large {
+      display: none;
+    }
+  }
+  
+  /* Show the hamburger button on screens smaller than 769px */
+  @media screen and (max-width: 768px) {
+    .show-on-large {
+      display: none;
+    }
+  }
+  
