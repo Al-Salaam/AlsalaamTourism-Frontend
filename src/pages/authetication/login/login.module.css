@@ -1,0 +1,63 @@
+.mainRow{
+    width:100vw;
+    height:100vh;
+}
+.col1{
+    display: flex;
+    justify-content: center; 
+    align-items:center;
+    background-color: orange;
+}
+.col2{
+    display: flex;
+    justify-content: center; 
+    align-items:center;
+    background: url("../../../../images/col2.png") center/cover;
+
+
+}
+
+.container {
+    position: relative;
+    width: 400px; /* Adjust the width as needed */
+    height: 400px; /* Adjust the height as needed */
+    background-color: lightcoral;
+    overflow: hidden;
+  }
+  
+  .imageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 2;
+  }
+  
+  .smallImage {
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    overflow: visible;
+  }
+  
+  p {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    z-index: 1;
+  }
+  
+  .largeImage {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    height: 100%;
+    z-index: 1;
+    overflow: visible;
+}

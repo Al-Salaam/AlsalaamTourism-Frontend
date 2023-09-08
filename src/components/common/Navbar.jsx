@@ -12,20 +12,20 @@ const items = [
   },
   {
     label: 'Navigation Two',
-    key: 'app',
+    key: 'app3',
     icon: <AppstoreOutlined />,
-    disabled: true,
+    
   },
   {
     label: <Link to="/">Navigation One</Link>,
-    key: 'mail',
+    key: 'mail1',
     icon: <MailOutlined />,
   },
   {
     label: 'Navigation Two',
-    key: 'app',
+    key: 'app4',
     icon: <AppstoreOutlined />,
-    disabled: true,
+    
   },
   {
     label: 'Navigation Three - Submenu',
@@ -99,7 +99,8 @@ const Navbar = () => {
 
   return (
     <>
-      <Row  align="middle" style={{padding:"0 50px"}}>
+
+      <Row   style={{padding:"0 100px"}}>
         <Col xs={12} sm={12} md={12} lg={12} xl={10}>
           <h1>Logo</h1>
         </Col>
