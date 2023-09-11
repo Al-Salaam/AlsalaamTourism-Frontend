@@ -1,63 +1,86 @@
-.mainRow{
-    width:100vw;
-    height:100vh;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.col1{
-    display: flex;
-    justify-content: center; 
-    align-items:center;
-    background-color: orange;
+
+.mainRow {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
-.col2{
-    display: flex;
-    justify-content: center; 
-    align-items:center;
-    background: url("../../../../images/col2.png") center/cover;
 
+.col1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
+
+.col2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../../../../images/col2.png") center/cover;
 }
 
 .container {
-    position: relative;
-    width: 400px; /* Adjust the width as needed */
-    height: 400px; /* Adjust the height as needed */
-    background-color: lightcoral;
-    overflow: hidden;
-  }
-  
-  .imageContainer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    z-index: 2;
-  }
-  
-  .smallImage {
-    width: 50%;
-    position: absolute;
-    bottom: 0;
-    z-index: 1;
-    overflow: visible;
-  }
-  
-  p {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 20px;
-    margin: 0;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-    z-index: 1;
-  }
-  
-  .largeImage {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-40%, -50%);
-    height: 100%;
-    z-index: 1;
-    overflow: visible;
+  width: 52%;
+  height: 60%;
+  background-color: #52a6b0;
+  border: 1px solid white;
+  border-radius: 10%;
+  position: relative;
+  overflow: visible; /* Allow container to overflow */
 }
+
+.heading {
+  color: white;
+  font-size: 32px;
+  font-family: 'Ubuntu';
+  font-weight: 700;
+  padding: 10%;
+  width: 70%;
+}
+
+.smallImage {
+  position: absolute;
+  bottom: 30%;
+  z-index: 1;
+  transform: translate(-40%, -50%);
+}
+
+.largeImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -47%);
+  width: 100%; /* Make the image cover the entire container width */
+  height: 100%; /* Make the image cover the entire container height */
+  object-fit: cover; /* Ensure the image covers the container and overflows */
+  overflow: visible;
+}
+@media screen and (max-width: 1303px) {
+  .heading{
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 997px) {
+  .heading{
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1179px) {
+  .largeImage{
+    object-fit: fill;
+    width:500px
+
+  }
+} 
+@media screen and (max-width: 815px) {
+  .largeImage{
+    object-fit: fill;
+    width:300px
+
+  }
+} 

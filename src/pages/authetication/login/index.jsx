@@ -4,9 +4,11 @@ import { useFormik } from 'formik';
 import styles from "./login.module.css"
 import Eclipse from "../../../../images/eclipse1.png"
 import Woman from "../../../../images/womanWithTabb.png"
+import { useMediaQuery } from 'react-responsive';
 
 const Login = ({ setIsLogin }) => {
   const [loading, setLoading] = useState(false);
+  const isSmallScreen = useMediaQuery({ maxWidth: 767 });
 
   const handleLogin = (values) => {
     // Simulate a login request (replace with your actual login logic)
@@ -32,8 +34,8 @@ const Login = ({ setIsLogin }) => {
   });
 
   return (
-    <Row gutter={16} className={styles.mainRow} >
-      <Col span={12} className={styles.col1}>
+    <Row gutter={16} className={styles.mainRow}>
+      <Col xs={24} sm={24} md={12} lg={12} xl={12} className={styles.col1}>
         <Form onFinish={formik.handleSubmit}>
           <Form.Item
             label="Username"
@@ -76,17 +78,16 @@ const Login = ({ setIsLogin }) => {
           </Form.Item>
         </Form>
       </Col>
-      <Col span={12} className={styles.col2}>
-        <div className={styles.container}>
-          <div className={styles.imageContainer}>
+      {isSmallScreen ? null : (
+        <Col md={12} lg={12} xl={12} className={styles.col2}>
+          <div className={styles.container}>
+            <h1 className={styles.heading}>Start Your Journey by one Click, Explore Dubai with Alsalaam</h1>
             <img className={styles.smallImage} src={Eclipse} alt="Small Image" />
-            <p>Some text here</p>
+            <img className={styles.largeImage} src={Woman} alt="Large Image" />
           </div>
-          <img className={styles.largeImage} src={Woman} alt="Large Image" />
-        </div>
-      </Col>
+        </Col>
+      )}
     </Row>
-
   );
 };
 
