@@ -24,6 +24,21 @@
   background: url("../../../../images/col2.png") center/cover;
 }
 
+.grayBackground {
+  background-color: #EFF0F2;
+  background-color: #f3f3f3;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 10px;
+  /* Add padding here */
+  width: 100%;
+}
+.errorMessage {
+  color: red;
+  font-size: 20px;
+  margin-top: 4px;
+}
+
 .container {
   width: 52%;
   height: 60%;
@@ -31,7 +46,8 @@
   border: 1px solid white;
   border-radius: 10%;
   position: relative;
-  overflow: visible; /* Allow container to overflow */
+  overflow: visible;
+  /* Allow container to overflow */
 }
 
 .heading {
@@ -55,32 +71,37 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -47%);
-  width: 100%; /* Make the image cover the entire container width */
-  height: 100%; /* Make the image cover the entire container height */
-  object-fit: cover; /* Ensure the image covers the container and overflows */
+  width: 100%;
+  /* Make the image cover the entire container width */
+  height: 100%;
+  /* Make the image cover the entire container height */
+  object-fit: cover;
+  /* Ensure the image covers the container and overflows */
   overflow: visible;
 }
+
 @media screen and (max-width: 1303px) {
-  .heading{
+  .heading {
     font-size: 25px;
   }
 }
+
 @media screen and (max-width: 997px) {
-  .heading{
+  .heading {
     font-size: 20px;
   }
 }
+
 @media screen and (max-width: 1179px) {
-  .largeImage{
+  .largeImage {
     object-fit: fill;
-    width:500px
-
+    width: 500px
   }
-} 
+}
+
 @media screen and (max-width: 815px) {
-  .largeImage{
+  .largeImage {
     object-fit: fill;
-    width:300px
-
+    width: 300px
   }
-} 
+}
