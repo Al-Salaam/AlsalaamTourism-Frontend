@@ -7,7 +7,15 @@
 .mainRow {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow: visible;
+}
+
+.mainButton {
+  background-color: "#3B505A";
+  border-radius: "20px";
+  width: "20em";
+  height: "3em";
+  color: "white"
 }
 
 .col1 {
@@ -33,6 +41,7 @@
   /* Add padding here */
   width: 100%;
 }
+
 .errorMessage {
   color: red;
   font-size: 20px;
@@ -104,4 +113,20 @@
     object-fit: fill;
     width: 300px
   }
+
+  @media screen and (max-width: 1025px) {
+    .col1 {
+      display: block;
+      margin: 10px;
+
+    }
+  }
+  
+  @media screen and (max-width: 280px) {
+    .mainbutton{
+    margin-right: 7%;  
+    }
+  }
+
 }
+

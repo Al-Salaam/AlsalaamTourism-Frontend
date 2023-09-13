@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Checkbox, Row, Col, message, Typography, Divider } from 'antd';
+import { GoogleOutlined } from '@ant-design/icons';
 import { useMediaQuery } from 'react-responsive';
 import * as Yup from 'yup'; // Import Yup for validation
 import { Formik, Field, ErrorMessage } from 'formik';
@@ -18,7 +19,7 @@ const Login = ({ setIsLogin }) => {
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
   const [isSignUp, setIsSignUp] = useState(false)
-  const isSmallScreen = useMediaQuery({ maxWidth: 767 });
+  const isSmallScreen = useMediaQuery({ maxWidth: 990 });
   const { Title } = Typography;
 
 
@@ -57,51 +58,111 @@ const Login = ({ setIsLogin }) => {
       {({ values }) => (
 
         <Row gutter={16} className={styles.mainRow}>
-          {console.log(values)}
-          <Col xs={24} sm={24} md={12} lg={12} xl={12} className={styles.col1}>
+          <Col xs={24} sm={24} md={24} lg={12} xl={12} className={styles.col1}>
             <Form
               name="normal_login"
-              className="login-form"
               initialValues={{
                 remember: true,
               }}
               onSubmit={handleLogin}
 
             >
-              <Row gutter={16} justify="center">
-                <Col  >
+              <Row gutter={16} >
+                <Col xs={24} sm={24} md={24} lg={24} xl={24} >
                   {isSignUp ? (
                     <>
                       <Title level={1}>WELCOME TO ALSALAAM</Title>
                     </>
                   ) : (
                     <>
-                     <Title level={1}>Log In</Title>
-                                          </>
+                      <Title level={1}>Log In</Title>
+                    </>
                   )}
                 </Col>
-                </Row>
-                <Row gutter={16}>
-                  <Col span={24}>
+              </Row>
+              <Row gutter={16}>
+                <Col span={24}>
                   {isSignUp ? (
                     <>
                       <Title level={5}>UserName</Title>
                     </>
                   ) : (
                     <>
-                     <Title level={5}>Email/Username</Title>
-                                          </>
+                      <Title level={5}>Email/Username</Title>
+                    </>
                   )}
-                    
+
+                </Col>
+                <Col span={24}>
+                  <Form.Item name="username">
+                    <Field
+                      name="username"
+                      render={({ field }) => (
+                        <Input
+                          {...field}
+                          placeholder="Username"
+                          className={styles.grayBackground}
+                          onChange={(e) => {
+                            field.onChange(e); // This will update Formik's value
+                            // Update your component's state with the username value
+                            setUserName(e.target.value);
+                          }}
+                        />
+                      )}
+                    />
+                    <ErrorMessage
+                      name="username"
+                      component="div"
+                      className={styles.errorMessage}
+                    />
+                  </Form.Item>
+                </Col>
+              </Row>
+
+              {isSignUp ? (
+                <Row gutter={16}>
+                  <Col span={24}>
+                    <Title level={5}>Full Name</Title>
                   </Col>
                   <Col span={24}>
-                    <Form.Item name="username">
+                    <Form.Item name="fullname">
                       <Field
-                        name="username"
+                        name="fullname"
                         render={({ field }) => (
                           <Input
                             {...field}
-                            placeholder="Username"
+                            placeholder="Full name"
+                            className={styles.grayBackground}
+                            onChange={(e) => {
+                              field.onChange(e); // This will update Formik's value
+                              // Update your component's state with the username value
+                              setUserName(e.target.value);
+                            }}
+                          />
+                        )}
+                      />
+                      <ErrorMessage
+                        name="fullname"
+                        component="div"
+                        className={styles.errorMessage}
+                      />
+                    </Form.Item>
+                  </Col>
+                </Row>
+              ) : ("")}
+              {isSignUp ? (
+                <Row gutter={16}>
+                  <Col span={24}>
+                    <Title level={5}>Email</Title>
+                  </Col>
+                  <Col span={24}>
+                    <Form.Item name="email">
+                      <Field
+                        name="email"
+                        render={({ field }) => (
+                          <Input
+                            {...field}
+                            placeholder="Email"
                             className={styles.grayBackground}
                             onChange={(e) => {
                               field.onChange(e); // This will update Formik's value
@@ -119,43 +180,46 @@ const Login = ({ setIsLogin }) => {
                     </Form.Item>
                   </Col>
                 </Row>
-                
-                <Row>
-                  <Col>
-                  {isSignUp ? (<>Hello Sign Up</>):("")}
-                  </Col>
-                </Row>
-                <Row gutter={16}>
-                  <Col span={24}>
-                    <Title level={5}>Password</Title>
-                  </Col>
-                  <Col span={24}>
-                    <Form.Item name="password">
-                      <Field
-                        name="password"
-                        render={({ field }) => (
-                          <Input
-                            {...field}
-                            type="password"
-                            placeholder="Password"
-                            className={styles.grayBackground}
-                            onChange={(e) => {
-                              field.onChange(e); // This will update Formik's value
-                              // Update your component's state with the username value
-                              setPassword(e.target.value);
-                            }}
-                          />
-                        )}
-                      />
-                      <ErrorMessage
-                        name="password"
-                        component="div"
-                        className={styles.errorMessage}
-                      />
-                    </Form.Item>
-                  </Col>
-                </Row>
+              ) : ("")}
 
+              <Row gutter={16}>
+                <Col span={24}>
+                  <Title level={5}>Password</Title>
+                </Col>
+                <Col span={24}>
+                  <Form.Item name="password">
+                    <Field
+                      name="password"
+                      render={({ field }) => (
+                        <Input
+                          {...field}
+                          type="password"
+                          placeholder="Password"
+                          className={styles.grayBackground}
+                          onChange={(e) => {
+                            field.onChange(e); // This will update Formik's value
+                            // Update your component's state with the username value
+                            setPassword(e.target.value);
+                          }}
+                        />
+                      )}
+                    />
+                    <ErrorMessage
+                      name="password"
+                      component="div"
+                      className={styles.errorMessage}
+                    />
+                  </Form.Item>
+                </Col>
+              </Row>
+              {isSignUp ? (<Row gutter={16}>
+                <Col span={24}>
+                  <Form.Item name="remember" valuePropName="checked" noStyle >
+                    <Checkbox >I confirmed that I have read and accepted the <Button style={{ color: "#007074", backgroundColor: "white", border: "none", fontWeight: "bold" }} onClick={handleSignupClick}>Privacy Policy</Button></Checkbox>
+                  </Form.Item>
+                </Col>
+
+              </Row>) : (
                 <Row gutter={16}>
                   <Col span={12}>
                     <Form.Item name="remember" valuePropName="checked" noStyle >
@@ -167,34 +231,40 @@ const Login = ({ setIsLogin }) => {
                       Forgot password
                     </a>
                   </Col>
-                </Row>
-                <Row gutter={16} style={{ marginTop: "5%" }}  >
-                  <Col span={24} align="middle">
-                    <Form.Item>
-                      <Button onClick={handleLogin} htmlType='submit' style={{ backgroundColor: "#3B505A", borderRadius: "20px", width: "20em", height: "3em", color: "white" }}>Login</Button>
-                    </Form.Item>
-                  </Col>
+                </Row>)}
 
-                </Row>
-                <Row gutter={12} align="center" style={{ marginTop: "-5%" }} >
-                  <Col  >
-                    <Form.Item>
-                      Dosent have An account <Button  style={{ color: "#007074",backgroundColor:"white",border:"none" }} onClick={handleSignupClick}>Signup</Button>
-                    </Form.Item>
-                  </Col>
-                </Row>
-                <Row gutter={12} align="center">
-                  <Col  >
-                    <Divider plain style={{ borderWidth: 5, borderColor: "lightGray" }}>OR</Divider>
-                    <Form.Item>
-                      <LoginWithGoogle handleClick={dummyAlert} />
-                    </Form.Item>
-                  </Col>
-                </Row>
+              <Row gutter={16} style={{ marginTop: "5%" }} justify={"center"} >
+                <Col className={styles.mainbutton} >
+                  <Form.Item>
+                    <Button className={styles.mainButton} onClick={handleLogin} htmlType='submit' style={{ backgroundColor: "#3B505A", borderRadius: "20px", width: "20em", height: "3em", color: "white" }}>{isSignUp ? "Create New User" : "Log In"}</Button>
+                   
+                  </Form.Item>
+                </Col>
+
+              </Row>
+              <Row gutter={12} align="center" style={{ marginTop: "5%" }} >
+
+                <Col  >
+                  <Form.Item>
+                    {isSignUp ? (<>Already have an account <Button style={{ color: "#007074", backgroundColor: "white", border: "none" }} onClick={handleSignupClick}>Log In</Button></>) : (<>Dosent have An account <Button style={{ color: "#007074", backgroundColor: "white", border: "none" }} onClick={handleSignupClick}>Signup</Button></>)}
+
+                  </Form.Item>
+                </Col>
+              </Row>
+              
+              <Row gutter={8} align="center">
+                <Col  >
+                  <Divider plain style={{ borderWidth: 5, borderColor: "lightGray" }}>OR</Divider>
+                  <Form.Item>
+                    <LoginWithGoogle handleClick={dummyAlert} title={isSignUp ? "SignUp with google" : "Login with google"} />
+                    
+                  </Form.Item>
+                </Col>
+              </Row>
             </Form>
           </Col>
           {isSmallScreen ? null : (
-            <Col md={12} lg={12} xl={12} className={styles.col2}>
+            <Col xs={24} sm={24} md={12} lg={12} xl={12} className={styles.col2}>
               <div className={styles.container}>
                 <h1 className={styles.heading}>
                   Start Your Journey by one Click, Explore Dubai with Alsalaam
