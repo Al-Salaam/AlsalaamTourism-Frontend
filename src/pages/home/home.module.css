@@ -1,0 +1,9 @@
+.hero{
+    padding-top: 15%;
+    background: url("../../../images/herroBackground.png" ) center/cover;
+}
+.imagegroup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

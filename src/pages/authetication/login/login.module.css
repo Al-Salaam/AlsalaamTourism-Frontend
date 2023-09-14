@@ -81,11 +81,8 @@
   left: 50%;
   transform: translate(-50%, -47%);
   width: 100%;
-  /* Make the image cover the entire container width */
   height: 100%;
-  /* Make the image cover the entire container height */
   object-fit: cover;
-  /* Ensure the image covers the container and overflows */
   overflow: visible;
 }
 
