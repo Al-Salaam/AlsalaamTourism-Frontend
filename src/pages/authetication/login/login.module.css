@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.mainRow {
+  width: 100vw;
+  height: 100vh;
+  overflow: visible;
+}
+
+.mainButton {
+  background-color: "#3B505A";
+  border-radius: "20px";
+  width: "20em";
+  height: "3em";
+  color: "white"
+}
+
+.col1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.col2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../../../../images/col2.png") center/cover;
+}
+
+.grayBackground {
+  background-color: #EFF0F2;
+  background-color: #f3f3f3;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 10px;
+  /* Add padding here */
+  width: 100%;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 20px;
+  margin-top: 4px;
+}
+
+.container {
+  width: 52%;
+  height: 60%;
+  background-color: #52a6b0;
+  border: 1px solid white;
+  border-radius: 10%;
+  position: relative;
+  overflow: visible;
+  /* Allow container to overflow */
+}
+
+.heading {
+  color: white;
+  font-size: 32px;
+  font-family: 'Ubuntu';
+  font-weight: 700;
+  padding: 10%;
+  width: 70%;
+}
+
+.smallImage {
+  position: absolute;
+  bottom: 30%;
+  z-index: 1;
+  transform: translate(-40%, -50%);
+}
+
+.largeImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -47%);
+  width: 100%;
+  /* Make the image cover the entire container width */
+  height: 100%;
+  /* Make the image cover the entire container height */
+  object-fit: cover;
+  /* Ensure the image covers the container and overflows */
+  overflow: visible;
+}
+
+@media screen and (max-width: 1303px) {
+  .heading {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 997px) {
+  .heading {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1179px) {
+  .largeImage {
+    object-fit: fill;
+    width: 500px
+  }
+}
+
+@media screen and (max-width: 815px) {
+  .largeImage {
+    object-fit: fill;
+    width: 300px
+  }
+
+  @media screen and (max-width: 1025px) {
+    .col1 {
+      display: block;
+      margin: 10px;
+
+    }
+  }
+  
+  @media screen and (max-width: 280px) {
+    .mainbutton{
+    margin-right: 7%;  
+    }
+  }
+
+}
+
