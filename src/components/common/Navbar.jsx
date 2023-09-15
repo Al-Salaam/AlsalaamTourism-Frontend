@@ -80,7 +80,7 @@ const Navbar = () => {
         position: 'fixed',
         top: 0,
         width: '100%',
-        
+        zIndex:"10"
       }}>
         <Col xs={12} sm={12} md={12} lg={12} xl={10}>
           <Image
