@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import withNavbar from "../../components/common/HOCNabar";
 import styles from "./home.module.css";
 import { Row, Col, Image, Space, Typography, Button, Input, ConfigProvider } from 'antd';
@@ -16,7 +17,13 @@ import Offers from "../../../images/moon_discount.png";
 import Gruntee from "../../../images/circle-tick.png";
 import Daimond from "../../../images/diamond.png";
 import Background from "../../../images/herroBackground.png";
-import Logo from "../../../images/alsalaamLogo.png"
+import Logo from "../../../images/alsalaamLogo.png";
+import Youtube from "../../../images/youtube.png";
+import Facebook from "../../../images/facebook.png";
+import Twitter from "../../../images/twitter.png";
+import Instagram from "../../../images/instagram.png";
+import HeroShowCase from "../../components/common/heroShowCase";
+import ServicesShowCase from "../../components/common/servicesShowcase";
 
 
 const { Title } = Typography;
@@ -87,34 +94,8 @@ function Home() {
 
     return (
         <>
-            <div className={styles.hero}>
-                <Row >
-                    <Col span={10} align="middle" justify="center" >hello</Col>
-                    <Col span={14}  >
-                        <Space>
-                            <Image
-                                src={image1}
-                                alt="Image 1"
-                                style={{ margin: 0, padding: 0, maxWidth: "100%", top: 0, left: "30%", position: "relative" }}
-                            />
-                            <Image
-                                src={image2}
-                                alt="Image 2"
-                                style={{ margin: 0, padding: 0, maxWidth: "100%", position: "relative", zIndex: "1" }}
-                            />
-                            <Image
-                                src={image3}
-                                alt="Image 3"
-                                style={{ margin: 0, padding: 0, maxWidth: "100%", top: 0, right: "20%", position: "relative", }}
-                            />
-                        </Space>
-                    </Col>
-
-                </Row>
-
-            </div>
-
-
+            <HeroShowCase/>
+             <ServicesShowCase/>  
             <Row style={{ marginTop: 200, background: 'linear-gradient(180deg, #89A7B2 0%, #028B95 100%)', }}>
 
                 <Col span={24} align="middle" justify="center" style={{ marginTop: "-100px" }}>
@@ -212,51 +193,51 @@ function Home() {
                 <Col span={6} align={"center"}><img src={Daimond} /><Title level={5}> New Finds Every Month</Title></Col>
             </Row>
 
-            <Row style={{ padding: "5%", backgroundImage: `url(${Background})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+            <Row style={{ color:"white", padding: "5%", backgroundImage: `url(${Background})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                 <Col span={6} >
 
                     <Row style={{ marginBottom: "5%" }}><Col><img src={Logo} /></Col></Row>
                     <Row style={{ marginBottom: "5%" }}><Col>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.</Col></Row>
-                    <Row><Col span={6}>Icon1</Col><Col span={6}>Icon2</Col><Col span={6}>Icon3</Col><Col span={6}>Icon4</Col></Row>
+                    <Row><Col span={6}><img src={Instagram} style={{backgroundColor:"#3B505A",borderRadius:"50%",padding:"10%"}} /></Col><Col span={6}><img src={Facebook} style={{backgroundColor:"#3B505A",borderRadius:"50%",padding:"10%"}} /></Col><Col span={6}><img src={Twitter} style={{backgroundColor:"#3B505A",borderRadius:"50%",padding:"10%"}} /></Col><Col span={6}><img src={Youtube} style={{backgroundColor:"#3B505A",borderRadius:"50%",padding:"10%"}} /></Col></Row>
 
                 </Col>
 
 
 
+
+                <Col span={6} style={{paddingLeft:"15%"}}  >
+                    <Row ><Col style={{ marginBottom: "15%" }} ><Link to="/" style={{color:"white",fontSize:"16px"}}>Home</Link></Col></Row>
+                    <Row ><Col style={{ marginBottom: "15%" }}><Link to="/" style={{color:"white",fontSize:"16px"}}>Tours</Link></Col></Row>
+                    <Row ><Col style={{ marginBottom: "15%" }}><Link to="/" style={{color:"white",fontSize:"16px"}}>Packages</Link></Col></Row>
+                    <Row ><Col style={{ marginBottom: "15%" }}><Link to="/" style={{color:"white",fontSize:"16px"}}>Our Partner</Link></Col></Row>
+                    <Row ><Col><Link to="/" style={{color:"white",fontSize:"16px"}}>Services</Link></Col></Row>
+                    
+                </Col>
+
+                <Col span={6} style={{paddingLeft:"5%"}} >
+                    <Row justify={"start"} ><Col style={{ marginBottom: "5%" }}><Link to="/" style={{color:"white",fontSize:"16px"}}>Blog</Link></Col></Row>
+                    <Row justify={"start"}><Col style={{ marginBottom: "5%" }}><Link to="/" style={{color:"white",fontSize:"16px"}}>Contact US</Link></Col></Row>
+                    <Row justify={"start"}><Col style={{ marginBottom: "5%" }}><Link to="/" style={{color:"white",fontSize:"16px"}}>Carrer</Link></Col></Row>
+
+                </Col>
 
                 <Col span={6} align={"middle"} justify={"center"} >
-                    <Row justify={"center"} ><Col style={{ marginBottom: "5%" }} align={"middle"}>Lorem ipsum dolor sit amet.</Col></Row>
-                    <Row justify={"center"}><Col style={{ marginBottom: "5%" }}>Lorem ipsum dolor sit amet.</Col></Row>
-                    <Row justify={"center"}><Col style={{ marginBottom: "5%" }}>Lorem ipsum dolor sit amet.</Col></Row>
-                    <Row justify={"center"}><Col style={{ marginBottom: "5%" }}>Lorem ipsum dolor sit amet.</Col></Row>
-                    <Row justify={"center"}><Col>Lorem ipsum dolor sit amet.</Col></Row>
-                </Col>
-
-                <Col span={6} align={"middle"} justify={"center"} >
-                    <Row justify={"center"} ><Col style={{ marginBottom: "5%" }} align={"middle"}>Lorem ipsum dolor sit amet.</Col></Row>
-                    <Row justify={"center"}><Col style={{ marginBottom: "5%" }}>Lorem ipsum dolor sit amet.</Col></Row>
-                    <Row justify={"center"}><Col style={{ marginBottom: "5%" }}>Lorem ipsum dolor sit amet.</Col></Row>
-                    <Row justify={"center"}><Col style={{ marginBottom: "5%" }}>Lorem ipsum dolor sit amet.</Col></Row>
-
-                </Col>
-
-                <Col span={6} align={"middle"} justify={"center"}>
                     <Row style={{ marginBottom: "5%" }} align={"left"} justify={"left"}>
-                        <Col>
-                            <Title level={4}>Subscribe to our Newsletter</Title>
+                        <Col >
+                            <Title style={{color:"white"}} level={4}>Subscribe to our Newsletter</Title>
 
                         </Col>
                     </Row>
                     <Row style={{ marginBottom: "10%" }} align={"left"} justify={"left"}>
                         <Col>
-                            <Title level={5}>Get special offers, and more from Al Salaam</Title>
+                            <Title style={{color:"white"}} level={5}>Get special offers, and more from Al Salaam</Title>
 
                         </Col>
                     </Row>
 
                     <Row align={"left"} justify={"left"}>
                         <Col span={18}>
-                            <Input placeholder="Basic usage" />
+                            <Input placeholder="Input your email" />
                         </Col>
                         <Col span={6}>
                             <ConfigProvider
@@ -265,13 +246,13 @@ function Home() {
                                         colorPrimary: 'white',
                                         colorBgContainer: '#3B505A',
                                         borderRadius: 5,
-                                
+                                        
                                     },
                                 }}
                             >
                                 <Space>
                                     
-                                    <Button icon={<SendOutlined />} size={5} />
+                                    <Button style={{border:"none",color:"white"}} icon={<SendOutlined />} size={5} />
                                 </Space>
                             </ConfigProvider>
                             
