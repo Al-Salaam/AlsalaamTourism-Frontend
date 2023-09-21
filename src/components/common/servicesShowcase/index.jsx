@@ -12,7 +12,7 @@ function ServicesShowCase(props) {
     return (
         <>
             <Row>
-                <Col span={12} style={{ padding: "5%" }}>
+                <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{ padding: "5%" }}>
                     <Title>Our Services</Title>
                     <Title style={{ paddingLeft: "15%" }} level={4}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.</Title>
                     <List
@@ -31,7 +31,7 @@ function ServicesShowCase(props) {
                     />
 
                 </Col>
-                <Col span={12} style={{padding:"5%"}}>
+                <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{padding:"5%"}}>
                     <video controls width="90%">
                         <source src={props.videoSrc} type="video/mp4" />
                         Your browser does not support the video tag.

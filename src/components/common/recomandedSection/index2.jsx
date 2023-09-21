@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Card, Button } from 'antd';
-import AinDubai from "../../../../images/ainDubai.png"
+import { Card, Button, Rate } from 'antd';
+import PrimaryButton from '../buttons/primary';
+import { useMediaQuery } from 'react-responsive';
+
 
 const { Meta } = Card;
 
-const FlipCard = () => {
+const FlipCard = (props) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const handleButtonClick = () => {
@@ -16,11 +18,12 @@ const FlipCard = () => {
             setIsFlipped(false);
         }
     };
+    const isSmallestScreen = useMediaQuery({ maxWidth: 430 });
 
     return (
         <div
             style={{
-                width: 900,
+                width: isSmallestScreen ? "90%" : "70%",
                 height: 400,
                 perspective: '1000px',
                 transformStyle: 'preserve-3d',
@@ -39,65 +42,54 @@ const FlipCard = () => {
                         flexDirection: 'column',
                         justifyContent: 'space-between',
                         alignItems: 'flex-start',
-                        maxWidth: '600px',
+                        maxWidth: '100%',
                         height: '400px',
                         position: 'relative',
-                        backgroundImage: `url(${AinDubai})`, backgroundPosition: 'center', backgroundSize: 'cover',
+                        backgroundImage: `url(${props.imageSrc})`, backgroundPosition: 'center', backgroundSize: 'cover',
+                        
                     }}
                 >
                     <h3
                         style={{
                             position: 'absolute',
                             color: '#fff',
-                            padding: '5px',
+                            padding: '3%',
                             top: '0',
                             left: '0',
                         }}
                     >
-                        Top Left
+                        {props.title1}
                     </h3>
                     <h3
                         style={{
                             position: 'absolute',
-                            backgroundColor: '#3498db',
                             color: '#fff',
-                            padding: '5px',
+                            padding: '3%',
                             top: '0',
                             right: '0',
                         }}
                     >
-                        Top Right
+                        
+                        <div><Rate count={1} defaultValue={3}/> &nbsp; {props.rate}</div>
                     </h3>
                     <h3
                         style={{
                             position: 'absolute',
-                            backgroundColor: '#3498db',
                             color: '#fff',
-                            padding: '5px',
+                            padding: '3%',
                             bottom: '0',
                             left: '0',
                         }}
                     >
                         <Button
-                        onClick={handleButtonClick}
-                        style={{
-                        }}
-                    >
-                            Flip
+                            onClick={handleButtonClick}
+                            style={{
+                            }}
+                        >
+                        <strong>+</strong>
                         </Button>
                     </h3>
-                    <h3
-                        style={{
-                            position: 'absolute',
-                            backgroundColor: '#3498db',
-                            color: '#fff',
-                            padding: '5px',
-                            bottom: '0',
-                            right: '0',
-                        }}
-                    >
-                         Bottom Right
-                    </h3>
+
                 </div>
 
 
@@ -107,19 +99,71 @@ const FlipCard = () => {
             {isFlipped && (
                 <div
                     style={{
-                        width: '100%',
-                        height: '100%',
                         transform: 'rotateY(180deg)',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        backgroundColor: "red",
-                        textAlign: 'center',
                         visibility: isFlipped ? 'visible' : 'hidden',
+                        justifyContent: 'space-between',
+                        alignItems: 'flex-start',
+                        maxWidth: '100%',
+                        height: '400px',
+                        position: 'relative',
+                        background:"#F5F5F5",
+                        color:"black",
+                        fontFamily: 'Ubuntu'
                     }}
                 >
-                    <h2>Hello side 2</h2>
+                    <h3
+                        style={{
+                            position: 'absolute',
+                            padding: '3%',
+                            top: '0',
+                            left: '0',
+                        }}
+                    >
+                        {props.title1}
+                    </h3>
+                    <h3
+                        style={{
+                            position: 'absolute',
+                            padding: '3%',
+                            top: '0',
+                            right: '0',
+                        }}
+                    >
+                        
+                        <div><Rate count={1} defaultValue={3}/> &nbsp; {props.rate}</div>
+                    </h3>
+
+                    <h3 style={{margin:"auto",padding:"5%"}}>Experience incredible Dubai moments at the world’s largest and tallest observation wheel, 250 meters in the sky!</h3>
+                    
+                    <div
+                        style={{
+                            position: 'absolute',
+                            padding: '3%',
+                            bottom: '0',
+                            left: '0',
+                            display:"flex",
+                            alignItems:"flex-start",
+                            flexDirection:"column"
+                        }}
+                    >
+                        <p>Price (as per your day selected)</p>
+                        <h3 style={{color:"#0C111F"}}>180.00 AED</h3>
+                    </div>
+                    <h3
+                        style={{
+                            position: 'absolute',
+                            padding: '3%',
+                            bottom: '0',
+                            right: '0',
+                            
+                        }}
+                    >
+                        
+                        <PrimaryButton title={"Book Now"} width={"150px"}/>
+                    </h3>
+
                 </div>
             )}
         </div>

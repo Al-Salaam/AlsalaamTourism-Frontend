@@ -8,84 +8,64 @@ import BananaBoat from "../../../../images/bananaBoat.png"
 import Selfie from "../../../../images/3dSelfie.png"
 import PrimaryButton from "../buttons/primary";
 import FlipCard from "./index2";
+import { useMediaQuery } from 'react-responsive';
 const { Title } = Typography;
 const data = [
     {
-        name: 'John Doe',
-        profession: 'Architect & Engineer',
-        description: 'We love that guy',
-        imageSrc: AinDubai, // Replace with your dummy image URL
+        name: 'Ain Dubai',
+        rating:4.8,
+        imageSrc: AinDubai, 
     },
     {
-        name: 'Jane Smith',
-        profession: 'Designer',
-        description: 'She is amazing',
-        imageSrc: CityTour, // Replace with your dummy image URL
+        name: 'Al Montazah Waterpark',
+        rating:4.8,
+        imageSrc: CityTour, 
     },
-    // Add more objects as needed
+    
     {
-        name: 'John Doe',
-        profession: 'Architect & Engineer',
-        description: 'We love that guy',
-        imageSrc: WaterPark, // Replace with your dummy image URL
+        name: 'Al Ain City Tours',
+        rating:4.8,
+        imageSrc: WaterPark,
     },
     {
-        name: 'Jane Smith',
-        profession: 'Designer',
-        description: 'She is amazing',
-        imageSrc: AquaVenture, // Replace with your dummy image URL
+        name: 'Aquaventure Waterpark',
+        rating:4.8,
+        imageSrc: AquaVenture,
     },
-    // Add more objects as needed
+    
     {
-        name: 'John Doe',
-        profession: 'Architect & Engineer',
-        description: 'We love that guy',
-        imageSrc: BananaBoat, // Replace with your dummy image URL
+        name: 'Banana Boat Dubai',
+        rating:4.8,
+        imageSrc: BananaBoat, 
     },
     {
-        name: 'Jane Smith',
-        profession: 'Designer',
-        description: 'She is amazing',
-        imageSrc: Selfie, // Replace with your dummy image URL
+        name: '3D World Selfie Museum',
+        rating:4.8,
+        imageSrc: Selfie,
     },
-    // Add more objects as needed
+    
 ];
 
 function RecomendedSection() {
-    
+
+    const isSmallScreen = useMediaQuery({ maxWidth: 1198 });
+    const isSmallestScreen = useMediaQuery({ maxWidth: 430 });
     return (
         <Row style={{ marginTop: "5%" }}>
-            <Col span={8} align="middle" justify="center" >
+            <Col xs={24} sm={24} md={12} lg={12} xl={10} align="middle" justify="center" >
                 <Title style={{ textAlign: "left" }}>Recomended For You</Title>
                 <Title level={5} style={{ textAlign: "left", paddingRight: "15%", paddingLeft: 5 }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A incidunt quia tenetur magni molestias odio ipsam consequatur omnis earum natus perferendis, voluptatum quae nostrum hic quo eaque error dicta molestiae magnam commodi fugiat neque facere, illo est. Nam veritatis eaque, placeat, animi corporis error ipsa possimus quibusdam vitae fugiat aut.<br /><PrimaryButton title={"View All"} /></Title>
 
             </Col>
-            <Col span={16} align="Right" justify="Right" style={{ background: 'linear-gradient(90deg, rgba(105, 149, 167, 0.44) 0%, #018A97 100%)' }} >
+            <Col xs={24} sm={24} md={12} lg={12} xl={14} align="Right" justify="Right" style={{ background: isSmallestScreen ? "" :'linear-gradient(90deg, rgba(105, 149, 167, 0.44) 0%, #018A97 100%)' }} >
                 <Row style={{ marginLeft: "-17%" }} >
-                    {/* {data.map((item, index) => (
-                        <Col span={12} key={index} align="middle" justify="center" style={{ marginTop: "5%", marginBottom: "5%", padding: "1%" }}>
-                            <div className={styles.flipcard}>
-                                <div className={styles.flipcardinner}>
-                                    <div className={styles.flipcardfront} style={{ backgroundImage: `url(${item.imageSrc})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
-                                        <Row>
-                                            <Col span={12} >Ain Dubai  </Col>
-                                            <Col span={12}><Rate allowHalf defaultValue={4}/></Col>
-                                        </Row>
-                                        <Row>
-                                            <Col><Button >Flip</Button></Col>
-                                        </Row>
-                                    </div>
-                                    <div className={styles.flipcardback}>
-                                        <h1>{item.name}</h1>
-                                        <p>{item.profession}</p>
-                                        <p>{item.description}</p>
-                                    </div>
-                                </div>
-                            </div>
+                    {data.map((item, index) => (
+                        <Col xs={24} sm={24} md={24} lg={24} xl={12} key={index} align="middle" justify="center" style={{ marginTop: "5%", marginBottom: "5%", padding: "1%", paddingLeft: isSmallestScreen ? "15%" : (isSmallScreen ? "10%" : "")}}> 
+                            <FlipCard imageSrc={item.imageSrc} title1={item.name} rate={item.rating}/>
                         </Col>
 
-                    ))} */}
-                    <FlipCard/>
+                    ))}
+                    
                 </Row>
 
 
