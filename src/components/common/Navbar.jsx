@@ -1,78 +1,51 @@
 import React, { useState } from 'react';
 import { AppstoreOutlined, MailOutlined, SettingOutlined, MenuOutlined } from '@ant-design/icons';
-import { Menu, Row, Col, Drawer, Button } from 'antd';
+import { Menu, Row, Col, Drawer, Button, ConfigProvider, Image } from 'antd';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import Logo from "../../../images/alsalaamLogo.png"
+
 
 const items = [
   {
-    label: <Link to="/">Navigation One</Link>,
-    key: 'mail',
-    icon: <MailOutlined />,
+    label: <Link to="/home"   >Home</Link>,
+    key: 'home',
   },
   {
-    label: 'Navigation Two',
-    key: 'app3',
-    icon: <AppstoreOutlined />,
-    
+    label: <Link to="/home"  >Activites</Link>,
+    key: 'activites',
+
+
   },
   {
-    label: <Link to="/">Navigation One</Link>,
-    key: 'mail1',
-    icon: <MailOutlined />,
+    label: <Link to="/" >Packages</Link>,
+    key: 'packages',
+
   },
+
   {
-    label: 'Navigation Two',
-    key: 'app4',
-    icon: <AppstoreOutlined />,
-    
-  },
-  {
-    label: 'Navigation Three - Submenu',
-    key: 'SubMenu',
-    icon: <SettingOutlined />,
-    children: [
-      {
-        type: 'group',
-        label: (
-          <Link to="/">
-            Home
-          </Link>
-        ),
-        children: [
-          {
-            label: 'Option 1',
-            key: 'setting:1',
-          },
-          {
-            label: 'Option 2',
-            key: 'setting:2',
-          },
-        ],
-      },
-      {
-        type: 'group',
-        label: 'Item 2',
-        children: [
-          {
-            label: 'Option 3',
-            key: 'setting:3',
-          },
-          {
-            label: 'Option 4',
-            key: 'setting:4',
-          },
-        ],
-      },
-    ],
+    label: <Link to="/" >Contact US</Link>,
+    key: 'Contact Us',
+
+
   },
   {
     label: (
-      <Link to="/activity">
-        Navigation Four - Link
-      </Link>
+      <Link to="/" >About US</Link>
     ),
-    key: 'alipay',
+    key: 'about',
+  },
+  {
+    label: (
+      <Link to="/" >Shoping</Link>
+    ),
+    key: 'Shoping',
+  },
+  {
+    label: (
+      <Link to="/" >Profile</Link>
+    ),
+    key: 'profile',
   },
 ];
 
@@ -100,9 +73,19 @@ const Navbar = () => {
   return (
     <>
 
-      <Row   style={{padding:"0 100px"}}>
+      <Row style={{
+        padding: '0 100px',
+        backgroundColor: 'transparent',
+        margin: '0 5%',
+        position: 'fixed',
+        top: 0,
+        width: '100%',
+        zIndex:"10"
+      }}>
         <Col xs={12} sm={12} md={12} lg={12} xl={10}>
-          <h1>Logo</h1>
+          <Image
+            src={Logo}
+          />
         </Col>
         <Col xs={12} sm={12} md={12} lg={12} xl={14} align="right"  >
           {isMobile ? (
@@ -115,17 +98,28 @@ const Navbar = () => {
               <Drawer title="Basic Drawer" placement="right" onClose={onClose} visible={open}>
                 <Row>
                   <Col xs={24} sm={24} md={12} lg={12} xl={12} align="middle">
-                <Link to="/activity">
+                    <Link to="/activity">
+                      <p>Some contents...</p>
+                    </Link>
+                  </Col>
                   <p>Some contents...</p>
-                </Link>
-                </Col>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                  <p>Some contents...</p>
                 </Row>
               </Drawer>
             </>
           ) : (
-            <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
+            <ConfigProvider
+              theme={{
+                token: {
+
+                  colorPrimary: 'black',
+                  fontSize: 20,
+                  lineHeight: "21px",
+                  colorText: "white"
+
+                },
+              }}
+            ><Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent' }} /> </ConfigProvider>
           )}
         </Col>
       </Row>
