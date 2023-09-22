@@ -7,6 +7,7 @@ import Activity from "./pages/Activity";
 import Login from "./pages/authetication/login/index";
 import { message } from 'antd';
 import "./App.css";
+import About from "./pages/about";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -17,6 +18,7 @@ function App() {
       <Route path="/" element={<Login />} />
       <Route path="/home" element={<Home/>} />
       <Route path="/activity" element={<Activity />} />
+      <Route path="/about" element={<About/>} />
      </Routes>
     
   );
