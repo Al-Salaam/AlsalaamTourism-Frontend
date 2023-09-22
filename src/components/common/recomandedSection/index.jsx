@@ -54,7 +54,8 @@ function RecomendedSection() {
         <Row style={{ marginTop: "5%" }}>
             <Col xs={24} sm={24} md={12} lg={12} xl={10} align="middle" justify="center" >
                 <Title style={{ textAlign: "left" }}>Recomended For You</Title>
-                <Title level={5} style={{ textAlign: "left", paddingRight: "15%", paddingLeft: 5 }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A incidunt quia tenetur magni molestias odio ipsam consequatur omnis earum natus perferendis, voluptatum quae nostrum hic quo eaque error dicta molestiae magnam commodi fugiat neque facere, illo est. Nam veritatis eaque, placeat, animi corporis error ipsa possimus quibusdam vitae fugiat aut.<br /><PrimaryButton title={"View All"} /></Title>
+                <Title level={5} style={{ textAlign: "left", paddingRight: "15%", paddingLeft: 5 }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A incidunt quia tenetur magni molestias odio ipsam consequatur omnis earum natus perferendis, voluptatum quae nostrum hic quo eaque error dicta molestiae magnam commodi fugiat neque facere, illo est. Nam veritatis eaque, placeat, animi corporis error ipsa possimus quibusdam vitae fugiat aut.<br /></Title>{isSmallestScreen ?  null : <PrimaryButton title={"View All"}/>}
+
 
             </Col>
             <Col xs={24} sm={24} md={12} lg={12} xl={14} align="Right" justify="Right" style={{ background: isSmallestScreen ? "" :'linear-gradient(90deg, rgba(105, 149, 167, 0.44) 0%, #018A97 100%)' }} >
@@ -67,7 +68,11 @@ function RecomendedSection() {
                     ))}
                     
                 </Row>
-
+                 <Row>
+                    <Col span={24} align="middle" justify="center" >
+                    {isSmallestScreen ?  <PrimaryButton title={"View All"}/> : null }
+                    </Col>
+                    </Row> 
 
             </Col>
         </Row>
