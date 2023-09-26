@@ -43,9 +43,9 @@ const circleStyles = {
 const circleData = [
   {
     image: Client1,
-    heading: "Title 1",
-    description: "lorem lorem lorem lorem",
-    summary: "lorem10lorem10lorem10lorem10lorem10lorem10lorem10lorem10lorem10lorem10"
+    heading: "Ripon Ahmed",
+    description: "Temperley, Argentina",
+    summary: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
   },
   {
     image: Client2,
@@ -148,9 +148,9 @@ function CircleComponent() {
             </Col>
             <Col span={8} align="middle">
               <div style={{ ...circleStyles.bigCircle, backgroundImage: `url(${centerImage})`, backgroundSize: 'cover' }}></div>
-              <p>{centerDescription}</p>
-              <h1>{centerHeading}</h1>
-              <div>{centerSummary}</div>
+              <h3 style={{color:"white"}}>{centerHeading}</h3>
+              <h5 style={{color:"white"}}>{centerDescription}</h5>
+              <p style={{color:"white"}}>{centerSummary}</p>
               
             </Col>
             <Col span={8} align="middle">
