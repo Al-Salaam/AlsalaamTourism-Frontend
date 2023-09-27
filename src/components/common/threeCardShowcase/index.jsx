@@ -1,8 +1,9 @@
-import { Row, Col, Image, Space, Button,Typography } from 'antd';
+import { Row, Col, Image, Space, Typography } from 'antd';
 import Sec3img1 from "../../../../images/sec3img1.png";
 import Sec3img2 from "../../../../images/sec3img2.png";
 import Sec3img3 from "../../../../images/sec3img3.png";
 import PrimaryButton from '../buttons/primary';
+import { Link } from 'react-router-dom';
 
 const { Title } = Typography;
 
@@ -30,7 +31,7 @@ function ThreeCardShowCase(){
                 />
             </Space>
             <Title level='5' style={{marginTop:"5%"}}></Title>
-            <PrimaryButton title={<h4>View All</h4>}/>
+            <Link to="/destinations"><PrimaryButton title={<h4>View All</h4>}/></Link>
         </Col>
 
     </Row>
