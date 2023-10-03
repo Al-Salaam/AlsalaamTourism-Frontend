@@ -3,9 +3,11 @@ import { Button, Space } from 'antd';
 import GoogleIcon from '../../../../images/google1.png';
 import { useMediaQuery } from 'react-responsive';
 
-const LoginWithGoogle = ({ handleClick, title, className }) => {
+const LoginWithGoogle = ({ title, className }) => {
   const isSmallScreen = useMediaQuery({ minWidth: 280 });
-
+  const googleAthenticationHandler = () => {
+    window.open(`http://localhost:8000/api/v1/auth/google`, "_self");
+}
   return (
     <Space wrap>
       <Button
@@ -17,7 +19,7 @@ const LoginWithGoogle = ({ handleClick, title, className }) => {
         }}
         shape="round"
         size="large"
-        onClick={handleClick}
+        onClick={googleAthenticationHandler}
       >
         <img src={GoogleIcon} alt="Google Icon" />
         <h5>{title}</h5>

@@ -71,40 +71,7 @@ useEffect(() => {
               </Col>
             </Row>
 
-            {/* {isSignUp ? (
-                <Row gutter={16} style={{margin:"5% 0"}}>
-                  <Col span={24}>
-                    <Title level={5}>Full Name</Title>
-                  </Col>
-                  <Col span={24}>
-                    <input
-                      type="text"
-                      placeholder="Full name"
-                      className={styles.grayBackground}
-                      onChange={(e) => setUserName(e.target.value)}
-                    />
-                  </Col>
-                </Row>
-              ) : (
-                ''
-              )} */}
-            {/* {isSignUp ? (
-                <Row gutter={16} style={{margin:"5% 0"}}>
-                  <Col span={24}>
-                    <Title level={5}>Email</Title>
-                  </Col>
-                  <Col span={24}>
-                    <input
-                      type="text"
-                      placeholder="Email"
-                      className={styles.grayBackground}
-                      onChange={(e) => setUserName(e.target.value)}
-                    />
-                  </Col>
-                </Row>
-              ) : (
-                ''
-              )} */}
+            
 
             <Row gutter={16} style={{ margin: "5% 0" }}>
               <Col span={24}>
@@ -121,23 +88,6 @@ useEffect(() => {
               </Col>
             </Row>
 
-            {/* <Row gutter={16} style={{margin:"5% 0"}}>
-                  <Col span={24}>
-                    <Checkbox>
-                      I confirmed that I have read and accepted the{' '}
-                      <a
-                        href="#"
-                        style={{
-                          color: '#007074',
-                          fontWeight: 'bold',
-                        }}
-                        onClick={handleSignupClick}
-                      >
-                        Privacy Policy
-                      </a>
-                    </Checkbox>
-                  </Col>
-                </Row> */}
 
             <Row gutter={16} style={{ margin: "5% 0" }}>
               <Col span={12}>
