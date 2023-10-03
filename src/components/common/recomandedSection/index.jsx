@@ -14,34 +14,48 @@ const data = [
     {
         name: 'Ain Dubai',
         rating:4.8,
-        imageSrc: AinDubai, 
+        imageSrc: AinDubai,
+        descBack:"Experience incredible Dubai moments at the world’s largest and tallest observation wheel, 250 meters in the sky!" ,
+        price:180.00,
+        feature:true
     },
     {
         name: 'Al Montazah Waterpark',
         rating:4.8,
         imageSrc: CityTour, 
+        descBack:"Experience incredible Dubai moments at the world’s largest and tallest observation wheel, 250 meters in the sky!",
+        price:180.00
     },
     
     {
         name: 'Al Ain City Tours',
         rating:4.8,
         imageSrc: WaterPark,
+        descBack:"Experience incredible Dubai moments at the world’s largest and tallest observation wheel, 250 meters in the sky!",
+        price:180.00,
+        feature:true
     },
     {
         name: 'Aquaventure Waterpark',
         rating:4.8,
         imageSrc: AquaVenture,
+        descBack:"Experience incredible Dubai moments at the world’s largest and tallest observation wheel, 250 meters in the sky!",
+        price:180.00
     },
     
     {
         name: 'Banana Boat Dubai',
         rating:4.8,
         imageSrc: BananaBoat, 
+        descBack:"Experience incredible Dubai moments at the world’s largest and tallest observation wheel, 250 meters in the sky!",
+        price:180.00
     },
     {
         name: '3D World Selfie Museum',
         rating:4.8,
         imageSrc: Selfie,
+        descBack:"Experience incredible Dubai moments at the world’s largest and tallest observation wheel, 250 meters in the sky!",
+        price:180.00
     },
     
 ];
@@ -62,7 +76,7 @@ function RecomendedSection() {
                 <Row style={{ marginLeft: "-17%" }} >
                     {data.map((item, index) => (
                         <Col xs={24} sm={24} md={24} lg={24} xl={12} key={index} align="middle" justify="center" style={{ marginTop: "5%", marginBottom: "5%", padding: "1%", paddingLeft: isSmallestScreen ? "15%" : (isSmallScreen ? "10%" : "")}}> 
-                            <FlipCard imageSrc={item.imageSrc} title1={item.name} rate={item.rating}/>
+                            <FlipCard imageSrc={item.imageSrc} title1={item.name} rate={item.rating} descBack={item.descBack} price={item.price}/>
                         </Col>
 
                     ))}

@@ -20,10 +20,12 @@ const FlipCard = (props) => {
     };
     const isSmallestScreen = useMediaQuery({ maxWidth: 430 });
 
+    const cardWidth = props.width || (isSmallestScreen ? "90%" : "70%");
+
     return (
         <div
             style={{
-                width: isSmallestScreen ? "90%" : "70%",
+                width: cardWidth,
                 height: 400,
                 perspective: '1000px',
                 transformStyle: 'preserve-3d',
@@ -88,7 +90,9 @@ const FlipCard = (props) => {
                         >
                         <strong>+</strong>
                         </Button>
+                        <h4>{props.feature && "featured"}</h4>  
                     </h3>
+                    
 
                 </div>
 
@@ -135,7 +139,7 @@ const FlipCard = (props) => {
                         <div><Rate count={1} defaultValue={3}/> &nbsp; {props.rate}</div>
                     </h3>
 
-                    <h3 style={{margin:"auto",padding:"5%"}}>Experience incredible Dubai moments at the world’s largest and tallest observation wheel, 250 meters in the sky!</h3>
+                    <h3 style={{margin:"auto",padding:"5%"}}>{props.descBack}</h3>
                     
                     <div
                         style={{
@@ -149,7 +153,7 @@ const FlipCard = (props) => {
                         }}
                     >
                         <p>Price (as per your day selected)</p>
-                        <h3 style={{color:"#0C111F"}}>180.00 AED</h3>
+                        <h3 style={{color:"#0C111F"}}>{props.price}</h3>
                     </div>
                     <h3
                         style={{
