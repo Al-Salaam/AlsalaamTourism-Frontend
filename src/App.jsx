@@ -14,6 +14,7 @@ import Sharjah from "./pages/destinations/sharjah"
 import RasAlKhaima from "./pages/destinations/RasAlKhaima"
 import { Toaster } from "react-hot-toast";
 import ActivityPage from "./pages/activityPage";
+import SingleActivity from "./pages/singleActivity";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <Route path="/sharjah" element={<Sharjah/>}/>
       <Route path="/rasAlKhaima" element={<RasAlKhaima/>}/>
       <Route path="/activity" element={<ActivityPage/>}/>
+      <Route path="/singleactivity" element={<SingleActivity/>}/>
       
      </Routes>
     
