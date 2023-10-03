@@ -6,23 +6,17 @@ import TwoCardShowCase from "../../components/common/twoCardShowCase";
 import RecomendedSection from "../../components/common/recomandedSection";
 import Footer from "../../components/common/footer";
 
-
-
 function Home() {
-
+    
 
     return (
         <>
-            <HeroShowCase/>
-            <ServicesShowCase videoSrc="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"/>  
-            <ThreeCardShowCase/>
-            <RecomendedSection/>
-            <TwoCardShowCase/>
-            <Footer/>
-            
-           
-          
-            
+            <HeroShowCase />
+            <ServicesShowCase videoSrc="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
+            <ThreeCardShowCase />
+            <RecomendedSection />
+            <TwoCardShowCase />
+            <Footer />
         </>
     )
 }

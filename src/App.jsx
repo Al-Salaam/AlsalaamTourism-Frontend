@@ -15,30 +15,31 @@ import RasAlKhaima from "./pages/destinations/RasAlKhaima"
 import { Toaster } from "react-hot-toast";
 import ActivityPage from "./pages/activityPage";
 import SingleActivity from "./pages/singleActivity";
+import SignUp from "./pages/authetication/signup";
 
 
 function App() {
 
   return (
 
-    
+    <>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/activity" element={<Activity />} />
+        <Route path="/destinations" element={<Destinations />} />
+        <Route path="/dubai" element={<Dubai />} />
+        <Route path="/abuDhabi" element={<AbuDhabi />} />
+        <Route path="/fujairah" element={<Fujairah />} />
+        <Route path="/sharjah" element={<Sharjah />} />
+        <Route path="/rasAlKhaima" element={<RasAlKhaima />} />
+      </Routes>
+      <Toaster />
+    </>
+
 
       
-     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/home" element={<Home/>} />
-      <Route path="/about" element={<About/>} />
-      <Route path="/destinations" element={<Destinations />} />
-      <Route path="/dubai" element={<Dubai/>}/>
-      <Route path="/abuDhabi" element={<AbuDhabi/>}/>
-      <Route path="/fujairah" element={<Fujairah/>}/>
-      <Route path="/sharjah" element={<Sharjah/>}/>
-      <Route path="/rasAlKhaima" element={<RasAlKhaima/>}/>
-      <Route path="/activity" element={<ActivityPage/>}/>
-      <Route path="/singleactivity" element={<SingleActivity/>}/>
-      
-     </Routes>
-    
   );
 }
 

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { login } from "../actions/authAction";
+import { login, signup } from "../actions/authAction";
 
 const initialState = {
     loading: false,
@@ -12,7 +12,7 @@ const initialState = {
 const authReducer = createSlice({
     name: 'auth',
     initialState,
-    reducers:{
+    reducers: {
         clearMessage: (state) => {
             state.message = null;
         },
@@ -23,10 +23,26 @@ const authReducer = createSlice({
     extraReducers: (builder) => {
         builder
 
-        // for user login
+            // for user sign up
+            .addCase(signup.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(signup.fulfilled, (state, action) => {
+                state.loading = false;
+                state.message = action.payload.message;
+            })
+            .addCase(signup.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error;
+            })
+
+
+
+            // for user login
             .addCase(login.pending, (state) => {
                 state.loading = true;
-                state.error = null;   
+                state.error = null;
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.loading = false;
@@ -34,11 +50,11 @@ const authReducer = createSlice({
                 state.user = action.payload.user;
                 state.message = action.payload.message;
             })
-            .addCase(login.rejected, (state, action) =>{
+            .addCase(login.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error;
             })
     }
 })
-export const {clearError, clearMessage } = authReducer.actions;
+export const { clearError, clearMessage } = authReducer.actions;
 export default authReducer.reducer;

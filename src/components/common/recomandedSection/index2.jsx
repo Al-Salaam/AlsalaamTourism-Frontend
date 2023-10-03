@@ -139,7 +139,7 @@ const FlipCard = (props) => {
                         <div><Rate count={1} defaultValue={3}/> &nbsp; {props.rate}</div>
                     </h3>
 
-                    <h3 style={{margin:"auto",padding:"5%"}}>{props.descBack}</h3>
+                    <h3 style={{margin:"auto",padding:"5%"}}>{props.shortdescription}</h3>
                     
                     <div
                         style={{
@@ -153,7 +153,7 @@ const FlipCard = (props) => {
                         }}
                     >
                         <p>Price (as per your day selected)</p>
-                        <h3 style={{color:"#0C111F"}}>{props.price}</h3>
+                        <h3 style={{color:"#0C111F"}}>{props.price}.00 AED</h3>
                     </div>
                     <h3
                         style={{
