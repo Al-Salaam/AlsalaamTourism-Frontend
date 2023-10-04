@@ -1,3 +1,5 @@
+import Itenary from "../../components/singleActivity/Itenarary";
+import BookNow from "../../components/singleActivity/bookNow";
 import Carousel from "../../components/singleActivity/imageSlider"
 import Stats from "../../components/singleActivity/stats";
 const data = [
@@ -39,6 +41,8 @@ function SingleActivity() {
     return (<>
         <Carousel data={data} thumbnails={true} width="100%" thumbnailWidth="200px" slideNumberStyle={slideNumberStyle} slideNumber={true} />
         <Stats/>
+        <Itenary/>
+        <BookNow/>
     </>)
 }
 
