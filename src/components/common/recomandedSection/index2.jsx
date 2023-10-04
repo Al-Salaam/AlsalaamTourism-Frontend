@@ -72,7 +72,7 @@ const FlipCard = (props) => {
                         }}
                     >
                         
-                        <div><Rate count={1} defaultValue={3}/> &nbsp; {props.rate}</div>
+                        <div><Rate count={props.rate === 0 ? 1 : props.rate} defaultValue={props.rate === 0 ? 1 : props.rate}/> &nbsp; {props.rate}</div>
                     </h3>
                     <h3
                         style={{
@@ -136,7 +136,7 @@ const FlipCard = (props) => {
                         }}
                     >
                         
-                        <div><Rate count={1} defaultValue={3}/> &nbsp; {props.rate}</div>
+                        <div><Rate count={props.rate === 0 ? 1 : props.rate} defaultValue={props.rate === 0 ? 1 : props.rate} /> &nbsp; {props.rate}</div>
                     </h3>
 
                     <h3 style={{margin:"auto",padding:"5%"}}>{props.shortdescription}</h3>
