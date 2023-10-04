@@ -41,16 +41,6 @@ function App() {
 
 
       
-<<<<<<< HEAD
-=======
-     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/home" element={<Home/>} />
-      <Route path="/activity" element={<Activity />} />
-      <Route path="/contactUs" element={<ContactUS />} />
-     </Routes>
-    
->>>>>>> 9cfd1cb (Develop ContactUs page)
   );
 }
 
