@@ -1,5 +1,5 @@
 
-import { Row, Col, Image, Space, Typography } from 'antd';
+import { Row, Col, Image, Space, Typography, } from 'antd';
 import styles from "./heroShowCase.module.css";
 import image1 from "../../../../images/image1.png";
 import image2 from "../../../../images/image2.png";

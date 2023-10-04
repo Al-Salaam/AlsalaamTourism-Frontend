@@ -26,7 +26,7 @@ const items = [
   },
 
   {
-    label: <Link to="/" >Contact US</Link>,
+    label: <Link to="/ContactUs" >Contact US</Link>,
     key: 'Contact Us',
 
 
