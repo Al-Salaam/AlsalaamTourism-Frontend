@@ -4,6 +4,8 @@ import { Menu, Row, Col, Drawer, Button, ConfigProvider, Image } from 'antd';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import Logo from "../../../images/alsalaamLogo.png"
+import ShoppingComponent from './overlays/shoping';
+import ProfileComponent from './overlays/profile';
 
 
 const items = [
@@ -37,19 +39,19 @@ const items = [
   },
   {
     label: (
-      <Link to="/" >Shoping</Link>
+      <Link  >Shoping</Link>
     ),
     key: 'Shoping',
   },
   {
     label: (
-      <Link to="/" >Profile</Link>
+      <Link  >Profile</Link>
     ),
     key: 'profile',
   },
 ];
 
-const Navbar = () => {
+const Navbar = ({ showOverlayMessage }) => {
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
     setOpen(true);
@@ -64,7 +66,19 @@ const Navbar = () => {
   const onClick = (e) => {
     console.log('click ', e);
     setCurrent(e.key);
+
+    // Check if "Shoping" or "Profile" is clicked and pass different content accordingly
+    if (e.key === 'Shoping') {
+      showOverlayMessage(
+       <ShoppingComponent/>
+      );
+    } else if (e.key === 'profile') {
+      showOverlayMessage(
+        <ProfileComponent/>
+      );
+    }
   };
+
 
   const isMobile = useMediaQuery({
     query: '(max-width: 786px)', // Change this breakpoint as needed
@@ -80,7 +94,7 @@ const Navbar = () => {
         position: 'fixed',
         top: 0,
         width: '100%',
-        zIndex:"10"
+        zIndex: "10"
       }}>
         <Col xs={12} sm={12} md={12} lg={12} xl={10}>
           <Image
@@ -123,6 +137,7 @@ const Navbar = () => {
           )}
         </Col>
       </Row>
+
     </>
   );
 };
