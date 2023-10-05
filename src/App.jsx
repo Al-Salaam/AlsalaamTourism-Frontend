@@ -17,6 +17,7 @@ import ActivityPage from "./pages/activityPage";
 import SingleActivity from "./pages/singleActivity";
 import SignUp from "./pages/authetication/signup";
 
+import ContactUS from "./pages/contactUs";
 
 function App() {
 
