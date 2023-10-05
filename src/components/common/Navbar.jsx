@@ -33,20 +33,20 @@ const Navbar = ({ showOverlayMessage }) => {
 
     },
     {
-      label: <Link to="/" >Packages</Link>,
+      label: <Link to="/packages" >Packages</Link>,
       key: 'packages',
 
     },
 
     {
-      label: <Link to="/" >Contact US</Link>,
+      label: <Link to="/contact" >Contact US</Link>,
       key: 'Contact Us',
 
 
     },
     {
       label: (
-        <Link to="/" >About US</Link>
+        <Link to="/about" >About US</Link>
       ),
       key: 'about',
     },

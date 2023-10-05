@@ -29,7 +29,7 @@ function OurActivity() {
     const [activeButton, setActiveButton] = useState(null);
     const [priceRange, setPriceRange] = useState([0, 500]);
     const [displayedData, setDisplayedData] = useState([]);
-    const [itemsToShow, setItemsToShow] = useState(3); // Number of items to initially display
+    const [itemsToShow, setItemsToShow] = useState(6); // Number of items to initially display
     const dispatch = useDispatch();
     const { loading, data } = useSelector((state) => state.activity);
 
