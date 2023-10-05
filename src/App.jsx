@@ -18,6 +18,7 @@ import SingleActivity from "./pages/singleActivity";
 import SignUp from "./pages/authetication/signup";
 
 import ContactUS from "./pages/contactUs";
+import ContactUs from "./pages/contactUs";
 
 function App() {
 
@@ -35,6 +36,8 @@ function App() {
         <Route path="/fujairah" element={<Fujairah />} />
         <Route path="/sharjah" element={<Sharjah />} />
         <Route path="/rasAlKhaima" element={<RasAlKhaima />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
       <Toaster />
     </>
