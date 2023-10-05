@@ -23,11 +23,11 @@ const Navbar = ({ showOverlayMessage }) => {
 
   const items = [
     {
-      label: <Link to="/"   >Home</Link>,
+      label: <Link to="/" >Home</Link>,
       key: 'home',
     },
     {
-      label: <Link to="/home"  >Activites</Link>,
+      label: <Link to="/activity">Activites</Link>,
       key: 'activites',
 
 
