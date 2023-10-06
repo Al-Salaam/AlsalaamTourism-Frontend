@@ -2,12 +2,12 @@ import Footer from "../../../components/common/footer";
 import withNavbar from "../../../components/common/HOCNabar";
 import DestinationCard from "../../../components/destinationsComponents/destinationCard";
 import HeroSection from "../../../components/destinationsComponents/heroSection/index";
-
+import AbuDhab from "../../../../images/desAbuDhabi.png"
 const AbuDhabi = () => {
   return (
     <>
       <HeroSection
-        imageUrl="../../../../images/desAbuDhabi.png"
+        imageUrl={AbuDhab}
         Heading="Abu Dhabi"
       />
 

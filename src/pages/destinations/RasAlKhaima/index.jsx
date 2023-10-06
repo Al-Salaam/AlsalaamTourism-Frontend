@@ -2,12 +2,12 @@ import Footer from "../../../components/common/footer"
 import withNavbar from "../../../components/common/HOCNabar"
 import DestinationCard from "../../../components/destinationsComponents/destinationCard"
 import HeroSection from "../../../components/destinationsComponents/heroSection/index"
-
+import desRas from "../../../../images/rasalkhaima.png"
 
 const RasAlKhaima = () => {
   return (
     <>
-  <HeroSection imageUrl= "../../../../images/rasalkhaima.png" Heading="Ras Al-Khaima"/>
+  <HeroSection imageUrl= {desRas} Heading="Ras Al-Khaima"/>
 
   <DestinationCard Paragraph="Ras Al Khaimah Emirate has a distinguished archaeological legacy and a lengthy cultural history. Ras Al Khaimah is one of the oldest continually inhabited areas on earth due to its alluring blend of lush plains, picturesque mountains, white beaches, mangroves, and desert landscapes.
 Archaeological studies show that trade has been a crucial aspect of life in the region since at least 5000 BCE, and Ras Al Khamiah’s strategic location at the mouth of the Arabian Gulf has always oriented it toward commercial and cultural interchange.
