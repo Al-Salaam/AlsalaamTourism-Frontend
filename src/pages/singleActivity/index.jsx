@@ -6,6 +6,8 @@ import Description from "../../components/singleActivity/description";
 import Carousel from "../../components/singleActivity/imageSlider"
 import Questions from "../../components/singleActivity/questions";
 import Stats from "../../components/singleActivity/stats";
+import AverageRating from '../../components/singleActivity/avgRating';
+import RatingInput from '../../components/singleActivity/inputRating';
 
 const data = [
     {
@@ -60,6 +62,7 @@ const data1 = [
    
     // Add more items if needed
   ];
+  const averageRating = 4.3;
 
 function SingleActivity() {
     return (
@@ -72,6 +75,8 @@ function SingleActivity() {
         <Description/>
         <Checklist paragraphs={data1} columns={2} title={"dummy"}/>
         <Questions/> 
+        <AverageRating averageRating={averageRating}/>
+        <RatingInput/>
         </Col>
     </Row>
     )
