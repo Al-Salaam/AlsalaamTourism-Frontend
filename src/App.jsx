@@ -40,6 +40,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/packages" element={<Packages />} />
+        
       </Routes>
       <Toaster />
     </>
