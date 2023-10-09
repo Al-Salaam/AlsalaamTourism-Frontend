@@ -11,6 +11,7 @@ import AverageRating from '../../components/singleActivity/avgRating';
 import RatingInput from '../../components/singleActivity/inputRating';
 import CardSlider from '../../components/activityComponents/cardSlider/slider';
 import ActHero from "../../../images/singAct.png"
+import CommonHero from '../../components/common/heroShowCase/commonHero';
 
 
 const data = [
@@ -66,22 +67,64 @@ const data1 = [
    
     // Add more items if needed
   ];
+
+const dataInc = [
+    "Transfers as per options selected",
+    "Lunch if option selected",
+    "Al Ain Fort",
+    "Al Ain National Heritage",
+   "Al Ain Mall",
+   "Archaeological Park Visit",
+   "Hot water springs",
+   "Al Ain Museum",
+   "Al Ain Fort",
+   "Jabel Hafeet Mountain",
+   "Al Ain Zoo (entry tickets are not included)"
+
+]
+
+const dataExc = [
+    "Additional Services",
+    "Insurance",
+    "Drinks",
+    "Meals"
+]
+  const dataHigh = [
+    'Perfect tour to get away from urban civilization.',
+    'Lorem ipsum dolor sit amet consectetur. Sagittis id.',
+    'Lorem ipsum dolor sit amet consectetur. Sagittis id.',
+    'Lorem ipsum dolor sit amet consectetur. Sagittis id.',
+    'Lorem ipsum dolor sit amet consectetur. Sagittis id.',
+    'Lorem ipsum dolor sit amet consectetur. Sagittis id.',
+   
+  ];
+
   const averageRating = 4.3;
 
 function SingleActivity() {
     return (
         <>
-        <Row gutter={[40]}>
+        <Row gutter={[40]} justify={"center"}>
             <Col span={24}>
-    </Col>
-            <Col span={12}>
+            <CommonHero title1={"Al Ain City Tours"} image={ActHero}/>
+            </Col>
+
+            <Col span={10}>
             <Carousel data={data} thumbnails={true} width="100%" thumbnailWidth="200px" slideNumberStyle={slideNumberStyle} slideNumber={true} />
             <Stats/>
-            <Itenary/>    
+            <Itenary/> 
+            <Checklist paragraphs={dataHigh} columns={1} title={"Highlights"}/>   
             </Col>
-            <Col span={12}>
+            <Col span={10}>
             <BookNow/>
             <Description/> 
+            <Checklist paragraphs={dataInc} columns={2} title={"Included"} style={{margin:"1500px 0"}}/>
+            <Checklist paragraphs={dataHigh} columns={1} title={"Excluded"}/>
+            </Col>
+        </Row>
+        <Row>
+            <Col span={24}>
+                <Questions/>
             </Col>
         </Row>
 
@@ -90,9 +133,7 @@ function SingleActivity() {
         
         
         
-        
-        <Checklist paragraphs={data1} columns={2} title={"dummy"}/>
-        <Questions/> 
+     
         <AverageRating averageRating={averageRating}/>
         <RatingInput/>
         <CardSlider/>

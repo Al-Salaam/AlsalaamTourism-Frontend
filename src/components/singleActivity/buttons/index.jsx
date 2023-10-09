@@ -66,7 +66,7 @@ const buttonStyle = {
   fontSize: '18px',
   padding:0,
   border:"none",
-  backGroundColor:"white"
+  backgroundColor:"white"
 };
 
 export default TextBoxWithButtons;
