@@ -7,208 +7,126 @@ import {
   StarOutlined,
 } from '@ant-design/icons';
 
+import P1 from "../../../images/p1.png"
+import P2 from "../../../images/p2.png"
+import P3 from "../../../images/p3.png"
+import P4 from "../../../images/p4.png"
+import P5 from "../../../images/p5.png"
+import P6 from "../../../images/p6.png"
+import P7 from "../../../images/p7.png"
+import P8 from "../../../images/p8.png"
+import P9 from "../../../images/p9.png"
+
+import Star from "../../../images/packStar.png"
+import Time from "../../../images/time.png"
+
+import PrimaryButton from '../../components/common/buttons/primary';
+
+
 const { Meta } = Card;
 const { Option } = Select;
 
 const data = [
   {
     id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
+    title: 'Adventure Dubai (5D/4N)',
+    description: 'Al Salaam Tourism’s 4-night adventure in Dubai is ideal for an adventurous holiday. It includes unforgettable ...',
     category: 'Couple',
     rating: 4.5,
     totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights',
-    favorite: false,
+    imageUrl: P1,
+    totalTime: '4 nights 5 Days',
+    favorite: true,
   },
   {
     id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
+    title: 'Couple package (4D/3N)',
+    description: 'Al Salaam Tourism’s couple package is an ideal choice for your romantic experience inclusion of unforgettable ...',
     category: 'Couple',
     rating: 3.5,
     totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights',
+    imageUrl: P2,
+    totalTime: '4 nights 5 Days',
     favorite: false,
   },
   {
     id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
+    title: 'Fantastic Dubai Wedding Package with Camping in the Desert(5D/4N)',
+    description: 'On a fantastic honeymoon trip to Dubai, spend your first moments as a married couple and commemorate ...',
     category: 'Couple',
     rating: 2.5,
     totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights raoof',
-    favorite: false,
+    imageUrl: P3,
+    totalTime: '4 nights 5 Days',
+    favorite: true,
   },
   {
     id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
+    title: 'Magical Dubai Package (6D/5N)',
+    description: 'Al Salaam Tourism’s 4-night adventure in Dubai is ideal for an adventurous holiday. It includes unforgettable ...',
     category: 'Couple',
     rating: 3.5,
     totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights react',
-    favorite: false,
+    imageUrl: P4,
+    totalTime: '4 nights 5 Days',
+    favorite: true,
   },
   {
     id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
+    title: 'Dubai and Abu Dhabi Package (7D/6N)',
+    description: 'Al Salaam Tourism’s couple package is an ideal choice for your romantic experience inclusion of unforgettable ...',
     category: 'Couple',
     rating: 1.5,
     totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights',
-    favorite: false,
+    imageUrl: P5,
+    totalTime: '4 nights 5 Days',
+    favorite: true,
   },
   {
     id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1 front',
+    title: 'Romantic Honeymoon in Dubai With Abu Dhabi Tour(6 NIGHTS/7 DAYS)',
+    description: 'On a fantastic honeymoon trip to Dubai, spend your first moments as a married couple and commemorate ...',
     category: 'Couple',
     rating: 3.5,
     totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights',
+    imageUrl: P6,
+    totalTime: '4 nights 5 Days',
     favorite: false,
   },
   {
     id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
+    title: 'Water Adventure Package (4D/3N)',
+    description: 'Al Salaam Tourism’s 4-night adventure in Dubai is ideal for an adventurous holiday. It includes unforgettable ...',
     category: 'Couple',
     rating: 4.5,
     totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights',
-    favorite: false,
+    imageUrl: P7,
+    totalTime: '4 nights 5 Days',
+    favorite: true,
   },
   {
     id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
+    title: 'Adventure of Arab Package (4D/3N)',
+    description: 'Al Salaam Tourism’s couple package is an ideal choice for your romantic experience inclusion of unforgettable ...',
     category: 'Couple',
     rating: 4.5,
     totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights',
-    favorite: false,
+    imageUrl: P8,
+    totalTime: '4 nights 5 Days',
+    favorite: true,
   },
   {
     id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
+    title: 'Al Ain Tour Package (4D/3N)',
+    description: 'On a fantastic honeymoon trip to Dubai, spend your first moments as a married couple and commemorate ...',
     category: 'Couple',
     rating: 4.5,
     totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights raoof',
+    imageUrl: P9,
+    totalTime: '4 nights 5 Days raoof',
     favorite: false,
   },
-  {
-    id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
-    category: 'Couple',
-    rating: 4.5,
-    totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights react',
-    favorite: false,
-  },
-  {
-    id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
-    category: 'Couple',
-    rating: 4.5,
-    totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights',
-    favorite: false,
-  },
-  {
-    id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1 front',
-    category: 'Couple',
-    rating: 3.5,
-    totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights',
-    favorite: false,
-  },
-  {
-    id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
-    category: 'Couple',
-    rating: 1.5,
-    totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights',
-    favorite: false,
-  },
-  {
-    id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
-    category: 'Couple',
-    rating: 2.5,
-    totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights',
-    favorite: false,
-  },
-  {
-    id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
-    category: 'Couple',
-    rating: 4.5,
-    totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights raoof',
-    favorite: false,
-  },
-  {
-    id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
-    category: 'Couple',
-    rating: 3.5,
-    totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights react',
-    favorite: false,
-  },
-  {
-    id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1',
-    category: 'Couple',
-    rating: 1.5,
-    totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights',
-    favorite: false,
-  },
-  {
-    id: 1,
-    title: 'packag 1 hello',
-    description: 'Description for packag 1 front',
-    category: 'Single',
-    rating: 2.5,
-    totalRating: 100,
-    imageUrl: 'packag1.jpg',
-    totalTime: '7 days 6 nights',
-    favorite: false,
-  },
+
 
 ];
 
@@ -217,7 +135,7 @@ const Ourpackags = () => {
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [ratingFilter, setRatingFilter] = useState('desc');
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 10;
+  const pageSize = 6;
 
   const { Title } = Typography;
 
@@ -277,7 +195,8 @@ const Ourpackags = () => {
     width: {
 
       width: "40%",
-      outline: "none"
+      borderBottom:"1px solid black",
+      borderRadius:"0"
     },
 
     filterFlex: {
@@ -302,13 +221,17 @@ const Ourpackags = () => {
             value={search}
             onChange={handleSearchChange}
             style={styles.width}
+            bordered={false}
           />
+          <div style={{margin:"5% 0", color:"#3B505A", fontSize:"14.57px",fontWeight:"400px" }}>
+        Showing {startIndex + 1}-{Math.min(endIndex, filteredData.length)} of {filteredData.length} packages
+      </div>
         </Col>
 
 
         <Col span={12} align="end" style={styles.filterFlex}>
-         
-          
+
+
           <Select
             defaultValue="Raoof"
             bordered={false}
@@ -332,11 +255,11 @@ const Ourpackags = () => {
                 value: "Single",
                 label: "Single"
               },
-             
+
             ]}
           />
-         
-          
+
+
           <Select
             defaultValue="Order"
             bordered={false}
@@ -356,68 +279,67 @@ const Ourpackags = () => {
                 value: "desc",
                 label: "Descending"
               },
-             
-             
+
+
             ]}
           />
         </Col>
 
       </Row>
-      <div style={{ marginBottom: '16px', textAlign: 'center' }}>
-        Displaying {startIndex + 1}-{Math.min(endIndex, filteredData.length)} of {filteredData.length} packages
-      </div>
+      
       <Row gutter={[16, 16]}>
         {currentData.map((packag) => (
-          <Col key={packag.id} xs={24} sm={12} md={8} lg={6}>
+          <Col key={packag.id} xs={24} sm={12} md={8} lg={8} xl={8} >
             <Card
               cover={
                 <Image
                   alt={packag.title}
                   src={packag.imageUrl}
-                  preview={{
-                    mask: (
-                      <div className="image-overlay">
-                        <Space>
-                          {packag.favorite ? (
-                            <HeartFilled
-                              onClick={() => toggleFavorite(packag.id)}
-                              className="favorite-icon red"
-                            />
-                          ) : (
-                            <HeartOutlined
-                              onClick={() => toggleFavorite(packag.id)}
-                              className="favorite-icon"
-                            />
-                          )}
-                          <span>{packag.totalRating}</span>
-                        </Space>
-                      </div>
-                    ),
-                  }}
                 />
               }
             >
+              <Space style={{ position: 'absolute', top: 0, left: 0, padding: '8px' }}>
+                <span style={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#0C111F57", height: "50px", borderRadius: "20px", width: "120px", color: "white" }}><img src={Star} style={{ marginTop: "12px" }} /><h2>{packag.totalRating}</h2></span>
+              </Space>
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  right: 0,
+                  padding: '8px',
+                }}
+              >
+                <HeartFilled style={{ color: packag.favorite ? "Salmon" : "inherit", fontSize: "30px" }} />
+              </div>
+              <br />
               <Meta
                 title={packag.title}
                 description={packag.description}
               />
-              <p>Total Time: {packag.totalTime}</p>
-              <Space>
-                <StarOutlined /> {packag.rating}
-              </Space>
-              <br />
-              <Button type="primary">View Details</Button>
+
+              
+              <Row> 
+                <Col span={24}><Title level={5}>City Trips</Title></Col>
+                <Col span={12}>
+                <p><img src={Time} /> {packag.totalTime}</p>  
+                </Col> 
+              <Col span={12} align="right">
+              <PrimaryButton title={"View Deatils"}/>
+              </Col>
+              </Row>
             </Card>
           </Col>
         ))}
       </Row>
-
+      <div style={{textAlign:"center", margin:"1%"}}>
       <Pagination
         current={currentPage}
         total={filteredData.length}
         pageSize={pageSize}
         onChange={handlePageChange}
+
       />
+      </div>
     </div>
   );
 };
