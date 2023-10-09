@@ -19,6 +19,7 @@ import SignUp from "./pages/authetication/signup";
 
 import ContactUS from "./pages/contactUs";
 import ContactUs from "./pages/contactUs";
+import Packages from "./pages/packages";
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="/rasAlKhaima" element={<RasAlKhaima />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/packages" element={<Packages />} />
       </Routes>
       <Toaster />
     </>
