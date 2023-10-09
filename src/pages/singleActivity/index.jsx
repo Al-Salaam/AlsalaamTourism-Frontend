@@ -1,4 +1,5 @@
 import { Row, Col, Card, Button } from 'antd';
+import withNavbar from "../../components/common/HOCNabar";
 import Itenary from "../../components/singleActivity/Itenarary";
 import BookNow from "../../components/singleActivity/bookNow";
 import Checklist from "../../components/singleActivity/checklist";
@@ -8,6 +9,9 @@ import Questions from "../../components/singleActivity/questions";
 import Stats from "../../components/singleActivity/stats";
 import AverageRating from '../../components/singleActivity/avgRating';
 import RatingInput from '../../components/singleActivity/inputRating';
+import CardSlider from '../../components/activityComponents/cardSlider/slider';
+import ActHero from "../../../images/singAct.png"
+
 
 const data = [
     {
@@ -66,20 +70,36 @@ const data1 = [
 
 function SingleActivity() {
     return (
-    <Row>
-        <Col span={24}>
-        <Carousel data={data} thumbnails={true} width="100%" thumbnailWidth="200px" slideNumberStyle={slideNumberStyle} slideNumber={true} />
-        <Stats/>
-        <Itenary/>
-        <BookNow/>
-        <Description/>
+        <>
+        <Row gutter={[40]}>
+            <Col span={24}>
+    </Col>
+            <Col span={12}>
+            <Carousel data={data} thumbnails={true} width="100%" thumbnailWidth="200px" slideNumberStyle={slideNumberStyle} slideNumber={true} />
+            <Stats/>
+            <Itenary/>    
+            </Col>
+            <Col span={12}>
+            <BookNow/>
+            <Description/> 
+            </Col>
+        </Row>
+
+        {/* <Col span={24}>
+        
+        
+        
+        
+        
         <Checklist paragraphs={data1} columns={2} title={"dummy"}/>
         <Questions/> 
         <AverageRating averageRating={averageRating}/>
         <RatingInput/>
-        </Col>
-    </Row>
+        <CardSlider/>
+        </Col> */}
+    
+    </>
     )
 }
 
-export default SingleActivity
+export default withNavbar(SingleActivity)
