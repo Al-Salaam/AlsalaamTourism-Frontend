@@ -1,7 +1,12 @@
+import { Row, Col, Card, Button } from 'antd';
 import Itenary from "../../components/singleActivity/Itenarary";
 import BookNow from "../../components/singleActivity/bookNow";
+import Checklist from "../../components/singleActivity/checklist";
+import Description from "../../components/singleActivity/description";
 import Carousel from "../../components/singleActivity/imageSlider"
+import Questions from "../../components/singleActivity/questions";
 import Stats from "../../components/singleActivity/stats";
+
 const data = [
     {
         image:
@@ -37,13 +42,39 @@ const slideNumberStyle = {
     fontSize: "15px",
     color:"black"
 };
+
+const data1 = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+    'Item 6',
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+    'Item 6',
+   
+   
+    // Add more items if needed
+  ];
+
 function SingleActivity() {
-    return (<>
+    return (
+    <Row>
+        <Col span={24}>
         <Carousel data={data} thumbnails={true} width="100%" thumbnailWidth="200px" slideNumberStyle={slideNumberStyle} slideNumber={true} />
         <Stats/>
         <Itenary/>
         <BookNow/>
-    </>)
+        <Description/>
+        <Checklist paragraphs={data1} columns={2} title={"dummy"}/>
+        <Questions/> 
+        </Col>
+    </Row>
+    )
 }
 
 export default SingleActivity
