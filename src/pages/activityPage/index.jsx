@@ -11,13 +11,13 @@ import ActivityHeroSection from '../../components/activityComponents/heroSection
 
 
 function ActivityPage() {
-   
+
 
 
     return (
         <>
-             <ActivityHeroSection/> 
-             <OurActivity/>
+            <ActivityHeroSection />
+            <OurActivity />
             <TwoCardShowCase />
             <CircleComponent />
             <Footer />

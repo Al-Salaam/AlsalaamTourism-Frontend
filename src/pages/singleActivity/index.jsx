@@ -118,8 +118,8 @@ function SingleActivity() {
                     <Carousel data={data} thumbnails={true} width="100%" thumbnailWidth="200px" slideNumberStyle={slideNumberStyle} slideNumber={true} />
                     <Stats />
                     <Itenary />
-                    <div style={{ display: isSmallScreen ? "none" :"" }}>
-                    <Checklist paragraphs={dataHigh} columns={1} title={"Highlights"}  />
+                    <div style={{ display: isSmallScreen ? "none" : "" }}>
+                        <Checklist paragraphs={dataHigh} columns={1} title={"Highlights"} />
                     </div>
                 </Col>
                 <Col xs={24} sm={24} md={12} lg={12} xl={12}>
@@ -127,8 +127,8 @@ function SingleActivity() {
                     <Description />
                     <Checklist paragraphs={dataInc} columns={2} title={"Included"} style={{ margin: "1500px 0" }} />
                     <Checklist paragraphs={dataHigh} columns={1} title={"Excluded"} />
-                    <div style={{ display: isSmallScreen ? "" :"none" }}>
-                    <Checklist paragraphs={dataHigh} columns={1} title={"Highlights"}  />
+                    <div style={{ display: isSmallScreen ? "" : "none" }}>
+                        <Checklist paragraphs={dataHigh} columns={1} title={"Highlights"} />
                     </div>
                 </Col>
             </Row>
@@ -138,30 +138,30 @@ function SingleActivity() {
                 </Col>
             </Row>
             <Row>
-                <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={{margin:"5% 0", padding:"0 2%"}}>
+                <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={{ margin: "5% 0", padding: "0 2%" }}>
                     <AverageRating averageRating={averageRating} />
                     <RatingInput />
                 </Col>
-                <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={{margin:"5% 0", padding:"0 2%", display: isSmallScreen ? "none" : ""}} align="middle">
-                    <Image src = {Map}/>
+                <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={{ margin: "5% 0", padding: "0 2%", display: isSmallScreen ? "none" : "" }} align="middle">
+                    <Image src={Map} />
                 </Col>
             </Row>
             <Row>
-                <Col span={24} style={{margin:"0 5% 0 0"}} >
+                <Col span={24} style={{ margin: "0 5% 0 0" }} >
                     <CardSlider />
                 </Col>
-                <Col span={24} style={{margin:"5% 0", padding:"0 2%", display: isSmallScreen ? "" : "none"}} align="middle">
-                    <Image src = {Map}/>
+                <Col span={24} style={{ margin: "5% 0", padding: "0 2%", display: isSmallScreen ? "" : "none" }} align="middle">
+                    <Image src={Map} />
                 </Col>
             </Row>
             <Row>
                 <Col span={24}>
-                    <ActivitySlider/>
+                    <ActivitySlider />
                 </Col>
             </Row>
             <Row>
                 <Col span={24}>
-                   <Footer/> 
+                    <Footer />
                 </Col>
             </Row>
 

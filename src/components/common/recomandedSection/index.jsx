@@ -40,7 +40,7 @@ function RecomendedSection() {
                             {data && data.slice(0, 6).map((item, index) => (
                                 
                                 <Col xs={24} sm={24} md={24} lg={24} xl={12} key={index} align="middle" justify="center" style={{ marginTop: "5%", marginBottom: "5%", padding: "1%", paddingLeft: isSmallestScreen ? "15%" : (isSmallScreen ? "10%" : "") }}>
-                                    <FlipCard imageSrc={item?.images[0]?.url} title1={item.name} rate={item.ratings} price={item.price} shortdescription={item.shortdescription}/>
+                                    <FlipCard imageSrc={item?.images[0]?.url} title1={item.name} rate={item.ratings} price={item.price} shortdescription={item.shortdescription} activityId={item._id}/>
                                 </Col>
 
                             ))}

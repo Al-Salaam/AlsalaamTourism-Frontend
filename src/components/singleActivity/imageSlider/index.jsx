@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Swipe from "react-easy-swipe";
+import Swipe from 'react-easy-swipe'
 import "./styles.css";
 import { useMediaQuery } from 'react-responsive';
 
@@ -159,39 +159,39 @@ function Carousel({
                   }}
                   key={index}
                 >
-             <div style={{textAlign:"right"}}>       
-                <div style={{marginRight:"17px"}} >
-                  {slideNumber && (
-                    <div className="slide-number" style={slideNumberStyle}>
-                      {index + 1} / {data.length}
+                  <div style={{ textAlign: "right" }}>
+                    <div style={{ marginRight: "17px" }} >
+                      {slideNumber && (
+                        <div className="slide-number" style={slideNumberStyle}>
+                          {index + 1} / {data.length}
+                        </div>
+                      )}
+
                     </div>
-                  )}
-                  
-                </div>
-                <div>
-                   {showNavBtn && (
-              <a
-                className="prev"
-                onClick={(e) => {
-                  addSlide(-1);
-                  setChange(!change);
-                }}
-              >
-                &#10094;
-              </a>
-            )}
-            {showNavBtn && (
-              <a
-                className="next"
-                onClick={(e) => {
-                  addSlide(1);
-                  setChange(!change);
-                }}
-              >
-                &#10095;
-              </a>
-            )}
-            </div>
+                    <div>
+                      {showNavBtn && (
+                        <a
+                          className="prev"
+                          onClick={(e) => {
+                            addSlide(-1);
+                            setChange(!change);
+                          }}
+                        >
+                          &#10094;
+                        </a>
+                      )}
+                      {showNavBtn && (
+                        <a
+                          className="next"
+                          onClick={(e) => {
+                            addSlide(1);
+                            setChange(!change);
+                          }}
+                        >
+                          &#10095;
+                        </a>
+                      )}
+                    </div>
                   </div>
                   <img
                     src={item.image}
@@ -213,7 +213,7 @@ function Carousel({
                       II
                     </div>
                   )}
-                
+
                   {/* <div
                     className={`carousel-caption-${
                       captionPosition ? captionPosition : "bottom"
@@ -225,7 +225,7 @@ function Carousel({
               );
             })}
 
-           
+
             {dots && (
               <div className="dots">
                 {data.map((item, index) => {
@@ -246,7 +246,7 @@ function Carousel({
         </Swipe>
       </div>
       {thumbnails && (
-        
+
         <div
           className="thumbnails"
           id="thumbnail-div"
@@ -254,26 +254,26 @@ function Carousel({
         >
           {data.map((item, index) => {
             return (
-                <div className="card" style={{ margin:"0 5px"}} >
-              <img
-                width={thumbnailWidth ? thumbnailWidth : "100px"}
-                src={item.image}
-                alt={item.caption}
-                className="thumbnail"
-                id={`thumbnail-${index}`}
-                key={index}
-                onClick={(e) => {
-                  setSlide(index);
-                  setChange(!change);
+              <div className="card" style={{ margin: "0 5px" }} >
+                <img
+                  width={thumbnailWidth ? thumbnailWidth : "100px"}
+                  src={item.image}
+                  alt={item.caption}
+                  className="thumbnail"
+                  id={`thumbnail-${index}`}
+                  key={index}
+                  onClick={(e) => {
+                    setSlide(index);
+                    setChange(!change);
 
-                }}
-                height={isSmallScreen? "50px" : "100px"}
-              />
+                  }}
+                  height={isSmallScreen ? "50px" : "100px"}
+                />
               </div>
             );
           })}
         </div>
-    
+
       )}
     </div>
   );
