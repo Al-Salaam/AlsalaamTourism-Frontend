@@ -31,7 +31,7 @@ function App() {
         <Route path="/signup" element={<SignUp/>} />
         <Route path="/" element={<Home />} />
         <Route path="/activity" element={<ActivityPage />} />
-        <Route path="/singleActivity" element={<SingleActivity />} />
+        <Route path="/activity/:id" element={<SingleActivity />} />
         <Route path="/destinations" element={<Destinations />} />
         <Route path="/dubai" element={<Dubai />} />
         <Route path="/abuDhabi" element={<AbuDhabi />} />

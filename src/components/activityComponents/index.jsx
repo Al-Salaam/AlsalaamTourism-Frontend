@@ -153,7 +153,7 @@ function OurActivity() {
                     <>
                         {displayedData.map((item, index) => (
                             <Col xs={24} sm={24} md={24} lg={24} xl={8} key={index} align="middle" justify="center" style={{ margin: "2% 0" }}>
-                                <FlipCard imageSrc={item.images[0]?.url} title1={item.name} rate={item.ratings} width={"95%"} price={item.price} shortdescription={item.shortdescription} descBack={item.descBack} feature={item.feature} />
+                                <FlipCard imageSrc={item.images[0]?.url} title1={item.name} rate={item.ratings} width={"95%"} price={item.price} shortdescription={item.shortdescription} descBack={item.descBack} feature={item.feature} activityId={item._id}/>
                             </Col>
                         ))}
                     </>
@@ -162,7 +162,7 @@ function OurActivity() {
             {displayedData.length < filteredData.length && (
                 <Row>
                     <Col align="middle" span={24}>
-                         <PrimaryButton clickHandler={loadMoreItems} title={"load more"} />
+                        <PrimaryButton clickHandler={loadMoreItems} title={"load more"} />
                     </Col>
                 </Row>
             )}

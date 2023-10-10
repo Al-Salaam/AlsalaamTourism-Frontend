@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, Button, Rate } from 'antd';
 import PrimaryButton from '../buttons/primary';
 import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
 
 
 const { Meta } = Card;
@@ -164,8 +165,9 @@ const FlipCard = (props) => {
                             
                         }}
                     >
-                        
-                        <PrimaryButton title={"Book Now"} width={"150px"}/>
+                        <Link to={`/activity/${props.activityId}`}>
+                        <PrimaryButton title={"View Details"} width={"150px"}/>
+                        </Link>
                     </h3>
 
                 </div>

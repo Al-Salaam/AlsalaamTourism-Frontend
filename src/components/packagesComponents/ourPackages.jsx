@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row, Col, Card, Input, Select, Button, Space, Image, Pagination, Typography } from 'antd';
 import {
   SearchOutlined,
@@ -21,121 +21,27 @@ import Star from "../../../images/packStar.png"
 import Time from "../../../images/time.png"
 
 import PrimaryButton from '../../components/common/buttons/primary';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPackages } from '../../redux/actions/packagesAction';
+import { Loader } from '../common/loader';
 
 
 const { Meta } = Card;
 const { Option } = Select;
 
-const data = [
-  {
-    id: 1,
-    title: 'Adventure Dubai (5D/4N)',
-    description: 'Al Salaam Tourism’s 4-night adventure in Dubai is ideal for an adventurous holiday. It includes unforgettable ...',
-    category: 'Couple',
-    rating: 4.5,
-    totalRating: 100,
-    imageUrl: P1,
-    totalTime: '4 nights 5 Days',
-    favorite: true,
-  },
-  {
-    id: 1,
-    title: 'Couple package (4D/3N)',
-    description: 'Al Salaam Tourism’s couple package is an ideal choice for your romantic experience inclusion of unforgettable ...',
-    category: 'Couple',
-    rating: 3.5,
-    totalRating: 100,
-    imageUrl: P2,
-    totalTime: '4 nights 5 Days',
-    favorite: false,
-  },
-  {
-    id: 1,
-    title: 'Fantastic Dubai Wedding Package with Camping in the Desert(5D/4N)',
-    description: 'On a fantastic honeymoon trip to Dubai, spend your first moments as a married couple and commemorate ...',
-    category: 'Couple',
-    rating: 2.5,
-    totalRating: 100,
-    imageUrl: P3,
-    totalTime: '4 nights 5 Days',
-    favorite: true,
-  },
-  {
-    id: 1,
-    title: 'Magical Dubai Package (6D/5N)',
-    description: 'Al Salaam Tourism’s 4-night adventure in Dubai is ideal for an adventurous holiday. It includes unforgettable ...',
-    category: 'Couple',
-    rating: 3.5,
-    totalRating: 100,
-    imageUrl: P4,
-    totalTime: '4 nights 5 Days',
-    favorite: true,
-  },
-  {
-    id: 1,
-    title: 'Dubai and Abu Dhabi Package (7D/6N)',
-    description: 'Al Salaam Tourism’s couple package is an ideal choice for your romantic experience inclusion of unforgettable ...',
-    category: 'Couple',
-    rating: 1.5,
-    totalRating: 100,
-    imageUrl: P5,
-    totalTime: '4 nights 5 Days',
-    favorite: true,
-  },
-  {
-    id: 1,
-    title: 'Romantic Honeymoon in Dubai With Abu Dhabi Tour(6 NIGHTS/7 DAYS)',
-    description: 'On a fantastic honeymoon trip to Dubai, spend your first moments as a married couple and commemorate ...',
-    category: 'Couple',
-    rating: 3.5,
-    totalRating: 100,
-    imageUrl: P6,
-    totalTime: '4 nights 5 Days',
-    favorite: false,
-  },
-  {
-    id: 1,
-    title: 'Water Adventure Package (4D/3N)',
-    description: 'Al Salaam Tourism’s 4-night adventure in Dubai is ideal for an adventurous holiday. It includes unforgettable ...',
-    category: 'Couple',
-    rating: 4.5,
-    totalRating: 100,
-    imageUrl: P7,
-    totalTime: '4 nights 5 Days',
-    favorite: true,
-  },
-  {
-    id: 1,
-    title: 'Adventure of Arab Package (4D/3N)',
-    description: 'Al Salaam Tourism’s couple package is an ideal choice for your romantic experience inclusion of unforgettable ...',
-    category: 'Couple',
-    rating: 4.5,
-    totalRating: 100,
-    imageUrl: P8,
-    totalTime: '4 nights 5 Days',
-    favorite: true,
-  },
-  {
-    id: 1,
-    title: 'Al Ain Tour Package (4D/3N)',
-    description: 'On a fantastic honeymoon trip to Dubai, spend your first moments as a married couple and commemorate ...',
-    category: 'Couple',
-    rating: 4.5,
-    totalRating: 100,
-    imageUrl: P9,
-    totalTime: '4 nights 5 Days raoof',
-    favorite: false,
-  },
-
-
-];
 
 const Ourpackags = () => {
+  const dispatch = useDispatch();
+  const { loading, data } = useSelector((state) => state.package);
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [ratingFilter, setRatingFilter] = useState('desc');
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 6;
+
+  useEffect(() => {
+    dispatch(fetchPackages(currentPage))
+  }, [dispatch, currentPage])
 
   const { Title } = Typography;
 
@@ -168,7 +74,7 @@ const Ourpackags = () => {
   };
 
   // Calculate filteredData here, before using it
-  const filteredData = data
+  const filteredData = data && data
     .filter((packag) =>
       categoryFilter === 'All' ? true : packag.category === categoryFilter
     )
@@ -177,8 +83,8 @@ const Ourpackags = () => {
       return (
         searchQuery === '' ||
         packag.title.toLowerCase().includes(searchQuery) ||
-        packag.description.toLowerCase().includes(searchQuery) ||
-        packag.totalTime.toLowerCase().includes(searchQuery)
+        packag.description.toLowerCase().includes(searchQuery)
+
         // Add more fields to search if necessary
       );
     })
@@ -195,8 +101,8 @@ const Ourpackags = () => {
     width: {
 
       width: "40%",
-      borderBottom:"1px solid black",
-      borderRadius:"0"
+      borderBottom: "1px solid black",
+      borderRadius: "0"
     },
 
     filterFlex: {
@@ -223,9 +129,9 @@ const Ourpackags = () => {
             style={styles.width}
             bordered={false}
           />
-          <div style={{margin:"5% 0", color:"#3B505A", fontSize:"14.57px",fontWeight:"400px" }}>
-        Showing {startIndex + 1}-{Math.min(endIndex, filteredData.length)} of {filteredData.length} packages
-      </div>
+          <div style={{ margin: "5% 0", color: "#3B505A", fontSize: "14.57px", fontWeight: "400px" }}>
+            Showing {startIndex + 1}-{Math.min(endIndex, filteredData.length)} of {filteredData.length} packages
+          </div>
         </Col>
 
 
@@ -286,59 +192,64 @@ const Ourpackags = () => {
         </Col>
 
       </Row>
-      
+
       <Row gutter={[16, 16]}>
-        {currentData.map((packag) => (
-          <Col key={packag.id} xs={24} sm={12} md={8} lg={8} xl={8} >
-            <Card
-              cover={
-                <Image
-                  alt={packag.title}
-                  src={packag.imageUrl}
-                />
-              }
-            >
-              <Space style={{ position: 'absolute', top: 0, left: 0, padding: '8px' }}>
-                <span style={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#0C111F57", height: "50px", borderRadius: "20px", width: "120px", color: "white" }}><img src={Star} style={{ marginTop: "12px" }} /><h2>{packag.totalRating}</h2></span>
-              </Space>
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  right: 0,
-                  padding: '8px',
-                }}
-              >
-                <HeartFilled style={{ color: packag.favorite ? "Salmon" : "inherit", fontSize: "30px" }} />
-              </div>
-              <br />
-              <Meta
-                title={packag.title}
-                description={packag.description}
-              />
+        {loading ? <Loader /> : (
+          <>
+            {currentData.map((packag) => (
+              <Col key={packag._id} xs={24} sm={12} md={8} lg={8} xl={8} >
+                <Card
+                  cover={
+                    <Image
+                      alt={packag.heading}
+                      src={packag.images[0].url}
+                    />
+                  }
+                >
+                  <Space style={{ position: 'absolute', top: 0, left: 0, padding: '8px' }}>
+                    <span style={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#0C111F57", height: "50px", borderRadius: "20px", width: "120px", color: "white" }}><img src={Star} style={{ marginTop: "12px" }} /><h2>{packag.noOfReviews === 0 ? 0 : packag.ratings}</h2></span>
+                  </Space>
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      right: 0,
+                      padding: '8px',
+                    }}
+                  >
+                    <HeartFilled style={{ color: packag.favorite ? "Salmon" : "inherit", fontSize: "30px" }} />
+                  </div>
+                  <br />
+                  <Meta
+                    title={packag.heading}
+                    description={packag.description}
+                  />
 
-              
-              <Row> 
-                <Col span={24}><Title level={5}>City Trips</Title></Col>
-                <Col span={12}>
-                <p><img src={Time} /> {packag.totalTime}</p>  
-                </Col> 
-              <Col span={12} align="right">
-              <PrimaryButton title={"View Deatils"}/>
+
+                  <Row>
+                    <Col span={24}><Title level={5}>City Trips</Title></Col>
+                    <Col span={12}>
+                      <p><img src={Time} /> {packag.duration}</p>
+                    </Col>
+                    <Col span={12} align="right">
+                      <PrimaryButton title={"View Deatils"} />
+                    </Col>
+                  </Row>
+                </Card>
               </Col>
-              </Row>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-      <div style={{textAlign:"center", margin:"1%"}}>
-      <Pagination
-        current={currentPage}
-        total={filteredData.length}
-        pageSize={pageSize}
-        onChange={handlePageChange}
+            ))}
+          </>
+        )}
 
-      />
+      </Row>
+      <div style={{ textAlign: "center", margin: "1%" }}>
+        <Pagination
+          current={currentPage}
+          total={filteredData.length}
+          pageSize={pageSize}
+          onChange={handlePageChange}
+
+        />
       </div>
     </div>
   );
