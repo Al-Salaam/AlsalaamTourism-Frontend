@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 const TextBoxWithButtons = (props) => {
   const [value, setValue] = useState(0);
@@ -12,7 +13,17 @@ const TextBoxWithButtons = (props) => {
     setValue(value - 1);
     }
   };
+  const isSmallScreen = useMediaQuery({ maxWidth: 562 });
+  const textBoxStyle = {
 
+    width: isSmallScreen ? "100px" : "140px",
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    display: 'flex',
+    justifyContent:"space-evenly",
+    alignItems:"center",
+    margin:"1%"
+  };
   return (
     
       <div style={textBoxStyle}>
@@ -34,16 +45,7 @@ const TextBoxWithButtons = (props) => {
 
 
 
-const textBoxStyle = {
 
-  width: '140px',
-  border: '1px solid #ccc',
-  borderRadius: '5px',
-  display: 'flex',
-  justifyContent:"space-evenly",
-  alignItems:"center",
-  margin:"1%"
-};
 
 const operators = {
     display: 'flex',

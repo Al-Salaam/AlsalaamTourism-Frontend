@@ -6,7 +6,7 @@ const AverageRating = ({ averageRating }) => {
   return (
     <Row gutter={16} align="middle">
       {/* First Column */}
-      <Col span={12}>
+      <Col xs={24} sm={24} md={12} lg={12} xl={12}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <Rate
             allowHalf
@@ -19,7 +19,7 @@ const AverageRating = ({ averageRating }) => {
       </Col>
 
       {/* Second Column */}
-      <Col span={12}>
+      <Col xs={24} sm={24} md={12} lg={12} xl={12}>
         <div>
          
           <div>5</div>

@@ -42,7 +42,7 @@ const Description = () => {
     return (
         <div>
             <Row gutter={16}>
-                <Col span={6}>
+                <Col xs={24} sm={24} md={12} lg={6} xl={6} xxl={6} >
                     <Button
                         style={selectedButton === 'button1' ? { ...styles.selectedButton, ...styles.h1 } : styles.button}
                         onClick={() => setSelectedButton('button1')}
@@ -51,7 +51,7 @@ const Description = () => {
                         Description
                     </Button>
                 </Col>
-                <Col span={6}>
+                <Col xs={24} sm={24} md={12} lg={6} xl={6} xxl={6}>
                     <Button
                         style={selectedButton === 'button2' ? { ...styles.selectedButton, ...styles.h1 } : styles.button}
                         onClick={() => setSelectedButton('button2')}
@@ -59,7 +59,7 @@ const Description = () => {
                         Key Instructions
                     </Button>
                 </Col>
-                <Col span={6}>
+                <Col xs={24} sm={24} md={12} lg={6} xl={6} xxl={6}>
                     <Button
                          style={selectedButton === 'button3' ? { ...styles.selectedButton, ...styles.h1 } : styles.button}
                         onClick={() => setSelectedButton('button3')}
@@ -67,7 +67,7 @@ const Description = () => {
                         Reservation Policy
                     </Button>
                 </Col>
-                <Col span={6}>
+                <Col xs={24} sm={24} md={12} lg={6} xl={6} xxl={6}>
                     <Button
                         style={selectedButton === 'button4' ? { ...styles.selectedButton, ...styles.h1 } : styles.button}
                         onClick={() => setSelectedButton('button4')}

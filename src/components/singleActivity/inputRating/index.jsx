@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Row, Col, Button, Input, Rate } from 'antd';
+import { useMediaQuery } from 'react-responsive';
 
 const RatingInput = () => {
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [rating, setRating] = useState(0);
   const [reviewText, setReviewText] = useState('');
+  
+  const isSmallScreen = useMediaQuery({ maxWidth: 950 });
 
   const handleAddReviewClick = () => {
     setShowReviewForm(true);
@@ -57,13 +60,13 @@ const styles={
 }
 
   return (
-    <div>
-      <Row gutter={16}>
+    <div >
+      <Row gutter={16} style={{padding:"5% 0"}}>
         {/* First Row */}
-        <Col span={12} style={styles.para}>
+        <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={styles.para}>
           <p>Click the button to add a review</p>
         </Col>
-        <Col span={12}>
+        <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} align = {isSmallScreen ? "" : "right" }>
           <Button onClick={handleAddReviewClick} style={styles.button}>
            + Add Review
           </Button>
@@ -73,7 +76,7 @@ const styles={
       {/* Second and Third Rows */}
       {showReviewForm && (
         <>
-          <Row gutter={16}>
+          <Row gutter={16} style={{padding:"5% 0"}}>
             {/* Second Row */}
             <Col span={24}>
               <Input.TextArea
@@ -86,13 +89,13 @@ const styles={
             </Col>
           </Row>
 
-          <Row gutter={16}>
+          <Row gutter={[16]} style={{padding:"5% 0"}}>
             {/* Third Row */}
-            <Col span={12}>
-              <span>Rating:</span>
+            <Col xs={24} sm={24} md={12} lg={12} xl={12} align= {isSmallScreen ? "middle" :""} >
+              
               <Rate value={rating} onChange={handleRatingChange} />
             </Col>
-            <Col span={12}>
+            <Col xs={24} sm={24} md={12} lg={12} xl={12} align= {isSmallScreen ? "middle" :""}>
               <Button style={styles.submit} onClick={handleSubmitReview}>
                 Submit
               </Button>
