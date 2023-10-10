@@ -10,7 +10,7 @@ export const signup = createAsyncThunk('auth/signup', async (credentials) => {
 
         // Axios automatically throws an error for non-2xx responses
         const user = response.data;
-
+        
         return user;
     } catch (error) {
         throw error;
