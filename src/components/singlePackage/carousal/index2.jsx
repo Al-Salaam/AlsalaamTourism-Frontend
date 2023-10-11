@@ -15,8 +15,8 @@ const styles = {
         maxHeight:"600px"
     },
     mainImage: {
-        width:"100%",
-        height:"600px",
+        width:"90vw",
+        height:"60vh",
         objectFit: 'cover',
     },
     thumbnails: {

@@ -11,7 +11,13 @@ import Map from "../../../images/Map.png"
 import { useMediaQuery } from 'react-responsive';
 import Questions from '../../components/singleActivity/questions';
 import Carousel from '../../components/singleActivity/imageSlider';
-import CarouselWithThumbnails from '../../components/singleActivity/imageSlider/index2';
+import CarouselWithThumbnails from '../../components/singlePackage/carousal/index2';
+import SinglePackaeTitle from '../../components/singlePackage/Title';
+import Stats from '../../components/singleActivity/stats';
+import StatsSinglePackage from '../../components/singlePackage/stats';
+import TabsSinglePackage from '../../components/singlePackage/tabs';
+import SinglePackaeDesc from '../../components/singlePackage/description';
+import FormCard from '../../components/singlePackage/form';
 
 
 
@@ -45,6 +51,16 @@ const data = [
     },
 ]
 
+const statData = [
+    {
+        time: "9 hours",
+        cancellationTime: "Up to 1 Day",
+        groupSize: "25 People",
+        languages: "Arabic, English"
+    }
+];
+
+
 const slideNumberStyle = {
     fontSize: "15px",
     color: "black"
@@ -54,8 +70,24 @@ const averageRating = 4.3;
 const SinglePackage = () => {
     const isSmallScreen = useMediaQuery({ maxWidth: 950 });
     return (<>
-        <CommonHero title1={"Single Package"} image={HeroImage} />
-        <div style={{ padding: "0 5%" }}><CarouselWithThumbnails images={data} /></div>
+        <Row>
+            <Col span={24}>
+            <CommonHero title1={"Single Package"} image={HeroImage} />
+            
+            <CarouselWithThumbnails images={data} />
+          <Row gutter={[40,40]}  style={{width:"90vw", margin:"0 auto"}}>
+          
+            <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12} >
+            <Row gutter={[40,40]}>
+            <Col span={24}><SinglePackaeTitle/></Col>
+            <Col span={24}><StatsSinglePackage/></Col>
+            <Col span={24}><SinglePackaeDesc/></Col>
+            <Col span={24}><TabsSinglePackage/></Col>
+            </Row>
+            </Col>
+            
+            <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12} ><FormCard/></Col>
+            </Row>
         <Questions />
         <Row>
             <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={{ margin: "5% 0", padding: "0 2%" }}>
@@ -69,6 +101,9 @@ const SinglePackage = () => {
         <CardSlider />
         <ActSlid />
         <Footer />
+            </Col>
+        </Row>
+       
     </>)
 }
 export default withNavbar(SinglePackage);
