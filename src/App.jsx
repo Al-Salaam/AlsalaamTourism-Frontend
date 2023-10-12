@@ -20,6 +20,7 @@ import SignUp from "./pages/authetication/signup";
 import ContactUS from "./pages/contactUs";
 import ContactUs from "./pages/contactUs";
 import Packages from "./pages/packages";
+import SinglePackage from "./pages/singlePackage";
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/packages" element={<Packages />} />
+        <Route path="/singlePackage" element={<SinglePackage />} />
         
       </Routes>
       <Toaster />
