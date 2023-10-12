@@ -69,13 +69,14 @@ const averageRating = 4.3;
 
 const SinglePackage = () => {
     const isSmallScreen = useMediaQuery({ maxWidth: 950 });
+    const isSmallestScreen = useMediaQuery({ maxWidth: 495 });
     return (<>
         <Row>
             <Col span={24}>
             <CommonHero title1={"Single Package"} image={HeroImage} />
             
             <CarouselWithThumbnails images={data} />
-          <Row gutter={[40,40]}  style={{width:"90vw", margin:"0 auto"}}>
+          <Row   style={{width:isSmallestScreen ? "100vw" : "90vw", margin:"0 auto"}}>
           
             <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12} >
             <Row gutter={[40,40]}>
@@ -86,7 +87,7 @@ const SinglePackage = () => {
             </Row>
             </Col>
             
-            <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12} ><FormCard/></Col>
+            <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12}  ><FormCard/></Col>
             </Row>
         <Questions />
         <Row>

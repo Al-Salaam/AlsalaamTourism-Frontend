@@ -16,8 +16,9 @@ const styles = {
     },
     mainImage: {
         width:"90vw",
-        height:"60vh",
+        height:"600px",
         objectFit: 'cover',
+        
     },
     thumbnails: {
         position: 'absolute',
