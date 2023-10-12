@@ -21,6 +21,7 @@ import ContactUS from "./pages/contactUs";
 import ContactUs from "./pages/contactUs";
 import Packages from "./pages/packages";
 import SinglePackage from "./pages/singlePackage";
+import NotFound from "./pages/notFound";
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/packages" element={<Packages />} />
         <Route path="/singlePackage" element={<SinglePackage />} />
+        <Route path="/notFound" element={<NotFound />} />
         
       </Routes>
       <Toaster />
