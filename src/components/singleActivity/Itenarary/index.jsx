@@ -6,15 +6,6 @@ import Img3 from "../../../../images/three.png"
 
 
 
-
-
-
-
-
-
-
-
-
 function Itenary() {
     const { Title } = Typography
 

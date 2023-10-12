@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { fetchActivities } from "../actions/activityAction";
+import { createActivitiesReviews, fetchActivities, fetchActivitiesReviews, fetchActivityById } from "../actions/activityAction";
 
 const initialState = {
     loading: false,
@@ -30,6 +30,47 @@ const activityReducer = createSlice({
             state.data = action.payload.data.activities;
         })
         .addCase(fetchActivities.rejected ,(state, action) => {
+            state.loading = false;
+            state.error = action.error;
+        })
+
+        // fetch activity by id
+        .addCase(fetchActivityById.pending ,(state) => {
+            state.loading = true;
+        })
+        .addCase(fetchActivityById.fulfilled ,(state, action) => {
+            state.loading = false;
+            state.activity = action.payload.activity;
+        })
+        .addCase(fetchActivityById.rejected ,(state, action) => {
+            state.loading = false;
+            state.error = action.error;
+        })
+
+
+        // get all activity reviews
+        .addCase(fetchActivitiesReviews.pending, (state) => {
+            state.loading = true;
+        })
+        .addCase(fetchActivitiesReviews.fulfilled, (state, action) => {
+            state.loading = false;
+            state.reviews = action.payload.reviews;
+        })
+        .addCase(fetchActivitiesReviews.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.error;
+        })
+
+        // create the activity review
+        .addCase(createActivitiesReviews.pending, (state) => {
+            state.loading = true;
+        })
+        .addCase(createActivitiesReviews.fulfilled, (state, action) => {
+            state.loading = false;
+            state.message = action.payload.message;
+            
+        })
+        .addCase(createActivitiesReviews.rejected, (state, action) => {
             state.loading = false;
             state.error = action.error;
         })

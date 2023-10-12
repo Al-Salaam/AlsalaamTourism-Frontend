@@ -31,8 +31,8 @@ function Carousel({
 
   //Function to change slide
   const addSlide = (n) => {
-    if (slide + n >= data.length) setSlide(0);
-    else if (slide + n < 0) setSlide(data.length - 1);
+    if (slide + n >= data?.length) setSlide(0);
+    else if (slide + n < 0) setSlide(data?.length - 1);
     else setSlide(slide + n);
   };
 
@@ -45,8 +45,8 @@ function Carousel({
           if (!isPaused) {
             setSlide(index);
             index++;
-            if (index >= data.length) index = 0;
-            if (index < 0) index = data.length - 1;
+            if (index >= data?.length) index = 0;
+            if (index < 0) index = data?.length - 1;
           }
         },
         time ? time : 2000
@@ -58,15 +58,15 @@ function Carousel({
   }, [isPaused, change]);
 
   function scrollTo(el) {
-    const elLeft = el.offsetLeft + el.offsetWidth;
-    const elParentLeft = el.parentNode.offsetLeft + el.parentNode.offsetWidth;
+    const elLeft = el?.offsetLeft + el?.offsetWidth;
+    const elParentLeft = el?.parentNode?.offsetLeft + el?.parentNode?.offsetWidth;
 
     // check if element not in view
-    if (elLeft >= elParentLeft + el.parentNode.scrollLeft) {
-      el.parentNode.scroll({ left: elLeft - elParentLeft, behavior: "smooth" });
-    } else if (elLeft <= el.parentNode.offsetLeft + el.parentNode.scrollLeft) {
-      el.parentNode.scroll({
-        left: el.offsetLeft - el.parentNode.offsetLeft,
+    if (elLeft >= elParentLeft + el?.parentNode?.scrollLeft) {
+      el?.parentNode.scroll({ left: elLeft - elParentLeft, behavior: "smooth" });
+    } else if (elLeft <= el?.parentNode?.offsetLeft + el?.parentNode?.scrollLeft) {
+      el?.parentNode.scroll({
+        left: el?.offsetLeft - el?.parentNode?.offsetLeft,
         behavior: "smooth",
       });
     }
@@ -79,7 +79,7 @@ function Carousel({
 
     var slideIndex = slide;
     var i;
-    for (i = 0; i < data.length; i++) {
+    for (i = 0; i < data?.length; i++) {
       slides[i].style.display = "none";
     }
     for (i = 0; i < dots.length; i++) {
@@ -134,7 +134,7 @@ function Carousel({
               borderRadius: radius,
             }}
           >
-            {data.map((item, index) => {
+            {data?.map((item, index) => {
               return (
                 <div
                   className="carousel-item fade"
@@ -163,7 +163,7 @@ function Carousel({
                     <div style={{ marginRight: "17px" }} >
                       {slideNumber && (
                         <div className="slide-number" style={slideNumberStyle}>
-                          {index + 1} / {data.length}
+                          {index + 1} / {data?.length}
                         </div>
                       )}
 
@@ -194,8 +194,8 @@ function Carousel({
                     </div>
                   </div>
                   <img
-                    src={item.image}
-                    alt={item.caption}
+                    src={item?.url}
+                    alt={''}
                     className="carousel-image"
                     style={{
                       borderRadius: radius,
@@ -214,13 +214,7 @@ function Carousel({
                     </div>
                   )}
 
-                  {/* <div
-                    className={`carousel-caption-${
-                      captionPosition ? captionPosition : "bottom"
-                    }`}
-                    style={captionStyle}
-                    dangerouslySetInnerHTML={{ __html: item.caption }}
-                  ></div> */}
+                  
                 </div>
               );
             })}
@@ -228,7 +222,7 @@ function Carousel({
 
             {dots && (
               <div className="dots">
-                {data.map((item, index) => {
+                {data?.map((item, index) => {
                   return (
                     <span
                       className="dot"
@@ -252,13 +246,13 @@ function Carousel({
           id="thumbnail-div"
           style={{ maxWidth: width, }}
         >
-          {data.map((item, index) => {
+          {data?.map((item, index) => {
             return (
               <div className="card" style={{ margin: "0 5px" }} >
                 <img
                   width={thumbnailWidth ? thumbnailWidth : "100px"}
-                  src={item.image}
-                  alt={item.caption}
+                  src={item?.url}
+                  alt={''}
                   className="thumbnail"
                   id={`thumbnail-${index}`}
                   key={index}
