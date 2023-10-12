@@ -82,7 +82,7 @@ const RatingInput = ({ activity }) => {
 
   return (
     <div >
-      <Row gutter={16} style={{ padding: "5% 0" }}>
+      <Row gutter={16} style={{padding:"2% 0"}}>
         {/* First Row */}
         <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={styles.para}>
           <p>Click the button to add a review</p>
@@ -97,7 +97,7 @@ const RatingInput = ({ activity }) => {
       {/* Second and Third Rows */}
       {showReviewForm && (
         <>
-          <Row gutter={16} style={{ padding: "5% 0" }}>
+          <Row gutter={16} style={{padding:"2% 0"}}>
             {/* Second Row */}
             <Col span={24}>
               <Input.TextArea
@@ -110,7 +110,7 @@ const RatingInput = ({ activity }) => {
             </Col>
           </Row>
 
-          <Row gutter={[16]} style={{ padding: "5% 0" }}>
+          <Row gutter={[16]} style={{padding:"2% 0"}}>
             {/* Third Row */}
             <Col xs={24} sm={24} md={12} lg={12} xl={12} align={isSmallScreen ? "middle" : ""} >
 
