@@ -16,12 +16,16 @@ import SignUp from "./pages/authetication/signup";
 import ContactUs from "./pages/contactUs";
 import Packages from "./pages/packages";
 import SinglePackage from "./pages/singlePackage";
+
 import UserPanelSide from "./pages/userPanelSide";
 import BookingHistory from "./components/userPanelComponents/bookingHistory";
 import Wishlist from "./components/userPanelComponents/Wishlist";
 import UserForm from "./components/userPanelComponents/userForm";
 import Inbox from "./components/userPanelComponents/Inbox";
 import SideBar from "./components/userPanelComponents/SideBar";
+
+import NotFound from "./pages/notFound";
+
 
 function App() {
   return (
@@ -49,6 +53,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/packages" element={<Packages />} />
         <Route path="/singlePackage" element={<SinglePackage />} />
+        <Route path="/notFound" element={<NotFound />} />
         
       </Routes>
       <Toaster />
