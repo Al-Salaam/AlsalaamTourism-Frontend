@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { fetchUserProfile, login, signup } from "../actions/authAction";
+import { fetchUserProfile, login, logoutUser, signup } from "../actions/authAction";
 
 const initialState = {
     loading: false,
@@ -53,6 +53,35 @@ const authReducer = createSlice({
             .addCase(login.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error;
+            })
+
+            // for getting for profile
+            .addCase(fetchUserProfile.pending,(state) => {
+                state.loading = true;
+            })
+            .addCase(fetchUserProfile.fulfilled,(state, action) => {
+                state.loading = false;
+                state.user = action.payload.user;
+
+            })
+            .addCase(fetchUserProfile.rejected,(state, action) => {
+                state.loading = false;
+                state.error = action.error
+            })
+
+            // for logout function
+            .addCase(logoutUser.pending,(state) => {
+                state.loading = true;
+            })
+            .addCase(logoutUser.fulfilled,(state, action) => {
+                state.loading = false;
+                state.message = action.payload.message;
+                state.isAuthenticated = false;
+                state.user = null;
+            })
+            .addCase(logoutUser.rejected,(state, action) => {
+                state.loading = false;
+                state.error = action.error
             })
     }
 })

@@ -10,7 +10,7 @@ export const signup = createAsyncThunk('auth/signup', async (credentials) => {
 
         // Axios automatically throws an error for non-2xx responses
         const user = response.data;
-        
+
         return user;
     } catch (error) {
         throw error;
@@ -40,6 +40,22 @@ export const fetchUserProfile = createAsyncThunk('auth/fetchUserProfile', async 
 
         const user = response?.data;
         return user;
+    } catch (error) {
+        throw error?.response?.data?.message;
+    }
+});
+
+
+// get user profile function
+export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
+    try {
+        // Make a GET request to your logout endpoint
+        const response = await https.get('/logout');
+
+        // Clear user data from local storage after successful logout
+        localStorage.removeItem('user'); // Assuming 'user' is the key under which user data is stored
+
+        return response?.data;
     } catch (error) {
         throw error?.response?.data?.message;
     }
