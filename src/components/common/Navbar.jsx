@@ -160,7 +160,7 @@ const Navbar = ({ showOverlayMessage }) => {
     <>
 
       <Row style={{
-        padding: isMobile ? "0" : "0 100px",
+        padding: isMobile ? "0" : "14px 100px",
         backgroundColor: navbarBackgroundColor,
         position: 'fixed',
         top: 0,
@@ -174,7 +174,7 @@ const Navbar = ({ showOverlayMessage }) => {
             height={60}
           />
         </Col>
-        <Col xs={12} sm={12} md={12} lg={12} xl={20} align={"end"}  >
+        <Col xs={12} sm={12} md={12} lg={12} xl={20} style={{ display: "flex", justifyContent: "flex-end" }}  >
           {isMobile ? (
             <>
               <Button
