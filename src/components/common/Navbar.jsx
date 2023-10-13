@@ -160,7 +160,7 @@ const Navbar = ({ showOverlayMessage }) => {
     <>
 
       <Row style={{
-        padding: isMobile ? "0" : "14px 100px",
+        padding: isMobile ? "10px" : "0 100px",
         backgroundColor: navbarBackgroundColor,
         position: 'fixed',
         top: 0,
@@ -239,7 +239,7 @@ const Navbar = ({ showOverlayMessage }) => {
               }}
 
             >
-              <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent', display: "flex", justifyContent: "end" }} /></ConfigProvider>
+              <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent'}} /></ConfigProvider>
           )}
         </Col>
       </Row>
