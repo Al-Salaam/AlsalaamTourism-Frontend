@@ -54,6 +54,7 @@ function App() {
         <Route path="/packages" element={<Packages />} />
         <Route path="/singlePackage" element={<SinglePackage />} />
         <Route path="/notFound" element={<NotFound />} />
+        <Route path="/packages/:id" element={<SinglePackage />} />
         
       </Routes>
       <Toaster />

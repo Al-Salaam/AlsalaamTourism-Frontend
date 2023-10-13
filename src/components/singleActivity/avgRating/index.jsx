@@ -1,15 +1,15 @@
 import React from 'react';
 import { Row, Col, Rate, Progress } from 'antd';
 
-const AverageRating = ({ activity }) => {
-  const totalRatings = activity?.noOfReviews || 0; // Total number of ratings
-  const averageRating = activity?.ratings || 0; // Average rating
+const AverageRating = ({rating ,reviews ,module}) => {
+  const totalRatings = reviews || 0; // Total number of ratings
+  const averageRating = rating || 0; // Average rating
 
   // Calculate the percentage distribution for each rating level
   const percentagePerRating = Array.from({ length: 5 }, (_, index) => {
     // Calculate the percentage for each rating level
     const rating = index + 1;
-    const ratingCount = activity?.reviews.reduce((count, review) => {
+    const ratingCount = module?.reviews.reduce((count, review) => {
       return count + (review?.rating === rating ? 1 : 0);
     }, 0);
     return (ratingCount / totalRatings) * 100;

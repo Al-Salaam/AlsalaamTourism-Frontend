@@ -1,21 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Button, Card } from 'antd';
 
-const TabsSinglePackage = () => {
+const TabsSinglePackage = ({pakage}) => {
 
     const [selectedButton, setSelectedButton] = useState('button1'); // Initially select 'button1'
     const contentMap = {
-        button1: <>The date and time of the tour are subject to availability.
-            The tour tickets can be used on their issue date.
-            Carry a valid ID with you as it is mandatory.
-            Information on the passport needs to be used for the bookings.
-            Refunds are not available for the partially utilized services.
-            The pickup/drop-off timing May Vary as per the schedules based on your place of residence.
-            No exchanges, replacements, or refunds are available for damaged, lost, or stolen tickets.
-            You are required to report 30 minutes earlier than the time of the tour/activity.</>,
-        button2: 'Content for Button 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, debitis.',
-        button3: 'Content for Button 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, debitis.',
-        button4: 'Content for Button 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, debitis.',
+        button1: pakage?.keyIntructions,
+        button2: pakage?.cancellationguide,
+        button3: pakage?.childpolicy,
+        button4: pakage?.tourbenifits,
     };
 
     useEffect(() => {

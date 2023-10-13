@@ -60,7 +60,7 @@ const CarouselWithThumbnails = ({ images, style }) => {
     const updateThumbnailRange = (clickedIndex) => {
       // Calculate the new range based on the clicked thumbnail index
       const newStartIndex = Math.max(0, clickedIndex - 1);
-      const newEndIndex = Math.min(images.length - 1, newStartIndex + 2);
+      const newEndIndex = Math.min(images?.length - 1, newStartIndex + 2);
   
       setThumbnailRange([newStartIndex, newEndIndex]);
     };
@@ -69,7 +69,7 @@ const CarouselWithThumbnails = ({ images, style }) => {
       <div  style={{ ...styles.container, ...style }}>
         <div  style={styles.imageContainer}>
           <div  style={styles.thumbnails}>
-            {images.slice(thumbnailRange[0], thumbnailRange[1] + 1).map((item, index) => (
+            {images?.slice(thumbnailRange[0], thumbnailRange[1] + 1)?.map((item, index) => (
               <div
                 key={index + thumbnailRange[0]} // Key should be unique
                 className={`thumbnail ${index + thumbnailRange[0] === currentIndex ? 'active' : ''}`}
@@ -79,17 +79,17 @@ const CarouselWithThumbnails = ({ images, style }) => {
                 }}
                 onClick={() => handleThumbnailClick(index + thumbnailRange[0])}
               >
-                <img src={item.image} alt={`Thumbnail ${index + thumbnailRange[0]}`} height="50px" width="50px" />
+                <img src={item?.url} alt={`Thumbnail ${index + thumbnailRange[0]}`} height="50px" width="50px" />
               </div>
             ))}
             <div  style={styles.imageCounter}>
-              {currentIndex + 1} / {images.length} 
+              {currentIndex + 1} / {images?.length} 
             </div>
           </div>
-          {images.map((item, index) => (
+          {images?.map((item, index) => (
             <img
               key={index}
-              src={item.image}
+              src={item?.url}
               alt={`Image ${index}`}
               style={{
                 ...styles.mainImage,

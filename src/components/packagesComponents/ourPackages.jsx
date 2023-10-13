@@ -24,6 +24,7 @@ import PrimaryButton from '../../components/common/buttons/primary';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPackages } from '../../redux/actions/packagesAction';
 import { Loader } from '../common/loader';
+import { Link } from 'react-router-dom';
 
 
 const { Meta } = Card;
@@ -73,6 +74,47 @@ const Ourpackags = () => {
     console.log(updatedData);
   };
 
+  const truncateDescription = (description, lines = 3) => {
+    const lineHeight = 20; // You might need to adjust this based on your font size and line height
+    const maxHeight = lineHeight * lines;
+  
+    const dummyDiv = document.createElement('div');
+    dummyDiv.innerHTML = description;
+    dummyDiv.style.position = 'absolute';
+    dummyDiv.style.visibility = 'hidden';
+    dummyDiv.style.height = 'auto';
+    dummyDiv.style.width = '300px'; // Set a fixed width or use any other width that fits your layout
+  
+    document.body.appendChild(dummyDiv);
+    const textHeight = dummyDiv.offsetHeight;
+    document.body.removeChild(dummyDiv);
+  
+    if (textHeight <= maxHeight) {
+      return description;
+    }
+  
+    let truncatedText = '';
+    let currentHeight = 0;
+    const words = description.split(' ');
+  
+    for (const word of words) {
+      dummyDiv.innerHTML = truncatedText + ' ' + word;
+      document.body.appendChild(dummyDiv);
+      const wordHeight = dummyDiv.offsetHeight - currentHeight;
+  
+      if (currentHeight + wordHeight <= maxHeight) {
+        truncatedText += (truncatedText ? ' ' : '') + word;
+        currentHeight += wordHeight;
+      } else {
+        break;
+      }
+  
+      document.body.removeChild(dummyDiv);
+    }
+  
+    return truncatedText + '...';
+  };
+
   // Calculate filteredData here, before using it
   const filteredData = data && data
     .filter((packag) =>
@@ -116,6 +158,8 @@ const Ourpackags = () => {
       border: "none"
     }
   }
+
+  
   return (
     <div>
       <Row gutter={[16, 16]} justif="center"><Col span={24} align="middle"> <Title level={2}>Our Packages</Title> <Title level={5}>We offer some of the most competitive, pocket-friendly prices around, while also delivering without compromising on our quality standards.</Title></Col> </Row>
@@ -222,18 +266,21 @@ const Ourpackags = () => {
                   <br />
                   <Meta
                     title={packag.heading}
-                    description={packag.description}
+                    description={truncateDescription(packag.description)}
                   />
 
 
                   <Row>
-                    <Col span={24}><Title level={5}>City Trips</Title></Col>
+                    <Col span={24}><Title level={5}>Duration</Title></Col>
                     <Col span={12}>
                       <p><img src={Time} /> {packag.duration}</p>
                     </Col>
+                    <Link to={`/packages/${packag._id}`}>
                     <Col span={12} align="right">
                       <PrimaryButton title={"View Deatils"} />
                     </Col>
+                    </Link>
+                    
                   </Row>
                 </Card>
               </Col>

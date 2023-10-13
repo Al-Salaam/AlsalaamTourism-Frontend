@@ -1,14 +1,14 @@
 import { Row, Col, Rate, Typography } from 'antd';
 
-const SinglePackaeTitle =  () => {
+const SinglePackaeTitle =  ({pakage}) => {
    
     const {Title} = Typography
 
     return(
 
         <Row>
-         <Col span={24}><Title level={3}> Adventure Dubai (5D/4N) </Title></Col>
-         <Col span={24}><Rate allowHalf={true} value={4.5} /> <Title level={5}>Average Rating / Total Rating -- Total Reviews</Title> </Col>
+         <Col span={24}><Title level={3}> {pakage?.heading} </Title></Col>
+         <Col span={24}><Rate disabled allowHalf={true} value={pakage?.noOfReviews === 0 ? 0 : pakage?.ratings} /> <Title level={5}>{pakage?.noOfReviews === 0 ? 0 : pakage?.ratings}/ 5 - ({pakage?.noOfReviews})</Title> </Col>
         </Row>
     )
 } 
