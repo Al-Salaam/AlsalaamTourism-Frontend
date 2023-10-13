@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Layout, Menu, Button } from 'antd';
 import {
   ClockCircleOutlined,
@@ -19,12 +19,67 @@ import Inbox from '../Inbox';
 import BookingHistory from '../bookingHistory';
 import Wishlist from '../Wishlist';
 import UserForm from '../userForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUserProfile, logoutUser } from '../../../redux/actions/authAction';
+import toast from 'react-hot-toast';
+import { clearError, clearMessage } from '../../../redux/reducers/authReducer';
 
 const { Content, Sider } = Layout;
 
 const SideBar = () => {
+  const dispatch = useDispatch();
+  const {user , loading, error, message } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const [collapsed, setCollapsed] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchUserProfile())
+  },[dispatch])
+
+  const logoutFunction = () => {
+    dispatch(logoutUser());
+  }
+
+  useEffect(() => {
+    if(error){
+      toast.error(error.message);
+      dispatch(clearError())
+    }
+    if(message){
+      toast.success(message);
+      dispatch(clearMessage());
+      navigate('/')
+    }
+  },[error, message, dispatch, toast, navigate])
+
+  const skeletonLoaderStyle = {
+    display: 'flex',
+    margin: '10px 0 10px 15px',
+    color: 'white',
+  };
+
+  const imageStyle = {
+    width: '60px',
+    height: '60px',
+    borderRadius: '50%',
+    backgroundColor: '#ccc', // Fallback color for image loading
+    marginRight: '5px',
+    animation: 'loadingAnimation 1.5s infinite ease-in-out',
+  };
+
+  const textStyle = {
+    width: '150px',
+    height: '20px',
+    backgroundColor: '#ccc', // Fallback color for text loading
+    marginBottom: '10px',
+    animation: 'loadingAnimation 1.5s infinite ease-in-out',
+  };
+
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -72,21 +127,34 @@ const SideBar = () => {
           </Layout>
         </div>
         <div className="logo">
-          {collapsed ? (
+          {loading ? (
+            <div style={skeletonLoaderStyle}>
+            <div style={imageStyle}></div>
+            <div>
+              <div style={textStyle}></div>
+              <div style={textStyle}></div>
+            </div>
+          </div>
+          ) : (
+            <>
+            {collapsed ? (
             <img
-              src={User}
-              style={{ width: "40px", height: "40px", margin: "10px 0 0 15px" }}
+              src={user?.photo}
+              style={{ width: "40px", height: "40px", margin: "10px 0 0 15px", borderRadius: "100%"  }}
               alt="User"
             />
           ) : (
             <div style={{ display: "flex", margin: "10px 0 10px 15px", color: "white" }}>
-              <img src={User} style={{ width: "60px", height: "60px" }} alt="User" />
+              <img src={user?.photo} style={{ width: "60px", height: "60px" , borderRadius: "100%" }} alt="User" />
               <div style={{ margin: "20px 0 0 5px" }}>
-                <h4>Anonymous</h4>
-                <h4>Since: Aug 2023</h4>
+                <h4>{user?.name}</h4>
+                <h4>Since: {formatDate(user?.createdAt)}</h4>
               </div>
             </div>
           )}
+            </>
+          )}
+          
         </div>
         <Menu mode="inline" defaultSelectedKeys={['1']} style={{ backgroundColor:"transparent",color: 'white',}} className="menu">
           <Menu.Item key="1" icon={<SettingOutlined />} >
@@ -105,7 +173,7 @@ const SideBar = () => {
           Inbox
           </Link>
           </Menu.Item>
-          <Menu.Item key="5" icon={<LogoutOutlined />}>
+          <Menu.Item onClick={logoutFunction} key="5" icon={<LogoutOutlined />}>
           Logout
           </Menu.Item>
         </Menu>
