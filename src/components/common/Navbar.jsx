@@ -52,14 +52,15 @@ const Navbar = ({ showOverlayMessage }) => {
     },
     {
       label: (
-        <Link  ><ShoppingCartOutlined style={{ fontSize: "50px" }} /></Link>
+        <Link  ><ShoppingCartOutlined style={{ fontSize: "40px" }} /></Link>
       ),
       key: 'Shoping',
 
     },
     {
       label: (
-        user ? <Link  ><UserOutlined style={{ fontSize: "50px" }} /></Link> : null
+        // user ? <Link  ><UserOutlined style={{ fontSize: "40px" }} /></Link> : null
+        <Link  ><UserOutlined style={{ fontSize: "40px" }} /></Link>
       ),
       key: 'profile',
     },
@@ -114,7 +115,21 @@ const Navbar = ({ showOverlayMessage }) => {
 
   const onClickMobileDrawerLink = (e) => {
     setCurrent2(e.key);
-
+    setCurrent2(e.key);
+    if (e.key === 'Shoping') {
+      showOverlayMessage(
+        <ShoppingComponent />
+      );
+      onClose();
+    } else if (e.key === 'profile') {
+      showOverlayMessage(
+        <ProfileComponent user={user} loading={loading} />
+      );
+      onClose();
+    } else {
+      // Close the drawer if any other link is clicked
+      onClose();
+    }
   }
   const onClick = (e) => {
     console.log('click ', e);
@@ -135,7 +150,7 @@ const Navbar = ({ showOverlayMessage }) => {
 
 
   const isMobile = useMediaQuery({
-    query: '(max-width: 786px)', // Change this breakpoint as needed
+    query: '(max-width: 1198px)', // Change this breakpoint as needed
   });
   const isNavShort = useMediaQuery({
     query: '(max-width: 1344px)', // Change this breakpoint as needed
@@ -145,62 +160,63 @@ const Navbar = ({ showOverlayMessage }) => {
     <>
 
       <Row style={{
-        padding: '0 100px',
+        padding: isMobile ? "0" : "0 100px",
         backgroundColor: navbarBackgroundColor,
-        // margin: '0 5%',
         position: 'fixed',
         top: 0,
         width: '100vw',
-        zIndex: "10"
+        zIndex: "10",
+
       }}>
-        <Col xs={12} sm={12} md={12} lg={12} xl={10}>
-          <Image
+        <Col xs={12} sm={12} md={12} lg={12} xl={4} style={{ display: "flex", justifyContent: "flex-start" }}>
+          <img
             src={Logo}
+            height={60}
           />
         </Col>
-        <Col xs={12} sm={12} md={12} lg={12} xl={14} align={"end"}  >
+        <Col xs={12} sm={12} md={12} lg={12} xl={20} align={"end"}  >
           {isMobile ? (
             <>
               <Button
                 type="text"
                 onClick={showDrawer}
-                icon={<MenuOutlined style={{ fontSize: '24px', color: 'black' }} />}
+                icon={<MenuOutlined style={{ fontSize: '24px', color: 'white' }} />}
               />
-              <Drawer placement="right" onClose={onClose} visible={open} style={{ backgroundColor: "#70ADBB", width: "50%" }}>
+              <Drawer placement="right" onClose={onClose} open={open} style={{ backgroundColor: "#70ADBB", }}>
                 <Row>
-                  <Col span={24} align="middle" style={{ margin: "15% 0" }}>
+                  <Col span={24} align="middle" style={{ margin: "5% 0" }}>
                     <Link to="/" onClick={(e) => onClickMobileDrawerLink({ key: 'home' })} style={{ color: current2 === 'home' ? 'black' : 'white', fontSize: "18px" }}>
                       Home
                     </Link>
                   </Col>
-                  <Col span={24} align="middle" style={{ margin: "15% 0" }}>
+                  <Col span={24} align="middle" style={{ margin: "5% 0" }}>
                     <Link to="/activity" onClick={(e) => onClickMobileDrawerLink({ key: 'activites' })} style={{ color: current2 === 'activites' ? 'black' : 'white', fontSize: "18px" }}>
                       activites
                     </Link>
                   </Col>
-                  <Col span={24} align="middle" style={{ margin: "15% 0" }}>
+                  <Col span={24} align="middle" style={{ margin: "5% 0" }}>
                     <Link to="/notfound" onClick={(e) => onClickMobileDrawerLink({ key: 'home' })} style={{ color: current2 === 'home' ? 'black' : 'white', fontSize: "18px" }}>
                       Packages
                     </Link>
                   </Col>
-                  <Col span={24} align="middle" style={{ margin: "15% 0" }}>
+                  <Col span={24} align="middle" style={{ margin: "5% 0" }}>
                     <Link to="/contact" onClick={(e) => onClickMobileDrawerLink({ key: 'activites' })} style={{ color: current2 === 'activites' ? 'black' : 'white', fontSize: "18px" }}>
                       Contact US
                     </Link>
                   </Col>
-                  <Col span={24} align="middle" style={{ margin: "15% 0" }}>
+                  <Col span={24} align="middle" style={{ margin: "5% 0" }}>
                     <Link to="/about" onClick={(e) => onClickMobileDrawerLink({ key: 'home' })} style={{ color: current2 === 'home' ? 'black' : 'white', fontSize: "18px" }}>
                       About US
                     </Link>
                   </Col>
-                  <Col span={24} align="middle" style={{ margin: "15% 0" }}>
-                    <Link to="/shopping" onClick={(e) => onClickMobileDrawerLink({ key: 'activites' })} style={{ color: current2 === 'activites' ? 'black' : 'white', fontSize: "18px" }}>
-                    <ShoppingCartOutlined style={{ fontSize: "50px" }} />
+                  <Col span={24} align="middle" style={{ margin: "5% 0" }}>
+                    <Link onClick={(e) => onClickMobileDrawerLink({ key: 'Shoping' })} style={{ color: current2 === 'Shoping' ? 'black' : 'white', fontSize: "18px" }}>
+                      <ShoppingCartOutlined style={{ fontSize: "50px" }} />
                     </Link>
                   </Col>
-                  <Col span={24} align="middle" style={{ margin: "15% 0" }}>
-                    <Link to="/profile" onClick={(e) => onClickMobileDrawerLink({ key: 'activites' })} style={{ color: current2 === 'activites' ? 'black' : 'white', fontSize: "18px" }}>
-                      Profile
+                  <Col span={24} align="middle" style={{ margin: "5% 0" }}>
+                    <Link onClick={(e) => onClickMobileDrawerLink({ key: 'profile' })} style={{ color: current2 === 'profile' ? 'black' : 'white', fontSize: "18px" }}>
+                      <UserOutlined style={{ fontSize: "50px" }} />
                     </Link>
                   </Col>
 
@@ -209,6 +225,7 @@ const Navbar = ({ showOverlayMessage }) => {
               </Drawer>
             </>
           ) : (
+
             <ConfigProvider
               theme={{
                 token: {
@@ -216,11 +233,13 @@ const Navbar = ({ showOverlayMessage }) => {
                   colorPrimary: 'black',
                   fontSize: 20,
                   lineHeight: "21px",
-                  colorText: isNavShort ? "black" : "white"
+                  colorText: "white"
 
                 },
               }}
-            ><Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent', marginLeft: "30%" }} /> </ConfigProvider>
+
+            >
+              <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent', display: "flex", justifyContent: "end" }} /></ConfigProvider>
           )}
         </Col>
       </Row>
