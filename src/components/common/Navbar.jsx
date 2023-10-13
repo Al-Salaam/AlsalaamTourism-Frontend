@@ -174,7 +174,7 @@ const Navbar = ({ showOverlayMessage }) => {
             height={60}
           />
         </Col>
-        <Col xs={12} sm={12} md={12} lg={12} xl={20} style={{ display: "flex", justifyContent: "flex-end" }}  >
+        <Col xs={12} sm={12} md={12} lg={12} xl={20} style={{ position:"fixed",right:"3%"}}  >
           {isMobile ? (
             <>
               <Button
