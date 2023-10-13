@@ -76,7 +76,7 @@ function SingleActivity() {
                     </Row>
                     <Row>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={{ margin: "5% 0", padding: "0 2%" }}>
-                            <AverageRating activity={activity} />
+                            <AverageRating reviews={activity?.noOfReviews} rating={activity?.ratings}  module={activity}/>
                             <RatingInput activity={activity}/>
                         </Col>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={{ margin: "5% 0", padding: "0 2%", display: isSmallScreen ? "none" : "" }} align="middle">

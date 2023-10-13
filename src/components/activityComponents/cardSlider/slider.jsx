@@ -58,7 +58,8 @@ const CardSlider = ({reviews}) => {
     return (
         <div>
             {renderCards()}
-            <div style={{ marginTop: '20px', textAlign: 'center' }}>
+            {reviews?.length === 0 ? null : (<>
+                <div style={{ marginTop: '20px', textAlign: 'center' }}>
                 <Button onClick={handlePreviousClick} disabled={currentPage === 0}>
                     Previous
                 </Button>
@@ -66,6 +67,8 @@ const CardSlider = ({reviews}) => {
                     Next
                 </Button>
             </div>
+            </>)}
+            
         </div>
     );
 };

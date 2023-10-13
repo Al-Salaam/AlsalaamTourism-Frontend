@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const itemsPerPage = 3;
 
 const ActivitySlider = ({data}) => {
+    
     const { Title } = Typography;
     const [currentPage, setCurrentPage] = useState(0);
   
@@ -43,7 +44,7 @@ const ActivitySlider = ({data}) => {
             <Row gutter={20} >
                 
                 {cardsToShow?.map((item) => (
-                    <Col align="middle" key={item._id} xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>
+                    <Col align="middle" key={item?._id} xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>
                         <FlipCard style={{ border: "red 1px solid" }} imageSrc={item?.images[0]?.url} title1={item.name} rate={item.ratings} price={item.price} shortdescription={item.shortdescription} activityId={item._id} noOfReviews={item.noOfReviews}/>
                     </Col>
                 ))}

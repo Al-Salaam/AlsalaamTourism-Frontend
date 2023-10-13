@@ -73,8 +73,8 @@ const FlipCard = (props) => {
                         }}
                     >
 
-                        <div style={{display: 'flex', alignItems:'center', gap: '10px'}}>
-                            
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+
                             <ReactStars
                                 count={props.noOfReviews === 0 ? 1 : props.rate}
                                 value={props.noOfReviews === 0 ? 1 : props.rate}
@@ -151,7 +151,21 @@ const FlipCard = (props) => {
                         }}
                     >
 
-                        <div><Rate count={props.rate === 0 ? 1 : props.rate} defaultValue={props.rate === 0 ? 1 : props.rate} /> &nbsp; {props.rate}</div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+
+                            <ReactStars
+                                count={props.noOfReviews === 0 ? 1 : props.rate}
+                                value={props.noOfReviews === 0 ? 1 : props.rate}
+                                size={28}
+                                disabled
+                                isHalf={true}
+                                edit={false}
+                                emptyIcon={<i className="far fa-star"></i>}
+                                halfIcon={<i className="fa fa-star-half-alt"></i>}
+                                fullIcon={<i className="fa fa-star"></i>}
+                                activeColor="#ffd700"
+                            />  {props.noOfReviews === 0 ? 0 : props.rate}
+                        </div>
                     </h3>
 
                     <h3 style={{ margin: "auto", padding: "5%" }}>{props.shortdescription}</h3>
