@@ -1,12 +1,12 @@
 import { Button, Card, Checkbox, Col, Input, Row } from 'antd';
-import User from "../../../../images/client4.png";
 import TextArea from 'antd/es/input/TextArea';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addLocation } from '../../../redux/actions/personalInfoAction';
+import { addLocation, addPersonalInfo, changePasswordAction } from '../../../redux/actions/personalInfoAction';
 import toast from 'react-hot-toast';
 import { clearError, clearMessage } from '../../../redux/reducers/personalInformationReducer';
 import { fetchUserProfile } from '../../../redux/actions/authAction';
+import {Loader} from '../../common/loader'
 const UserForm = () => {
 
   // state for Location
@@ -14,8 +14,8 @@ const UserForm = () => {
 
   const dispatch = useDispatch();
 
-  const {loading, message , error} = useSelector((state) => state.personalInfo)
-  const {user} = useSelector((state) => state.auth);
+  const { loading, message, error } = useSelector((state) => state.personalInfo)
+  const { user } = useSelector((state) => state.auth);
 
   const [homeAirport, setHomeAirport] = useState('');
   const [address, setAddress] = useState('');
@@ -23,14 +23,22 @@ const UserForm = () => {
   const [stateProvinceRegion, setStateProvinceRegion] = useState('');
   const [zipPostalCode, setZipPostalCode] = useState('');
   const [country, setCountry] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [aboutself, setAboutSelf] = useState('');
+  const [oldPassword, setOldPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [reEnterPassword, setReEnterPassword] = useState('');
+
 
   useEffect(() => {
     dispatch(fetchUserProfile())
-  },[dispatch])
+  }, [dispatch])
 
   const addLocationFunc = (e) => {
     e.preventDefault();
-    const locationData = { 
+    const locationData = {
       homeairport: homeAirport,
       address: address,
       city: city,
@@ -41,6 +49,31 @@ const UserForm = () => {
     dispatch(addLocation(locationData))
   }
 
+  const addPersonalInformation = (e) => {
+    e.preventDefault();
+    const personalData = {
+      name: name,
+      email: email,
+      phone: phone,
+      aboutself: aboutself
+    }
+    dispatch(addPersonalInfo(personalData))
+  }
+
+  const changePasswordFunc = (e) => {
+    e.preventDefault();
+    const passData = {
+      oldPassword : oldPassword,
+      newPassword: newPassword
+    }
+
+    if(newPassword === reEnterPassword){
+      dispatch(changePasswordAction(passData))
+    }else{
+      toast.error('Re-Enter Password does not match')
+    }
+  }
+
   useEffect(() => {
     if (user) {
       setHomeAirport(user.homeairport || '');
@@ -49,18 +82,22 @@ const UserForm = () => {
       setStateProvinceRegion(user.state || '');
       setZipPostalCode(user.zipcode || '');
       setCountry(user.country || '');
+      setName(user.name || '');
+      setEmail(user.email || '');
+      setPhone(user.phone || '');
+      setAboutSelf(user.aboutself || '');
     }
-    if(error){
+    if (error) {
       toast.error(error.message)
       dispatch(clearError())
     }
-    if(message){
+    if (message) {
       toast.success(message)
       dispatch(clearMessage())
     }
-  },[error, message, toast, dispatch, user])
+  }, [error, message, toast, dispatch, user])
 
- 
+
 
 
 
@@ -101,6 +138,8 @@ const UserForm = () => {
 
   return (
     <>
+    {loading ? <Loader /> : (
+      <>
       <Col
         xs={24}
         md={12}
@@ -127,7 +166,7 @@ const UserForm = () => {
           {/* LEFT SIDE */}
           <Col>
             <Row>
-              <img src={User} />
+              <img src={user?.photo} alt='USER IMAGE' style={{ borderRadius: "100%", width: '200px', height: "200px" }} />
             </Row>
             <Row>
               <h3 style={{ marginLeft: "45px", marginBottom: "20px" }}>Edit Profile</h3>
@@ -157,7 +196,9 @@ const UserForm = () => {
                   type="text"
                   id="FirstName"
                   style={inputStyle}
-                  placeholder="First Name"
+                  placeholder="Enter the First Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </Col>
 
@@ -173,10 +214,12 @@ const UserForm = () => {
                   Email
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   id="Email"
                   style={inputStyle}
                   placeholder="Enter your Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </Col>
             </Row>
@@ -198,10 +241,12 @@ const UserForm = () => {
                   Phone Number
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   id="Phone"
                   style={inputStyle}
-                  placeholder="First Name"
+                  placeholder="Enter the phone number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </Col>
 
@@ -219,27 +264,16 @@ const UserForm = () => {
                 <TextArea
                   type='text'
                   id="About"
-                  placeholder="Enter your Email"
+                  placeholder="About your self"
+                  value={aboutself}
+                  onChange={(e) => setAboutSelf(e.target.value)}
                 />
               </Col>
             </Row>
             {/*  Row 3 */}
-            <Row>
-              <Col
-                xs={24}
-                md={24}
-                sm={24}
-                lg={12}
-                xl={24}
 
-              >
-                <Checkbox >
-                  Show email and phone number to other accounts
-                </Checkbox>
-              </Col>
-            </Row>
             <Row style={{ display: "flex", justifyContent: "flex-end", marginTop: "20px" }}>
-              <Button size="large" style={{ background: "#018D97", color: "white" }}>Save Changes</Button>
+              <Button disabled={loading} onClick={addPersonalInformation} size="large" style={{ background: "#018D97", color: "white" }}>{"Save Changes"}</Button>
             </Row>
           </Col>
         </Row>
@@ -401,7 +435,7 @@ const UserForm = () => {
               </Col>
             </Row>
             <Row style={{ display: "flex", justifyContent: "flex-end" }}>
-              <Button disabled={loading} onClick={addLocationFunc} size="large" style={{ background: "#018D97", color: "white" }}>{loading ? "loading..." : "Save Change"}</Button>
+              <Button disabled={loading} onClick={addLocationFunc} size="large" style={{ background: "#018D97", color: "white" }}>{"Save Change"}</Button>
             </Row>
           </Col>
         </Row>
@@ -439,7 +473,8 @@ const UserForm = () => {
                   type="password"
                   id="currentpassword"
                   style={inputStyle}
-
+                  value={oldPassword}
+                  onChange={(e) => setOldPassword(e.target.value)}
                 />
               </Col>
 
@@ -459,6 +494,8 @@ const UserForm = () => {
                   id="newPassword"
                   style={inputStyle}
                   placeholder="New Password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
                 />
               </Col>
             </Row>
@@ -479,23 +516,28 @@ const UserForm = () => {
                 <label htmlFor="FirstName" style={labelStyle}>
                   Re-enter New Password
                 </label>
-                <input
-                  type="text"
+                <Input.Password
+                  type="password"
                   id="newPassword"
                   style={inputStyle}
                   placeholder="Re-enter New Password"
+                  value={reEnterPassword}
+                  onChange={(e) => setReEnterPassword(e.target.value)}
                 />
               </Col>
             </Row>
             {/*  Row 3 */}
             <Row style={{ display: "flex", justifyContent: "flex-end" }}>
-              <Button size="large" style={{ background: "#018D97", color: "white" }}>Save Changes</Button>
+              <Button disabled={loading} onClick={changePasswordFunc} size="large" style={{ background: "#018D97", color: "white" }}>{'Save Changes'}</Button>
             </Row>
           </Col>
         </Row>
 
       </Card>
     </>
+    ) }
+    </>
+    
   )
 }
 
