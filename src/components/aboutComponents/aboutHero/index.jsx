@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Row, Col } from 'antd';
 import PrimaryButton from "../../common/buttons/primary"
 import { useMediaQuery } from 'react-responsive';
@@ -9,12 +9,15 @@ const AboutHero = ({ description, videoSource }) => {
   const isMobile = useMediaQuery({
     query: '(max-width: 1305px)', // Change this breakpoint as needed
   });
+  const isTablet = useMediaQuery({
+    query: '(max-width: 1024px)', // Change this breakpoint as needed
+  });
   return (
     <Row  >
       {/* First Column for Description */}
-      <Col  xs={24} sm={24} md={12} lg={12} xl={12}  style={{ color:"white", background: 'linear-gradient(180deg, #70ADBB 0%, #018D97 100%)', padding: isMobile ? "" :"7%"}}>
+      <Col  xs={24} sm={24} md={12} lg={12} xl={12}  style={{paddingBottom:isTablet ? "20px":"", color:"white", background: 'linear-gradient(180deg, #70ADBB 0%, #018D97 100%)', padding: isMobile ? "" :"7%"}}>
           <h1 style={{marginTop:isMobile ? "11%" :"1%"}}>About Alsalaam</h1>
-          <p style={{margin:"2%"}}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions. We enjoy a stellar reputation of excellence in Dubai's tourism sector. We place the needs of our clients first and go the extra mile in ensuring our customer’s travel experience is laced with comfort and beautiful memories that endure for a lifetime.</p>
+          <p style={{margin:"2%",fontSize:isTablet ? "10px":"15px",marginBottom:isTablet ? "10px":"10px"}}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions. We enjoy a stellar reputation of excellence in Dubai's tourism sector. We place the needs of our clients first and go the extra mile in ensuring our customer’s travel experience is laced with comfort and beautiful memories that endure for a lifetime.</p>
           <PrimaryButton title={"Explore Destination"} width="200px" />
       </Col>
 

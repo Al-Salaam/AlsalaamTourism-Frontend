@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { AppstoreOutlined, MailOutlined, SettingOutlined, MenuOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
-import { Menu, Row, Col, Drawer, Button, ConfigProvider, Image } from 'antd';
+import { useEffect, useState } from 'react';
+import { MenuOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
+import { Menu, Row, Col, Drawer, Button, ConfigProvider} from 'antd';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import Logo from "../../../images/alsalaamLogo.png"
