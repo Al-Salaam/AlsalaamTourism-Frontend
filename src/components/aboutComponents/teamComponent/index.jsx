@@ -28,9 +28,9 @@ function ImageWithText({ imageUrl, mainText, rotatedText }) {
   return (
     
     
-    <Row justify="center" style={{margin:"2%"}}>
+    <Row justify="center" style={{margin:"0", padding:"0"}}>
         <Col   >
-    <div className="image-with-text" style={containerStyle}>
+    <div  style={containerStyle}>
       <div style={rotatedTextStyle}>{mainText} </div>
       <div>
       <img src={imageUrl} alt="Image" width="100%"/>
