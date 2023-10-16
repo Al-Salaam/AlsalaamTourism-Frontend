@@ -1,4 +1,4 @@
-import { Row, Col, Image, Space, Typography, Button, Input, ConfigProvider } from 'antd';
+import { Row, Col, Space, Typography, Button, Input, ConfigProvider } from 'antd';
 import { Link } from "react-router-dom";
 import { SendOutlined } from '@ant-design/icons';
 import Phone from "../../../../images/phone-bold.png";
@@ -57,6 +57,7 @@ function Footer() {
                 </Col>
 
                 <Col xs={24} sm={24} md={12} lg={6} xl={6} style={{ paddingLeft: isSmallestScreen ? "" :"5%",paddingTop:isSmallestScreen ? "5%" :"" }} >
+                <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px", }}>Our Team</Link></Col></Row>
                     <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px", }}>Blog</Link></Col></Row>
                     <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px" }}>Contact US</Link></Col></Row>
                     <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px" }}>Carrer</Link></Col></Row>
