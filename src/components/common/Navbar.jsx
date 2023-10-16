@@ -52,15 +52,15 @@ const Navbar = ({ showOverlayMessage }) => {
     },
     {
       label: (
-        <Link  ><ShoppingCartOutlined style={{ fontSize: "40px" }} /></Link>
-      ),
+        <ShoppingCartOutlined style={{ fontSize: "40px" }} />),
       key: 'Shoping',
 
     },
     {
       label: (
         // user ? <Link  ><UserOutlined style={{ fontSize: "40px" }} /></Link> : null
-        <Link  ><UserOutlined style={{ fontSize: "40px" }} /></Link>
+        user ? <UserOutlined style={{ fontSize: "40px" }} /> : <Link to="/login" >Login</Link>
+
       ),
       key: 'profile',
     },
@@ -174,7 +174,7 @@ const Navbar = ({ showOverlayMessage }) => {
             height={60}
           />
         </Col>
-        <Col xs={12} sm={12} md={12} lg={12} xl={20}  style={{ display: "flex", justifyContent: "flex-end" }}  >
+        <Col xs={12} sm={12} md={12} lg={12} xl={20} style={{ display: "flex", justifyContent: "flex-end" }}  >
           {isMobile ? (
             <>
               <Button
@@ -239,7 +239,7 @@ const Navbar = ({ showOverlayMessage }) => {
               }}
 
             >
-              <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent'}} /></ConfigProvider>
+              <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent' }} /></ConfigProvider>
           )}
         </Col>
       </Row>

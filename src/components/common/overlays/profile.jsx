@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Row, Col, Divider, Image, Typography } from 'antd';
 import dashboardIcon from '../../../../images/dashboardicon.png'
+import { Link } from 'react-router-dom';
 const ProfileComponent = ({loading, user}) => {
   const { Title } = Typography;
  
@@ -23,7 +24,9 @@ const ProfileComponent = ({loading, user}) => {
               <Image src={dashboardIcon} alt={"icon"} />
             </Col>
             <Col span={12} align={"middle"}>
-              <Title level={5}>Dashboard</Title>
+              <Link to={'/user-panel/user-form'}>
+              <Title style={{cursor: 'pointer'}} level={5}>Dashboard</Title>
+              </Link>
             </Col>
           </Row>
         </>
