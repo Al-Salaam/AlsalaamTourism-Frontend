@@ -27,7 +27,8 @@ import { Loader } from '../common/loader';
 import { Link } from 'react-router-dom';
 import { addtoWishlist } from '../../redux/actions/wishlistAction';
 import toast from 'react-hot-toast';
-import { clearError, clearMessage } from '../../redux/reducers/WishlistReducer';
+import { clearError, clearMessage } from '../../redux/reducers/wishlistReducer';
+
 
 
 const { Meta } = Card;
