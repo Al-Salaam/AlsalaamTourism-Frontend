@@ -5,7 +5,7 @@ import {
   CloseOutlined,
 } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchWishlistData, removeWishListItems } from '../../../redux/actions/wishlistAction';
 import { toast } from 'react-hot-toast'
 /* const { Meta } = Card; */
@@ -14,7 +14,7 @@ import {clearError, clearMessage} from '../../../redux/reducers/wishlistReducer'
 const Wishlist = () => {
   const dispatch = useDispatch();
   const { loading, data, error, message } = useSelector((state) => state.wishlist);
-
+  const [filter, setFilter] = useState('All');
   useEffect(() => {
     dispatch(fetchWishlistData())
   }, [dispatch])
@@ -22,6 +22,10 @@ const Wishlist = () => {
 
   const removeItemFunc = (itemId, itemType) => {
     dispatch(removeWishListItems({ itemId, itemType }));
+  };
+
+  const handleFilterChange = (value) => {
+    setFilter(value);
   };
 
   useEffect(() => {
@@ -92,9 +96,11 @@ const Wishlist = () => {
                 name="cars"
                 style={{ width: "200px", height: "40px", borderRadius: "10px" }}
                 defaultValue="All"
+                onChange={handleFilterChange}
               >
                 <Select.Option value="All">All</Select.Option>
-                <Select.Option value="Tour">Tour</Select.Option>
+                <Select.Option value="activities">Activities</Select.Option>
+                <Select.Option value="packages">Packages</Select.Option>
               </Select>
             </Col>
           </Row>
@@ -102,7 +108,7 @@ const Wishlist = () => {
 
 
           <Row gutter={[12, 12]} xs={24} sm={24} md={24} lg={24} xl={24}>
-            {data?.activities?.map((item, index) => (
+            {data?.activities?.filter((item) => filter === 'All' || filter === 'activities')?.map((item, index) => (
               <>
                 <Card hoverable key={item?._id}>
                   <Row gutter={[12, 12]} xs={24} sm={24} md={24} lg={24} xl={24}>
@@ -155,7 +161,7 @@ const Wishlist = () => {
               </>
             ))}
 
-      {data?.packages?.map((item, index) => (
+      {data?.packages?.filter((item) => filter === 'All' || filter === 'packages')?.map((item, index) => (
               <>
                 <Card hoverable key={item?._id}>
                   <Row gutter={[12, 12]} xs={24} sm={24} md={24} lg={24} xl={24}>
