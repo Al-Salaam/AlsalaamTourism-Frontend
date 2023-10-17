@@ -45,7 +45,7 @@ function About() {
 
       <Row justify="center">
         <Col>
-          <h1 style={{ margin: "15% 0" }}>Meet The team</h1>
+          <h1 style={{ margin: "15% 0" }}>Meet The Team</h1>
         </Col>
       </Row>
       <Row>
