@@ -10,7 +10,7 @@ import { fetchWishlistData, removeWishListItems } from '../../../redux/actions/w
 import { toast } from 'react-hot-toast'
 /* const { Meta } = Card; */
 import { Loader } from '../../common/loader'
-import { clearError, clearMessage } from '../../../redux/reducers/WishlistReducer';
+import {clearError, clearMessage} from '../../../redux/reducers/wishlistReducer'
 const Wishlist = () => {
   const dispatch = useDispatch();
   const { loading, data, error, message } = useSelector((state) => state.wishlist);
