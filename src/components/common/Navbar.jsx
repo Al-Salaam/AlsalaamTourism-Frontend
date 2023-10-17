@@ -52,7 +52,7 @@ const Navbar = ({ showOverlayMessage }) => {
     },
     {
       label: (
-        <Link  ><ShoppingCartOutlined style={{ fontSize: "40px" }} /></Link>
+        <Link  ><ShoppingCartOutlined style={{ fontSize: "28px" }} /></Link>
       ),
       key: 'Shoping',
 
@@ -60,7 +60,7 @@ const Navbar = ({ showOverlayMessage }) => {
     {
       label: (
         // user ? <Link  ><UserOutlined style={{ fontSize: "40px" }} /></Link> : null
-        <Link  ><UserOutlined style={{ fontSize: "40px" }} /></Link>
+        <Link  ><UserOutlined style={{ fontSize: "28px" }} /></Link>
       ),
       key: 'profile',
     },
@@ -160,7 +160,7 @@ const Navbar = ({ showOverlayMessage }) => {
     <>
 
       <Row style={{
-        padding: isMobile ? "10px" : "0 100px",
+        padding: isMobile ? "10px" : "10px 100px",
         backgroundColor: navbarBackgroundColor,
         position: 'fixed',
         top: 0,

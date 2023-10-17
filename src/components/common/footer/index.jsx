@@ -15,7 +15,9 @@ import Instagram from "../../../../images/instagram.png";
 import { useMediaQuery } from 'react-responsive';
 const {Title} = Typography;
 function Footer() {
-    
+    const isTablet = useMediaQuery({
+        query: '(max-width: 525px)', // Change this breakpoint as needed
+      });
     const isSmallestScreen = useMediaQuery({ maxWidth: 990 });
     return (
     
@@ -23,9 +25,9 @@ function Footer() {
         <Col span={24}>
             <Row align={'middle'} style={{ backgroundColor: "#EFEFFF", padding: "1%" }} >
 
-                <Col span={12} align={"middle"} justify={"center"} ><Row align={"middle"} justify={"center"}><Col><img src={Phone} /></Col><Col><Title level={5}> Call on +971524928120</Title></Col></Row></Col>
+                <Col span={12} align={"middle"} justify={"center"} ><Row align={"middle"} justify={"center"}><Col><img src={Phone} /></Col><Col><Title  style={{fontSize:isTablet?"11px":"15px"}}> Call on +971524928120</Title></Col></Row></Col>
 
-                <Col span={12} align={"center"}> <Row align={"middle"} justify={"center"}><Col><img src={Msg} /></Col><Col><Title level={5}> info@alsalaamtourism.com</Title></Col></Row> </Col>
+                <Col span={12} align={"center"}> <Row align={"middle"} justify={"center"}><Col><img src={Msg} /></Col><Col><Title style={{fontSize:isTablet?"12px":"15px"}}> info@alsalaamtourism.com</Title></Col></Row> </Col>
             </Row>
             <Row align={'middle'} style={{ backgroundColor: "#4CAAB8", padding: "1%" }} >
 
@@ -80,7 +82,7 @@ function Footer() {
 
                     <Row align={"left"} justify={"left"}>
                         <Col span={18}>
-                            <Input placeholder="Input your email" />
+                            <Input placeholder="Input your email here" />
                         </Col>
                         <Col span={6}>
                             <ConfigProvider

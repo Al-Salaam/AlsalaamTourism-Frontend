@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import withNavbar from "../../components/common/HOCNabar";
 import TwoCardShowCase from "../../components/common/twoCardShowCase";
 import Footer from "../../components/common/footer";
