@@ -5,22 +5,24 @@ import { Menu, Row, Col, Drawer, Button, ConfigProvider, Image } from 'antd';
 const containerStyle = {
   display: 'flex',
   alignItems: 'center', // Vertical centering
-  marginLeft:"-80px",
-  
-
+  // marginLeft:"-80px",
+  width:"500px",
+  // border:"5px solid salmon",
+  justifyContent:"center",
+  margin:"2%"
 };
 
 const rotatedTextStyle = {
-  transform: 'rotate(-90deg)', // Rotate text
+  transform: 'rotate(-90deg)',
   whiteSpace: 'nowrap', // Prevent text from wrapping
-  marginRight:"-90px",
-  marginBottom:"-30%", // Adjust as needed for spacing
+  marginLeft:"-400px",
+  marginBottom:"-30px",
   color:"#2C2727",
-  
+  // border:"5px solid gray"
 };
 
 const mainTextStyle = {
-  marginLeft: '10px', // Adjust as needed for spacing
+  marginLeft: '10px', 
   color:"#2C2727"
 };
 
@@ -28,12 +30,13 @@ function ImageWithText({ imageUrl, mainText, rotatedText }) {
   return (
     
     
-    <Row justify="center" style={{margin:"2%"}}>
-        <Col   >
-    <div className="image-with-text" style={containerStyle}>
-      <div style={rotatedTextStyle}>{mainText} </div>
+    <Row justify="center" style={{margin:"0", padding:"0"}}>
+        <Col  align={"right"}>
+    <div  style={containerStyle}>
+      
       <div>
-      <img src={imageUrl} alt="Image" width="100%"/>
+      <div style={rotatedTextStyle}>{mainText} </div>
+      <img src={imageUrl} alt="Image" width="350px" style={{border:"3px solid skyblue"}}/>
       <div style={mainTextStyle}>{rotatedText}</div>
       </div>
     </div>
