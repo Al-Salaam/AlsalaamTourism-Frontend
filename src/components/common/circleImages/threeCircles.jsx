@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Row, Col, Typography } from 'antd';
 import image1 from "../../../../images/threeCircel1.png";
 import image2 from "../../../../images/threeCircle2.png";

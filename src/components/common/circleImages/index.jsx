@@ -143,13 +143,14 @@ function CircleComponent() {
               </div>
             </Col>
             <Col span={8} align="middle"  >
-              <div style={{marginRight:"-95%"}}>
+              <div style={{marginLeft:"70%"}}>
               <div
                 style={{
-                  marginRight:"-10%",
+                  marginLeft:"30%",
                                     ...circleStyles.smallCircle,
                   backgroundImage: `url(${circleData[3].image})`,
                   backgroundSize: 'cover',
+                  marginBottom:"10%"
                 }}
                 onClick={() => handleCircleClick(3)}
               ></div>
@@ -159,11 +160,13 @@ function CircleComponent() {
                   backgroundImage: `url(${circleData[4].image})`,
                   backgroundSize: 'cover',
                   marginLeft: '-30%',
+                  marginBottom:"10%"
                 }}
                 onClick={() => handleCircleClick(4)}
               ></div>
               <div
                 style={{
+                  marginLeft:"30%",
                   ...circleStyles.smallCircle,
                   backgroundImage: `url(${circleData[5].image})`,
                   backgroundSize: 'cover',
