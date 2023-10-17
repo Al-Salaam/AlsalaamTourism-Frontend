@@ -150,31 +150,31 @@ const Navbar = ({ showOverlayMessage }) => {
 
 
   const isMobile = useMediaQuery({
-    query: '(max-width: 1198px)', // Change this breakpoint as needed
+    query: '(max-width: 1700px)', // Change this breakpoint as needed
   });
   const isNavShort = useMediaQuery({
-    query: '(max-width: 1344px)', // Change this breakpoint as needed
+    query: '(max-width: 1214)', // Change this breakpoint as needed
   });
 
   return (
     <>
 
-      <Row style={{
+      <Row justify="end" style={{
         padding: isMobile ? "10px" : "0 100px",
         backgroundColor: navbarBackgroundColor,
         position: 'fixed',
         top: 0,
         width: '100vw',
         zIndex: "10",
-
+        
       }}>
-        <Col xs={12} sm={12} md={12} lg={12} xl={4} style={{ display: "flex", justifyContent: "flex-start" }}>
+        <Col xs={4} sm={4} md={4} lg={4} xl={4} xxl={4}  >
           <img
             src={Logo}
             height={60}
           />
         </Col>
-        <Col xs={12} sm={12} md={12} lg={12} xl={20} style={{ display: "flex", justifyContent: "flex-end" }}  >
+        <Col xs={20} sm={20} md={20} lg={20} xl={20} xxl={20} style={{ display:"flex", justifyContent:"end"}}  >
           {isMobile ? (
             <>
               <Button
@@ -216,7 +216,7 @@ const Navbar = ({ showOverlayMessage }) => {
                   </Col>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
                     <Link onClick={(e) => onClickMobileDrawerLink({ key: 'profile' })} style={{ color: current2 === 'profile' ? 'black' : 'white', fontSize: "18px" }}>
-                      <UserOutlined style={{ fontSize: "50px" }} />
+                      <UserOutlined style={{ fontSize: "20px" }} />
                     </Link>
                   </Col>
 
@@ -232,14 +232,12 @@ const Navbar = ({ showOverlayMessage }) => {
 
                   colorPrimary: 'black',
                   fontSize: 20,
-                  lineHeight: "21px",
-                  colorText: "white"
-
+                  colorText: "white",
                 },
               }}
 
             >
-              <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent' }} /></ConfigProvider>
+              <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent',width: isNavShort ? "60vw" : "38vw", display:"inline" }} /></ConfigProvider>
           )}
         </Col>
       </Row>
