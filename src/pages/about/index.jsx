@@ -52,7 +52,7 @@ function About() {
         {imageCardData.map((data, index) => (
           <Col
             xs={24}
-            sm={12}
+            sm={24}
             md={12}
             lg={12}
             xl={index === imageCardData.length - 1 ? 24 : 8}
