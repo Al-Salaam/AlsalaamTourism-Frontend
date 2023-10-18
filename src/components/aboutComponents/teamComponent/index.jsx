@@ -6,16 +6,17 @@ const containerStyle = {
   display: 'flex',
   alignItems: 'center', // Vertical centering
   // marginLeft:"-80px",
-  width:"500px",
+  width:"280px",
   // border:"5px solid salmon",
   justifyContent:"center",
-  margin:"2%"
+  margin:"2%",
+  
 };
 
 const rotatedTextStyle = {
   transform: 'rotate(-90deg)',
   whiteSpace: 'nowrap', // Prevent text from wrapping
-  marginLeft:"-400px",
+  marginLeft:"-300px",
   marginBottom:"-30px",
   color:"#2C2727",
   // border:"5px solid gray"
@@ -36,7 +37,7 @@ function ImageWithText({ imageUrl, mainText, rotatedText }) {
       
       <div>
       <div style={rotatedTextStyle}>{mainText} </div>
-      <img src={imageUrl} alt="Image" width="350px" style={{border:"3px solid skyblue"}}/>
+      <img src={imageUrl} alt="Image" width={"100%"} />
       <div style={mainTextStyle}>{rotatedText}</div>
       </div>
     </div>
