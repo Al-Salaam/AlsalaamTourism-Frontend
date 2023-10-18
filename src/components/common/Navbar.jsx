@@ -150,12 +150,12 @@ const Navbar = ({ showOverlayMessage }) => {
 
 
   const isMobile = useMediaQuery({
-    query: '(max-width: 1700px)', // Change this breakpoint as needed
+    query: '(max-width: 1024px)', // Change this breakpoint as needed
   });
   const isNavShort = useMediaQuery({
-    query: '(max-width: 1214)', // Change this breakpoint as needed
+    query: '(max-width: 1209)', // Change this breakpoint as needed
   });
-
+  
   return (
     <>
 
@@ -173,6 +173,7 @@ const Navbar = ({ showOverlayMessage }) => {
           <img
             src={Logo}
             height={60}
+            
           />
         </Col>
         <Col xs={20} sm={20} md={20} lg={20} xl={20} xxl={20} style={{ display:"flex", justifyContent:"end"}}  >
@@ -238,7 +239,7 @@ const Navbar = ({ showOverlayMessage }) => {
               }}
 
             >
-              <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent',width: isNavShort ? "60vw" : "38vw", display:"inline" }} /></ConfigProvider>
+              <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent',width:"800px",display:"flex",justifyContent:"center" }} /></ConfigProvider>
           )}
         </Col>
       </Row>
