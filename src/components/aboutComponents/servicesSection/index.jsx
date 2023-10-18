@@ -1,5 +1,4 @@
-import React from 'react';
-import { Row, Col, Card } from 'antd';
+import { Row, Col} from 'antd';
 import FlipCardServices from '../servicesCard';
 import Icon1 from "../../../../images/service1.png"
 import Icon2 from "../../../../images/serviceicon2.png"
@@ -43,10 +42,10 @@ const cardData = [
 const ServicesSection = () => {
     return (
         <Row style={{ paddingTop: "5%" }}>
-            <Col xs={24} sm={8} md={8} lg={8}>
+            <Col xs={24} sm={8} md={8} lg={8} style={{ paddingLeft: '16px' }}>
 
                 <div style={{ padding: '16px' }}>
-                    <h1>Our Serrvices</h1>
+                    <h1 style={{marginBottom:"10px"}}>Our Services</h1>
                     <p>Regardless of your location at any time, you can access all of our tour packages and enjoy the same top-quality service. You can also partake in all our offerings and promotions. This is because we are driven to make your comfort our obsession and your satisfaction our daily assignment.</p>
                 </div>
             </Col>

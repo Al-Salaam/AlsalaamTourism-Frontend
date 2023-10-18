@@ -1,27 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import FlipCard from "../../components/common/recomandedSection/index2";
 import PrimaryButton from '../../components/common/buttons/primary';
-import { Row, Col, Select, Input, Button, Slider } from 'antd';
-import { useMediaQuery } from 'react-responsive';
+import { Row, Col, Input, Button, Slider } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-
-import AinDubai from "../../../images/ainDubai.png"
-import CityTour from "../../../images/alAinCityTour.png"
-import WaterPark from "../../../images/alMontazahWaterPark.png"
-import AquaVenture from "../../../images/aquaVenture.png"
-import BananaBoat from "../../../images/bananaBoat.png"
-import Selfie from "../../../images/3dSelfie.png"
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchActivities } from '../../redux/actions/activityAction';
 import { Loader } from '../common/loader';
 
 
 
-const { Option } = Select;
+
 function OurActivity() {
 
-    const isSmallScreen = useMediaQuery({ maxWidth: 1198 });
-    const isSmallestScreen = useMediaQuery({ maxWidth: 430 });
+
 
     const [selectedPriceFilter, setSelectedPriceFilter] = useState(null);
     const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
@@ -126,7 +117,7 @@ function OurActivity() {
                     />
 
                 </Col>
-                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={8}>
+                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={8} >
 
                     <Button
                         onClick={() => handleButtonClick(null)} // Deselect all
@@ -136,7 +127,7 @@ function OurActivity() {
                     </Button>
                     <Button
                         onClick={() => handleButtonClick('featured')}
-                        style={{ border: 'none', borderRadius: 0, borderBottom: activeButton === 'featured' ? '2px solid #3B505A' : 'none', color: activeButton === null ? '#3B505A' : '#696969' }}
+                        style={{ border: 'none', borderRadius: 0, borderBottom: activeButton === 'featured' ? '2px solid #3B505A' : 'none', color: activeButton === null ? '#3B505A' : '#696969', marginLeft:"10%" }}
                     >
                         Featured
                     </Button>

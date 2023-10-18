@@ -135,7 +135,7 @@ const MyForm = () => {
               style={{
                 color: "white",
                 fontFamily: "Ubuntu",
-                fontSize: "32px",
+                fontSize: "30px",
                 fontStyle: "normal",
                 fontWeight: "700",
                 lineHeight: "100%",
@@ -149,7 +149,7 @@ const MyForm = () => {
               style={{
                 color: "#C9C9C9",
                 fontFamily: "Ubuntu",
-                fontSize: "20px",
+                fontSize: "18px",
                 fontStyle: "normal",
                 fontWeight: "400",
                 lineHeight: "140%",
