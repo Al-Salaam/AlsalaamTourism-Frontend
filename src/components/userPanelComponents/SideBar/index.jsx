@@ -8,6 +8,7 @@ import {
   LogoutOutlined,
   SettingOutlined,
   InboxOutlined,
+  FastBackwardOutlined
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
@@ -28,30 +29,30 @@ const { Content, Sider } = Layout;
 
 const SideBar = () => {
   const dispatch = useDispatch();
-  const {user , loading, error, message } = useSelector((state) => state.auth);
+  const { user, loading, error, message } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
     dispatch(fetchUserProfile())
-  },[dispatch])
+  }, [dispatch])
 
   const logoutFunction = () => {
     dispatch(logoutUser());
   }
 
   useEffect(() => {
-    if(error){
+    if (error) {
       toast.error(error.message);
       dispatch(clearError())
     }
-    if(message){
+    if (message) {
       toast.success(message);
       dispatch(clearMessage());
       navigate('/')
     }
-  },[error, message, dispatch, toast, navigate])
+  }, [error, message, dispatch, toast, navigate])
 
   const skeletonLoaderStyle = {
     display: 'flex',
@@ -105,76 +106,82 @@ const SideBar = () => {
             }}
             alt="Logo"
           />
-           <Layout style={{ marginLeft: collapsed ? '67px' : '187px' }}>
-          <div  style={{
-            padding: 0,
-            zIndex: 2,
-            position:"absolute"
-          }}>
-           <Button
-            type="text"
-            icon={collapsed ? <MenuOutlined /> : <MenuOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: '10px',
-              width: 24,
-              height: 24,
-              backgroundColor:"white",
-              border:"1px solid #018D97"
-            }}
-          />
-          </div>
+          <Layout style={{ marginLeft: collapsed ? '67px' : '187px' }}>
+            <div style={{
+              padding: 0,
+              zIndex: 2,
+              position: "absolute"
+            }}>
+              <Button
+                type="text"
+                icon={collapsed ? <MenuOutlined /> : <MenuOutlined />}
+                onClick={() => setCollapsed(!collapsed)}
+                style={{
+                  fontSize: '10px',
+                  width: 24,
+                  height: 24,
+                  backgroundColor: "white",
+                  border: "1px solid #018D97"
+                }}
+              />
+            </div>
           </Layout>
         </div>
         <div className="logo">
           {loading ? (
             <div style={skeletonLoaderStyle}>
-            <div style={imageStyle}></div>
-            <div>
-              <div style={textStyle}></div>
-              <div style={textStyle}></div>
-            </div>
-          </div>
-          ) : (
-            <>
-            {collapsed ? (
-            <img
-              src={user?.photo}
-              style={{ width: "40px", height: "40px", margin: "10px 0 0 15px", borderRadius: "100%"  }}
-              alt="User"
-            />
-          ) : (
-            <div style={{ display: "flex", margin: "10px 0 10px 15px", color: "white" }}>
-              <img src={user?.photo} style={{ width: "60px", height: "60px" , borderRadius: "100%" }} alt="User" />
-              <div style={{ margin: "20px 0 0 5px" }}>
-                <h4>{user?.name}</h4>
-                <h4>Since: {formatDate(user?.createdAt)}</h4>
+              <div style={imageStyle}></div>
+              <div>
+                <div style={textStyle}></div>
+                <div style={textStyle}></div>
               </div>
             </div>
-          )}
+          ) : (
+            <>
+              {collapsed ? (
+                <img
+                  src={user?.photo}
+                  style={{ width: "40px", height: "40px", margin: "10px 0 0 15px", borderRadius: "100%" }}
+                  alt="User"
+                />
+              ) : (
+                <div style={{ display: "flex", margin: "10px 0 10px 15px", color: "white" }}>
+                  <img src={user?.photo} style={{ width: "60px", height: "60px", borderRadius: "100%" }} alt="User" />
+                  <div style={{ margin: "20px 0 0 5px" }}>
+                    <h4>{user?.name}</h4>
+                    <h4>Since: {formatDate(user?.createdAt)}</h4>
+                  </div>
+                </div>
+              )}
             </>
           )}
-          
+
         </div>
-        <Menu mode="inline" defaultSelectedKeys={['1']} style={{ backgroundColor:"transparent",color: 'white',}} className="menu">
+        <Menu mode="inline" defaultSelectedKeys={['1']} style={{ backgroundColor: "transparent", color: 'white', }} className="menu">
           <Menu.Item key="1" icon={<SettingOutlined />} >
-          <Link to='/user-panel/user-form'>Settings</Link>
+            <Link to='/user-panel/user-form'>Settings</Link>
           </Menu.Item>
           <Menu.Item key="2" icon={<ClockCircleOutlined />}>
-          <Link to="/user-panel/booking-history">Booking History</Link>
+            <Link to="/user-panel/booking-history">Booking History</Link>
           </Menu.Item>
           <Menu.Item key="3" icon={<TagOutlined />}>
             <Link to="/user-panel/wishlist">
-          Wishlist
-          </Link>
-          </Menu.Item>    
-          <Menu.Item key="4"  icon={<InboxOutlined />}>
-            <Link to="/user-panel/inbox">
-          Inbox
-          </Link>
+              Wishlist
+            </Link>
           </Menu.Item>
+          <Menu.Item key="4" icon={<InboxOutlined />}>
+            <Link to="/user-panel/inbox">
+              Inbox
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="5" icon={<FastBackwardOutlined />}>
+            <Link to="/">
+              Back
+            </Link>
+          </Menu.Item>
+          
           <Menu.Item onClick={logoutFunction} key="5" icon={<LogoutOutlined />}>
-          Logout
+            Logout
           </Menu.Item>
         </Menu>
       </Sider>
