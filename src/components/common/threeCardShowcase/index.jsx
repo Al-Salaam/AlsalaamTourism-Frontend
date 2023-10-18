@@ -1,5 +1,5 @@
 import { Row, Col, Image, Space, Typography } from 'antd';
-import Sec3img1 from "../../../../images/Abu Dhabi.png";
+import Sec3img1 from "../../../../images/Abu_Dhabi-removebg.png";
 import Sec3img2 from "../../../../images/sec3img2.png";
 import Sec3img3 from "../../../../images/sec3img3.png";
 import PrimaryButton from '../buttons/primary';

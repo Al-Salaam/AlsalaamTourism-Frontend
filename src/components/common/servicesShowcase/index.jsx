@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Row, Col, Typography, List, Modal } from 'antd';
 import Services from "../../../../images/packagesHero1.png";
 import { useMediaQuery } from 'react-responsive';
@@ -37,7 +37,7 @@ function ServicesShowCase(props) {
   return (
     <>
       <Row>
-        <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{ padding: "5%" }}>
+        <Col xs={24} sm={24} md={24} lg={12} xl={12} style={{ padding: "2%" }}>
           <Title>Our Services</Title>
           <Title style={{ paddingLeft: "15%" }} level={4}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.</Title>
           <List
@@ -60,7 +60,7 @@ function ServicesShowCase(props) {
               <source src={props.videoSrc} type="video/mp4" />
               Your browser does not support the video tag.
             </video> */}
-            <img src= {Services} style={{width:"100%"}}/>
+            <img src= {Services} style={{width:"100%",height:"300px" , borderRadius:"15px"}}/>
           </div>
         </Col>
       </Row>
