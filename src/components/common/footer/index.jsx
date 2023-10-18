@@ -31,10 +31,10 @@ function Footer() {
             </Row>
             <Row align={'middle'} style={{ backgroundColor: "#4CAAB8", padding: "1%" }} >
 
-                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"middle"} justify={"center"} ><img src={Phone} /><Title level={5}> Here for you</Title></Col>
-                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"center"}><img src={Gruntee} /><Title level={5} > Best Price Guarantee</Title></Col>
-                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"middle"} justify={"center"} ><img src={Offers} /><Title level={5}> Exclusive offers</Title></Col>
-                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"center"}><img src={Daimond} /><Title level={5}> New Finds Every Month</Title></Col>
+                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"middle"} justify={"center"} ><img src={Phone} /><Title level={5} style={{color:"#FFFFFF"}}> Here for you</Title></Col>
+                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"center"}><img src={Gruntee} /><Title level={5} style={{color:"#FFFFFF"}}> Best Price Guarantee</Title></Col>
+                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"middle"} justify={"center"} ><img src={Offers} /><Title level={5}style={{color:"#FFFFFF"}}> Exclusive offers</Title></Col>
+                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"center"}><img src={Daimond} /><Title level={5}style={{color:"#FFFFFF"}}> New Finds Every Month</Title></Col>
             </Row>
 
             <Row style={{ color: "white", padding: "5%", backgroundImage: `url(${Background})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>

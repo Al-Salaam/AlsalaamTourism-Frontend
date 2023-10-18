@@ -86,7 +86,7 @@ function OurActivity() {
             <Row justify="center" style={{ paddingTop: "10%" }}><Col align="middle"><h1>Our Activities</h1></Col></Row>
             <Row justify="center"  ><Col align="middle"><p>We offer some of the most competitive, pocket-friendly prices around, while also delivering without compromising on our quality standards.</p></Col></Row>
             <Row gutter={16} align="middle" style={{ paddingTop: "5%" }} >
-                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={8}>
+                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7}>
                     <Input
                         placeholder="Search"
                         prefix={<SearchOutlined style={{ color: 'rgba(0, 0, 0, 0.25)' }} />} // Add search icon as prefix
@@ -94,7 +94,7 @@ function OurActivity() {
                         style={{ border: 'none', boxShadow: 'none', borderBottom: "1px solid black", borderRadius: 0, width: "90%" }} // Remove border and box shadow
                     />
                 </Col>
-                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={8} >
+                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7} >
                     <div style={{ width: "90%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <h3>Price Range</h3>
                         <h5>0-500 AED</h5>
@@ -117,7 +117,7 @@ function OurActivity() {
                     />
 
                 </Col>
-                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={8} >
+                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7} >
 
                     <Button
                         onClick={() => handleButtonClick(null)} // Deselect all
