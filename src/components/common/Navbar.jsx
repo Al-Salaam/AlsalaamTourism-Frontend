@@ -161,7 +161,7 @@ const Navbar = ({ showOverlayMessage }) => {
 
 
       <Row style={{
-        padding: isMobile ? "10px" : "10px 100px",
+        padding: isMobile ? "10px" : "10px 50px",
         backgroundColor: navbarBackgroundColor,
         position: 'fixed',
         top: 0,
