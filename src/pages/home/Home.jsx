@@ -11,7 +11,7 @@ function Home() {
 
     return (
         <>
-            <HeroShowCase />
+            <HeroShowCase  />
             <ServicesShowCase videoSrc="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
             <ThreeCardShowCase />
             <RecomendedSection />

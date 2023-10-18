@@ -9,9 +9,10 @@ import PrimaryButton from '../buttons/primary';
 const {Title} = Typography
 function HeroShowCase() {
     const isSmallScreen = useMediaQuery({ maxWidth: 562 });
+
     return (
     <>
-        <Row className={styles.hero}>
+        <Row className={styles.hero} style={{paddingTop:isSmallScreen ? "25%" : ""}}>
             <Col xs={24} sm={12} md={10} lg={10} xl={10}   style={{padding:"2%"}} align={"middle"} >
                 
                 <Title style={{fontSize:isSmallScreen ? "10vw": "4vw",color:"white"}}>Dream | Explore | Discover</Title>

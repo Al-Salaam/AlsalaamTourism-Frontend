@@ -25,6 +25,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchPackages } from '../../redux/actions/packagesAction';
 import { Loader } from '../common/loader';
 import { Link } from 'react-router-dom';
+import { addtoWishlist } from '../../redux/actions/wishlistAction';
+import toast from 'react-hot-toast';
+import { clearError, clearMessage } from '../../redux/reducers/wishlistReducer';
+
 
 
 const { Meta } = Card;
@@ -34,6 +38,7 @@ const { Option } = Select;
 const Ourpackags = () => {
   const dispatch = useDispatch();
   const { loading, data } = useSelector((state) => state.package);
+  const {message, loading:wishlistLoading, error } = useSelector((state) => state.wishlist)
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [ratingFilter, setRatingFilter] = useState('desc');
@@ -159,7 +164,25 @@ const Ourpackags = () => {
     }
   }
 
+  const add_to_Wishlist = (itemId, itemType) => {
+    const wishlistData = {
+      itemId:itemId,
+      itemType: itemType
+    }
+    dispatch(addtoWishlist(wishlistData))
+  }
   
+  useEffect(() => {
+    if(error){
+      toast.error(error.message)
+      dispatch(clearError())
+    }
+    if(message){
+      toast.success(message)
+      dispatch(clearMessage())
+    }
+  },[error, toast, message, dispatch])
+
   return (
     <div>
       <Row gutter={[16, 16]} justif="center"><Col span={24} align="middle"> <Title level={2}>Our Packages</Title> <Title level={5}>We offer some of the most competitive, pocket-friendly prices around, while also delivering without compromising on our quality standards.</Title></Col> </Row>
@@ -261,7 +284,7 @@ const Ourpackags = () => {
                       padding: '8px',
                     }}
                   >
-                    <HeartFilled style={{ color: packag.favorite ? "Salmon" : "inherit", fontSize: "30px" }} />
+                    <HeartFilled onClick={() => add_to_Wishlist(packag._id, packag.itemType)} style={{ color: packag.favorite ? "Salmon" : "inherit", fontSize: "30px" }} />
                   </div>
                   <br />
                   <Meta

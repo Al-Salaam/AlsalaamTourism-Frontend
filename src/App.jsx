@@ -52,7 +52,6 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/packages" element={<Packages />} />
-        <Route path="/singlePackage" element={<SinglePackage />} />
         <Route path="/notFound" element={<NotFound />} />
         <Route path="/packages/:id" element={<SinglePackage />} />
         

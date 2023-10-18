@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { addLocation } from "../actions/personalInfoAction";
-import { message } from "antd";
+import { addLocation, addPersonalInfo, changePasswordAction } from "../actions/personalInfoAction";
+
 
 const initialState = {
-    loading : false,
-    error: null, 
-    message : null,
+    loading: false,
+    error: null,
+    message: null,
 }
 
 const personalInfoReducer = createSlice({
-    name: "personlInfo", 
+    name: "personlInfo",
     initialState,
-    reducers:{
+    reducers: {
         clearError: (state) => {
             state.error = null;
         },
@@ -19,21 +19,50 @@ const personalInfoReducer = createSlice({
             state.message = null;
         }
     }
-    , 
-    extraReducers : (builder) => {
+    ,
+    extraReducers: (builder) => {
         builder
-        .addCase(addLocation.pending, (state) => {
-            state.loading = true;
+            .addCase(addLocation.pending, (state) => {
+                state.loading = true;
 
-        })
-        .addCase(addLocation.fulfilled, (state, action) => {
-            state.loading = false;
-            state.message = action.payload.message;
-        })
-        .addCase(addLocation.rejected, (state ,action) => {
-            state.loading = false;
-            state.error = action.error
-        })
+            })
+            .addCase(addLocation.fulfilled, (state, action) => {
+                state.loading = false;
+                state.message = action.payload.message;
+            })
+            .addCase(addLocation.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error
+            })
+
+            // personal info
+
+            .addCase(addPersonalInfo.pending, (state) => {
+                state.loading = true;
+
+            })
+            .addCase(addPersonalInfo.fulfilled, (state, action) => {
+                state.loading = false;
+                state.message = action.payload.message;
+            })
+            .addCase(addPersonalInfo.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error
+            })
+
+            // chnage password
+            .addCase(changePasswordAction.pending, (state) => {
+                state.loading = true;
+
+            })
+            .addCase(changePasswordAction.fulfilled, (state, action) => {
+                state.loading = false;
+                state.message = action.payload.message;
+            })
+            .addCase(changePasswordAction.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error
+            })
     }
 })
 

@@ -4,6 +4,9 @@ import activityReducer from "./reducers/activityReducer";
 import packagesReducer from "./reducers/packagesReducer";
 import personalInformationReducer from "./reducers/personalInformationReducer";
 
+import wishlistReducer from "./reducers/wishlistReducer"
+import contactReducer from "./reducers/contactReducer";
+
 
 
 export const store = configureStore({
@@ -11,6 +14,8 @@ export const store = configureStore({
         auth : authReducer,
         activity: activityReducer,
         package: packagesReducer,
-        personalInfo: personalInformationReducer
+        personalInfo: personalInformationReducer,
+        wishlist: wishlistReducer,
+        contactus: contactReducer
     }
 })
