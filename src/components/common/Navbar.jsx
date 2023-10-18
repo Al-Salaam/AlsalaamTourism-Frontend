@@ -239,7 +239,7 @@ const Navbar = ({ showOverlayMessage }) => {
               }}
 
             >
-              <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent',width:"800px",display:"flex",justifyContent:"center" }} /></ConfigProvider>
+              <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent',width:"800px",display:"flex",justifyContent:"flex-end" }} /></ConfigProvider>
           )}
         </Col>
       </Row>
