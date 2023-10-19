@@ -5,6 +5,7 @@ import ThreeCardShowCase from "../../components/common/threeCardShowcase";
 import TwoCardShowCase from "../../components/common/twoCardShowCase";
 import RecomendedSection from "../../components/common/recomandedSection";
 import Footer from "../../components/common/footer";
+import TopDealSlider from "../../components/common/topDealSlider";
 
 function Home() {
     
@@ -15,7 +16,7 @@ function Home() {
             <ServicesShowCase videoSrc="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
             <ThreeCardShowCase />
             <RecomendedSection />
-            <TwoCardShowCase />
+            <TopDealSlider/>
             <Footer />
         </>
     )

@@ -93,7 +93,7 @@ function SingleActivity() {
                     </Row>
                     <Row>
                         <Col span={24}>
-                            <ActivitySlider data={data}/>
+                            <ActivitySlider data={data} auto= {true}/>
                         </Col>
                     </Row>
                     <Row>
