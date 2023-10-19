@@ -10,21 +10,60 @@ import toast from 'react-hot-toast';
 
 import { addtoWishlist } from '../../../redux/actions/wishlistAction';
 import { clearError, clearMessage } from '../../../redux/reducers/wishlistReducer';
+import axios from 'axios';
+import { https } from '../../../helpers/https';
+import { useNavigate } from 'react-router-dom';
 
 
 const BookNow = ({ activity }) => {
   const { Title } = Typography;
-  // const [rating, setRating] = useState(0);
-  // const [totalReviews, setTotalReviews] = useState(0);
+  const [adults, setAdults] = useState(0);
+  const [childern, setChildern] = useState(0);
+  const [infant, setInfant] = useState(0);
+  const [date, setDate] = useState('');
+
+
+  const adultIncrement = () => {
+    setAdults(adults + 1);
+  };
+
+  const adultDecrement = () => {
+    if (adults > 0) {
+      setAdults(adults - 1);
+    }
+  };
+
+  const childernIncrement = () => {
+    setChildern(childern + 1);
+  };
+
+  const childernDecrement = () => {
+    if (childern > 0) {
+      setChildern(childern - 1);
+    }
+  };
+
+  const infantIncrement = () => {
+    setInfant(infant + 1);
+  };
+
+  const infantDecrement = () => {
+    if (infant > 0) {
+      setInfant(infant - 1);
+    }
+  };
+
+  const dateHandler = (date) => {
+    setDate(date)
+  }
+
   const isSmallScreen = useMediaQuery({ maxWidth: 950 });
-  // const handleRatingChange = (value) => {
-  //   setRating(value);
-  //   setTotalReviews((prevTotalReviews) => prevTotalReviews + 1);
-  // };
+
   const dispatch = useDispatch();
   const { loading, error, message } = useSelector((state) => state.wishlist);
   const [favoraite, setFavoraite] = useState(false);
-
+  const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
   const add_to_Wishlist = () => {
     const wishlistData = {
       itemId: activity._id,
@@ -55,6 +94,80 @@ const BookNow = ({ activity }) => {
       margin: "3% 0"
     }
   }
+
+  const operators = {
+    display: 'flex',
+    flexDirection: "column",
+    justifyContent: 'center',
+    alignItems: 'center',
+
+  };
+
+  const valueStyle = {
+    fontSize: '24px',
+  };
+
+  const placeholderStyle = {
+    color: 'black',
+  };
+
+  const buttonStyle = {
+    cursor: 'pointer',
+    fontSize: '18px',
+    padding: 0,
+    border: "none",
+    backgroundColor: "white"
+  };
+
+  const isSmallScreen1 = useMediaQuery({ maxWidth: 562 });
+  const textBoxStyle = {
+
+    width: isSmallScreen1 ? "100px" : "140px",
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    display: 'flex',
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    margin: "1%"
+  };
+
+
+
+  const handleBooking = async () => {
+    try {
+      if (adults <= 0 || childern < 0 || infant < 0 || date === '') {
+        toast.error('Please fill in all the required fields.'); // Validation error
+      } else if (!user) {
+        navigate('/login');
+      } else {
+        const bookingData = {
+          activityId: activity?._id,
+          date: date,
+          adults: adults,
+          children: childern,
+          infants: infant,
+          totalAmount: activity?.price,
+          paymentStatus: "pending"
+        };
+  
+        const response = await https.post(`/create-checkout-session`, bookingData);
+  
+        if (response.data.data.stripeCheckoutSessionUrl) {
+          window.location.href = response.data.data.stripeCheckoutSessionUrl;
+        } else {
+          toast.error('Error creating Stripe Checkout session. Please try again later.');
+        }
+      }
+    } catch (error) {
+      console.error(error);
+      // Handle other errors, e.g., display an error message to the user
+      toast.error('An error occurred. Please try again later.');
+    }
+  };
+  
+  
+
+
   return (
     <div >
       <Row gutter={[40]} style={Styles.margin}>
@@ -79,15 +192,57 @@ const BookNow = ({ activity }) => {
         <Col span={24}><Title level={5}>{activity?.shortdescription}</Title></Col>
       </Row>
       <Row>
-        <Col span={24} style={Styles.margin} align={isSmallScreen ? "middle" : ""} ><DatePicker /></Col>
+        <Col span={24} style={Styles.margin} align={isSmallScreen ? "middle" : ""} ><DatePicker value={date} onChange={dateHandler} /></Col>
       </Row>
       <Row gutter={16} style={Styles.margin}>
-        <Col span={8}><TextBoxWithButtons title={<div ><h3>Adults</h3><p style={{ color: "gray" }}>Over 18+</p></div>} /></Col>
-        <Col span={8}><TextBoxWithButtons title={<div ><h3>Children</h3><p style={{ color: "gray" }}>Under 12</p></div>} /></Col>
-        <Col span={8}><TextBoxWithButtons title={<div ><h3>Infant</h3><p style={{ color: "gray" }}>Under 3</p></div>} /></Col>
+        <Col span={8}>
+          <div style={textBoxStyle}>
+
+            <div style={placeholderStyle}><div ><h3>Adult</h3><p style={{ color: "gray" }}>Over 18+</p></div></div>
+            <div style={operators}>
+              <button style={buttonStyle} onClick={adultIncrement}>
+                +
+              </button>
+              <div style={valueStyle}>{adults}</div>
+              <button style={buttonStyle} onClick={adultDecrement}>
+                -
+              </button>
+            </div>
+          </div>
+        </Col>
+        <Col span={8}>
+          <div style={textBoxStyle}>
+
+            <div style={placeholderStyle}><div ><h3>Children</h3><p style={{ color: "gray" }}>Under 12</p></div></div>
+            <div style={operators}>
+              <button style={buttonStyle} onClick={childernIncrement}>
+                +
+              </button>
+              <div style={valueStyle}>{childern}</div>
+              <button style={buttonStyle} onClick={childernDecrement}>
+                -
+              </button>
+            </div>
+          </div>
+        </Col>
+        <Col span={8}>
+          <div style={textBoxStyle}>
+
+            <div style={placeholderStyle}><div ><h3>Infant</h3><p style={{ color: "gray" }}>Under 3</p></div></div>
+            <div style={operators}>
+              <button style={buttonStyle} onClick={infantIncrement}>
+                +
+              </button>
+              <div style={valueStyle}>{infant}</div>
+              <button style={buttonStyle} onClick={infantDecrement}>
+                -
+              </button>
+            </div>
+          </div>
+        </Col>
       </Row>
       <Row gutter={16} style={Styles.margin}>
-        <Col xs={24} sm={24} md={24} lg={24} xl={12} align={isSmallScreen ? "middle" : ""}><PrimaryButton title={"Book Now"} /></Col>
+        <Col xs={24} sm={24} md={24} lg={24} xl={12} align={isSmallScreen ? "middle" : ""}><PrimaryButton title={"Book Now"} clickHandler={handleBooking} /></Col>
         <Col xs={24} sm={24} md={24} lg={24} xl={12}><Button disabled={loading} onClick={add_to_Wishlist} icon={<HeartOutlined style={{ color: favoraite ? 'red' : null }} />} style={{ border: "none", fontSize: "30px", color: "#3B505A", display: isSmallScreen ? "none" : "block" }}>Add to wish list</Button></Col>
       </Row>
     </div>
