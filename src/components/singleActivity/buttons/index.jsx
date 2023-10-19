@@ -47,28 +47,6 @@ const TextBoxWithButtons = (props) => {
 
 
 
-const operators = {
-    display: 'flex',
-    flexDirection:"column",
-    justifyContent: 'center',
-    alignItems: 'center',
-  
-  };
 
-const valueStyle = {
-  fontSize: '24px',
-};
-
-const placeholderStyle = {
-  color: 'black',
-};
-
-const buttonStyle = {
-  cursor: 'pointer',
-  fontSize: '18px',
-  padding:0,
-  border:"none",
-  backgroundColor:"white"
-};
 
 export default TextBoxWithButtons;
