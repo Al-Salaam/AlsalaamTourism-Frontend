@@ -14,6 +14,12 @@ const FlipCard = (props) => {
         setIsFlipped(!isFlipped);
     };
 
+    const handleAddToCart = () => {
+        if (props.onClick) {
+            props.onClick(); // Trigger the onClick event passed from the parent component
+        }
+    };
+
     const handleMouseLeave = () => {
         if (isFlipped) {
             setIsFlipped(false);
@@ -96,14 +102,19 @@ const FlipCard = (props) => {
                             padding: '3%',
                             bottom: '0',
                             left: '0',
+                        
                         }}
                     >
+                    
                         <Button
                             onClick={handleButtonClick}
                             style={{
                             }}
                         >
                             <strong>+</strong>
+                        </Button>
+                        <Button onClick={handleAddToCart}>
+                            Add to card
                         </Button>
                         <h4>{props.feature && "featured"}</h4>
                     </h3>
