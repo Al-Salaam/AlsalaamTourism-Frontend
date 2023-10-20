@@ -60,7 +60,7 @@ const Navbar = ({ showOverlayMessage }) => {
     {
       label: (
         // user ? <Link  ><UserOutlined style={{ fontSize: "40px" }} /></Link> : null
-        <Link  ><UserOutlined style={{ fontSize: "28px" }} /></Link>
+      user ? <UserOutlined style={{ fontSize: "28px" }} /> : <Link to={'/login'}>Login</Link>
       ),
       key: 'profile',
     },
