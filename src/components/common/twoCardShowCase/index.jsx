@@ -13,7 +13,7 @@ function TwoCardShowCase() {
 
     return (
 
-        <Row style={{ margin: "12% 0" }}>
+        <Row style={{ margin: "5% 0 13% 0" }}>
             <Col span={24}>
                 <Row className={styles.secFive} align="middle" justify="center"  >
                     <Title style={{color:"White"}}>Top Deals</Title>

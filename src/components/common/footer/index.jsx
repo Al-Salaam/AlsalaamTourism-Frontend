@@ -42,7 +42,7 @@ function Footer() {
 
                     <Row style={{ marginBottom: "5%" }}><Col><img src={Logo} /></Col></Row>
                     <Row style={{ marginBottom: "5%" }}><Col>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.</Col></Row>
-                    <Row><Col span={6}><img src={Instagram} style={{ backgroundColor: "#3B505A", borderRadius: "50%", padding: "10%" }} /></Col><Col span={6}><img src={Facebook} style={{ backgroundColor: "#3B505A", borderRadius: "50%", padding: "10%" }} /></Col><Col span={6}><img src={Twitter} style={{ backgroundColor: "#3B505A", borderRadius: "50%", padding: "10%" }} /></Col><Col span={6}><img src={Youtube} style={{ backgroundColor: "#3B505A", borderRadius: "50%", padding: "10%" }} /></Col></Row>
+                    <Row><Col span={4}><img src={Instagram} style={{ backgroundColor: "#3B505A", borderRadius: "50%", padding: "5%" }} /></Col><Col span={4}><img src={Facebook} style={{ backgroundColor: "#3B505A", borderRadius: "50%", padding: "5%" }} /></Col><Col span={4}><img src={Twitter} style={{ backgroundColor: "#3B505A", borderRadius: "50%", padding: "5%" }} /></Col><Col span={6}><img src={Youtube} style={{ backgroundColor: "#3B505A", borderRadius: "50%", padding: "5%" }} /></Col></Row>
 
                 </Col>
 

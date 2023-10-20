@@ -36,7 +36,7 @@ function ServicesShowCase(props) {
   
   return (
     <>
-      <Row>
+      <Row >
         <Col xs={24} sm={24} md={24} lg={12} xl={12} style={{ padding: "2%" }}>
           <Title>Our Services</Title>
           <Title style={{ paddingLeft: "15%" }} level={4}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.</Title>

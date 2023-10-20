@@ -55,7 +55,7 @@ function ContactHero() {
                 <Col xs={24} sm={24} md={24} lg={24} xl={24} style={{ padding: "2%" }}>
                     <div style={titleContainerStyle}>
                         <Title style={titleStyle}>Contact Us</Title>
-                        <Title style={subTitleStyle}>We love to hear from you</Title>
+                        <Title style={subTitleStyle}>We'd love to hear from you</Title>
                     </div>
                 </Col>
             </Row>

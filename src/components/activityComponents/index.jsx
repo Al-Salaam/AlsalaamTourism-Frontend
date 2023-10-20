@@ -6,6 +6,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchActivities } from '../../redux/actions/activityAction';
 import { Loader } from '../common/loader';
+import { useMediaQuery } from 'react-responsive';
 
 
 
@@ -80,13 +81,14 @@ function OurActivity() {
         }
     };
 
+    const isSmallScreen = useMediaQuery({ maxWidth: 430 });
 
     return (
         <>
             <Row justify="center" style={{ paddingTop: "10%" }}><Col align="middle"><h1>Our Activities</h1></Col></Row>
             <Row justify="center"  ><Col align="middle"><p>We offer some of the most competitive, pocket-friendly prices around, while also delivering without compromising on our quality standards.</p></Col></Row>
             <Row gutter={16} align="middle" style={{ paddingTop: "5%" }} >
-                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7}>
+                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7} style={{marginBottom:isSmallScreen?"10%":""}}>
                     <Input
                         placeholder="Search"
                         prefix={<SearchOutlined style={{ color: 'rgba(0, 0, 0, 0.25)' }} />} // Add search icon as prefix
@@ -137,7 +139,7 @@ function OurActivity() {
 
                 </Col>
             </Row>
-            <Row gutter={16}>
+            <Row gutter={16}z>
                 {loading ? (
                     <Loader />
                 ) : (
