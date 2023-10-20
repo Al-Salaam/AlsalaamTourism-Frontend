@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Card, Row, Col, Typography } from 'antd';
 import Client1 from "../../../../images/client1.png"
 import Client2 from "../../../../images/client2.png"
@@ -10,12 +10,6 @@ import { useMediaQuery } from 'react-responsive';
 import ThreeCircleComponent from './threeCircles';
 
 const { Title } = Typography;
-const titles = [
-  'Title 1', 'Title 2', 'Title 3', 'Title 4', 'Title 5',
-  'Title 6', 'Title 7', 'Title 8', 'Title 9', 'Title 10',
-  'Title 11', 'Title 12', 'Title 13', 'Title 14', 'Title 15',
-  'Title 16', 'Title 17', 'Title 18', 'Title 19', 'Title 20'
-];
 
 const circleStyles = {
   smallCircle: {
@@ -28,8 +22,8 @@ const circleStyles = {
     cursor: 'pointer',
   },
   bigCircle: {
-    width: '300px',
-    height: '300px',
+    width: '200px',
+    height: '200px',
     backgroundColor: "#018D97",
     borderRadius: '50%',
     display: 'flex',
@@ -79,11 +73,6 @@ function CircleComponent() {
   const [centerHeading, setCenterHeading] = useState(circleData[0].heading);
   const [centerDescription, setCenterDescription] = useState(circleData[0].description);
   const [centerSummary, setCenterSummary] = useState(circleData[0].summary);
-  const [titleData, setTitleData] = useState([
-    titles[0],
-    titles[1],
-    titles[2],
-  ]);
 
 
 
@@ -94,9 +83,6 @@ function CircleComponent() {
     setCenterSummary(circleData[index].summary);
   };
 
-  const onChange = (currentSlide) => {
-    console.log(currentSlide);
-  };
 
   const isSmallScreen = useMediaQuery({ maxWidth: 800 });
 
@@ -108,7 +94,7 @@ function CircleComponent() {
         </>
       ) : (
         <>
-          <Row justify="center">
+          <Row justify="center" style={{marginBottom:"5%"}}>
             <Col align="middle" span={10}>
               <Title level={1} style={{ color: 'white' }}>
                 That’s What Our Clients Say
@@ -118,8 +104,8 @@ function CircleComponent() {
               </Title>
             </Col>
           </Row>
-          <Row justify="center">
-            <Col span={8} align="middle">
+          <Row justify="center" >
+            <Col span={8} align="middle" style={{marginLeft:"-20%"}} >
               <div
                 style={{
                   ...circleStyles.smallCircle,
@@ -133,52 +119,61 @@ function CircleComponent() {
                   ...circleStyles.smallCircle,
                   backgroundImage: `url(${circleData[1].image})`,
                   backgroundSize: 'cover',
-                  marginRight: '40%',
+                  marginRight: '-50%',
                 }}
                 onClick={() => handleCircleClick(1)}
               ></div>
               <div
                 style={{
-                  ...circleStyles.smallCircle,
+                  ...circleStyles.bigCircle,
                   backgroundImage: `url(${circleData[2].image})`,
                   backgroundSize: 'cover',
                 }}
                 onClick={() => handleCircleClick(2)}
               ></div>
             </Col>
-            <Col span={8} align="middle">
+            <Col span={8} align="middle" >
+              <div style={{marginLeft:"40%"}}>
               <div style={{ ...circleStyles.bigCircle, backgroundImage: `url(${centerImage})`, backgroundSize: 'cover' }}></div>
-              <h3 style={{color:"white"}}>{centerHeading}</h3>
-              <h5 style={{color:"white"}}>{centerDescription}</h5>
+              <div style={{marginBottom:"10%"}}>
+              <h1 style={{color:"white"}}>{centerHeading}</h1>
+              <h2 style={{color:"white"}}>{centerDescription}</h2>
+              </div>
               <p style={{color:"white"}}>{centerSummary}</p>
-              
+              </div>
             </Col>
-            <Col span={8} align="middle">
+            <Col span={8} align="middle"  >
+              <div style={{marginLeft:"70%"}}>
               <div
                 style={{
-                  ...circleStyles.smallCircle,
+                  marginLeft:"30%",
+                                    ...circleStyles.smallCircle,
                   backgroundImage: `url(${circleData[3].image})`,
                   backgroundSize: 'cover',
+                  marginBottom:"10%"
                 }}
                 onClick={() => handleCircleClick(3)}
               ></div>
               <div
                 style={{
-                  ...circleStyles.smallCircle,
+                  ...circleStyles.bigCircle,
                   backgroundImage: `url(${circleData[4].image})`,
                   backgroundSize: 'cover',
-                  marginLeft: '40%',
+                  marginLeft: '-30%',
+                  marginBottom:"10%"
                 }}
                 onClick={() => handleCircleClick(4)}
               ></div>
               <div
                 style={{
+                  marginLeft:"30%",
                   ...circleStyles.smallCircle,
                   backgroundImage: `url(${circleData[5].image})`,
                   backgroundSize: 'cover',
                 }}
                 onClick={() => handleCircleClick(5)}
               ></div>
+              </div>
             </Col>
           </Row>
         </>

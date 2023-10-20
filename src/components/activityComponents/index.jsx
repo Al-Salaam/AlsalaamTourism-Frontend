@@ -1,27 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import FlipCard from "../../components/common/recomandedSection/index2";
 import PrimaryButton from '../../components/common/buttons/primary';
-import { Row, Col, Select, Input, Button, Slider } from 'antd';
-import { useMediaQuery } from 'react-responsive';
+import { Row, Col, Input, Button, Slider } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-
-import AinDubai from "../../../images/ainDubai.png"
-import CityTour from "../../../images/alAinCityTour.png"
-import WaterPark from "../../../images/alMontazahWaterPark.png"
-import AquaVenture from "../../../images/aquaVenture.png"
-import BananaBoat from "../../../images/bananaBoat.png"
-import Selfie from "../../../images/3dSelfie.png"
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchActivities } from '../../redux/actions/activityAction';
 import { Loader } from '../common/loader';
 
 
 
-const { Option } = Select;
+
 function OurActivity() {
 
-    const isSmallScreen = useMediaQuery({ maxWidth: 1198 });
-    const isSmallestScreen = useMediaQuery({ maxWidth: 430 });
+
 
     const [selectedPriceFilter, setSelectedPriceFilter] = useState(null);
     const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
@@ -95,7 +86,7 @@ function OurActivity() {
             <Row justify="center" style={{ paddingTop: "10%" }}><Col align="middle"><h1>Our Activities</h1></Col></Row>
             <Row justify="center"  ><Col align="middle"><p>We offer some of the most competitive, pocket-friendly prices around, while also delivering without compromising on our quality standards.</p></Col></Row>
             <Row gutter={16} align="middle" style={{ paddingTop: "5%" }} >
-                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={8}>
+                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7}>
                     <Input
                         placeholder="Search"
                         prefix={<SearchOutlined style={{ color: 'rgba(0, 0, 0, 0.25)' }} />} // Add search icon as prefix
@@ -103,7 +94,7 @@ function OurActivity() {
                         style={{ border: 'none', boxShadow: 'none', borderBottom: "1px solid black", borderRadius: 0, width: "90%" }} // Remove border and box shadow
                     />
                 </Col>
-                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={8} >
+                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7} >
                     <div style={{ width: "90%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <h3>Price Range</h3>
                         <h5>0-500 AED</h5>
@@ -126,7 +117,7 @@ function OurActivity() {
                     />
 
                 </Col>
-                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={8}>
+                <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7} >
 
                     <Button
                         onClick={() => handleButtonClick(null)} // Deselect all
@@ -136,7 +127,7 @@ function OurActivity() {
                     </Button>
                     <Button
                         onClick={() => handleButtonClick('featured')}
-                        style={{ border: 'none', borderRadius: 0, borderBottom: activeButton === 'featured' ? '2px solid #3B505A' : 'none', color: activeButton === null ? '#3B505A' : '#696969' }}
+                        style={{ border: 'none', borderRadius: 0, borderBottom: activeButton === 'featured' ? '2px solid #3B505A' : 'none', color: activeButton === null ? '#3B505A' : '#696969', marginLeft:"10%" }}
                     >
                         Featured
                     </Button>
@@ -153,7 +144,7 @@ function OurActivity() {
                     <>
                         {displayedData.map((item, index) => (
                             <Col xs={24} sm={24} md={24} lg={24} xl={8} key={index} align="middle" justify="center" style={{ margin: "2% 0" }}>
-                                <FlipCard imageSrc={item.images[0]?.url} title1={item.name} rate={item.ratings} width={"95%"} price={item.price} shortdescription={item.shortdescription} descBack={item.descBack} feature={item.feature} />
+                                <FlipCard imageSrc={item.images[0]?.url} title1={item.name} rate={item.ratings} width={"95%"} price={item.price} shortdescription={item.shortdescription} descBack={item.descBack} feature={item.feature} activityId={item._id} noOfReviews={item.noOfReviews}/>
                             </Col>
                         ))}
                     </>
@@ -162,7 +153,7 @@ function OurActivity() {
             {displayedData.length < filteredData.length && (
                 <Row>
                     <Col align="middle" span={24}>
-                         <PrimaryButton clickHandler={loadMoreItems} title={"load more"} />
+                        <PrimaryButton clickHandler={loadMoreItems} title={"load more"} />
                     </Col>
                 </Row>
             )}

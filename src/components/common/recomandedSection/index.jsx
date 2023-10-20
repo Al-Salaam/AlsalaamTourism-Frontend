@@ -1,11 +1,4 @@
-import styles from "./recomended.module.css";
-import { Row, Col, Image, Space, Typography, Button, Input, ConfigProvider, Rate } from 'antd';
-import AinDubai from "../../../../images/ainDubai.png"
-import CityTour from "../../../../images/alAinCityTour.png"
-import WaterPark from "../../../../images/alMontazahWaterPark.png"
-import AquaVenture from "../../../../images/aquaVenture.png"
-import BananaBoat from "../../../../images/bananaBoat.png"
-import Selfie from "../../../../images/3dSelfie.png"
+import { Row, Col,Typography, } from 'antd';
 import PrimaryButton from "../buttons/primary";
 import FlipCard from "./index2";
 import { useMediaQuery } from 'react-responsive';
@@ -27,12 +20,17 @@ function RecomendedSection() {
     }, [dispatch])
     return (
         <Row style={{ marginTop: "5%" }}>
-            <Col xs={24} sm={24} md={12} lg={12} xl={10} align="middle" justify="center" >
-                <Title style={{ textAlign: "left" }}>Recomended For You</Title>
-                <Title level={5} style={{ textAlign: "left", paddingRight: "15%", paddingLeft: 5 }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A incidunt quia tenetur magni molestias odio ipsam consequatur omnis earum natus perferendis, voluptatum quae nostrum hic quo eaque error dicta molestiae magnam commodi fugiat neque facere, illo est. Nam veritatis eaque, placeat, animi corporis error ipsa possimus quibusdam vitae fugiat aut.<br /></Title>{isSmallestScreen ? null : <PrimaryButton title={"View All"} />}
-
-
+            <Col xs={24} sm={24} md={12} lg={12} xl={10} align="middle" justify="center" style={{padding:"0 0 0 25px"}} >
+                <Title style={{ textAlign: "left" }}>Recommended For You</Title>
+                <Title level={5} style={{ textAlign: "left", paddingRight: "15%", paddingLeft: 5 }}>
+                We offer some of the most competitive, pocket-friendly prices around, while also delivering without compromising on our quality standards.
+                <br />
+                </Title>
+                <Row style={{marginBottom:"10px"}}>
+                {isSmallestScreen ? null : <PrimaryButton title={"View All"} width='150px'/>}
+                </Row>
             </Col>
+            
             <Col xs={24} sm={24} md={12} lg={12} xl={14} align="Right" justify="Right" style={{ background: isSmallestScreen ? "" : 'linear-gradient(90deg, rgba(105, 149, 167, 0.44) 0%, #018A97 100%)' }} >
                 <Row style={{ marginLeft: "-17%" }} >
                     {loading ? <Loader /> : (
@@ -40,7 +38,7 @@ function RecomendedSection() {
                             {data && data.slice(0, 6).map((item, index) => (
                                 
                                 <Col xs={24} sm={24} md={24} lg={24} xl={12} key={index} align="middle" justify="center" style={{ marginTop: "5%", marginBottom: "5%", padding: "1%", paddingLeft: isSmallestScreen ? "15%" : (isSmallScreen ? "10%" : "") }}>
-                                    <FlipCard imageSrc={item?.images[0]?.url} title1={item.name} rate={item.ratings} price={item.price} shortdescription={item.shortdescription}/>
+                                    <FlipCard imageSrc={item?.images[0]?.url} title1={item.name} rate={item.ratings} price={item.price} shortdescription={item.shortdescription} activityId={item._id} noOfReviews={item.noOfReviews}/>
                                 </Col>
 
                             ))}

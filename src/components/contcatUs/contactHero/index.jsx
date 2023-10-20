@@ -10,7 +10,7 @@ function ContactHero() {
     const containerStyle = {
         position: 'relative',
         height: isSmallScreen? '50vh': '50vh',
-        backgroundImage: 'url("../../../../images/contactbg.png")', // Replace with your image URL
+        backgroundImage: "linear-gradient(#70ADBB , #018D97)", // Replace with your image URL
         padding: '4% 0 5%',
         backgroundSize: 'cover',
         backgroundPosition: 'center', 
@@ -55,7 +55,7 @@ function ContactHero() {
                 <Col xs={24} sm={24} md={24} lg={24} xl={24} style={{ padding: "2%" }}>
                     <div style={titleContainerStyle}>
                         <Title style={titleStyle}>Contact Us</Title>
-                        <Title style={subTitleStyle}>We'd love to hear from you</Title>
+                        <Title style={subTitleStyle}>We love to hear from you</Title>
                     </div>
                 </Col>
             </Row>

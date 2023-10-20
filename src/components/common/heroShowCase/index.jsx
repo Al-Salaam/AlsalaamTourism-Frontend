@@ -9,15 +9,17 @@ import PrimaryButton from '../buttons/primary';
 const {Title} = Typography
 function HeroShowCase() {
     const isSmallScreen = useMediaQuery({ maxWidth: 562 });
+
     return (
     <>
-        <Row className={styles.hero}>
+        <Row className={styles.hero} style={{paddingTop:isSmallScreen ? "25%" : ""}}>
             <Col xs={24} sm={12} md={10} lg={10} xl={10}   style={{padding:"2%"}} align={"middle"} >
                 
                 <Title style={{fontSize:isSmallScreen ? "10vw": "4vw",color:"white"}}>Dream | Explore | Discover</Title>
                 <Title style={{fontSize:isSmallScreen ? "3vw": "2vw",color:"white"}}>Get the best prices on all excurssions and activities across UAE.</Title>
-                <PrimaryButton   title={<Title style={{fontSize:isSmallScreen ? "4vw": "1vw",color:"white"}}>Book Now</Title>}/>
-                
+                <div style={{marginTop:"50px"}}>
+                <PrimaryButton  width='200px'  title={<Title style={{fontSize:isSmallScreen ? "4vw": "1vw",color:"white"}}>Explore Now</Title>}/>
+                </div>
                 </Col>
                 
             <Col xs={24} sm={12} md={14} lg={14} xl={14}  >

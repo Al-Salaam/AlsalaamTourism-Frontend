@@ -1,4 +1,4 @@
-import { Row, Col, Image, Space, Typography, Button, Input, ConfigProvider } from 'antd';
+import { Row, Col, Space, Typography, Button, Input, ConfigProvider } from 'antd';
 import { Link } from "react-router-dom";
 import { SendOutlined } from '@ant-design/icons';
 import Phone from "../../../../images/phone-bold.png";
@@ -15,7 +15,9 @@ import Instagram from "../../../../images/instagram.png";
 import { useMediaQuery } from 'react-responsive';
 const {Title} = Typography;
 function Footer() {
-    
+    const isTablet = useMediaQuery({
+        query: '(max-width: 525px)', // Change this breakpoint as needed
+      });
     const isSmallestScreen = useMediaQuery({ maxWidth: 990 });
     return (
     
@@ -23,16 +25,16 @@ function Footer() {
         <Col span={24}>
             <Row align={'middle'} style={{ backgroundColor: "#EFEFFF", padding: "1%" }} >
 
-                <Col span={12} align={"middle"} justify={"center"} ><Row align={"middle"} justify={"center"}><Col><img src={Phone} /></Col><Col><Title level={5}> Call on +971524928120</Title></Col></Row></Col>
+                <Col span={12} align={"middle"} justify={"center"} ><Row align={"middle"} justify={"center"}><Col><img src={Phone} /></Col><Col><Title  style={{fontSize:isTablet?"11px":"15px"}}> Call on +971524928120</Title></Col></Row></Col>
 
-                <Col span={12} align={"center"}> <Row align={"middle"} justify={"center"}><Col><img src={Msg} /></Col><Col><Title level={5}> info@alsalaamtourism.com</Title></Col></Row> </Col>
+                <Col span={12} align={"center"}> <Row align={"middle"} justify={"center"}><Col><img src={Msg} /></Col><Col><Title style={{fontSize:isTablet?"12px":"15px"}}> info@alsalaamtourism.com</Title></Col></Row> </Col>
             </Row>
             <Row align={'middle'} style={{ backgroundColor: "#4CAAB8", padding: "1%" }} >
 
-                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"middle"} justify={"center"} ><img src={Phone} /><Title level={5}> Here for you</Title></Col>
-                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"center"}><img src={Gruntee} /><Title level={5} > Best Price Guarantee</Title></Col>
-                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"middle"} justify={"center"} ><img src={Offers} /><Title level={5}> Exclusive offers</Title></Col>
-                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"center"}><img src={Daimond} /><Title level={5}> New Finds Every Month</Title></Col>
+                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"middle"} justify={"center"} ><img src={Phone} /><Title level={5} style={{color:"#FFFFFF"}}> Here for you</Title></Col>
+                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"center"}><img src={Gruntee} /><Title level={5} style={{color:"#FFFFFF"}}> Best Price Guarantee</Title></Col>
+                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"middle"} justify={"center"} ><img src={Offers} /><Title level={5}style={{color:"#FFFFFF"}}> Exclusive offers</Title></Col>
+                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"center"}><img src={Daimond} /><Title level={5}style={{color:"#FFFFFF"}}> New Finds Every Month</Title></Col>
             </Row>
 
             <Row style={{ color: "white", padding: "5%", backgroundImage: `url(${Background})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
@@ -57,6 +59,7 @@ function Footer() {
                 </Col>
 
                 <Col xs={24} sm={24} md={12} lg={6} xl={6} style={{ paddingLeft: isSmallestScreen ? "" :"5%",paddingTop:isSmallestScreen ? "5%" :"" }} >
+                <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px", }}>Our Team</Link></Col></Row>
                     <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px", }}>Blog</Link></Col></Row>
                     <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px" }}>Contact US</Link></Col></Row>
                     <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px" }}>Carrer</Link></Col></Row>
@@ -79,7 +82,7 @@ function Footer() {
 
                     <Row align={"left"} justify={"left"}>
                         <Col span={18}>
-                            <Input placeholder="Input your email" />
+                            <Input placeholder="Input your email here" />
                         </Col>
                         <Col span={6}>
                             <ConfigProvider

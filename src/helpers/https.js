@@ -1,6 +1,7 @@
 import axios from "axios";
 
+
 export const https = axios.create({
-    baseURL: "https://lonely-long-johns-crow.cyclic.app/api/v1", 
+    baseURL: "http://localhost:8000/api/v1",
     withCredentials: true
 })

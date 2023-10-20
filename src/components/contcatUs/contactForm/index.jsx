@@ -1,15 +1,20 @@
-import { Form, Input, Row, Col, Typography, Space } from "antd";
+import {  Row, Col, Typography, Space } from "antd";
 import formcall from "../../../../images/formcall.svg";
 import Formmsg from "../../../../images/formmsg.svg";
 import FormLoc from "../../../../images/formLoc.svg";
 import PrimaryButton from "../../common/buttons/primary";
 import "antd";
 import { useMediaQuery } from "react-responsive";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { contactAsync } from "../../../redux/actions/contact";
+import toast from "react-hot-toast";
+import { clearError, clearMessage } from "../../../redux/reducers/contactReducer";
 
 const { Title } = Typography;
 
 const formContainerStyle = {
-  
+
   borderRadius: "20px",
   overflow: "hidden",
 };
@@ -40,14 +45,56 @@ const labelStyle = {
   marginBottom: "8px",
   fontFamily: "Ubuntu, sans-serif",
   fontWeight: "bold",
-  
+
 };
 
 const MyForm = () => {
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [userMessage, setUserMessage] = useState("");
+  const dispatch = useDispatch();
+  const { loading, error, message } = useSelector((state) => state.contactus);
   const isSmallestScreen = useMediaQuery({ maxWidth: 990 });
+
+  const contactFunc = (e) => {
+    e.preventDefault();
+    if (!firstname || !lastname || !email || !phoneNumber || !userMessage) {
+      toast.error("Please fill out all the required fields.");
+    }else {
+      const contactData = {
+        firstName: firstname,
+        lastName: lastname,
+        email: email,
+        phone: phoneNumber,
+        message: userMessage
+      }
+      dispatch(contactAsync(contactData))
+      
+    }
+    
+  }
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error.message);
+      dispatch(clearError())
+    }
+    if (message) {
+      toast.success(message);
+      dispatch(clearMessage());
+      setFirstName('')
+      setLastName('')
+      setEmail('')
+      setPhoneNumber('')
+      setUserMessage('')
+    }
+  }, [error, message, toast, dispatch])
+
   return (
     <Row >
-    
+
       <Col
         xs={24}
         sm={24}
@@ -57,13 +104,13 @@ const MyForm = () => {
         style={{
           textAlign: "right",
           justifyContent: "flex-end",
-          marginRight: isSmallestScreen? "":"200px",
+          marginRight: isSmallestScreen ? "" : "200px",
           marginLeft: isSmallestScreen ? "5px" : "-100px",
-       
+
           display: "flex",
           marginTop: "50px",
           marginBottom: "50px",
-          
+
           ...formContainerStyle,
         }}
       >
@@ -88,7 +135,7 @@ const MyForm = () => {
               style={{
                 color: "white",
                 fontFamily: "Ubuntu",
-                fontSize: "32px",
+                fontSize: "30px",
                 fontStyle: "normal",
                 fontWeight: "700",
                 lineHeight: "100%",
@@ -102,7 +149,7 @@ const MyForm = () => {
               style={{
                 color: "#C9C9C9",
                 fontFamily: "Ubuntu",
-                fontSize: "20px",
+                fontSize: "18px",
                 fontStyle: "normal",
                 fontWeight: "400",
                 lineHeight: "140%",
@@ -197,8 +244,8 @@ const MyForm = () => {
         lg={8}
         style={{
           marginTop: "4%",
-          
-        
+
+
         }}
       >
         <Row
@@ -222,9 +269,12 @@ const MyForm = () => {
             <label htmlFor="FirstName" style={labelStyle}>
               First Name
             </label>
+            
             <input
               type="text"
               id="firstName"
+              value={firstname}
+              onChange={(e) => setFirstName(e.target.value)}
               style={{
                 border: "none",
                 borderBottom: "2px solid #ccc",
@@ -234,15 +284,18 @@ const MyForm = () => {
                 fontSize: "16px",
               }}
             />
+          
           </Col>
 
-          <Col xs={23} sm={24} md={18} xl={9} lg={14} style={{marginTop:isSmallestScreen? "20px":""}}>
+          <Col xs={23} sm={24} md={18} xl={9} lg={14} style={{ marginTop: isSmallestScreen ? "20px" : "" }}>
             <label htmlFor="LastName" style={labelStyle}>
               Last Name
             </label>
             <input
               type="text"
               id="LastName"
+              value={lastname}
+              onChange={(e) => setLastName(e.target.value)}
               style={{
                 border: "none",
                 fontFamily: "Ubuntu",
@@ -280,6 +333,8 @@ const MyForm = () => {
             <input
               type="text"
               id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               style={{
                 border: "none",
                 borderBottom: "2px solid #ccc",
@@ -291,13 +346,15 @@ const MyForm = () => {
             />
           </Col>
 
-          <Col xs={23} sm={24} md={18} xl={9} lg={14} style={{marginTop:isSmallestScreen? "20px":""}}>
+          <Col xs={23} sm={24} md={18} xl={9} lg={14} style={{ marginTop: isSmallestScreen ? "20px" : "" }}>
             <label htmlFor="PhoneNumber" style={labelStyle}>
               Phone Number
             </label>
             <input
-              type="text"
+              type="number"
               id="PhoneNumber"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
               style={{
                 border: "none",
                 borderBottom: "2px solid #ccc",
@@ -334,6 +391,8 @@ const MyForm = () => {
             <input
               type="text"
               id="Message"
+              value={userMessage}
+              onChange={(e) => setUserMessage(e.target.value)}
               style={{
                 border: "none",
                 borderBottom: "2px solid #ccc",
@@ -360,7 +419,7 @@ const MyForm = () => {
           }}
         >
           <Col xs={16} sm={20} md={14} xl={15} lg={16}>
-            <PrimaryButton title={<h4>Send Message</h4>} width="170px" />
+            <PrimaryButton clickHandler={contactFunc} title={<h4>{loading ? "loading..." : "Send Message"}</h4>} width="170px" />
           </Col>
         </Row>
       </Col>

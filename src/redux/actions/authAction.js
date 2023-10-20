@@ -44,3 +44,19 @@ export const fetchUserProfile = createAsyncThunk('auth/fetchUserProfile', async 
         throw error?.response?.data?.message;
     }
 });
+
+
+// get user profile function
+export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
+    try {
+        // Make a GET request to your logout endpoint
+        const response = await https.get('/logout');
+
+        // Clear user data from local storage after successful logout
+        localStorage.removeItem('user'); // Assuming 'user' is the key under which user data is stored
+
+        return response?.data;
+    } catch (error) {
+        throw error?.response?.data?.message;
+    }
+});

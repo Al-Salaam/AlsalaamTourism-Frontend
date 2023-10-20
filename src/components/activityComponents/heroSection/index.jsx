@@ -1,6 +1,4 @@
-import React from 'react';
 import { Row, Col, Image, Space } from 'antd';
-
 import A1 from "../../../../images/activity1.png"
 import A2 from "../../../../images/activityTwo.png"
 
@@ -9,11 +7,12 @@ import { useMediaQuery } from 'react-responsive';
 const ActivityHeroSection = () => {
 
     const isSmallScreen = useMediaQuery({ maxWidth: 766 });
-
+    const isTabletScreen = useMediaQuery({ maxWidth: 768 });
+    const isLaptopScreen = useMediaQuery({ maxWidth: 1024 });
     const rowStyle = {
         background: 'linear-gradient(180deg, #70ADBB 0%, #018D97 100%)',
-        padding: '100px 0', // Adjust the padding as needed
         overflowX: 'hidden',
+        padding: isLaptopScreen ? '100px 30px 0 30px':'100px 0 0 0 '
     };
 
     const image1Style = {
@@ -34,7 +33,7 @@ const ActivityHeroSection = () => {
                         <h1 style={{ fontSize: "64px", color: "white" }}>The Word is Yours to Explore</h1>
                     </Space> : <Space>
                         <h1 style={{ fontSize: "64px", color: "white" }}>The Word is Yours</h1>
-                        <h1 style={{ fontSize: "64px", color: "white", position: "absolute", marginTop: "3%", marginLeft: "-25%", zIndex: 1 }}>to Explore</h1>
+                        <h1 style={{ fontSize: "64px", color: "white", position: "absolute", marginTop: "3%", marginLeft:isTabletScreen?"-43%": "-15%", zIndex: 1 }}>To Explore</h1>
                     </Space>}
 
 
