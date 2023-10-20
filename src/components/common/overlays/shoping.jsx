@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Divider, Image, Typography } from 'antd';
 import PrimaryButton from "../buttons/primary"
+import { Link } from 'react-router-dom';
 const ShoppingComponent = () => {
     const { Title } = Typography;
     return (
@@ -26,7 +27,7 @@ const ShoppingComponent = () => {
             
             <Row justify={"start"}>
                 <Col span={24} align={"middle"} style={{paddingTop:"50px"}}>
-                    <PrimaryButton title={"Checkout"}  />
+                   <Link to="/checkOut"> <PrimaryButton title={"Checkout"}  /></Link>
                 </Col>
             </Row>
         </>

@@ -13,6 +13,12 @@ import { Toaster } from "react-hot-toast";
 import ActivityPage from "./pages/activityPage";
 import SingleActivity from "./pages/singleActivity";
 import SignUp from "./pages/authetication/signup";
+
+import Checkout from "./pages/checkOut";
+import FloatingWhatsapp from "./components/common/whatsappIcon";
+
+import ContactUS from "./pages/contactUs";
+
 import ContactUs from "./pages/contactUs";
 import Packages from "./pages/packages";
 import SinglePackage from "./pages/singlePackage";
@@ -51,12 +57,20 @@ function App() {
         <Route path="/rasAlKhaima" element={<RasAlKhaima />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
+
+        <Route path="/checkout" element={<Checkout/>}/>
+      </Routes>
+      <Toaster />
+      <FloatingWhatsapp/>
+    </>
+
         <Route path="/packages" element={<Packages />} />
         <Route path="/notFound" element={<NotFound />} />
         <Route path="/packages/:id" element={<SinglePackage />} />
         
       </Routes>
       <Toaster />
+
 
 
 
