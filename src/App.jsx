@@ -25,6 +25,9 @@ import Inbox from "./components/userPanelComponents/Inbox";
 import SideBar from "./components/userPanelComponents/SideBar";
 
 import NotFound from "./pages/notFound";
+import SuccessfulMessage from "./pages/actionMessage/successful";
+import CancelledMessage from "./pages/actionMessage/cancelled";
+import ThanksMessage from "./pages/actionMessage/thanks";
 
 
 function App() {
@@ -38,6 +41,10 @@ function App() {
           <Route path="wishlist" element={<Wishlist />} />
           <Route path="user-form" element={<UserForm />} />
         </Route>
+        
+        <Route path="/thanks" element={<ThanksMessage/>} />
+        <Route path="/cancel" element={<CancelledMessage/>} />
+        <Route path="/success" element={<SuccessfulMessage/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Home />} />

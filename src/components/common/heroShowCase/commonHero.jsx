@@ -9,7 +9,7 @@ function CommonHero(prop) {
 
     const containerStyle = {
         position: 'relative',
-        height: isSmallScreen? '50vh': '50vh',
+        height: isSmallScreen? '50vh': '70vh',
         backgroundImage: `url(${prop.image})`,
         padding: '4% 0 5%',
         backgroundSize: 'cover',
@@ -27,7 +27,6 @@ function CommonHero(prop) {
 
     const titleStyle = {
         color: '#FFF',
-        textShadow: '0px 1.5589158535003662px 1.247132658958435px rgba(0, 0, 0, 0.08), 0px 3.7462916374206543px 2.99703311920166px rgba(0, 0, 0, 0.11), 0px 7.053934574127197px 5.643147945404053px rgba(0, 0, 0, 0.14), 0px 12.583013534545898px 10.066411018371582px rgba(0, 0, 0, 0.16), 0px 23.535144805908203px 18.828115463256836px rgba(0, 0, 0, 0.19), 0px 56.334346771240234px 45.06747817993164px rgba(0, 0, 0, 0.27)',
         fontFamily: 'Ubuntu',
         fontSize: isSmallScreen ? '8vw' : '3vw',
         fontStyle: 'normal',
@@ -36,11 +35,12 @@ function CommonHero(prop) {
         letterSpacing: '4.48px',
         marginBottom: '10px', 
         marginTop: "120px",
+        textShadow:'2px 2px 2px rgba(0, 0, 0, 0.7)',
     };
 
     const subTitleStyle = {
         color: '#FFF',
-        textShadow: '0px 1.5589158535003662px 1.247132658958435px rgba(0, 0, 0, 0.08), 0px 3.7462916374206543px 2.99703311920166px rgba(0, 0, 0, 0.11), 0px 7.053934574127197px 5.643147945404053px rgba(0, 0, 0, 0.14), 0px 12.583013534545898px 10.066411018371582px rgba(0, 0, 0, 0.16), 0px 23.535144805908203px 18.828115463256836px rgba(0, 0, 0, 0.19), 0px 56.334346771240234px 45.06747817993164px rgba(0, 0, 0, 0.27)',
+        textShadow: '2px 2px 2px rgba(0, 0, 0, 0.7)',
         fontFamily: 'Ubuntu',
         fontSize: isSmallScreen ? '4vw' : '1.3vw',
         fontStyle: 'normal',

@@ -7,7 +7,6 @@ import { useMediaQuery } from 'react-responsive';
 const ActivityHeroSection = () => {
 
     const isSmallScreen = useMediaQuery({ maxWidth: 766 });
-    const isTabletScreen = useMediaQuery({ maxWidth: 768 });
     const isLaptopScreen = useMediaQuery({ maxWidth: 1024 });
     const rowStyle = {
         background: 'linear-gradient(180deg, #70ADBB 0%, #018D97 100%)',
@@ -30,10 +29,23 @@ const ActivityHeroSection = () => {
                 <Col xs={24} sm={24} lg={24} xl={24} align='middle'>
 
                     {isSmallScreen ? <Space>
-                        <h1 style={{ fontSize: "64px", color: "white" }}>The Word is Yours to Explore</h1>
+                        <h1 style={{
+        fontSize: "64px",
+        color: "white",
+        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)", 
+        marginBottom: "10px",      
+      }}>The Word is Yours To Explore</h1>
                     </Space> : <Space>
-                        <h1 style={{ fontSize: "64px", color: "white" }}>The Word is Yours</h1>
-                        <h1 style={{ fontSize: "64px", color: "white", position: "absolute", marginTop: "3%", marginLeft:isTabletScreen?"-43%": "-15%", zIndex: 1 }}>To Explore</h1>
+                        <h1 style={{ fontSize: "64px", color: "white", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",  }}>The Word is Yours</h1>
+                        <h1 style={{
+        fontSize: "64px",
+        color: "white",
+        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)", 
+        position: "absolute",
+        marginTop: "3%",
+        marginLeft: isLaptopScreen ? "-35%" : "-22%",
+        zIndex: 1,
+      }}>To Explore</h1>
                     </Space>}
 
 

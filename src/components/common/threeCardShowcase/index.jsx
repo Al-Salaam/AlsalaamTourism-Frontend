@@ -9,7 +9,7 @@ const { Title } = Typography;
 
 function ThreeCardShowCase(){
     return(
-        <Row style={{ marginTop: 200, background: 'linear-gradient(180deg, #89A7B2 0%, #028B95 100%)', }}>
+        <Row style={{ marginTop: 80, background: 'linear-gradient(180deg, #89A7B2 0%, #028B95 100%)', }}>
 
         <Col span={24} align="middle" justify="center" style={{ marginTop: "-100px",paddingBottom:"5%" }}>
             <Title level='5'>Destinations</Title>

@@ -18,7 +18,7 @@ function HeroShowCase() {
                 <Title style={{fontSize:isSmallScreen ? "10vw": "4vw",color:"white"}}>Dream | Explore | Discover</Title>
                 <Title style={{fontSize:isSmallScreen ? "3vw": "2vw",color:"white"}}>Get the best prices on all excurssions and activities across UAE.</Title>
                 <div style={{marginTop:"50px"}}>
-                <PrimaryButton  width='200px'  title={<Title style={{fontSize:isSmallScreen ? "4vw": "1vw",color:"white"}}>Explore Now</Title>}/>
+                <PrimaryButton height='35px' width='200px'  title={<Title style={{fontSize:isSmallScreen ? "4vw": "1vw",color:"white"}}>Explore Now</Title>}/>
                 </div>
                 </Col>
                 

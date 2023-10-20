@@ -14,28 +14,24 @@ import { clearError, clearMessage } from "../../../redux/reducers/contactReducer
 const { Title } = Typography;
 
 const formContainerStyle = {
-
-  borderRadius: "20px",
   overflow: "hidden",
 };
 
 const circleStyle = {
   position: "absolute",
-  top: "155px",
-  left: "200px",
-  height: "129px",
-  width: "129px",
-  backgroundColor: "#FFFFFF1F",
+ 
+  height: "60px",
+  width: "60px",
+backgroundColor: "#FFFFFF1F",
   borderRadius: "50%",
   fillOpacity: "0.13px",
 };
 const circleStyle2 = {
   position: "relative",
-  top: "180px",
-  left: "90px",
 
-  height: "200px",
-  width: "200px",
+
+  height: "100px",
+  width: "100px",
   backgroundColor: "#FFFFFF1F",
   borderRadius: "50%",
   fillOpacity: "0.13px",
@@ -91,45 +87,49 @@ const MyForm = () => {
       setUserMessage('')
     }
   }, [error, message, toast, dispatch])
+  const isMobileScreen=useMediaQuery({maxWidth:600});
 
   return (
-    <Row >
-
+    <Row xs={24}
+    sm={24}
+    md={24}
+    xl={24}
+    lg={24} style={{marginBottom:"50px", backgroundColor:"white",borderRadius:"15px"}}>
+              {/* Left Side */}
       <Col
         xs={24}
         sm={24}
-        md={21}
-        xl={12}
+        md={12}
+        xl={10}
         lg={12}
         style={{
           textAlign: "right",
-          justifyContent: "flex-end",
-          marginRight: isSmallestScreen ? "" : "200px",
-          marginLeft: isSmallestScreen ? "5px" : "-100px",
-
+         justifyContent:"end",
+          marginRight: isSmallestScreen ? "" : "0px",
+          // marginLeft: isSmallestScreen ? "5px" : "-100px",
           display: "flex",
-          marginTop: "50px",
-          marginBottom: "50px",
-
+          // marginTop: "50px",
+          // marginBottom: "50px",
           ...formContainerStyle,
         }}
       >
         <Col
           xs={24}
           sm={24}
-          md={14}
-          xl={12}
+          md={24}
+          xl={15}
           lg={18}
           style={{
             background: "linear-gradient(to bottom, #70ADBB, #018D97)",
             flex: 1,
-            padding: "4%",
-            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+            padding: "4% 0 0 4%",
+            boxShadow: "2px 2px 4px rgba(0, 0, 0, 1)",
             position: "relative",
-            borderRadius: "20px",
+            borderRadius: "15px 15px 0 0",
+
           }}
         >
-          <Col xs={24} sm={24} md={24} lg={24} xl={20} align="middle">
+          <Col xs={24} sm={24} md={18} lg={19} xl={20} align="middle" > 
             <Title
               level={3}
               style={{
@@ -144,7 +144,7 @@ const MyForm = () => {
               Contact Information
             </Title>
           </Col>
-          <Col xs={24} sm={24} md={19} lg={24} xl={17} align="middle">
+          <Col xs={24} sm={24} md={15} lg={15} xl={17} align="middle" >
             <Title
               style={{
                 color: "#C9C9C9",
@@ -159,12 +159,12 @@ const MyForm = () => {
               Here’s how you can reach us.
             </Title>
           </Col>
-          <Row style={{ marginBottom: "30px" }}>
-            <Col xs={24} sm={12} md={24} lg={12} xl={2} align="middle">
+          <Row style={{ marginBottom: "30px"}} >
+            <Col xs={24} sm={12} md={2} lg={2} xl={2} align= {isMobileScreen?"middle":"end"} >
               <img src={formcall} alt="Phone" />
             </Col>
 
-            <Col xs={24} sm={12} md={24} lg={12} xl={10} align="middle">
+            <Col xs={24} sm={24} md={12} lg={12} xl={12} align="middle" >
               <Title
                 level={5}
                 style={{
@@ -181,11 +181,11 @@ const MyForm = () => {
             </Col>
           </Row>
           <Row style={{ marginBottom: "30px" }}>
-            <Col xs={24} sm={12} md={24} lg={12} xl={2} align="middle">
+            <Col xs={24} sm={12} md={2} lg={2} xl={2} align= {isMobileScreen?"middle":"end"}>
               <img src={Formmsg} alt="Phone" />
             </Col>
 
-            <Col xs={24} sm={12} md={24} lg={12} xl={15} align="middle">
+            <Col xs={24} sm={16} md={14} lg={14} xl={14} align= {isMobileScreen?"middle":"end"}>
               <Title
                 level={5}
                 style={{
@@ -201,14 +201,13 @@ const MyForm = () => {
               </Title>
             </Col>
           </Row>
-          <Row style={{ marginBottom: "30px" }}>
-            <Col xs={24} sm={12} md={24} lg={12} xl={2} align="middle">
+          <Row style={{ marginBottom: "30px"}}>
+            <Col xs={24} sm={12} md={2} lg={2} xl={2} align= {isMobileScreen?"middle":"end"}>
               <img src={FormLoc} alt="Location" />
             </Col>
 
-            <Col xs={24} sm={12} md={24} lg={12} xl={21} align="middle">
-              <Title
-                level={5}
+            <Col xs={24} sm={20} md={20} lg={20} xl={20} align= {isMobileScreen?"start":"end"}>
+              <Title                
                 style={{
                   color: "#FFF",
                   fontFamily: "Ubuntu",
@@ -218,34 +217,34 @@ const MyForm = () => {
                   lineHeight: "normal",
                 }}
               >
-                Office 17, Awazel Building, Ras Al Khor 2 Manama St, Dubai, UAE.
+                office 17, Awazel Building, Ras Al Khor 2 Manama St, Dubai, UAE.
               </Title>
             </Col>
-            <Col
-              xs={22}
-              sm={12}
-              md={24}
-              lg={12}
-              xl={24}
-              style={{ display: "flex", justifyContent: "flex-end" }}
-            >
+            </Row>
+            <Row xs={24} sm={24} md={24} lg={24} xl={24} style={{justifyContent:"flex-end"}}>
+            
               <div style={circleStyle}></div>
               <div style={circleStyle2}></div>
-            </Col>
+         
           </Row>
         </Col>
       </Col>
 
+
+               {/* Right Side */}
       <Col
         xs={24}
         sm={24}
-        md={20}
+        md={12}
         xl={10}
-        lg={8}
+        lg={10}
         style={{
-          marginTop: "4%",
-
-
+          paddingTop: "2%",
+          boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.1)",
+          borderRadius:"15px 0 0 0",
+          // paddingTop: "50px",
+          // marginBottom:"50px"
+          
         }}
       >
         <Row
@@ -256,16 +255,15 @@ const MyForm = () => {
             fontSize: "14px",
             fontStyle: "normal",
             fontWeight: "500",
-            lineHeight: "20px",
-
-            marginRight: isSmallestScreen ? "" : "90px",
-            marginLeft: isSmallestScreen ? "5px" : "-100px",
-
-            marginTop: "50px",
-            marginBottom: "20px",
+            lineHeight: "20px",             
+            marginRight: isSmallestScreen ? "" : "10px",
+            marginLeft: isSmallestScreen ? "5px" : "0px",
+    
+            
+          
           }}
         >
-          <Col xs={23} sm={24} md={18} xl={9} lg={14}>
+          <Col xs={23} sm={24} md={18} xl={9} lg={10}>
             <label htmlFor="FirstName" style={labelStyle}>
               First Name
             </label>
@@ -287,7 +285,7 @@ const MyForm = () => {
           
           </Col>
 
-          <Col xs={23} sm={24} md={18} xl={9} lg={14} style={{ marginTop: isSmallestScreen ? "20px" : "" }}>
+          <Col xs={23} sm={24} md={18} xl={9} lg={10} style={{ marginTop: isSmallestScreen ? "20px" : "" }}>
             <label htmlFor="LastName" style={labelStyle}>
               Last Name
             </label>
@@ -320,13 +318,11 @@ const MyForm = () => {
             fontStyle: "normal",
             fontWeight: "500",
             lineHeight: "20px",
-            marginRight: isSmallestScreen ? "" : "90px",
-            marginLeft: isSmallestScreen ? "5px" : "-100px",
-
-            marginBottom: "20px",
+            marginRight: isSmallestScreen ? "" : "10px",
+            marginLeft: isSmallestScreen ? "5px" : "0px",
           }}
         >
-          <Col xs={23} sm={24} md={18} xl={9} lg={14}>
+          <Col xs={23} sm={24} md={18} xl={9} lg={10}>
             <label htmlFor="Email" style={{ ...labelStyle }}>
               Email
             </label>
@@ -346,7 +342,7 @@ const MyForm = () => {
             />
           </Col>
 
-          <Col xs={23} sm={24} md={18} xl={9} lg={14} style={{ marginTop: isSmallestScreen ? "20px" : "" }}>
+          <Col xs={23} sm={24} md={18} xl={9} lg={10} style={{ marginTop: isSmallestScreen ? "20px" : "" }}>
             <label htmlFor="PhoneNumber" style={labelStyle}>
               Phone Number
             </label>
@@ -378,10 +374,8 @@ const MyForm = () => {
             fontStyle: "normal",
             fontWeight: "500",
             lineHeight: "20px",
-            marginRight: isSmallestScreen ? "" : "90px",
-            marginLeft: isSmallestScreen ? "5px" : "-100px",
-
-            marginBottom: "20px",
+            marginRight: isSmallestScreen ? "" : "10px",
+            marginLeft: isSmallestScreen ? "5px" : "0px",
           }}
         >
           <Col xs={12} sm={13} md={9} xl={6} lg={9}>
@@ -408,9 +402,9 @@ const MyForm = () => {
 
         <Row
           justify="end"
-          gutter={50}
+        
           style={{
-            marginTop: "5%",
+            // marginTop: "5%",
             fontFamily: "Ubuntu",
             fontSize: "14px",
             fontStyle: "normal",
@@ -418,7 +412,7 @@ const MyForm = () => {
             lineHeight: "20px",
           }}
         >
-          <Col xs={16} sm={20} md={14} xl={15} lg={16}>
+          <Col xs={16} sm={20} md={14} xl={16} lg={16}  align="middle" style={{margin:"10% 0 10% 0"}} >
             <PrimaryButton clickHandler={contactFunc} title={<h4>{loading ? "loading..." : "Send Message"}</h4>} width="170px" />
           </Col>
         </Row>
