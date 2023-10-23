@@ -55,7 +55,9 @@ const activityReducer = createSlice({
         removeFromCart: (state, action) => {
             state.cart = state.cart.filter(item => item.activityId !== action.payload.activityId);
             saveCartDataToLocalStorage(state.cart); // Save updated cart data to local storage
-        },
+            state.message = 'Item successfully removed from the cart.';
+            state.error = null; // Clear any previous error message
+          },
 
         getAddToCartData: (state) => {
             state.cart = getCartDataFromLocalStorage(); // Retrieve cart data from local storage

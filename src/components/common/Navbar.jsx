@@ -1,68 +1,96 @@
-import { useEffect, useState } from 'react';
-import { MenuOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
-import { Menu, Row, Col, Drawer, Button, ConfigProvider} from 'antd';
-import { Link } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
-import Logo from "../../../images/alsalaamLogo.png"
-import ShoppingComponent from './overlays/shoping';
-import ProfileComponent from './overlays/profile';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchUserProfile } from '../../redux/actions/authAction';
-
-
-
+import { useEffect, useState } from "react";
+import {
+  MenuOutlined,
+  ShoppingCartOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { Menu, Row, Col, Drawer, Button, ConfigProvider } from "antd";
+import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import Logo from "../../../images/alsalaamLogo.png";
+import ShoppingComponent from "./overlays/shoping";
+import ProfileComponent from "./overlays/profile";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserProfile } from "../../redux/actions/authAction";
+import { getAddToCartData } from "../../redux/reducers/activityReducer";
 
 const Navbar = ({ showOverlayMessage }) => {
-
   const dispatach = useDispatch();
   const { loading, user } = useSelector((state) => state.auth);
 
+    const { cart } = useSelector((state) => state.activity);
+
+    useEffect(() => {
+        dispatach(getAddToCartData());
+    }, [dispatach]);
+
   useEffect(() => {
-    dispatach(fetchUserProfile())
-  }, [dispatach])
+    dispatach(fetchUserProfile());
+  }, [dispatach]);
 
   const items = [
     {
-      label: <Link to="/" >Home</Link>,
-      key: 'home',
+      label: <Link to="/">Home</Link>,
+      key: "home",
     },
     {
       label: <Link to="/activity">Activites</Link>,
-      key: 'activites',
-
-
+      key: "activites",
     },
     {
-      label: <Link to="/packages" >Packages</Link>,
-      key: 'packages',
-
+      label: <Link to="/packages">Packages</Link>,
+      key: "packages",
     },
 
     {
-      label: <Link to="/contact" >Contact US</Link>,
-      key: 'Contact Us',
-
-
+      label: <Link to="/contact">Contact US</Link>,
+      key: "Contact Us",
+    },
+    {
+      label: <Link to="/about">About US</Link>,
+      key: "about",
     },
     {
       label: (
-        <Link to="/about" >About US</Link>
+        <Link>
+          
+            <ShoppingCartOutlined style={{ fontSize: "28px" }} />
+        
+{cart.length > 0 && (
+  <div
+            className="notification-count"
+            style={{
+              position: "absolute",
+              top: "-8px",
+              right: "-8px",
+              backgroundColor: "red",
+              color: "white",
+              borderRadius: "50%",
+              width: "24px",
+              height: "24px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              fontSize: "14px",
+            }}
+          >
+            <span>{cart && cart.length}</span>
+          </div>
+)}
+        
+        </Link>
       ),
-      key: 'about',
+      key: "Shoping",
     },
     {
-      label: (
-        <Link  ><ShoppingCartOutlined style={{ fontSize: "28px" }} /></Link>
-      ),
-      key: 'Shoping',
-
-    },
-    {
-      label: (
+      label:
         // user ? <Link  ><UserOutlined style={{ fontSize: "40px" }} /></Link> : null
-      user ? <UserOutlined style={{ fontSize: "28px" }} /> : <Link to={'/login'}>Login</Link>
-      ),
-      key: 'profile',
+        user ? (
+          <UserOutlined style={{ fontSize: "28px" }} />
+        ) : (
+          <Link to={"/login"}>Login</Link>
+        ),
+      key: "profile",
     },
   ];
 
@@ -75,7 +103,8 @@ const Navbar = ({ showOverlayMessage }) => {
     setOpen(false);
   };
 
-  const [navbarBackgroundColor, setNavbarBackgroundColor] = useState('transparent');
+  const [navbarBackgroundColor, setNavbarBackgroundColor] =
+    useState("transparent");
 
   useEffect(() => {
     // Add an event listener to handle scroll
@@ -84,166 +113,226 @@ const Navbar = ({ showOverlayMessage }) => {
       const scrollY = window.scrollY;
       const threshold = 50; // Adjust this threshold as needed
       if (scrollY > threshold) {
-        setNavbarBackgroundColor('#3B505A6B'); // Change to the desired color
+        setNavbarBackgroundColor("#3B505A6B"); // Change to the desired color
       } else {
-        setNavbarBackgroundColor('transparent');
+        setNavbarBackgroundColor("transparent");
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     // Clean up the event listener when the component unmounts
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const [current, setCurrent] = useState('mail');
+  const [current, setCurrent] = useState("mail");
   const [current2, setCurrent2] = useState();
   useEffect(() => {
     // Check if 'current2' is not undefined, then apply color change
     if (current2 !== undefined) {
       // Update the style of the links in the mobile drawer
       const links = document.querySelectorAll(".mobile-drawer-link");
-      links.forEach(link => {
+      links.forEach((link) => {
         const key = link.getAttribute("data-key");
-        link.style.color = key === current2 ? 'black' : 'white';
+        link.style.color = key === current2 ? "black" : "white";
       });
     }
   }, [current2]);
 
-
   const onClickMobileDrawerLink = (e) => {
     setCurrent2(e.key);
     setCurrent2(e.key);
-    if (e.key === 'Shoping') {
-      showOverlayMessage(
-        <ShoppingComponent />
-      );
+    if (e.key === "Shoping") {
+      showOverlayMessage(<ShoppingComponent />);
       onClose();
-    } else if (e.key === 'profile') {
-      showOverlayMessage(
-        <ProfileComponent user={user} loading={loading} />
-      );
+    } else if (e.key === "profile") {
+      showOverlayMessage(<ProfileComponent user={user} loading={loading} />);
       onClose();
     } else {
       // Close the drawer if any other link is clicked
       onClose();
     }
-  }
+  };
   const onClick = (e) => {
-    console.log('click ', e);
+    console.log("click ", e);
     setCurrent(e.key);
 
-
     // Check if "Shoping" or "Profile" is clicked and pass different content accordingly
-    if (e.key === 'Shoping') {
-      showOverlayMessage(
-        <ShoppingComponent />
-      );
-    } else if (e.key === 'profile') {
-      showOverlayMessage(
-        <ProfileComponent user={user} loading={loading} />
-      );
+    if (e.key === "Shoping") {
+      showOverlayMessage(<ShoppingComponent />);
+    } else if (e.key === "profile") {
+      showOverlayMessage(<ProfileComponent user={user} loading={loading} />);
     }
   };
 
-
   const isMobile = useMediaQuery({
-    query: '(max-width: 1024px)', // Change this breakpoint as needed
+    query: "(max-width: 1024px)", // Change this breakpoint as needed
   });
   const isNavShort = useMediaQuery({
-    query: '(max-width: 1209)', // Change this breakpoint as needed
+    query: "(max-width: 1209)", // Change this breakpoint as needed
   });
-  
+
   return (
     <>
-
-
-      <Row style={{
-        padding: isMobile ? "10px" : "10px 50px",
-        backgroundColor: navbarBackgroundColor,
-        position: 'fixed',
-        top: 0,
-        width: '100vw',
-        zIndex: "10",
-        
-      }}>
-        <Col xs={4} sm={4} md={4} lg={4} xl={4} xxl={4}  >
-          <img
-            src={Logo}
-            height={60}
-            
-          />
+      <Row
+        style={{
+          padding: isMobile ? "10px" : "10px 50px",
+          backgroundColor: navbarBackgroundColor,
+          position: "fixed",
+          top: 0,
+          width: "100vw",
+          zIndex: "10",
+        }}
+      >
+        <Col xs={4} sm={4} md={4} lg={4} xl={4} xxl={4}>
+          <img src={Logo} height={60} />
         </Col>
-        <Col xs={20} sm={20} md={20} lg={20} xl={20} xxl={20} style={{ display:"flex", justifyContent:"end"}}  >
+        <Col
+          xs={20}
+          sm={20}
+          md={20}
+          lg={20}
+          xl={20}
+          xxl={20}
+          style={{ display: "flex", justifyContent: "end" }}
+        >
           {isMobile ? (
             <>
               <Button
                 type="text"
                 onClick={showDrawer}
-                icon={<MenuOutlined style={{ fontSize: '24px', color: 'white' }} />}
+                icon={
+                  <MenuOutlined style={{ fontSize: "24px", color: "white" }} />
+                }
               />
-              <Drawer placement="right" onClose={onClose} open={open} style={{ backgroundColor: "#70ADBB", }}>
+              <Drawer
+                placement="right"
+                onClose={onClose}
+                open={open}
+                style={{ backgroundColor: "#70ADBB" }}
+              >
                 <Row>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
-                    <Link to="/" onClick={(e) => onClickMobileDrawerLink({ key: 'home' })} style={{ color: current2 === 'home' ? 'black' : 'white', fontSize: "18px" }}>
+                    <Link
+                      to="/"
+                      onClick={(e) => onClickMobileDrawerLink({ key: "home" })}
+                      style={{
+                        color: current2 === "home" ? "black" : "white",
+                        fontSize: "18px",
+                      }}
+                    >
                       Home
                     </Link>
                   </Col>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
-                    <Link to="/activity" onClick={(e) => onClickMobileDrawerLink({ key: 'activites' })} style={{ color: current2 === 'activites' ? 'black' : 'white', fontSize: "18px" }}>
+                    <Link
+                      to="/activity"
+                      onClick={(e) =>
+                        onClickMobileDrawerLink({ key: "activites" })
+                      }
+                      style={{
+                        color: current2 === "activites" ? "black" : "white",
+                        fontSize: "18px",
+                      }}
+                    >
                       activites
                     </Link>
                   </Col>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
-                    <Link to="/notfound" onClick={(e) => onClickMobileDrawerLink({ key: 'home' })} style={{ color: current2 === 'home' ? 'black' : 'white', fontSize: "18px" }}>
+                    <Link
+                      to="/notfound"
+                      onClick={(e) => onClickMobileDrawerLink({ key: "home" })}
+                      style={{
+                        color: current2 === "home" ? "black" : "white",
+                        fontSize: "18px",
+                      }}
+                    >
                       Packages
                     </Link>
                   </Col>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
-                    <Link to="/contact" onClick={(e) => onClickMobileDrawerLink({ key: 'activites' })} style={{ color: current2 === 'activites' ? 'black' : 'white', fontSize: "18px" }}>
+                    <Link
+                      to="/contact"
+                      onClick={(e) =>
+                        onClickMobileDrawerLink({ key: "activites" })
+                      }
+                      style={{
+                        color: current2 === "activites" ? "black" : "white",
+                        fontSize: "18px",
+                      }}
+                    >
                       Contact US
                     </Link>
                   </Col>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
-                    <Link to="/about" onClick={(e) => onClickMobileDrawerLink({ key: 'home' })} style={{ color: current2 === 'home' ? 'black' : 'white', fontSize: "18px" }}>
+                    <Link
+                      to="/about"
+                      onClick={(e) => onClickMobileDrawerLink({ key: "home" })}
+                      style={{
+                        color: current2 === "home" ? "black" : "white",
+                        fontSize: "18px",
+                      }}
+                    >
                       About US
                     </Link>
                   </Col>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
-                    <Link onClick={(e) => onClickMobileDrawerLink({ key: 'Shoping' })} style={{ color: current2 === 'Shoping' ? 'black' : 'white', fontSize: "18px" }}>
+                    <Link
+                      onClick={(e) =>
+                        onClickMobileDrawerLink({ key: "Shoping" })
+                      }
+                      style={{
+                        color: current2 === "Shoping" ? "black" : "white",
+                        fontSize: "18px",
+                      }}
+                    >
                       <ShoppingCartOutlined style={{ fontSize: "50px" }} />
                     </Link>
                   </Col>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
-                    <Link onClick={(e) => onClickMobileDrawerLink({ key: 'profile' })} style={{ color: current2 === 'profile' ? 'black' : 'white', fontSize: "18px" }}>
+                    <Link
+                      onClick={(e) =>
+                        onClickMobileDrawerLink({ key: "profile" })
+                      }
+                      style={{
+                        color: current2 === "profile" ? "black" : "white",
+                        fontSize: "18px",
+                      }}
+                    >
                       <UserOutlined style={{ fontSize: "20px" }} />
                     </Link>
                   </Col>
-
                 </Row>
-
               </Drawer>
             </>
           ) : (
-
             <ConfigProvider
               theme={{
                 token: {
-
-                  colorPrimary: 'black',
+                  colorPrimary: "black",
                   fontSize: 20,
                   colorText: "white",
                 },
               }}
-
             >
-              <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ backgroundColor: 'transparent',width:"800px",display:"flex",justifyContent:"flex-end" }} /></ConfigProvider>
+              <Menu
+                onClick={onClick}
+                selectedKeys={[current]}
+                mode="horizontal"
+                items={items}
+                style={{
+                  backgroundColor: "transparent",
+                  width: "800px",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              />
+            </ConfigProvider>
           )}
         </Col>
       </Row>
-
     </>
   );
 };
