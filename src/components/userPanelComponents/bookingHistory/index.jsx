@@ -2,6 +2,9 @@ import { Button, Table, Tag, Col, Row, Select, Pagination } from "antd";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { ArrowRightOutlined } from '@ant-design/icons';
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getBookingDetailsForUsers } from "../../../redux/actions/bookingAction";
 
 
 const { Option } = Select;
@@ -28,7 +31,7 @@ const actionTextStyle = {
 };
 
 const columns = [
-  { title: '#', dataIndex: 'key', key: 'key', align: 'center', width: 50 },
+ { title: '#', dataIndex: 'key', key: 'key', align: 'center', width: 50 },
   { title: 'Booking Id', dataIndex: 'bookingId', key: 'bookingId', align: 'center', width: 120 },
   { title: 'Date', dataIndex: 'date', key: 'date', align: 'center', width: 100 },
   { title: 'Categories', dataIndex: 'categories', key: 'categories', align: 'center', width: 100 },
@@ -40,24 +43,34 @@ const columns = [
     dataIndex: 'statuss',
     key: 'statuss',
     align: 'center',
-    render: (a) => <Tag color={a === "Completed" ? "green" : "red"} style={tagStyles}>{a}</Tag>,
+    render: (a) => <Tag g color={a === "Completed" ? "green" : "red"} style={tagStyles}>{a}</Tag>,
     width: 120,
   },
-  {
-    title: 'Action',
-    dataIndex: 'action',
-    key: 'action',
-    align: 'center',
-    render: (action) => (
-      <Link to={`/`}>
-        <span style={actionTextStyle}>{action} <ArrowRightOutlined /></span>
-      </Link>
-    ),
-    width: 80,
-  },
+  // {
+  //   title: 'Action',
+  //   dataIndex: 'action',
+  //   key: 'action',
+  //   align: 'center',
+  //   render: (action) => (
+  //     <Link to={`/`}>
+  //       <span style={actionTextStyle}>{action} <ArrowRightOutlined /></span>
+  //     </Link>
+  //   ),
+  //   width: 80,
+  // },
 ];
 
 const BookingHistory = () => {
+
+
+  const dispatach = useDispatch()
+  const {loading, data} = useSelector((state) => state.booking);
+  useEffect(()=> {
+    dispatach(getBookingDetailsForUsers())
+ },[dispatach])
+
+//  console.log(data?.bookings[0]?.activity.name,"");
+
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
   const [filterStatus, setFilterStatus] = useState('All');
