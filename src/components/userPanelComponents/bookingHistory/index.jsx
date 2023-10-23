@@ -31,7 +31,7 @@ const actionTextStyle = {
 };
 
 const columns = [
-  { title: '#', dataIndex: 'key', key: 'key', align: 'center', width: 50 },
+ { title: '#', dataIndex: 'key', key: 'key', align: 'center', width: 50 },
   { title: 'Booking Id', dataIndex: 'bookingId', key: 'bookingId', align: 'center', width: 120 },
   { title: 'Date', dataIndex: 'date', key: 'date', align: 'center', width: 100 },
   { title: 'Categories', dataIndex: 'categories', key: 'categories', align: 'center', width: 100 },
@@ -43,7 +43,7 @@ const columns = [
     dataIndex: 'statuss',
     key: 'statuss',
     align: 'center',
-    render: (a) => <Tag color={a === "Completed" ? "green" : "red"} style={tagStyles}>{a}</Tag>,
+    render: (a) => <Tag g color={a === "Completed" ? "green" : "red"} style={tagStyles}>{a}</Tag>,
     width: 120,
   },
   // {
