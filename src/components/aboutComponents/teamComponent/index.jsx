@@ -1,6 +1,4 @@
-import React from 'react';
-import Selfie from "../../../../images/3dSelfie.png";
-import { Menu, Row, Col, Drawer, Button, ConfigProvider, Image } from 'antd';
+import { Row, Col} from 'antd';
 
 const containerStyle = {
   display: 'flex',

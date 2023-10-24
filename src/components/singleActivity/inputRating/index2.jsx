@@ -6,7 +6,7 @@ import { clearError, clearMessage } from '../../../redux/reducers/packagesReduce
 import toast from 'react-hot-toast';
 import { createPackagesReviews } from '../../../redux/actions/packagesAction';
 
-const RatingInput = ({ pakage }) => {
+const   RatingInput = ({ pakage }) => {
 
     const dispatch = useDispatch();
     const { loading, error, message } = useSelector((state) => state.package);
