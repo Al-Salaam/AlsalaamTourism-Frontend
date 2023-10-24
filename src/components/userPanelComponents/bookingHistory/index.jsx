@@ -1,105 +1,61 @@
-import { Button, Table, Tag, Col, Row, Select, Pagination } from "antd";
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { ArrowRightOutlined } from '@ant-design/icons';
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getBookingDetailsForUsers } from "../../../redux/actions/bookingAction";
+import React, { useState } from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import { Chip } from '@mui/material';
+import { Button, Col, Pagination, Row, Select } from 'antd';
+import { Option } from 'rc-select';
 
+function createData(id, bookingId, date, category, passenger, amount, paymentMode, status) {
+  return { id, bookingId, date, category, passenger, amount, paymentMode, status };
+}
 
-const { Option } = Select;
-
-const dataSource = [
-  { key: '1', bookingId: 'Ahmad ', date: 'malik89@gmail.com ', categories:'Activity', passengers:'25', amount:'50.00 AED',    paymentMode:'Credit card',   statuss: "Completed", action: "view" },
-  { key: '1', bookingId: 'Ahmad Malik', date: 'malik89@gmail.com ', categories:'Tour', passengers:'25', amount:'50.00 AED',    paymentMode:'Credit card',  statuss: "Cancelled", action: "view" },
-  { key: '1', bookingId: 'Ahmad Malik', date: 'malik89@gmail.com ', categories:'Activity', passengers:'25', amount:'50.00 AED',    paymentMode:'Credit card',  statuss: "Completed", action: "view" },
-  { key: '1', bookingId: 'Ahmad Malik', date: 'malik89@gmail.com ', categories:'Tour', passengers:'25', amount:'50.00 AED',    paymentMode:'Credit card',  statuss: "Completed", action: "view" },
-  { key: '1', bookingId: 'Ahmad Malik', date: 'malik89@gmail.com ', categories:'Activity', passengers:'25', amount:'50.00 AED',    paymentMode:'Credit card', statuss: "Completed", action: "view" },
-  { key: '1', bookingId: 'Ahmad Malik', date: 'malik89@gmail.com ', categories:'Tour', passengers:'25', amount:'50.00 AED',    paymentMode:'Credit card', statuss: "Cancelled", action: "view" },
+const rows = [
+  createData(1, 'Ahmed', '17/10/23', 'Activity', 25, '50 AED', 'Credit Card', 'Completed'),
+  createData(2, 'John', '18/10/23', 'Tour', 30, '60 AED', 'PayPal', 'Cancelled'),
+  createData(3, 'Sam', '19/10/23', 'Tour', 28, '55 AED', 'Credit Card', 'Completed'),
+  // Add more data here...
 ];
 
-const itemsPerPage = 4;
-
-const tagStyles = {
-  borderRadius: '20px',
-  padding: '7px 27px',
-};
-
-const actionTextStyle = {
-  color: '#643DB4',
-  verticalAlign: 'middle',
-};
-
-const columns = [
- { title: '#', dataIndex: 'key', key: 'key', align: 'center', width: 50 },
-  { title: 'Booking Id', dataIndex: 'bookingId', key: 'bookingId', align: 'center', width: 120 },
-  { title: 'Date', dataIndex: 'date', key: 'date', align: 'center', width: 100 },
-  { title: 'Categories', dataIndex: 'categories', key: 'categories', align: 'center', width: 100 },
-  { title: 'No. of Passengers', dataIndex: 'passengers', key: 'passengers', align: 'center', width: 130 },
-  { title: 'Amount', dataIndex: 'amount', key: 'amount', align: 'center', render: (text) => <span style={{ color: "#6774E3" }}>{text}</span>, width: 100 },
-  { title: 'Payment Mode', dataIndex: 'paymentMode', key: 'paymentMode', align: 'center', width: 120 },
-  {
-    title: 'Status',
-    dataIndex: 'statuss',
-    key: 'statuss',
-    align: 'center',
-    render: (a) => <Tag g color={a === "Completed" ? "green" : "red"} style={tagStyles}>{a}</Tag>,
-    width: 120,
-  },
-  // {
-  //   title: 'Action',
-  //   dataIndex: 'action',
-  //   key: 'action',
-  //   align: 'center',
-  //   render: (action) => (
-  //     <Link to={`/`}>
-  //       <span style={actionTextStyle}>{action} <ArrowRightOutlined /></span>
-  //     </Link>
-  //   ),
-  //   width: 80,
-  // },
-];
-
-const BookingHistory = () => {
-
-
-  const dispatach = useDispatch()
-  const {loading, data} = useSelector((state) => state.booking);
-  useEffect(()=> {
-    dispatach(getBookingDetailsForUsers())
- },[dispatach])
-
-//  console.log(data?.bookings[0]?.activity.name,"");
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState('');
+export default function DenseTable() {
+  const [filterCategory, setFilterCategory] = useState('All');
   const [filterStatus, setFilterStatus] = useState('All');
-  const [filterRole, setFilterRole] = useState('All');
-  
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
+
+  const handleCategoryChange = (value) => {
+    setFilterCategory(value);
+    setCurrentPage(1);
+  };
+
+  const handleStatusChange = (value) => {
+    setFilterStatus(value);
+    setCurrentPage(1);
+  };
+
+  const filteredRows = rows.filter((row) => {
+    const isCategoryMatch = filterCategory === 'All' || row.category === filterCategory;
+    const isStatusMatch = filterStatus === 'All' || row.status === filterStatus;
+    return isCategoryMatch && isStatusMatch;
+  });
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = Math.min(startIndex + itemsPerPage, filteredRows.length);
+  const currentRows = filteredRows.slice(startIndex, endIndex);
+
   const onPageChange = (page) => {
     setCurrentPage(page);
   };
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-
-  const visibleData = dataSource
-    .filter((item) =>
-      (filterStatus === 'All' || item.statuss === filterStatus) &&
-      (filterRole === 'All' || (filterRole === 'Tour' && item.categories === 'Tour') || (filterRole === 'Activity' && item.categories === 'Activity')) &&
-      (item.bookingId.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.statuss.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.date.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.categories.toLowerCase().includes(searchQuery.toLowerCase()))
-    )
-    .slice(startIndex, endIndex);
 
   return (
     <Row gutter={[16, 16]}>
       <Col xs={24} sm={24} md={24} lg={24} xl={24}>
         <Row xs={24} md={24} sm={24} lg={24} xl={24}>
-          <Col xs={24} md={24} sm={24} lg={12} xl={12} style={{marginBottom:"40px"}}>
+          <Col xs={24} md={24} sm={24} lg={12} xl={12} style={{ marginBottom: "40px" }}>
             <h1>Booking History</h1>
           </Col>
           <Col xs={24} md={24} sm={24} lg={12} xl={12}>
@@ -109,41 +65,78 @@ const BookingHistory = () => {
               </Button>
             </Row>
             <Row style={{ display: 'flex', justifyContent: 'flex-end', gap: "10px" }} gutter={30}>
-              <Select
-                style={{ width: '200px', height: '40px', borderRadius: '10px' }}
-                onChange={(value) => setFilterRole(value)}
-                value={filterRole}
-                placeholder="Category"
-              >
-                <Option value="All">All</Option>
-                <Option value="Activity">Activity</Option>
-                <Option value="Tour">Tour</Option>
-              </Select>
-              <Select
-                style={{ width: '200px', height: '40px', borderRadius: '10px' }}
-                onChange={(value) => setFilterStatus(value)}
-                value={filterStatus}
-                placeholder="Status"
-              >
-                <Option value="All">All</Option>
-                <Option value="Completed">Completed</Option>
-                <Option value="Cancelled">Cancelled</Option>
-              </Select>
+              <Col>
+                <Select
+                  style={{ width: '200px', height: '40px', borderRadius: '10px' }}
+                  onChange={handleCategoryChange}
+                  value={filterCategory}
+                  placeholder="Category"
+                >
+                  <Option value="All">All</Option>
+                  <Option value="Activity">Activity</Option>
+                  <Option value="Tour">Tour</Option>
+                </Select>
+              </Col>
+              <Col>
+                <Select
+                  style={{ width: '200px', height: '40px', borderRadius: '10px' }}
+                  onChange={handleStatusChange}
+                  value={filterStatus}
+                  placeholder="Status"
+                >
+                  <Option value="All">All</Option>
+                  <Option value="Completed">Completed</Option>
+                  <Option value="Cancelled">Cancelled</Option>
+                </Select>
+              </Col>
             </Row>
           </Col>
         </Row>
-
-        <div style={{ overflowX: 'auto' }}>
-          <Table dataSource={visibleData} columns={columns} responsive pagination={false} />
-        </div>
-
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+            <TableHead>
+              <TableRow sx={{ backgroundColor: "#FAFAFA" }}>
+                <TableCell>#</TableCell>
+                <TableCell align="middle" sx={{ padding: 2 }}>Booking ID</TableCell>
+                <TableCell align="middle">Date</TableCell>
+                <TableCell align="middle">Categories</TableCell>
+                <TableCell align="middle">Passengers</TableCell>
+                <TableCell align="middle">Amount</TableCell>
+                <TableCell align="middle">Payment Mode</TableCell>
+                <TableCell align="middle">Status</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {currentRows.map((row) => (
+                <TableRow
+                  key={row.id}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell scope="row">
+                    {row.id}
+                  </TableCell>
+                  <TableCell align="middle">{row.bookingId}</TableCell>
+                  <TableCell align="middle">{row.date}</TableCell>
+                  <TableCell align="middle" sx={{ padding: 4 }}>{row.category}</TableCell>
+                  <TableCell align="middle">{row.passenger}</TableCell>
+                  <TableCell align="middle" sx={{ color: "blue" }}>{row.amount}</TableCell>
+                  <TableCell align="middle">{row.paymentMode}</TableCell>
+                  <TableCell align="middle">
+                    <Chip label={row.status} style={{ color: row.status === "Completed" ? "green" : "red",
+                      backgroundColor: row.status === "Completed" ? "#D5FFCC" : "#FFCCCC" }} />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px' }}>
           <div>
-            Showing {startIndex + 1} to {Math.min(endIndex, dataSource.length)} of {dataSource.length} entries.
+            Showing {startIndex + 1} to {endIndex} of {filteredRows.length} entries.
           </div>
           <Pagination
             current={currentPage}
-            total={dataSource.length}
+            total={filteredRows.length}
             pageSize={itemsPerPage}
             onChange={onPageChange}
             position={['bottomRight']}
@@ -152,6 +145,4 @@ const BookingHistory = () => {
       </Col>
     </Row>
   );
-};
-
-export default BookingHistory;
+}
