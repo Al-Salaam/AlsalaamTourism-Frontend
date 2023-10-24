@@ -299,8 +299,8 @@ const Ourpackags = () => {
                       <p><img src={Time} /> {packag.duration}</p>
                     </Col>
                     <Link to={`/packages/${packag._id}`}>
-                    <Col span={12} align="right">
-                      <PrimaryButton title={"View Details"} width='100%' />
+                    <Col span={12} align="right" style={{marginTop:"20px"}} >
+                      <PrimaryButton title={"View Details"}width='100%' />
                     </Col>
                     </Link>
                     

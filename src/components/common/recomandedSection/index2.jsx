@@ -38,6 +38,7 @@ const FlipCard = (props) => {
                 transformStyle: 'preserve-3d',
                 transition: 'transform 0.6s',
                 transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                
             }}
             onMouseLeave={handleMouseLeave}
         >
@@ -55,7 +56,7 @@ const FlipCard = (props) => {
                         height: '400px',
                         position: 'relative',
                         backgroundImage: `url(${props.imageSrc})`, backgroundPosition: 'center', backgroundSize: 'cover',
-
+                        borderRadius:"25px"
                     }}
                 >
                     <h3
@@ -113,7 +114,7 @@ const FlipCard = (props) => {
                         >
                             <strong>+</strong>
                         </Button>
-                        <Button onClick={handleAddToCart}>
+                        <Button onClick={handleAddToCart} style={{marginLeft:"15px"}}>
                             Add to card
                         </Button>
                         <h4>{props.feature && "featured"}</h4>
