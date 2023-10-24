@@ -13,7 +13,7 @@ const imageStyle = {
 };
 
 const imagePaths = [
-  ["../../../../images/4.png", "../../../../images/packagesHero.png"],
+  ["../../../../images/Rectangle 57.png", "../../../../images/Rectangle 58.png"],
   ["../../../../images/desDubai.png", "../../../../images/fujairahver.png"],
   ["../../../../images/destinationMain.png", "../../../../images/desAbuDhabi.png"],
   ["../../../../images/destinationMain.png", "../../../../images/desAbuDhabi.png"]

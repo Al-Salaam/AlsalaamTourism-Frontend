@@ -6,6 +6,7 @@ import CircleComponent from "../../components/common/circleImages";
 
 import OurActivity from '../../components/activityComponents';
 import ActivityHeroSection from '../../components/activityComponents/heroSection';
+import TopDealCarousel from "../../components/common/topDealCarousel";
 
 
 
@@ -17,7 +18,7 @@ function ActivityPage() {
         <>
             <ActivityHeroSection />
             <OurActivity />
-            <TwoCardShowCase />
+            <TopDealCarousel/>
             <CircleComponent />
             <Footer />
         </>
