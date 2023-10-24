@@ -16,7 +16,7 @@ function NationalityDrop () {
     <select id="nationality" size='large' style={{ ...componentStyle, border: "1px solid lightgray", backgroundColor: "white", borderRadius: "7px" }}>
       <option value="" selected="selected" disabled="disabled" >Nationality</option>
       <option value="afghan">Afghan</option>
-      <option value="albanian">Albanian</option>
+      <option value="albanian">Albaniann</option>
       <option value="algerian">Algerian</option>
       <option value="american">American</option>
       <option value="andorran">Andorran</option>
