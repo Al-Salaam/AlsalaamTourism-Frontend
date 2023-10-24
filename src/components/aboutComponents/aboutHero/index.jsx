@@ -10,7 +10,7 @@ const AboutHero = ({ description, videoSource }) => {
     query: '(max-width: 1305px)', // Change this breakpoint as needed
   });
   const isTablet = useMediaQuery({
-    query: '(max-width: 1024px)', // Change this breakpoint as needed
+    query: '(max-width: 1421px)', // Change this breakpoint as needed
   });
   return (
     <Row  >

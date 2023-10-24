@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const itemsPerPage = 3;
 
-const ActivitySlider = ({ data, auto = false, showTitle = true, showDescription = true, showButtons = true }) => {
+const  ActivitySlider = ({ data, auto = false, showTitle = true, showDescription = true, showButtons = true }) => {
     const { Title } = Typography;
     const [currentPage, setCurrentPage] = useState(0);
     const [autoMode, setAutoMode] = useState(auto);

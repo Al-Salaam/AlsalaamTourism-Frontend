@@ -300,7 +300,7 @@ const Ourpackags = () => {
                     </Col>
                     <Link to={`/packages/${packag._id}`}>
                     <Col span={12} align="right">
-                      <PrimaryButton title={"View Deatils"} />
+                      <PrimaryButton title={"View Details"} width='100%' />
                     </Col>
                     </Link>
                     
