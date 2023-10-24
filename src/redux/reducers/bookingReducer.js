@@ -4,7 +4,7 @@ import {  getBookingDetailsForUsers } from "../actions/bookingAction"
 const initialState = {
     loading : false, 
     error: null ,
-    data : []
+    bookings: [],
 }
 
 const bookingReducer = createSlice({
@@ -20,7 +20,7 @@ const bookingReducer = createSlice({
         })
         .addCase(getBookingDetailsForUsers.fulfilled, (state, action) => {
             state.loading = false;
-            state.data = action.payload.data.bookings;
+            state.bookings = action.payload.data.bookings;
         })
         .addCase(getBookingDetailsForUsers.rejected, (state, action) => {
             state.loading = false;
