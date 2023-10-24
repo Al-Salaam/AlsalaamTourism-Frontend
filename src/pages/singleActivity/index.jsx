@@ -15,6 +15,7 @@ import CommonHero from '../../components/common/heroShowCase/commonHero';
 import Footer from '../../components/common/footer/index';
 import { useMediaQuery } from 'react-responsive';
 import Map from "../../../images/Map.png"
+import Map2 from "../../components/common/map/index"
 import ActivitySlider from '../../components/common/activitySlider';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -80,7 +81,7 @@ function SingleActivity() {
                             <RatingInput activity={activity}/>
                         </Col>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={{ margin: "5% 0", padding: "0 2%", display: isSmallScreen ? "none" : "" }} align="middle">
-                            <Image src={Map} />
+                            <Map2/>
                         </Col>
                     </Row>
                     <Row>
@@ -88,7 +89,7 @@ function SingleActivity() {
                             <CardSlider  reviews={reviews}/>
                         </Col>
                         <Col span={24} style={{ margin: "5% 0", padding: "0 2%", display: isSmallScreen ? "" : "none" }} align="middle">
-                            <Image src={Map} />
+                            <Map2/>
                         </Col>
                     </Row>
                     <Row>
