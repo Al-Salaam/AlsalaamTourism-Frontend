@@ -28,6 +28,9 @@ import NotFound from "./pages/notFound";
 import SuccessfulMessage from "./pages/actionMessage/successful";
 import CancelledMessage from "./pages/actionMessage/cancelled";
 import ThanksMessage from "./pages/actionMessage/thanks";
+import FloatingWhatsapp from "./components/whatsappIcon";
+import { WhatsAppOutlined } from "@ant-design/icons";
+import { FaWhatsapp } from "react-icons/fa";
 
 
 function App() {
@@ -64,6 +67,8 @@ function App() {
         
       </Routes>
       <Toaster />
+      {/* <WhatsAppOutlined style={{color:"red"}}/> */}
+      <FloatingWhatsapp/>
 
 
 
