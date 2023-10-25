@@ -1,46 +1,79 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input, Button } from "antd";
 import { useMediaQuery } from "react-responsive";
 import NationalityDrop from "./nationalityDrop";
 import PhoneInput from "react-phone-number-input";
 import "./style.css";
+import { useDispatch, useSelector } from "react-redux";
+import { createInquiryForUser } from "../../../redux/actions/inquiryAction";
+import { toast } from "react-hot-toast";
+import { clearError, clearMessage } from "../../../redux/reducers/inquiryReducer";
+import { useNavigate } from "react-router-dom";
 
-function FormCard() {
-  const [value, setValue] = useState();
+function FormCard({ pakage }) {
+  const [title, setTitle] = useState("Mr.");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [nationality, setNationality] = useState("");
+  const [phone, setPhone] = useState("");
+  const [specialRequirment, setSpecialRequirment] = useState("");
 
-  const [formData, setFormData] = useState({
-    checkinDate: null,
-    numberOfRooms: null,
-    numberOfDays: null,
-    nationality: "",
-    numberOfNights: null,
-    roomPreference: "",
-    adults: "",
-    children: "",
-    hotel: "",
-    meals: "",
-    excursion: "",
-    covidDoses: "",
-  });
+  const dispatch = useDispatch();
+  const { loading, error, message } = useSelector((state) => state.inquiry);
+  const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    setFormData({
-      checkinDate: null,
-      numberOfRooms: null,
-      numberOfDays: null,
-      nationality: "",
-      numberOfNights: null,
-      roomPreference: "",
-      adults: "",
-      children: "",
-      hotel: "",
-      meals: "",
-      excursion: "",
-      covidDoses: "",
-    });
+
+    if (
+      firstname === "" ||
+      lastname === "" ||
+      email === "" ||
+      phone === "" ||
+      specialRequirment === ""
+    ) {
+      toast.error("Please fill in all required fields.");
+    } else if (!user) {
+      // Navigate to the login page
+      navigate("/login"); // Update the path to your login page
+    } else {
+      const formData = {
+        title,
+        firstname,
+        lastname,
+        email,
+        nationality,
+        phone,
+        specialRequirment,
+      };
+      
+      dispatch(createInquiryForUser({ packageId: pakage._id, ...formData }));
+
+
+      // Clear the form by setting individual states to their initial values.
+      setTitle("Mr.");
+      setFirstname("");
+      setLastname("");
+      setEmail("");
+      setNationality("");
+      setPhone("");
+      setSpecialRequirment("");
+    }
   };
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error.message);
+      dispatch(clearError());
+    }
+    if (message) {
+      toast.success(message);
+      dispatch(clearMessage());
+    }
+  }, [dispatch, toast, error, message]);
+
   const isSmallestScreen = useMediaQuery({ maxWidth: 1045 });
   const isSmallScreen = useMediaQuery({ maxWidth: 1006 });
   const componentStyle = {
@@ -63,7 +96,7 @@ function FormCard() {
     padding: "5%",
     width: isSmallestScreen ? "100%" : "80%",
     margin: isSmallScreen ? "0%" : "2% 20%",
-    marginTop:isSmallScreen? "15px": "0px"
+    marginTop: isSmallScreen ? "15px" : "0px",
   };
 
   return (
@@ -87,21 +120,24 @@ function FormCard() {
                 backgroundColor: "white",
                 borderRadius: "7px",
               }}
-              onChange={(value) =>
-                setFormData({ ...formData, numberOfRooms: value })
-              }
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             >
-              <option value="1">Mr.</option>
-              <option value="2">Mrs.</option>
-              <option value="3">Ms.</option>
+              <option value="Mr.">Mr.</option>
+              <option value="Mrs.">Mrs.</option>
+              <option value="Mrs.">Mrs.</option>
               {/* Add more options as needed */}
             </select>
-            {/* <DatePicker style={componentStyle} onChange={(date) => setFormData({ ...formData, checkinDate: date })} /> */}
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={labelStyle}>First Name</div>
             <div>
-              <Input style={componentStyle} placeholder="First Name*" />
+              <Input
+                style={componentStyle}
+                placeholder="First Name*"
+                value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
+              />
             </div>
           </div>
         </div>
@@ -118,12 +154,22 @@ function FormCard() {
             <div style={labelStyle}>Last Name</div>
 
             <div>
-              <Input style={componentStyle} placeholder="Last Name*" />
+              <Input
+                style={componentStyle}
+                placeholder="Last Name*"
+                value={lastname}
+                onChange={(e) => setLastname(e.target.value)}
+              />
             </div>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ ...labelStyle, fontSize: "90%" }}>Email</div>
-            <Input style={componentStyle} placeholder="Email Address*" />
+            <Input
+              style={componentStyle}
+              placeholder="Email Address*"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
         </div>
 
@@ -138,18 +184,21 @@ function FormCard() {
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={labelStyle}>Nationality</div>
             <div>
-              <NationalityDrop />
+              <NationalityDrop
+                selectedNationality={nationality}
+                onChange={(value) => setNationality(value)}
+              />
             </div>
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ ...labelStyle, fontSize: "100%" }}>Phone Number</div>
             <div>
               <PhoneInput
-                value={value}
-                onChange={setValue}
                 internationalIcon={"false"}
                 placeholder="Phone Number*"
                 style={{ width: "160px" }}
+                value={phone}
+                onChange={(phone) => setPhone(phone)}
               />
             </div>
           </div>
@@ -172,55 +221,15 @@ function FormCard() {
               color: "#696969",
             }}
           >
-            Special Requirments
+            Special Requirements
           </div>
           <Input
             style={{ ...componentStyle, width: "70%" }}
-            placeholder="Special Requirments"
-            onChange={(e) =>
-              setFormData({ ...formData, nationality: e.target.value })
-            }
+            placeholder="Special Requirements"
+            value={specialRequirment}
+            onChange={(e) => setSpecialRequirment(e.target.value)}
           />
         </div>
-
-        {/* <div style={{ display: "flex", flexDirection: "column" }}>
-          <div
-            style={{ ...labelStyle, display: "flex", justifyContent: "center" }}
-          >
-            Excursion to be Visited
-          </div>
-
-          <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-            <label>
-              <input type="radio" name="ticketType" value="withTickets" /> With
-              Tickets
-            </label>
-            <br />
-            <label>
-              <input type="radio" name="ticketType" value="withoutTickets" />{" "}
-              Without Tickets
-            </label>
-          </div>
-        </div> */}
-
-        {/* <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <div style={{ ...labelStyle }}>
-            Please Specify the number of received Doses for Covid 19
-          </div>
-          <Input
-            style={{ ...componentStyle, width: "70%" }}
-            onChange={(e) =>
-              setFormData({ ...formData, nationality: e.target.value })
-            }
-          />
-        </div> */}
 
         <div
           style={{
@@ -231,6 +240,7 @@ function FormCard() {
         >
           <Button
             onClick={handleFormSubmit}
+            disabled={loading}
             style={{
               width: "20vw",
               backgroundColor: "#3B505A",
@@ -238,7 +248,7 @@ function FormCard() {
               borderRadius: "30px",
             }}
           >
-            Submit
+            {loading ? "loading..." : "Submit"}
           </Button>
         </div>
       </div>
