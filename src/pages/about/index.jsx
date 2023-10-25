@@ -42,34 +42,40 @@ function About() {
         videoSource="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
       <ChooseUs />
       <ServicesSection />
-      <div style={{ backgroundImage: `url(${BG})`,backgroundPosition:"center", backgroundRepeat:"no-repeat" }}>
-      <Row justify="center" >
-        <Col>
-          <h1 style={{ margin: "15% 0" }}>Meet The Team</h1>
-        </Col>
-      </Row>
-      <Row style={{marginBottom:"80px"}}>
-        {imageCardData.map((data, index) => (
-          <Col
-            xs={24}
-            sm={12}
-            md={12}
-            lg={12}
-            xl={index === imageCardData.length - 1 ? 24 : 8}
-            key={index}
-            style={{marginTop:"30px"}}
-          >
-            <ImageCard
-              key={index}
-              imageUrl={data.imageUrl}
-              mainText={data.mainText}
-              rotatedText={data.rotatedText}
-              
-            />
-          </Col>
-        ))}
-      </Row>
-      </div>
+      <div style={{
+        paddingBottom:"5%",
+  backgroundImage: `url(${BG})`,
+  backgroundPosition: "center",
+  backgroundSize: "100% 100%",
+  minHeight: "100vh", 
+}}>
+  <Row justify="center">
+    <Col>
+      <h1 style={{ margin: "15% 0" }}>Meet The Team</h1>
+    </Col>
+  </Row>
+  <Row>
+    {imageCardData.map((data, index) => (
+      <Col
+        xs={24}
+        sm={12}
+        md={12}
+        lg={12}
+        xl={index === imageCardData.length - 1 ? 24 : 8}
+        key={index}
+        style={{ marginTop: "30px" }}
+      >
+        <ImageCard
+          key={index}
+          imageUrl={data.imageUrl}
+          mainText={data.mainText}
+          rotatedText={data.rotatedText}
+        />
+      </Col>
+    ))}
+  </Row>
+</div>
+
       <CircleComponent />
       <ImageGallery images={images} />
       <Footer />
