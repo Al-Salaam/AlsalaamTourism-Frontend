@@ -17,9 +17,15 @@ function ActivityPage() {
     return (
         <>
             <ActivityHeroSection />
+            <div style={{margin:"-7% 0 0 0"}}>
             <OurActivity />
+            </div>
+            <div style={{margin:"0 0 50px 0"}}>
             <TopDealCarousel/>
+            </div>
+            <div style={{margin:"0 0 50px 0"}}>
             <CircleComponent />
+            </div>
             <Footer />
         </>
     )

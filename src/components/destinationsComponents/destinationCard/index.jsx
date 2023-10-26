@@ -21,10 +21,10 @@ const DestinationCard = (prop) => {
 
   return (
     <Row justify="center"> {/* Center the content horizontally */}
-      <Col xs={24} sm={24} md={18} lg={16} xl={14}> {/* Adjust the number of columns per screen size */}
+      <Col xs={23} sm={23} md={23} lg={23} xl={23}> {/* Adjust the number of columns per screen size */}
         <div style={cardContainerStyle}>
           <div style={cardStyle}>
-            <p style={{margin:"10px 0 10px 0"}}>
+            <p style={{margin:"50px 0 50px 0"}}>
               {prop.Paragraph}
             </p>
           </div>

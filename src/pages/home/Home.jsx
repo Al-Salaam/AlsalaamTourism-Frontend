@@ -15,9 +15,13 @@ function Home() {
             <HeroShowCase  />
             <ServicesShowCase videoSrc="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
             <ThreeCardShowCase />
+            <div style={{margin:"-20px 0 0 0"}}>
             <RecomendedSection />
+            </div>
             {/* <TopDealSlider/> */}
+            <div style={{margin:"50px 0 50px 0"}}>
             <TopDealCarousel/>
+            </div>
             <Footer />
         </>
     )
