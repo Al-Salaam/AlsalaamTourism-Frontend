@@ -25,6 +25,10 @@ const AboutHero = ({ description, videoSource }) => {
     document.getElementById("videoElement").pause();
   };
 
+  const isVideoBorder = useMediaQuery({
+    query: '(max-width: 767px)'
+  });
+
   const isMobile = useMediaQuery({
     query: '(max-width: 1305px)', // Change this breakpoint as needed
   });
@@ -34,7 +38,7 @@ const AboutHero = ({ description, videoSource }) => {
   return (
     <Row   >
       
-      <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{borderBottom:"3px white solid" , paddingBottom: isTablet ? "20px" : "", color: "white", background: 'linear-gradient(180deg, #70ADBB 0%, #018D97 100%)', padding: isMobile ? "" : "7%" }}>
+      <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{borderBottom:isVideoBorder ? "0px":"3px white solid" , paddingBottom: isTablet ? "20px" : "", color: "white", background: 'linear-gradient(180deg, #70ADBB 0%, #018D97 100%)', padding: isMobile ? "" : "7%" }}>
         <h1 style={{ marginTop: isMobile ? "11%" : "1%" }}>About Alsalaam</h1>
         <p style={{ margin: "2%", fontSize: isTablet ? "10px" : "15px", marginBottom: isTablet ? "10px" : "10px" }}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions. We enjoy a stellar reputation of excellence in Dubai's tourism sector. We place the needs of our clients first and go the extra mile in ensuring our customer’s travel experience is laced with comfort and beautiful memories that endure for a lifetime.</p>
         <PrimaryButton title={"Explore Destination"} width="200px" />
@@ -45,12 +49,12 @@ const AboutHero = ({ description, videoSource }) => {
       
         <div onClick={openVideoModal} style={{ cursor: 'pointer' }}>
          
-          <img src={Services} style={{ width: "100%",height:"45vh" }} />
+          <img src={Services} style={{ width: "100%",height:"50vh" }} />
         </div>
 
       </Col>
       <Modal
-        title="Our Services"
+        title="About US"
         visible={videoModalVisible}
         onCancel={closeVideoModal}
         footer={null}

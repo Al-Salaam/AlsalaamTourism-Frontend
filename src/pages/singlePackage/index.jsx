@@ -10,10 +10,8 @@ import RatingInput from '../../components/singleActivity/inputRating/index2';
 import Map from "../../../images/Map.png"
 import { useMediaQuery } from 'react-responsive';
 import Questions from '../../components/singleActivity/questions';
-import Carousel from '../../components/singleActivity/imageSlider';
 import CarouselWithThumbnails from '../../components/singlePackage/carousal/index2';
 import SinglePackaeTitle from '../../components/singlePackage/Title';
-import Stats from '../../components/singleActivity/stats';
 import StatsSinglePackage from '../../components/singlePackage/stats';
 import TabsSinglePackage from '../../components/singlePackage/tabs';
 import SinglePackaeDesc from '../../components/singlePackage/description';
@@ -21,7 +19,7 @@ import FormCard from '../../components/singlePackage/form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { fetchPackages, fetchPackagesById, fetchPackagesReviews } from '../../redux/actions/packagesAction';
+import {  fetchPackagesById, fetchPackagesReviews } from '../../redux/actions/packagesAction';
 import { Loader } from '../../components/common/loader';
 import { fetchActivities } from '../../redux/actions/activityAction';
 
