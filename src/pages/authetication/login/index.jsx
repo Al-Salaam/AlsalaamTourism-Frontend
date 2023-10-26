@@ -46,8 +46,8 @@ useEffect(() => {
   
 
   return (
-    <div className={styles.mainRow}>
-      <Row >
+    <div className={styles.mainRow} style={{marginBottom:"-10%"}}>
+      <Row>
         <Col xs={24} sm={24} md={24} lg={12} xl={12} className={styles.col1}>
           <div>
             <Row gutter={16}>

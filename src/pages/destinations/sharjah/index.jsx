@@ -23,7 +23,9 @@ Sharjah provides visitors with a significantly wider look into Arabic and Islami
 />
 
 
-      <Footer />
+<div style={{marginBottom:"-10%"}}>
+    <Footer />
+    </div>
     </>
   );
 };

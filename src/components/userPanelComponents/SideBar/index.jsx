@@ -171,7 +171,7 @@ const SideBar = () => {
           </Menu.Item>
           <Menu.Item key="4" icon={<InboxOutlined />}>
             <Link to="/user-panel/inbox">
-              Inbox
+              Inquiry
             </Link>
           </Menu.Item>
           <Menu.Item key="5" icon={<FastBackwardOutlined />}>

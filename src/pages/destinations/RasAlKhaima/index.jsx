@@ -16,7 +16,9 @@ Residents of Ras Al Khaimah often travelled to places like Zanzibar, Bombay, and
 Due to its wealth, Ras Al Khaimah served as an attractive target for numerous occupying nations. The ruins of 18 historic fortifications, castles, and towers bear witness to Ras Al Khaimah’s stormy past, which saw the Sassanid Persians, the Islamic clans of the Arabian Gulf, and the Portuguese, Dutch, and British colonial empires all attempt to conquer or occupy the local communities."/>
 
   
-    <Footer/>
+<div style={{marginBottom:"-10%"}}>
+    <Footer />
+    </div>
     </>
   )
 }

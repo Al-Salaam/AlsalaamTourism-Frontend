@@ -16,7 +16,9 @@ function Destinations() {
 
             <Section2 />
            
-            <Footer/>
+            <div style={{marginBottom:"-10%"}}>
+    <Footer />
+    </div>
             
            
           

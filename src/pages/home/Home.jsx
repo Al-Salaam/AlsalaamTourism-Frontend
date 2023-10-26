@@ -22,7 +22,9 @@ function Home() {
             <div style={{margin:"50px 0 50px 0"}}>
             <TopDealCarousel/>
             </div>
-            <Footer />
+            <div style={{marginBottom:"-10%"}}>
+    <Footer />
+    </div>
         </>
     )
 }
