@@ -9,3 +9,13 @@ export const createInquiryForUser = createAsyncThunk('inquiry/createInquiryForUs
         throw error;
     }
 });
+
+
+export const getInquiryForUser = createAsyncThunk('inquiry/getInquiryForUser', async () => {
+    try {
+        const response = await https.get('/packages/inquiry/user');
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+});
