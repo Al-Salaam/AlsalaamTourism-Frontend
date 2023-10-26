@@ -42,7 +42,7 @@ const ShoppingComponent = () => {
                   <Title level={3}>{item?.title}</Title>
                   <Title level={5}>{item?.price} AED</Title>
                   <Space>
-                    <Link to={`/activity/${item.activityId}`}>View Details</Link>
+                    <Link to={`/activity/${item.activityId}` } >View Details</Link>
                     <CloseOutlined
                       style={{
                         color: "red",

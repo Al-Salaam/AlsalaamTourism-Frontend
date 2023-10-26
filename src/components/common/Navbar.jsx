@@ -52,9 +52,8 @@ const Navbar = ({ showOverlayMessage }) => {
     },
     {
       label: (
-        <Link>
-          
-            <ShoppingCartOutlined style={{ fontSize: "28px" }} />
+        <Link >
+            <ShoppingCartOutlined style={{fontSize:"28px",backgroundColor:"white",borderRadius:"5px"}} />
         
 {cart.length > 0 && (
   <div
@@ -86,7 +85,7 @@ const Navbar = ({ showOverlayMessage }) => {
       label:
         // user ? <Link  ><UserOutlined style={{ fontSize: "40px" }} /></Link> : null
         user ? (
-          <UserOutlined style={{ fontSize: "28px" }} />
+          <UserOutlined style={{ fontSize: "28px",backgroundColor:"white",borderRadius:"4px" }} />
         ) : (
           <Link to={"/login"}>Login</Link>
         ),
@@ -204,7 +203,7 @@ const Navbar = ({ showOverlayMessage }) => {
                 type="text"
                 onClick={showDrawer}
                 icon={
-                  <MenuOutlined style={{ fontSize: "24px", color: "white" }} />
+                  <MenuOutlined style={{ fontSize: "24px", backgroundColor: "white" }} />
                 }
               />
               <Drawer
@@ -288,7 +287,7 @@ const Navbar = ({ showOverlayMessage }) => {
                         fontSize: "18px",
                       }}
                     >
-                      <ShoppingCartOutlined style={{ fontSize: "50px" }} />
+                      <ShoppingCartOutlined style={{ fontSize: "250px" }} />
                     </Link>
                   </Col>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
