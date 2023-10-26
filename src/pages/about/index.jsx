@@ -78,7 +78,9 @@ function About() {
 
       <CircleComponent />
       <ImageGallery images={images} />
-      <Footer />
+      <div style={{marginBottom:"-10%"}}>
+    <Footer />
+    </div>
     </>
   );
 }

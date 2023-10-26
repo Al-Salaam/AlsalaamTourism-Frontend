@@ -13,7 +13,9 @@ function DestinationDubai() {
 "
       />
 
-      <Footer />
+<div style={{marginBottom:"-10%"}}>
+    <Footer />
+    </div>
     </>
   );
 }

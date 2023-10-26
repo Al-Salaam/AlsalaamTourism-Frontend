@@ -26,7 +26,9 @@ function ActivityPage() {
             <div style={{margin:"0 0 50px 0"}}>
             <CircleComponent />
             </div>
-            <Footer />
+            <div style={{marginBottom:"-10%"}}>
+    <Footer />
+    </div>
         </>
     )
 }
