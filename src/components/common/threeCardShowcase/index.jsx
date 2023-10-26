@@ -17,7 +17,7 @@ function ThreeCardShowCase(){
                 <Image
                     src={Sec3img1}
                     alt="Image 1"
-                    style={{ margin: 0, padding: 0, maxWidthwidth: "100%", top: 0, left: "30%", position: "relative" }}
+                    style={{ margin: 0, padding: 0, maxWidthwidth: "100%", top: 0, left: "35%", position: "relative" }}
                 />
                 <Image
                     src={Sec3img2}
@@ -27,7 +27,7 @@ function ThreeCardShowCase(){
                 <Image
                     src={Sec3img3}
                     alt="Image 3"
-                    style={{ margin: 0, padding: 0, maxWidthwidth: "100%", top: 0, right: "20%", position: "relative", }}
+                    style={{ margin: 0, padding: 0, maxWidthwidth: "100%", top: 0, right: "32%", position: "relative", }}
                 />
             </Space>
             <Title level='5' style={{marginTop:"5%"}}></Title>

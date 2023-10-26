@@ -60,7 +60,7 @@ function SingleActivity() {
                                 <Checklist activity={activity?.highlights} columns={1} title={"Highlights"} />
                             </div>
                         </Col>
-                        <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                        <Col xs={24} sm={24} md={12} lg={12} xl={12} >
                             <BookNow activity={activity} />
                             <Description activity={activity} />
                             <Checklist activity={activity?.included} columns={2} title={"Included"} style={{ margin: "1500px 0" }} />
@@ -70,7 +70,7 @@ function SingleActivity() {
                             </div>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row style={{marginTop:"20px"}}>
                         <Col span={24}>
                             <Questions />
                         </Col>
@@ -97,7 +97,7 @@ function SingleActivity() {
                             <ActivitySlider data={data} auto= {true}/>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row >
                         <Col span={24}>
                             <Footer />
                         </Col>

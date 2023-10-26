@@ -11,6 +11,7 @@ const ImageGallery = ({images}) => {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
+    marginBottom:"20px"
   };
 
   const columnStyle = {
