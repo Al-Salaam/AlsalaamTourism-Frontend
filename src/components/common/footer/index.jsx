@@ -20,7 +20,7 @@ function Footer() {
       });
     const isSmallestScreen = useMediaQuery({ maxWidth: 990 });
     return (
-    
+
     <Row>
         <Col span={24}>
             <Row align={'middle'} style={{ backgroundColor: "#EFEFFF", padding: "1%" }} >
@@ -51,17 +51,17 @@ function Footer() {
 
                 <Col xs={24} sm={24} md={12} lg={6} xl={6} style={{ paddingLeft: isSmallestScreen ? "" :"15%",paddingTop:isSmallestScreen ? "5%" :"" }}  >
                     <Row style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }} ><Link to="/" style={{ color: "white", fontSize: "16px" }}>Home</Link></Col></Row>
-                    <Row style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/" style={{ color: "white", fontSize: "16px" }}>Tours</Link></Col></Row>
-                    <Row style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/" style={{ color: "white", fontSize: "16px" }}>Packages</Link></Col></Row>
+                    <Row style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/activity" style={{ color: "white", fontSize: "16px" }}>Activites</Link></Col></Row>
+                    <Row style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/packages" style={{ color: "white", fontSize: "16px" }}>Packages</Link></Col></Row>
                     <Row style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/" style={{ color: "white", fontSize: "16px" }}>Our Partner</Link></Col></Row>
                     <Row style={{margin:isSmallestScreen? "2% 0" :""}} ><Col><Link to="/" style={{ color: "white", fontSize: "16px" }}>Services</Link></Col></Row>
 
                 </Col>
 
                 <Col xs={24} sm={24} md={12} lg={6} xl={6} style={{ paddingLeft: isSmallestScreen ? "" :"5%",paddingTop:isSmallestScreen ? "5%" :"" }} >
-                <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px", }}>Our Team</Link></Col></Row>
-                    <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px", }}>Blog</Link></Col></Row>
-                    <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px" }}>Contact US</Link></Col></Row>
+                <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/about" style={{ color: "white", fontSize: "16px", }}>About US</Link></Col></Row>
+                    <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px", }}>Blogs</Link></Col></Row>
+                    <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/contact" style={{ color: "white", fontSize: "16px" }}>Contact US</Link></Col></Row>
                     <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px" }}>Carrer</Link></Col></Row>
 
                 </Col>
