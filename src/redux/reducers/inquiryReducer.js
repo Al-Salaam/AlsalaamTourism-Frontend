@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { createInquiryForUser } from "../actions/inquiryAction";
+import { createInquiryForUser, getInquiryForUser } from "../actions/inquiryAction";
 
 const initialState = {
     loading: false,
@@ -29,6 +29,17 @@ const inquiryReducer = createSlice({
             state.message = action.payload.message
         })
         .addCase(createInquiryForUser.rejected,(state, action) => {
+            state.loading = false;
+            state.error = action.error;
+        })
+        .addCase(getInquiryForUser.pending,(state) => {
+            state.loading = true;
+        })
+        .addCase(getInquiryForUser.fulfilled,(state, action) => {
+            state.loading =  false;
+            state.inquiries = action.payload.inquiries
+        })
+        .addCase(getInquiryForUser.rejected,(state, action) => {
             state.loading = false;
             state.error = action.error;
         })

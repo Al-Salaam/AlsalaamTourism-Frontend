@@ -1,4 +1,3 @@
-
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Login from "./pages/authetication/login/index";
@@ -29,25 +28,69 @@ import SuccessfulMessage from "./pages/actionMessage/successful";
 import CancelledMessage from "./pages/actionMessage/cancelled";
 import ThanksMessage from "./pages/actionMessage/thanks";
 import FloatingWhatsapp from "./components/whatsappIcon";
-import { WhatsAppOutlined } from "@ant-design/icons";
-import { FaWhatsapp } from "react-icons/fa";
 
+import Protected from "./helpers/protectedRoute/Protected";
 
 function App() {
+  
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const isSignedIn = storedUser?.user && storedUser?.user;
   return (
     <div>
       <Routes>
-        <Route path="/user-panel" element={<UserPanelSide />}>
-        <Route index element={<SideBar />} />
-          <Route path="inbox" element={<Inbox />} />
-          <Route path="booking-history" element={<BookingHistory />} />
-          <Route path="wishlist" element={<Wishlist />} />
-          <Route path="user-form" element={<UserForm />} />
+        <Route
+          path="/user-panel"
+          element={
+            <Protected isSignedIn={isSignedIn}>
+              <UserPanelSide />
+            </Protected>
+          }
+        >
+          <Route index element={<SideBar />} />
+          <Route
+            path="inbox"
+            element={
+              <Protected isSignedIn={isSignedIn}>
+                <Inbox />
+              </Protected>
+            }
+          />
+          <Route
+            path="booking-history"
+            element={
+              <Protected isSignedIn={isSignedIn}>
+                <BookingHistory />
+              </Protected>
+            }
+          />
+          <Route
+            path="wishlist"
+            element={
+              <Protected isSignedIn={isSignedIn}>
+                <Wishlist />
+              </Protected>
+            }
+          />
+          <Route
+            path="user-form"
+            element={
+              <Protected isSignedIn={isSignedIn}>
+                <UserForm />
+              </Protected>
+            }
+          />
         </Route>
-        
-        <Route path="/thanks" element={<ThanksMessage/>} />
-        <Route path="/cancel" element={<CancelledMessage/>} />
-        <Route path="/success" element={<SuccessfulMessage/>} />
+
+        <Route path="/thanks" element={<ThanksMessage />} />
+        <Route path="/cancel" element={<CancelledMessage />} />
+        <Route
+          path="/success"
+          element={
+            <Protected isSignedIn={isSignedIn}>
+              <SuccessfulMessage />
+            </Protected>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Home />} />
@@ -62,19 +105,12 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/packages" element={<Packages />} />
-        <Route path="/notFound" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/packages/:id" element={<SinglePackage />} />
-        
       </Routes>
       <Toaster />
       {/* <WhatsAppOutlined style={{color:"red"}}/> */}
-      <FloatingWhatsapp/>
-
-
-
-
-  
-    
+      <FloatingWhatsapp />
     </div>
   );
 }
