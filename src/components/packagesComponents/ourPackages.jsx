@@ -24,7 +24,7 @@ import PrimaryButton from '../../components/common/buttons/primary';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPackages } from '../../redux/actions/packagesAction';
 import { Loader } from '../common/loader';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { addtoWishlist } from '../../redux/actions/wishlistAction';
 import toast from 'react-hot-toast';
 import { clearError, clearMessage } from '../../redux/reducers/wishlistReducer';
@@ -39,12 +39,14 @@ const Ourpackags = () => {
   const dispatch = useDispatch();
   const { loading, data } = useSelector((state) => state.package);
   const {message, loading:wishlistLoading, error } = useSelector((state) => state.wishlist)
+  const {user} = useSelector((state) => state.auth);
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [ratingFilter, setRatingFilter] = useState('desc');
   const [currentPage, setCurrentPage] = useState(1);
+  const [favoraite, setFavoraite] = useState()
   const pageSize = 6;
-
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(fetchPackages(currentPage))
   }, [dispatch, currentPage])
@@ -165,11 +167,29 @@ const Ourpackags = () => {
   }
 
   const add_to_Wishlist = (itemId, itemType) => {
-    const wishlistData = {
-      itemId:itemId,
-      itemType: itemType
-    }
-    dispatch(addtoWishlist(wishlistData))
+    
+      const wishlistData = {
+        itemId:itemId,
+        itemType: itemType
+      }
+      if(user) {
+        const localStorageKey = `wishlist_${itemId}`;
+        const checkItem = localStorage.getItem(localStorageKey) === 'true'
+        // Check if the item is already in the wishlist
+        if (checkItem) {
+          toast.error('Item is already in your wishlist.');
+        } else {
+          // If not in the wishlist, add it and update local storage
+          localStorage.setItem(localStorageKey, 'true');
+          dispatch(addtoWishlist(wishlistData));
+          setFavoraite(checkItem);
+        }
+      }else{
+        navigate('/login')
+      }
+      
+  
+    
   }
   
   useEffect(() => {
@@ -284,7 +304,7 @@ const Ourpackags = () => {
                       padding: '8px',
                     }}
                   >
-                    <HeartFilled onClick={() => add_to_Wishlist(packag._id, packag.itemType)} style={{ color: packag.favorite ? "Salmon" : "inherit", fontSize: "30px" }} />
+                    <HeartFilled onClick={() => add_to_Wishlist(packag._id, packag.itemType)} style={{ color: favoraite ? "Salmon" : "inherit", fontSize: "30px" }} />
                   </div>
                   <br />
                   <Meta

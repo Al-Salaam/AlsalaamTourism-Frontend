@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col, Typography, Rate, DatePicker, Button } from 'antd';
 import TextBoxWithButtons from '../buttons';
 import PrimaryButton from '../../common/buttons/primary';
-import { HeartOutlined } from '@ant-design/icons';
+import { HeartFilled } from '@ant-design/icons';
 import { useMediaQuery } from 'react-responsive';
 import ReactStars from "react-rating-stars-component";
 import { useDispatch, useSelector } from 'react-redux';
@@ -61,18 +61,32 @@ const BookNow = ({ activity }) => {
 
   const dispatch = useDispatch();
   const { loading, error, message } = useSelector((state) => state.wishlist);
-  const [favoraite, setFavoraite] = useState(false);
+  const [favoraite, setFavoraite] = useState();
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const add_to_Wishlist = () => {
-    const wishlistData = {
-      itemId: activity._id,
-      itemType: activity.itemType
+    if (user) {
+      const wishlistData = {
+        itemId: activity?._id,
+        itemType: activity?.itemType
+      };
+
+      // Create a unique key for this item in local storage
+      const localStorageKey = `wishlist_${activity?._id}`;
+      const checkItem = localStorage.getItem(localStorageKey) === 'true'
+      // Check if the item is already in the wishlist
+      if (checkItem) {
+        toast.error('Item is already in your wishlist.');
+      } else {
+        // If not in the wishlist, add it and update local storage
+        localStorage.setItem(localStorageKey, 'true');
+        dispatch(addtoWishlist(wishlistData));
+        setFavoraite(checkItem);
+      }
+    } else {
+      navigate('/login');
     }
-    dispatch(addtoWishlist(wishlistData))
-    setFavoraite(true)
-    localStorage.setItem('favorite', 'true');
-  }
+  };
 
   useEffect(() => {
     if (error) {
@@ -243,7 +257,7 @@ const BookNow = ({ activity }) => {
       </Row>
       <Row gutter={16} style={Styles.margin}>
         <Col xs={24} sm={24} md={24} lg={24} xl={12} align={isSmallScreen ? "middle" : ""}><PrimaryButton title={"Book Now"} clickHandler={handleBooking} /></Col>
-        <Col xs={24} sm={24} md={24} lg={24} xl={12}><Button disabled={loading} onClick={add_to_Wishlist} icon={<HeartOutlined style={{ color: favoraite ? 'red' : null }} />} style={{ border: "none", fontSize: "30px", color: "#3B505A", display: isSmallScreen ? "none" : "block" }}>Add to wish list</Button></Col>
+        <Col xs={24} sm={24} md={24} lg={24} xl={12}><Button disabled={loading} onClick={add_to_Wishlist} icon={<HeartFilled style={{ color: favoraite ? 'red' : '#000' }} />} style={{ border: "none", fontSize: "30px", color: "#3B505A", display: isSmallScreen ? "none" : "block" }}>Add to wish list</Button></Col>
       </Row>
     </div>
   );
