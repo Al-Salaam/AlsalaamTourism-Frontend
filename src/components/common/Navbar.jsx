@@ -14,15 +14,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUserProfile } from "../../redux/actions/authAction";
 import { getAddToCartData } from "../../redux/reducers/activityReducer";
 
+
 const Navbar = ({ showOverlayMessage }) => {
   const dispatach = useDispatch();
   const { loading, user } = useSelector((state) => state.auth);
 
-    const { cart } = useSelector((state) => state.activity);
+  const { cart } = useSelector((state) => state.activity);
 
-    useEffect(() => {
-        dispatach(getAddToCartData());
-    }, [dispatach]);
+  useEffect(() => {
+    dispatach(getAddToCartData());
+  }, [dispatach]);
 
   useEffect(() => {
     dispatach(fetchUserProfile());
@@ -52,31 +53,32 @@ const Navbar = ({ showOverlayMessage }) => {
     },
     {
       label: (
-        <Link >
-            <ShoppingCartOutlined style={{fontSize:"28px",backgroundColor:"white",borderRadius:"5px"}} />
-        
-{cart.length > 0 && (
-  <div
-            className="notification-count"
-            style={{
-              position: "absolute",
-              top: "-8px",
-              right: "-8px",
-              backgroundColor: "red",
-              color: "white",
-              borderRadius: "50%",
-              width: "24px",
-              height: "24px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              fontSize: "14px",
-            }}
-          >
-            <span>{cart && cart.length}</span>
-          </div>
-)}
-        
+        <Link>
+
+          <ShoppingCartOutlined style={{ fontSize: "38px", color: "white" }} />
+
+          {cart.length > 0 && (
+            <div
+              className="notification-count"
+              style={{
+                position: "absolute",
+                top: "-8px",
+                right: "-8px",
+                backgroundColor: "red",
+                color: "white",
+                borderRadius: "50%",
+                width: "24px",
+                height: "24px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                fontSize: "14px",
+              }}
+            >
+              <span>{cart && cart.length}</span>
+            </div>
+          )}
+
         </Link>
       ),
       key: "Shoping",
@@ -85,7 +87,7 @@ const Navbar = ({ showOverlayMessage }) => {
       label:
         // user ? <Link  ><UserOutlined style={{ fontSize: "40px" }} /></Link> : null
         user ? (
-          <UserOutlined style={{ fontSize: "28px",backgroundColor:"white",borderRadius:"4px" }} />
+          <UserOutlined style={{ fontSize: "28px",color: "white"  }} />
         ) : (
           <Link to={"/login"}>Login</Link>
         ),
@@ -300,7 +302,7 @@ const Navbar = ({ showOverlayMessage }) => {
                         fontSize: "18px",
                       }}
                     >
-                      <UserOutlined style={{ fontSize: "20px" }} />
+                      <UserOutlined style={{ fontSize: "50px" }} />
                     </Link>
                   </Col>
                 </Row>

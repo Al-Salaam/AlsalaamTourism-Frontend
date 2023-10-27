@@ -8,10 +8,10 @@ import G from "../map/features.json"
 const Map = () => (
   <div>
     <ComposableMap>
-      <Geographies geography={G}>
+      <Geographies geography={G} >
         {({ geographies }) =>
           geographies.map((geo) => (
-            <Geography key={geo.rsmKey} geography={geo} />
+            <Geography key={geo.rsmKey} geography={geo} fill="#70adbb" />
           ))
         }
       </Geographies>
