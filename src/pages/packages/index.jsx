@@ -9,7 +9,9 @@ const Packags = () => {
 
   return (<>
     <CommonHero image = {HeroImage} title1={"Explore Our Trips"}/>
+    <div style={{margin:"0  2% 0 2%"}}>
     <Ourpackags />
+    </div>
     <div style={{marginBottom:"-10%"}}>
     <Footer />
     </div>
