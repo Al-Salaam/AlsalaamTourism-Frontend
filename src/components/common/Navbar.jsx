@@ -80,29 +80,7 @@ const Navbar = ({ showOverlayMessage }) => {
           )}
 
           
-            <ShoppingCartOutlined style={{ fontSize: "28px",}} />
-        
-{cart.length > 0 && (
-  <div
-            className="notification-count"
-            style={{
-              position: "absolute",
-              top: "-8px",
-              right: "-8px",
-              backgroundColor: "red",
-              color: "white",
-              borderRadius: "50%",
-              width: "24px",
-              height: "24px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              fontSize: "14px",
-            }}
-          >
-            <span>{cart && cart.length}</span>
-          </div>
-)}
+ 
         
         </Link>
       ),
@@ -314,7 +292,7 @@ const Navbar = ({ showOverlayMessage }) => {
                         fontSize: "18px",
                       }}
                     >
-                      <ShoppingCartOutlined style={{ fontSize: "250px" }} />
+                      <ShoppingCartOutlined style={{ fontSize: "50px" }}/>
                     </Link>
                   </Col>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
