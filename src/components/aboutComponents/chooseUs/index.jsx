@@ -36,6 +36,7 @@ const ChooseUs = () => {
     });
 
     return (
+        <div style={{width: "99%"}}>
         <Row gutter={16}>
             <Col xs={24} sm={12} md={12} lg={12} xl={12} xxl={12}>
                 
@@ -60,6 +61,7 @@ const ChooseUs = () => {
 
             </Col>
         </Row>
+        </div>
     );
 };
 
