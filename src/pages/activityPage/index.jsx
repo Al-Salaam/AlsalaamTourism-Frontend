@@ -1,5 +1,4 @@
 import withNavbar from "../../components/common/HOCNabar";
-import TwoCardShowCase from "../../components/common/twoCardShowCase";
 import Footer from "../../components/common/footer";
 
 import CircleComponent from "../../components/common/circleImages";

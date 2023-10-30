@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../../redux/actions/authAction';
 import toast from 'react-hot-toast';
 import { clearError, clearMessage } from '../../../redux/reducers/authReducer';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -126,7 +126,18 @@ useEffect(() => {
                 <Divider plain style={{ borderWidth: 5, borderColor: 'lightGray' }}>
                   OR
                 </Divider>
-                <LoginWithGoogle title={'Login with google'} />
+                {/* <LoginWithGoogle title={'Login with google'} /> */}
+                <Link to="/signup">
+                <Button 
+                style={{
+                    backgroundColor: '#5498A2',
+                    borderRadius: '20px',
+                    width: '20em',
+                    height: '3em',
+                    color: 'white'}}>
+                      Sign Up
+                    </Button>
+                    </Link>
               </Col>
             </Row>
           </div>

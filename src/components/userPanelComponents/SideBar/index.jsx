@@ -8,14 +8,11 @@ import {
   LogoutOutlined,
   SettingOutlined,
   InboxOutlined,
-  FastBackwardOutlined
+  FastBackwardOutlined,
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-
-import Logo from "../../../../images/alsalaamLogo (2).png";
-import Logo1 from "../../../../images/alsalaamLogo.png";
-import User from "../../../../images/client4.png";
-
+import Logo from '../../../../images/alsalaamLogo (2).png';
+import Logo1 from '../../../../images/alsalaamLogo.png';
 import Inbox from '../Inbox';
 import BookingHistory from '../bookingHistory';
 import Wishlist from '../Wishlist';
@@ -35,24 +32,24 @@ const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchUserProfile())
-  }, [dispatch])
+    dispatch(fetchUserProfile());
+  }, [dispatch]);
 
   const logoutFunction = () => {
     dispatch(logoutUser());
-  }
+  };
 
   useEffect(() => {
     if (error) {
       toast.error(error.message);
-      dispatch(clearError())
+      dispatch(clearError());
     }
     if (message) {
       toast.success(message);
       dispatch(clearMessage());
-      navigate('/')
+      navigate('/');
     }
-  }, [error, message, dispatch, toast, navigate])
+  }, [error, message, dispatch, toast, navigate]);
 
   const skeletonLoaderStyle = {
     display: 'flex',
@@ -64,7 +61,7 @@ const SideBar = () => {
     width: '60px',
     height: '60px',
     borderRadius: '50%',
-    backgroundColor: '#ccc', // Fallback color for image loading
+    backgroundColor: '#ccc',
     marginRight: '5px',
     animation: 'loadingAnimation 1.5s infinite ease-in-out',
   };
@@ -72,7 +69,7 @@ const SideBar = () => {
   const textStyle = {
     width: '150px',
     height: '20px',
-    backgroundColor: '#ccc', // Fallback color for text loading
+    backgroundColor: '#ccc',
     marginBottom: '10px',
     animation: 'loadingAnimation 1.5s infinite ease-in-out',
   };
@@ -107,11 +104,13 @@ const SideBar = () => {
             alt="Logo"
           />
           <Layout style={{ marginLeft: collapsed ? '67px' : '187px' }}>
-            <div style={{
-              padding: 0,
-              zIndex: 2,
-              position: "absolute"
-            }}>
+            <div
+              style={{
+                padding: 0,
+                zIndex: 2,
+                position: 'absolute',
+              }}
+            >
               <Button
                 type="text"
                 icon={collapsed ? <MenuOutlined /> : <MenuOutlined />}
@@ -120,8 +119,8 @@ const SideBar = () => {
                   fontSize: '10px',
                   width: 24,
                   height: 24,
-                  backgroundColor: "white",
-                  border: "1px solid #018D97"
+                  backgroundColor: 'white',
+                  border: '1px solid #018D97',
                 }}
               />
             </div>
@@ -141,13 +140,13 @@ const SideBar = () => {
               {collapsed ? (
                 <img
                   src={user?.photo}
-                  style={{ width: "40px", height: "40px", margin: "10px 0 0 15px", borderRadius: "100%" }}
+                  style={{ width: '40px', height: '40px', margin: '10px 0 0 15px', borderRadius: '100%' }}
                   alt="User"
                 />
               ) : (
-                <div style={{ display: "flex", margin: "10px 0 10px 15px", color: "white" }}>
-                  <img src={user?.photo} style={{ width: "60px", height: "60px", borderRadius: "100%" }} alt="User" />
-                  <div style={{ margin: "20px 0 0 5px" }}>
+                <div style={{ display: 'flex', margin: '10px 0 10px 15px', color: 'white' }}>
+                  <img src={user?.photo} style={{ width: '60px', height: '60px', borderRadius: '100%' }} alt="User" />
+                  <div style={{ margin: '20px 0 0 5px' }}>
                     <h4>{user?.name}</h4>
                     <h4>Since: {formatDate(user?.createdAt)}</h4>
                   </div>
@@ -155,45 +154,38 @@ const SideBar = () => {
               )}
             </>
           )}
-
         </div>
-        <Menu mode="inline" defaultSelectedKeys={['1']} style={{ backgroundColor: "transparent", color: 'white', }} className="menu">
-          <Menu.Item key="1" icon={<SettingOutlined />} >
-            <Link to='/user-panel/user-form'>Settings</Link>
+        <Menu mode="inline" selectedKeys={[pathname]} style={{ backgroundColor: 'transparent', color: 'white' }} className="menu">
+          <Menu.Item key="/user-panel/user-form" icon={<SettingOutlined />}>
+            <Link to="/user-panel/user-form">Settings</Link>
           </Menu.Item>
-          <Menu.Item key="2" icon={<ClockCircleOutlined />}>
+          <Menu.Item key="/user-panel/booking-history" icon={<ClockCircleOutlined />}>
             <Link to="/user-panel/booking-history">Booking History</Link>
           </Menu.Item>
-          <Menu.Item key="3" icon={<TagOutlined />}>
-            <Link to="/user-panel/wishlist">
-              Wishlist
-            </Link>
+          <Menu.Item key="/user-panel/wishlist" icon={<TagOutlined />}>
+            <Link to="/user-panel/wishlist">Wishlist</Link>
           </Menu.Item>
-          <Menu.Item key="4" icon={<InboxOutlined />}>
-            <Link to="/user-panel/inbox">
-              Inquiry
-            </Link>
+          <Menu.Item key="/user-panel/inquiry" icon={<InboxOutlined />}>
+            <Link to="/user-panel/inquiry">Inquiry</Link>
           </Menu.Item>
-          <Menu.Item key="5" icon={<FastBackwardOutlined />}>
-            <Link to="/">
-              Back
-            </Link>
+          <Menu.Item key="/user-panel/back" icon={<FastBackwardOutlined />}>
+            <Link to="/">Back</Link>
           </Menu.Item>
-          
-          <Menu.Item onClick={logoutFunction} key="5" icon={<LogoutOutlined />}>
+
+          <Menu.Item onClick={logoutFunction} key="logout" icon={<LogoutOutlined />}>
             Logout
           </Menu.Item>
         </Menu>
       </Sider>
-      <Layout style={{ marginLeft: collapsed ? '100px' : '220px', marginTop: "20px" }}>
+      <Layout style={{ marginLeft: collapsed ? '100px' : '220px', marginTop: '20px' }}>
         <Content style={{
           margin: '0 12px 12px 0',
           padding: 10,
           minHeight: 280,
-          background: "white",
+          background: 'white',
         }}>
           {/* Conditionally render components based on the pathname */}
-          {pathname === '/user-panel/inbox' && <Inbox />}
+          {pathname === '/user-panel/inquiry' && <Inbox />}
           {pathname === '/user-panel/booking-history' && <BookingHistory />}
           {pathname === '/user-panel/wishlist' && <Wishlist />}
           {pathname === '/user-panel/user-form' && <UserForm />}
