@@ -112,8 +112,8 @@ function OurActivity() {
   const isSmallScreen = useMediaQuery({ maxWidth: 430 });
 
   return (
-    <>
-      <Row justify="center" style={{ paddingTop: "10%" }}>
+    <div style={{width:"99%"}}>
+      <Row justify="center" style={{ paddingTop: "10%", }}>
         <Col align="middle">
           <h1>Our Activities</h1>
         </Col>
@@ -251,7 +251,7 @@ function OurActivity() {
           </Col>
         </Row>
       )}
-    </>
+    </div>
   );
 }
 export default OurActivity;

@@ -1,6 +1,7 @@
 
 import { Row, Col, Image, Space, Typography, } from 'antd';
 import styles from "./heroShowCase.module.css";
+import { Link } from "react-router-dom";
 import image1 from "../../../../images/image1.png";
 import image2 from "../../../../images/image2.png";
 import image3 from "../../../../images/image3.png";
@@ -18,7 +19,7 @@ function HeroShowCase() {
                 <Title style={{fontSize:isSmallScreen ? "10vw": "4vw",color:"white"}}>Dream | Explore | Discover</Title>
                 <Title style={{fontSize:isSmallScreen ? "3vw": "2vw",color:"white"}}>Get the best prices on all excurssions and activities across UAE.</Title>
                 <div style={{marginTop:"50px"}}>
-                <PrimaryButton height='35px' width='200px'  title={<Title style={{fontSize:isSmallScreen ? "4vw": "1vw",color:"white"}}>Explore Now</Title>}/>
+                <PrimaryButton height='35px' width='200px'  title={<Title style={{fontSize:isSmallScreen ? "4vw": "1vw",color:"white"}}><Link to="/activity" style={{color: "white", fontSize: "16px"}}>Explore Now </Link></Title>}/>
                 </div>
                 </Col>
                 

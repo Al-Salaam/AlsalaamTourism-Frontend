@@ -44,9 +44,9 @@ function SingleActivity() {
     }, [dispatch, id])
     const isSmallScreen = useMediaQuery({ maxWidth: 950 });
     return (
-        <>
+        <div style={{padding:"0 auto",overflowX:"hidden"}}>
             {loading ? <Loader /> : (
-                <>
+                <div >
                     <Row gutter={[40]} justify={"center"}>
                         <Col span={24}>
                             <CommonHero title1={"Al Ain City Tours"} image={ActHero} />
@@ -98,15 +98,17 @@ function SingleActivity() {
                         </Col>
                     </Row>
                     <Row >
-                        <Col span={24}>
+                        <Col span={24} >
+                        
                             <Footer />
+                            
                         </Col>
                     </Row>
-                </>
+                </div>
             )}
 
 
-        </>
+        </div>
     )
 }
 

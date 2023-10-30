@@ -204,7 +204,7 @@ const Ourpackags = () => {
   },[error, toast, message, dispatch])
 
   return (
-    <div>
+    <div style={{width:"99%"}}>
       <Row gutter={[16, 16]} justif="center"><Col span={24} align="middle"> <Title level={2}>Our Packages</Title> <Title level={5}>We offer some of the most competitive, pocket-friendly prices around, while also delivering without compromising on our quality standards.</Title></Col> </Row>
       <Row gutter={[16, 16]}>
         <Col span={12}>
@@ -222,7 +222,7 @@ const Ourpackags = () => {
         </Col>
 
 
-        <Col span={12} align="end" style={styles.filterFlex}>
+        {/* <Col span={12} align="end" style={styles.filterFlex}>
 
 
           <Select
@@ -276,7 +276,7 @@ const Ourpackags = () => {
 
             ]}
           />
-        </Col>
+        </Col> */}
 
       </Row>
 
