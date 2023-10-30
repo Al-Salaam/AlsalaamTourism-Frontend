@@ -48,7 +48,7 @@ function App() {
         >
           <Route index element={<SideBar />} />
           <Route
-            path="inbox"
+            path="inquiry"
             element={
               <Protected isSignedIn={isSignedIn}>
                 <Inbox />

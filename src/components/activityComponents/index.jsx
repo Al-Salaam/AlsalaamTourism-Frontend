@@ -28,12 +28,12 @@ function OurActivity() {
         title: activity.name,
         price: activity.price,
         image: activity.images[0].url
-        // Add other relevant data
+      
     };
 
-    // Dispatch the addToCart action with the cart item data
+  
     dispatch(addToCart(cartItem));
-};
+  };
 
   useEffect(() => {
     dispatch(fetchActivities());
@@ -46,65 +46,72 @@ function OurActivity() {
         dispatch(clearMessage())
     }
   }, [dispatch, error, message]);
-  // Filter function to apply selected filters
-  const filteredData =
-    data &&
-    data.filter((item) => {
-      if (
-        (selectedPriceFilter || priceRange[0] > 0 || priceRange[1] < 500) &&
-        item.price < priceRange[0]
-      ) {
-        return false;
-      }
-      if (
-        (selectedPriceFilter || priceRange[0] > 0 || priceRange[1] < 500) &&
-        item.price > priceRange[1]
-      ) {
-        return false;
-      }
-      if (showFeaturedOnly && !item.feature) {
-        return false;
-      }
-      if (
-        searchFilter &&
-        !item.name.toLowerCase().includes(searchFilter.toLowerCase())
-      ) {
-        return false;
-      }
-      return true;
-    });
+
+const filteredData =
+data &&
+data.filter((item) => {
+  if (
+    (selectedPriceFilter || priceRange[0] > 0 || priceRange[1] < 500) &&
+    item.price < priceRange[0]
+  ) {
+    return false;
+  }
+  if (
+    (selectedPriceFilter || priceRange[0] > 0 || priceRange[1] < 500) &&
+    item.price > priceRange[1]
+  ) {
+    return false;
+  }
+  if (showFeaturedOnly && !item.feature) {
+    return false;
+  }
+  if (
+    searchFilter &&
+    !item.name.toLowerCase().includes(searchFilter.toLowerCase())
+  ) {
+    return false;
+  }
+  if (
+    (activeButton === "tour" && item.categorey !== "tour") ||
+    (activeButton === "activity" && item.categorey !== "activity")
+  ) {
+    return false;
+  }
+  return true;
+});
+
 
   useEffect(() => {
-    // Update the displayedData based on the current itemsToShow value
+
     if (data) {
       setDisplayedData(filteredData.slice(0, itemsToShow));
     }
   }, [data, filteredData, itemsToShow]);
 
-  // Function to load more items
+
   const loadMoreItems = () => {
-    // Increase the number of items to display
-    setItemsToShow(itemsToShow + 6); // You can change the number as per your requirement
+   
+    setItemsToShow(itemsToShow + 6);
   };
 
-  // Function to handle button click and set active button
-  const handleButtonClick = (price) => {
-    if (price === activeButton) {
-      setActiveButton(null); // Deselect the active button if clicked again
-      setPriceRange([0, 500]); // Reset the price range
-      setShowFeaturedOnly(false); // Clear featured filter
-      setSearchFilter(""); // Clear search filter
+  
+  const handleButtonClick = (category) => {
+    if (category === activeButton) {
+      setActiveButton(null); 
+      setPriceRange([0, 500]); 
+      setShowFeaturedOnly(false); 
+      setSearchFilter(""); 
     } else {
-      setActiveButton(price);
-      if (price === "featured") {
-        setShowFeaturedOnly(true); // Apply featured filter
-        setPriceRange([0, 500]); // Reset the price range
-        setSearchFilter(""); // Clear search filter
+      setActiveButton(category);
+      if (category === "featured") {
+        setShowFeaturedOnly(true);
+        setPriceRange([0, 500]); 
+        setSearchFilter(""); 
       } else {
-        setShowFeaturedOnly(false); // Clear featured filter
-        setPriceRange([0, 500]); // Reset the price range
-        setSelectedPriceFilter(price); // Apply price filter
-        setSearchFilter(""); // Clear search filter
+        setShowFeaturedOnly(false);
+        setPriceRange([0, 500]); 
+        setSelectedPriceFilter(category);
+        setSearchFilter(""); 
       }
     }
   };
@@ -122,8 +129,7 @@ function OurActivity() {
         <Col align="middle">
           <p>
             We offer some of the most competitive, pocket-friendly prices
-            around, while also delivering without compromising on our quality
-            standards.
+            around, while also delivering without compromising on our quality standards.
           </p>
         </Col>
       </Row>
@@ -140,7 +146,7 @@ function OurActivity() {
         >
           <Input
             placeholder="Search"
-            prefix={<SearchOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} />} // Add search icon as prefix
+            prefix={<SearchOutlined style={{ color: "rgba(0, 0, 0, 0.25)" }} /> } 
             onChange={(e) => setSearchFilter(e.target.value)}
             style={{
               border: "none",
@@ -148,7 +154,7 @@ function OurActivity() {
               borderBottom: "1px solid black",
               borderRadius: 0,
               width: "90%",
-            }} // Remove border and box shadow
+            }}
           />
         </Col>
         <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7}>
@@ -181,12 +187,11 @@ function OurActivity() {
         </Col>
         <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7}>
           <Button
-            onClick={() => handleButtonClick(null)} // Deselect all
+            onClick={() => handleButtonClick(null)} 
             style={{
               border: "none",
               borderRadius: 0,
-              borderBottom:
-                activeButton === null ? "2px solid #3B505A" : "none",
+              borderBottom: activeButton === null ? "2px solid #3B505A" : "none",
               color: activeButton === null ? "#3B505A" : "#696969",
             }}
           >
@@ -197,19 +202,40 @@ function OurActivity() {
             style={{
               border: "none",
               borderRadius: 0,
-              borderBottom:
-                activeButton === "featured" ? "2px solid #3B505A" : "none",
+              borderBottom: activeButton === "featured" ? "2px solid #3B505A" : "none",
               color: activeButton === null ? "#3B505A" : "#696969",
               marginLeft: "10%",
             }}
           >
             Featured
           </Button>
+          <Button
+            onClick={() => handleButtonClick("tour")} 
+            style={{
+              border: "none",
+              borderRadius: 0,
+              borderBottom: activeButton === "tour" ? "2px solid #3B505A" : "none",
+              color: activeButton === "tour" ? "#3B505A" : "#696969",
+              marginLeft: "10%",
+            }}
+          >
+            Tour
+          </Button>
+          <Button
+            onClick={() => handleButtonClick("activity")} 
+            style={{
+              border: "none",
+              borderRadius: 0,
+              borderBottom: activeButton === "activity" ? "2px solid #3B505A" : "none",
+              color: activeButton === "activity" ? "#3B505A" : "#696969",
+              marginLeft: "10%",
+            }}
+          >
+            Activity
+          </Button>
         </Col>
-
-        <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={8}></Col>
       </Row>
-      <Row gutter={16} z>
+      <Row gutter={16}>
         {loading ? (
           <Loader />
         ) : (
@@ -227,6 +253,7 @@ function OurActivity() {
                 style={{ margin: "2% 0" }}
               >
                 <FlipCard
+                  cardType={item.category}
                   imageSrc={item.images[0]?.url}
                   title1={item.name}
                   rate={item.ratings}
@@ -237,7 +264,7 @@ function OurActivity() {
                   feature={item.feature}
                   activityId={item._id}
                   noOfReviews={item.noOfReviews}
-                  onClick={() => handleAddToCart(item)} // Pass the click handler
+                  onClick={() => handleAddToCart(item)}
                 />
               </Col>
             ))}
@@ -247,11 +274,12 @@ function OurActivity() {
       {displayedData.length < filteredData.length && (
         <Row>
           <Col align="middle" span={24}>
-            <PrimaryButton clickHandler={loadMoreItems} title={"load more"} />
+            <PrimaryButton clickHandler={loadMoreItems} title={"Load More"} />
           </Col>
         </Row>
       )}
     </div>
   );
 }
+
 export default OurActivity;

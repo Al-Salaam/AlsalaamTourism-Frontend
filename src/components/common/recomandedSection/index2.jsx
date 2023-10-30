@@ -117,6 +117,7 @@ const FlipCard = (props) => {
                         <Button onClick={handleAddToCart} style={{marginLeft:"15px"}}>
                             Add to card
                         </Button>
+                       <h3>{props.cardType}</h3> 
                         <h4>{props.feature && "featured"}</h4>
                     </h3>
 

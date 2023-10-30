@@ -121,7 +121,7 @@ const Wishlist = () => {
           <Row gutter={[12, 12]} xs={24} sm={24} md={24} lg={24} xl={24}>
             {data?.activities?.filter((item) => filter === 'All' || filter === 'activities')?.map((item, index) => (
               <>
-                <Card hoverable key={item?._id}>
+                <Card hoverable key={item?._id} style={{ width: '100%', minHeight: '100%' }}>
                   <Row gutter={[12, 12]} xs={24} sm={24} md={24} lg={24} xl={24}>
 
                     <Col xs={24} sm={24} md={5} lg={7} xl={7}>
@@ -174,7 +174,7 @@ const Wishlist = () => {
 
       {data?.packages?.filter((item) => filter === 'All' || filter === 'packages')?.map((item, index) => (
               <>
-                <Card hoverable key={item?._id}>
+                <Card hoverable key={item?._id} style={{ width: '100%', minHeight: '100%' }}>
                   <Row gutter={[12, 12]} xs={24} sm={24} md={24} lg={24} xl={24}>
 
                     <Col xs={24} sm={24} md={5} lg={7} xl={7}>
