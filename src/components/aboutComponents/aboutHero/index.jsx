@@ -38,10 +38,10 @@ const AboutHero = ({ description, videoSource }) => {
   return (
     <Row   >
       
-      <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{borderBottom:isVideoBorder ? "0px":"3px white solid" , paddingBottom: isTablet ? "20px" : "", color: "white", background: 'linear-gradient(180deg, #70ADBB 0%, #018D97 100%)', padding: isMobile ? "10% 7% 7% 7%" : "7% 7% 7% 2% " }}>
-        <h1 style={{ marginTop: isMobile ? "11%" : "1%" }}>About Alsalaam</h1>
-        <p style={{ margin: "2%", fontSize: isTablet ? "10px" : "15px", marginBottom: isTablet ? "10px" : "10px" }}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions. We enjoy a stellar reputation of excellence in Dubai's tourism sector. We place the needs of our clients first and go the extra mile in ensuring our customer’s travel experience is laced with comfort and beautiful memories that endure for a lifetime.</p>
-        <PrimaryButton title={"Explore Destination"} width="200px" />
+      <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{borderBottom:isVideoBorder ? "0px":"3px white solid" , paddingBottom: isTablet ? "20px" : "", color: "white", background: 'linear-gradient(180deg, #70ADBB 0%, #018D97 100%)', padding: isMobile ? "10% 7% 7% 7%" : "7% 7% 7% 2% ",}}>
+        <div><h1 style={{ marginTop: isMobile ? "10%" : "1%" }}>About Alsalaam</h1></div>
+        <div><p style={{ margin: "4%", fontSize: isTablet ? "15px" : "15px", marginBottom: isTablet ? "10px" : "10px", lineHeight:isMobile?"120%":"120%", marginRight:"5%"}}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions. We enjoy a stellar reputation of excellence in Dubai's tourism sector. We place the needs of our clients first and go the extra mile in ensuring our customer’s travel experience is laced with comfort and beautiful memories that endure for a lifetime.</p></div>
+        <div style={{marginTop:isMobile?"4%":"4%"}}><PrimaryButton title={"Explore Destination"} width="200px" /></div>
       </Col>
 
     
