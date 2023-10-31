@@ -33,6 +33,10 @@ function ServicesShowCase(props) {
   const isMobile = useMediaQuery({
     query: '(max-width: 400px)', // Change this breakpoint as needed
   });
+
+  const isMobileView = useMediaQuery({
+    query: '(max-width: 425px)',
+  })
   
   return (
     <>
@@ -60,7 +64,7 @@ function ServicesShowCase(props) {
               <source src={props.videoSrc} type="video/mp4" />
               Your browser does not support the video tag.
             </video> */}
-            <img src= {Services} style={{width:"100%",height:"300px" , borderRadius:"15px"}}/>
+            <img src= {Services} style={{width:isMobileView ? "99%" : "100%",height:isMobileView ? "95%" : "100%" , borderRadius:"15px"}}/>
           </div>
         </Col>
       </Row>
