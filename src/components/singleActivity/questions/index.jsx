@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Row, Col, Card, Button } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
+import { useMediaQuery } from "react-responsive";
 
 const Questions = () => {
   const questionsAndAnswers = [
@@ -29,18 +30,23 @@ const Questions = () => {
     }));
   };
 
+
+  const isSmallScreen = useMediaQuery({ maxWidth: 845 });
+
   return (
     <Row
       justify="center"
       style={{
         background: "linear-gradient(180deg, #70ADBB 0%, #018D97 100%)",
-        padding: "20px",
+        padding:isSmallScreen?"": "20px",
       }}
+      xs={24} sm={24} md={24} lg={24} xl={24}
     >
+    <Col xs={23} sm={20} md={20} lg={20} xl={12}>
       <Col span={24} align="middle" style={{ margin: "2%" }}>
         <h1 style={{ color: "white" }}>Frequently asked Questions</h1>
       </Col>
-      <Col xs={24} sm={20} md={16} lg={12}>
+      <Col >
         {questionsAndAnswers.map((qa, index) => (
           <Card
             key={index}
@@ -50,9 +56,10 @@ const Questions = () => {
               background: "transparent",
               color: "white",
               borderColor: "white",
+             
             }}
             title={
-              <h3 style={{ color: "white", width: "20px" }}>{qa.question}</h3>
+              <h3 style={{ color: "white", width: "20px", fontSize:isSmallScreen?"70%":"130%" }}>{qa.question}</h3>
             }
             extra={
               <Button
@@ -70,6 +77,7 @@ const Questions = () => {
             {expanded[index] && <p>{qa.answer}</p>}
           </Card>
         ))}
+      </Col>
       </Col>
     </Row>
   );
