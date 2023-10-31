@@ -1,5 +1,7 @@
 import { Carousel, Col, Row } from 'antd';
 import Title from 'antd/es/typography/Title';
+import { useMediaQuery } from 'react-responsive';
+
 
 import deal1 from  "../../../../images/Rectangle 57.png";
 import deal2 from  "../../../../images/Rectangle 58.png";
@@ -13,19 +15,25 @@ const carouselStyle = {
   alignItems: 'center',
 };
 
-const imageStyle = {
-  height: '460px',
-  width: '48%',
-  margin: '10px', 
-  borderRadius:"30px"
-};
 
 
 
 const deals = [[deal1,deal2],[deal3,deal4], [deal5, deal6] ]
 
 
-const TopDealCarousel = () => (
+function  TopDealCarousel ()  {
+  const isMobile = useMediaQuery({
+    query: '(max-width: 768px)', 
+  });
+  const imageStyle = {
+    height: isMobile ? '200px':'460px',
+    width: '48%',
+    margin: '10px', 
+    borderRadius:"30px"
+  };
+  
+  return(
+  
   <div style={{ background: 'linear-gradient(180deg, #89A7B2 0%, #028B95 100%)', marginTop: "25px" }}>
     <Row xs={24} sm={24} md={24} xl={24} lg={24}>
       <Col xs={24} sm={24} md={24} xl={24} lg={24} align="middle">
@@ -47,6 +55,6 @@ const TopDealCarousel = () => (
       ))}
     </Carousel>
   </div>
-);
+);}
 
 export default TopDealCarousel;
