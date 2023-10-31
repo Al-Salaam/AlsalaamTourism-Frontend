@@ -25,19 +25,21 @@ function HeroShowCase() {
                 
             <Col xs={24} sm={12} md={14} lg={14} xl={14}  >
                    <Space>
-                    <img
-                        
+                    <Image
+                        preview={false} 
                         src={image1}
                         alt="Image 1"
                         style={{ margin: 0, padding: 0, top: 0, left: "30%", position: "relative",maxWidth:"95%" }}
                         
                     />
-                    <img
+                    <Image
+                        preview={false}
                         src={image2}
                         alt="Image 2"
                         style={{ margin: 0, padding: 0,  position: "relative", zIndex: "1",maxWidth:"95%" }}
                     />
-                    <img
+                    <Image
+                        preview={false}
                         src={image3}
                         alt="Image 3"
                         style={{ margin: 0, padding: 0,  top: 0, right: "20%", position: "relative",maxWidth:"95%" }}
