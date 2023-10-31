@@ -1,5 +1,6 @@
 
-import whatsapp from "../../../images/icons8-whatsapp.gif"
+import whatsapp from "../../../images/icons9-whatsapp .gif"
+
 
 const floatingWhatsappStyle = {
   position: 'fixed',
@@ -25,9 +26,8 @@ const FloatingWhatsapp = () => {
   return (
     <>
     <div style={floatingWhatsappStyle} onClick={handleClick}>
-      <img src={whatsapp}/>
+      <img src={whatsapp} style={{borderRadius:"62%"}}/>
      
-
     </div>
     
     </>
