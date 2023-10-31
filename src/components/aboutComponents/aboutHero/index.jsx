@@ -3,7 +3,7 @@ import { Row, Col, Modal } from 'antd';
 import  { useState, useEffect } from 'react';
 import PrimaryButton from "../../common/buttons/primary"
 import { useMediaQuery } from 'react-responsive';
-import Services from "../../../../images/aboutModel.png";
+import Services from "../../../../images/newdest.png";
 
 
 const AboutHero = ({ description, videoSource }) => {

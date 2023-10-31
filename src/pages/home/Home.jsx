@@ -12,14 +12,14 @@ function Home() {
 
     return (
         <>
+        
             <HeroShowCase  />
-            <ServicesShowCase videoSrc="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
+            <div style={{margin:"40px 40px 30px 40px"}}>
+            <ServicesShowCase videoSrc="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" /></div>
             <ThreeCardShowCase />
-            <div style={{margin:"-20px 0 0 0"}}>
+          
             <RecomendedSection />
-            </div>
-            {/* <TopDealSlider/> */}
-            <div style={{margin:"50px 0 50px 0"}}>
+            <div style={{margin:"80px 0 80px 0"}}>
             <TopDealCarousel/>
             </div>
             <div style={{marginBottom:"-10%"}}>

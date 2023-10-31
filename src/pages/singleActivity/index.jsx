@@ -52,12 +52,14 @@ function SingleActivity() {
                             <CommonHero title1={"Al Ain City Tours"} image={ActHero} />
                         </Col>
 
-                        <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                        <Col xs={24} sm={24} md={12} lg={12} xl={12} >
                             <Carousel data={activity?.images} thumbnails={true} width="100%" thumbnailWidth="200px" slideNumberStyle={slideNumberStyle} slideNumber={true} />
                             <Stats activity={activity} />
+                            <div style={{ marginLeft:"20px" }}>
                             <Itenary />
                             <div style={{ display: isSmallScreen ? "none" : "" }}>
                                 <Checklist activity={activity?.highlights} columns={1} title={"Highlights"} />
+                            </div>
                             </div>
                         </Col>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12} >
@@ -98,10 +100,10 @@ function SingleActivity() {
                         </Col>
                     </Row>
                     <Row >
-                        <Col span={24} >
+                        <Col span={24}  >
                         
                             <Footer />
-                            
+                          
                         </Col>
                     </Row>
                 </div>
