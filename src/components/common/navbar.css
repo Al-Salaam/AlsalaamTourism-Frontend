@@ -1,0 +1,9 @@
+a.active{
+    font-size: larger;
+    background: transparent;
+    color: black;
+}
+
+a{
+    color:"white"!important;
+}
