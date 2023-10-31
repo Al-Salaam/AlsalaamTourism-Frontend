@@ -260,10 +260,10 @@ const navlinkStyles = ({isActive}) => {
                   </Col>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
                     <Link
-                      to="/notfound"
-                      onClick={(e) => onClickMobileDrawerLink({ key: "home" })}
+                      to="/packages"
+                      onClick={(e) => onClickMobileDrawerLink({ key: "packages" })}
                       style={{
-                        color: current2 === "home" ? "black" : "white",
+                        color: current2 === "packages" ? "black" : "white",
                         fontSize: "18px",
                       }}
                     >
@@ -274,10 +274,10 @@ const navlinkStyles = ({isActive}) => {
                     <Link
                       to="/contact"
                       onClick={(e) =>
-                        onClickMobileDrawerLink({ key: "activites" })
+                        onClickMobileDrawerLink({ key: "contact" })
                       }
                       style={{
-                        color: current2 === "activites" ? "black" : "white",
+                        color: current2 === "contact" ? "black" : "white",
                         fontSize: "18px",
                       }}
                     >
@@ -287,9 +287,9 @@ const navlinkStyles = ({isActive}) => {
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
                     <Link
                       to="/about"
-                      onClick={(e) => onClickMobileDrawerLink({ key: "home" })}
+                      onClick={(e) => onClickMobileDrawerLink({ key: "about" })}
                       style={{
-                        color: current2 === "home" ? "black" : "white",
+                        color: current2 === "about" ? "black" : "white",
                         fontSize: "18px",
                       }}
                     >
