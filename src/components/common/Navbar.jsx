@@ -5,7 +5,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Menu, Row, Col, Drawer, Button, ConfigProvider } from "antd";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import Logo from "../../../images/alsalaamLogo.png";
 import ShoppingComponent from "./overlays/shoping";
@@ -13,7 +13,7 @@ import ProfileComponent from "./overlays/profile";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserProfile } from "../../redux/actions/authAction";
 import { getAddToCartData } from "../../redux/reducers/activityReducer";
-
+import "./navbar.css"
 
 const Navbar = ({ showOverlayMessage }) => {
   const dispatach = useDispatch();
@@ -29,31 +29,46 @@ const Navbar = ({ showOverlayMessage }) => {
     dispatach(fetchUserProfile());
   }, [dispatach]);
 
+const navlinkStyles = ({isActive}) => {
+
+       return{
+        // fontSize:isActive ? "30px" : "25px",
+        colorL:isActive ? "white" : "black",
+        backgroundColor:"transparent",
+        borderBottom: isActive ? "2px solid black" : null,
+        padding:"15%",
+        
+       }
+
+        
+
+}
+
   const items = [
     {
-      label: <Link to="/">Home</Link>,
+      label: <NavLink to="/" style={navlinkStyles}>Home</NavLink>,
       key: "home",
     },
     {
-      label: <Link to="/activity">Activites</Link>,
+      label: <NavLink to="/activity" style={navlinkStyles} >Activites</NavLink>,
       key: "activites",
     },
     {
-      label: <Link to="/packages">Packages</Link>,
+      label: <NavLink to="/packages" style={navlinkStyles} >Packages</NavLink>,
       key: "packages",
     },
 
     {
-      label: <Link to="/contact">Contact US</Link>,
+      label: <NavLink to="/contact" style={navlinkStyles} >Contact US</NavLink>,
       key: "Contact Us",
     },
     {
-      label: <Link to="/about">About US</Link>,
+      label: <NavLink to="/about" style={navlinkStyles}>About US</NavLink>,
       key: "about",
     },
     {
       label: (
-        <Link>
+        <NavLink >
 
           <ShoppingCartOutlined style={{ fontSize: "28px", }}/>
 
@@ -82,7 +97,7 @@ const Navbar = ({ showOverlayMessage }) => {
           
  
         
-        </Link>
+        </NavLink>
       ),
       key: "Shoping",
     },
@@ -92,7 +107,7 @@ const Navbar = ({ showOverlayMessage }) => {
         user ? (
           <UserOutlined style={{ fontSize: "28px",color: "white"  }} />
         ) : (
-          <Link to={"/login"}>Login</Link>
+          <NavLink to={"/login"} style={navlinkStyles}>Login</NavLink>
         ),
       key: "profile",
     },
@@ -160,8 +175,7 @@ const Navbar = ({ showOverlayMessage }) => {
     }
   };
   const onClick = (e) => {
-    console.log("click ", e);
-    setCurrent(e.key);
+    
 
     // Check if "Shoping" or "Profile" is clicked and pass different content accordingly
     if (e.key === "Shoping") {
@@ -315,11 +329,14 @@ const Navbar = ({ showOverlayMessage }) => {
             <ConfigProvider
               theme={{
                 token: {
-                  colorPrimary: "black",
+                  colorPrimary:"#66AAB8",
                   fontSize: 20,
-                  colorText: "white",
+                  colorText:"white",
+                  
                 },
               }}
+              
+
             >
               <Menu
                 onClick={onClick}
@@ -331,7 +348,10 @@ const Navbar = ({ showOverlayMessage }) => {
                   width: "800px",
                   display: "flex",
                   justifyContent: "flex-end",
+                  border:"none"
+
                 }}
+                
               />
             </ConfigProvider>
           )}
