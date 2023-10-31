@@ -1,6 +1,12 @@
 import { Carousel, Col, Row } from 'antd';
 import Title from 'antd/es/typography/Title';
 
+import deal1 from  "../../../../images/Rectangle 57.png";
+import deal2 from  "../../../../images/Rectangle 58.png";
+import deal3 from "../../../../images/desDubai.png";
+import deal4 from  "../../../../images/fujairahver.png"
+import deal5 from "../../../../images/destinationMain.png"
+import deal6 from "../../../../images/desAbuDhabi.png"
 const carouselStyle = {
   display: 'flex',
   justifyContent: 'center',
@@ -14,12 +20,10 @@ const imageStyle = {
   borderRadius:"30px"
 };
 
-const imagePaths = [
-  ["../../../../images/Rectangle 57.png", "../../../../images/Rectangle 58.png"],
-  ["../../../../images/desDubai.png", "../../../../images/fujairahver.png"],
-  ["../../../../images/destinationMain.png", "../../../../images/desAbuDhabi.png"],
-  ["../../../../images/destinationMain.png", "../../../../images/desAbuDhabi.png"]
-];
+
+
+const deals = [[deal1,deal2],[deal3,deal4], [deal5, deal6] ]
+
 
 const TopDealCarousel = () => (
   <div style={{ background: 'linear-gradient(180deg, #89A7B2 0%, #028B95 100%)', marginTop: "25px" }}>
@@ -32,7 +36,7 @@ const TopDealCarousel = () => (
       </Col>
     </Row>
     <Carousel autoplay>
-      {imagePaths.map((images, index) => (
+      {deals.map((images, index) => (
         <div key={index}>
           <div className="carousel-slide" style={carouselStyle}>
             {images.map((image, subIndex) => (
