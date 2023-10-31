@@ -52,7 +52,7 @@ function RecomendedSection() {
         xl={10}
         align="middle"
         justify="center"
-        style={{ padding: "0 0 0 25px" }}
+        style={{ padding: "0 0 0 4%" }}
       >
         <Title style={{ textAlign: "left" }}>Recommended For You</Title>
         <Title
@@ -84,7 +84,7 @@ function RecomendedSection() {
             : "linear-gradient(90deg, rgba(105, 149, 167, 0.44) 0%, #018A97 100%)",
         }}
       >
-        <Row style={{ marginLeft: "-17%" }}>
+        <Row style={{ marginLeft: "-15%" }}>
           {loading ? (
             <Loader />
           ) : (
@@ -101,8 +101,8 @@ function RecomendedSection() {
                     align="middle"
                     justify="center"
                     style={{
-                      marginTop: "5%",
-                      marginBottom: "5%",
+                      marginTop: "1%",
+                      marginBottom: "1%",
                       padding: "1%",
                       paddingLeft: isSmallestScreen
                         ? "15%"

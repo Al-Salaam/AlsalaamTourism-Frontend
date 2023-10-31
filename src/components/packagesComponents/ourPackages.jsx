@@ -28,6 +28,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { addtoWishlist } from '../../redux/actions/wishlistAction';
 import toast from 'react-hot-toast';
 import { clearError, clearMessage } from '../../redux/reducers/wishlistReducer';
+import { useMediaQuery } from "react-responsive";
 
 
 
@@ -45,6 +46,11 @@ const Ourpackags = () => {
   const [ratingFilter, setRatingFilter] = useState('desc');
   const [currentPage, setCurrentPage] = useState(1);
   const [favoraite, setFavoraite] = useState()
+  
+  const isTabletScreen = useMediaQuery({
+    query: "(max-width: 1024px)",
+  });
+ const marginTopStyle = isTabletScreen ? '' : '-20%';
   const pageSize = 6;
   const navigate = useNavigate();
   useEffect(() => {
@@ -313,14 +319,16 @@ const Ourpackags = () => {
                   />
 
 
-                  <Row>
+                  <Row style={{marginTop:30}} xs={24} sm={24} md={24} lg={24} xl={24}>
                     <Col span={24}><Title level={5}>Duration</Title></Col>
-                    <Col span={12}>
-                      <p><img src={Time} /> {packag.duration}</p>
+                    <Col  xs={24} sm={24} md={24} lg={12} xl={16} >
+                      <div style={{display:"inline-flex"}} >
+                      <img src={Time} style={{marginRight:"5px"}}/>  <p>{packag.duration}</p>
+                      </div>
                     </Col>
                     <Link to={`/packages/${packag._id}`}>
-                    <Col span={12} align="right" style={{marginTop:"20px"}} >
-                      <PrimaryButton title={"View Details"}width='100%' />
+                    <Col xs={24} sm={24} md={24} lg={12} xl={16} align="right" style={{ marginTop: marginTopStyle }} >
+                      <PrimaryButton title={"View Details"}width='140%' />
                     </Col>
                     </Link>
                     

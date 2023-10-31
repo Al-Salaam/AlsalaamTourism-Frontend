@@ -38,10 +38,10 @@ function ServicesShowCase(props) {
     <>
       <Row >
         <Col xs={24} sm={24} md={24} lg={12} xl={12} style={{ padding: "1%" }}>
-          <Title>Our Services</Title>
-          <Title style={{ paddingLeft: "15%" }} level={4}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.</Title>
+          <Title style={{marginLeft:"4%"}}>Our Services</Title>
+          <Title style={{ paddingLeft: "12%" }} level={4}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.</Title>
           <List
-            style={{ paddingLeft: "15%" }}
+            style={{ paddingLeft: "12%" }}
             itemLayout="vertical"
             dataSource={data}
             renderItem={(item) => (
