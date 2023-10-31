@@ -28,7 +28,7 @@ const FlipCard = (props) => {
     const isSmallestScreen = useMediaQuery({ maxWidth: 430 });
 
     const cardWidth = props.width || (isSmallestScreen ? "90%" : "70%");
-
+    const formattedRating = props.noOfReviews === 0 ? 0 : (props.rate % 1 === 0 ? props.rate.toFixed(0) : props.rate.toFixed(1));
     return (
         <div
             style={{
@@ -93,7 +93,7 @@ const FlipCard = (props) => {
                                 halfIcon={<i className="fa fa-star-half-alt"></i>}
                                 fullIcon={<i className="fa fa-star"></i>}
                                 activeColor="#ffd700"
-                            />  {props.noOfReviews === 0 ? 0 : props.rate}
+                            />  {formattedRating}
                         </div>
                     </h3>
                     <h3
@@ -177,7 +177,7 @@ const FlipCard = (props) => {
                                 halfIcon={<i className="fa fa-star-half-alt"></i>}
                                 fullIcon={<i className="fa fa-star"></i>}
                                 activeColor="#ffd700"
-                            />  {props.noOfReviews === 0 ? 0 : props.rate}
+                            />  {formattedRating}
                         </div>
                     </h3>
 
