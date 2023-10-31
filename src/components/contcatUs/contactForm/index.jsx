@@ -164,7 +164,7 @@ const MyForm = () => {
               <img src={formcall} alt="Phone" />
             </Col>
 
-            <Col xs={24} sm={24} md={12} lg={12} xl={12} align="middle" >
+            <Col xs={24} sm={24} md={12} lg={12} xl={9} align="middle" >
               <Title
                 level={5}
                 style={{
@@ -185,7 +185,7 @@ const MyForm = () => {
               <img src={Formmsg} alt="Phone" />
             </Col>
 
-            <Col xs={24} sm={16} md={14} lg={14} xl={14} align= {isMobileScreen?"middle":"end"}>
+            <Col xs={24} sm={16} md={14} lg={14} xl={10} align= {isMobileScreen?"middle":"end"}>
               <Title
                 level={5}
                 style={{

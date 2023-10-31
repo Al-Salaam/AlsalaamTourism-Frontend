@@ -23,16 +23,28 @@ function Footer() {
 
     <Row>
         <Col span={24}>
-            <Row align={'middle'} style={{ backgroundColor: "#EFEFFF", padding: "1%" }} >
+            <Row  align={'middle'} style={{ backgroundColor: "#EFEFFF", padding: "1%" }} >
 
-                <Col span={12} align={"middle"} justify={"center"} ><Row align={"middle"} justify={"center"}><Col><img src={Phone} /></Col><Col><Title  style={{fontSize:isTablet?"11px":"15px"}}> <a
+                <Col  xs={10} sm={10} md={10} lg={10} xl={10}align={"middle"} justify={"center"} >
+        <Row align={"middle"} justify={"end"}>
+            <Col><img src={Phone} /></Col>
+            <Col><Title  style={{fontSize:isTablet?"11px":"15px"}}> <a
         href="tel:+971524928120"
         style={{ textDecoration: "none", color: "#3B505A" }}
       >
         Call on +971524928120
-      </a></Title></Col></Row></Col>
+      </a></Title></Col>
+      </Row>
+      </Col>
 
-                <Col span={12} align={"center"}> <Row align={"middle"} justify={"center"}><Col><img src={Msg} /></Col><Col><Title style={{fontSize:isTablet?"12px":"15px"}}> <a href="mailto:info@alsalaamtourism.com" style={{ textDecoration: "none", color: "#3B505A" }}>info@alsalaamtourism.com</a></Title></Col></Row> </Col>
+                
+                
+        <Col  xs={14} sm={10} md={14} lg={12} xl={8} align={"center"}> <Row align={"middle"} justify={"center"}>
+            <Col><img src={Msg} /></Col><Col>
+            <Title style={{fontSize:isTablet?"12px":"15px"}}>
+                 <a href="mailto:info@alsalaamtourism.com" style={{ textDecoration: "none", color: "#3B505A" }}>info@alsalaamtourism.com</a>
+                 </Title>
+                 </Col></Row> </Col>
             </Row>
             <Row align={'middle'} style={{ backgroundColor: "#4CAAB8", padding: "1%" }} >
 
