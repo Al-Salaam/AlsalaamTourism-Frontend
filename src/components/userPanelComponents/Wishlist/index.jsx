@@ -28,11 +28,9 @@ const Wishlist = () => {
     if (localStorage.getItem(localStorageKey) === 'true') {
       // If it's in the wishlist, remove it from local storage
       localStorage.removeItem(localStorageKey);
-
       // Dispatch the action to remove it from the Redux store
-      dispatch(removeWishListItems({ itemId, itemType }));
-
     }
+    dispatch(removeWishListItems({ itemId, itemType }));
   };
 
   const handleFilterChange = (value) => {

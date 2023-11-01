@@ -197,18 +197,7 @@ data.filter((item) => {
           >
             All
           </Button>
-          <Button
-            onClick={() => handleButtonClick("featured")}
-            style={{
-              border: "none",
-              borderRadius: 0,
-              borderBottom: activeButton === "featured" ? "2px solid #3B505A" : "none",
-              color: activeButton === null ? "#3B505A" : "#696969",
-              marginLeft: "10%",
-            }}
-          >
-            Featured
-          </Button>
+          
           <Button
             onClick={() => handleButtonClick("tour")} 
             style={{
