@@ -50,9 +50,9 @@ const ServicesSection = () => {
                 </div>
             </Col>
             <Col xs={24} sm={16} md={16} lg={16}  style={{ background: 'linear-gradient(to bottom, #70ADBB 50%, #70ADBB 50%, #FFFFFF 50%, #FFFFFF 100%)' }}>
-                <Row justify="center">
+                <Row >
                 {cardData.map((data) => (
-                    <Col xs={24} sm={8} md={8} lg={8}>
+                    <Col xs={24} sm={8} md={8} lg={8} style={{margin:"0 auto"}}>
                      <FlipCardServices key={data.id} frontData={data.frontData} backData={data.backData} />
                     </Col>
                 ))}

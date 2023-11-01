@@ -1,6 +1,6 @@
 import CircleComponent from "../../components/common/circleImages";
 import ImageCard from "../../components/aboutComponents/teamComponent";
-import { Row, Col,} from 'antd';
+import { Row, Col, } from 'antd';
 import Team1 from "../../../images/ibrat.png"
 import Team2 from "../../../images/team2.png"
 import Team3 from "../../../images/team3.png"
@@ -26,10 +26,10 @@ import ImageGallery from '../../components/aboutComponents/imageGallery';
 import BG from "../../../images/MeetBG.png"
 
 const imageCardData = [
-  { imageUrl: Team1, mainText: <div style={{ display: "flex" }}><h3 >Ibrat Saeed</h3> &nbsp;&nbsp;&nbsp;<p>Founder & CEO</p></div>, rotatedText: <div style={{ display: "flex", justifyContent: "space-evenly" }}><img src={Icon4} alt="icon" style={{width:"15%",height:"15%"}} /><img src={Icon1} alt="icon" style={{width:"15%",height:"15%"}}  /><img src={Icon2} alt="icon" style={{width:"15%",height:"15%"}}  /><img src={Icon3} alt="icon" style={{width:"15%",height:"15%"}} /></div> },
-  { imageUrl: Team2, mainText: <div style={{ display: "flex" }}><h3 >Zohaib Raja  </h3> &nbsp;&nbsp;&nbsp;<p>General Manager  </p></div>, rotatedText: <div style={{ display: "flex", justifyContent: "space-evenly" }}><img src={Icon4} alt="icon" style={{width:"15%",height:"15%"}} /><img src={Icon1} alt="icon"style={{width:"15%",height:"15%"}}  /><img src={Icon2} alt="icon" style={{width:"15%",height:"15%"}} /><img src={Icon3} alt="icon" style={{width:"15%",height:"15%"}} /></div> },
-  { imageUrl: Team3, mainText: <div style={{ display: "flex" }}><h3 >Malik Nabil  </h3> &nbsp;&nbsp;&nbsp;<p>Director Admin</p></div>, rotatedText: <div style={{ display: "flex", justifyContent: "space-evenly" }}><img src={Icon4} alt="icon" style={{width:"15%",height:"15%"}} /><img src={Icon1} alt="icon" style={{width:"15%",height:"15%"}} /><img src={Icon2} alt="icon" style={{width:"15%",height:"15%"}} /><img src={Icon3} alt="icon" style={{width:"15%",height:"15%"}} /></div> },
-  { imageUrl: Team4, mainText: <div style={{ display: "flex" }}><h3 >Ghazi Raja</h3> &nbsp;&nbsp;&nbsp;<p>Managing Director  </p></div>, rotatedText: <div style={{ display: "flex", justifyContent: "space-evenly" }}><img src={Icon4} alt="icon" style={{width:"15%",height:"15%"}} /><img src={Icon1} alt="icon" style={{width:"15%",height:"15%"}}  /><img src={Icon2} alt="icon" style={{width:"15%",height:"15%"}}  /><img src={Icon4} alt="icon" style={{width:"15%",height:"15%"}} /></div> },
+  { imageUrl: Team1, mainText: <div style={{ display: "flex" }}><h3 >Ibrat Saeed</h3> &nbsp;&nbsp;&nbsp;<p>Founder & CEO</p></div>, rotatedText: <div style={{ display: "flex", justifyContent: "space-evenly" }}><img src={Icon4} alt="icon" style={{ width: "15%", height: "15%" }} /><img src={Icon1} alt="icon" style={{ width: "15%", height: "15%" }} /><img src={Icon2} alt="icon" style={{ width: "15%", height: "15%" }} /><img src={Icon3} alt="icon" style={{ width: "15%", height: "15%" }} /></div> },
+  { imageUrl: Team2, mainText: <div style={{ display: "flex" }}><h3 >Zohaib Raja  </h3> &nbsp;&nbsp;&nbsp;<p>General Manager  </p></div>, rotatedText: <div style={{ display: "flex", justifyContent: "space-evenly" }}><img src={Icon4} alt="icon" style={{ width: "15%", height: "15%" }} /><img src={Icon1} alt="icon" style={{ width: "15%", height: "15%" }} /><img src={Icon2} alt="icon" style={{ width: "15%", height: "15%" }} /><img src={Icon3} alt="icon" style={{ width: "15%", height: "15%" }} /></div> },
+  { imageUrl: Team3, mainText: <div style={{ display: "flex" }}><h3 >Malik Nabil  </h3> &nbsp;&nbsp;&nbsp;<p>Director Admin</p></div>, rotatedText: <div style={{ display: "flex", justifyContent: "space-evenly" }}><img src={Icon4} alt="icon" style={{ width: "15%", height: "15%" }} /><img src={Icon1} alt="icon" style={{ width: "15%", height: "15%" }} /><img src={Icon2} alt="icon" style={{ width: "15%", height: "15%" }} /><img src={Icon3} alt="icon" style={{ width: "15%", height: "15%" }} /></div> },
+  { imageUrl: Team4, mainText: <div style={{ display: "flex" }}><h3 >Ghazi Raja</h3> &nbsp;&nbsp;&nbsp;<p>Managing Director  </p></div>, rotatedText: <div style={{ display: "flex", justifyContent: "space-evenly" }}><img src={Icon4} alt="icon" style={{ width: "15%", height: "15%" }} /><img src={Icon1} alt="icon" style={{ width: "15%", height: "15%" }} /><img src={Icon2} alt="icon" style={{ width: "15%", height: "15%" }} /><img src={Icon4} alt="icon" style={{ width: "15%", height: "15%" }} /></div> },
 ];
 
 
@@ -43,44 +43,44 @@ function About() {
       <ChooseUs />
       <ServicesSection />
       <div style={{
-        paddingBottom:"5%",
-  backgroundImage: `url(${BG})`,
-  backgroundPosition: "center",
-  backgroundSize: "100% 100%",
-  minHeight: "100vh", 
-}}>
-  <Row justify="center">
-    <Col>
-      <h1 style={{ margin: "15% 0" }}>Meet The Team</h1>
-    </Col>
-  </Row>
-  <Row>
-    {imageCardData.map((data, index) => (
-      <Col
-        xs={24}
-        sm={12}
-        md={12}
-        lg={12}
-        xl={index === imageCardData.length - 1 ? 24 : 8}
-        key={index}
-        style={{ marginTop: "30px" }}
-      >
-        <ImageCard
-          key={index}
-          imageUrl={data.imageUrl}
-          mainText={data.mainText}
-          rotatedText={data.rotatedText}
-        />
-      </Col>
-    ))}
-  </Row>
-</div>
+        paddingBottom: "5%",
+        backgroundImage: `url(${BG})`,
+        backgroundPosition: "center",
+        backgroundSize: "100% 100%",
+        minHeight: "100vh",
+      }}>
+        <Row justify="center">
+          <Col>
+            <h1 style={{ margin: "15% 0" }}>Meet The Team</h1>
+          </Col>
+        </Row>
+        <Row>
+          {imageCardData.map((data, index) => (
+            <Col
+              xs={24}
+              sm={12}
+              md={12}
+              lg={12}
+              xl={index === imageCardData.length - 1 ? 24 : 8}
+              key={index}
+              style={{ marginTop: "30px" }}
+            >
+              <ImageCard
+                key={index}
+                imageUrl={data.imageUrl}
+                mainText={data.mainText}
+                rotatedText={data.rotatedText}
+              />
+            </Col>
+          ))}
+        </Row>
+      </div>
 
       <CircleComponent />
       <ImageGallery images={images} />
-      <div style={{marginBottom:"-10%"}}>
-    <Footer />
-    </div>
+      <div style={{ marginBottom: "-10%" }}>
+        <Footer />
+      </div>
     </>
   );
 }
