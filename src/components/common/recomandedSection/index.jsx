@@ -76,7 +76,7 @@ function RecomendedSection() {
         md={12}
         lg={12}
         xl={14}
-        align="Right"
+        align="left"
         justify="Right"
         style={{
           background: isSmallestScreen
@@ -84,7 +84,7 @@ function RecomendedSection() {
             : "linear-gradient(90deg, rgba(105, 149, 167, 0.44) 0%, #018A97 100%)",
         }}
       >
-        <Row style={{ marginLeft: "-15%" }}>
+        <Row style={{ marginLeft: "-5%", width:"100%" }}>
           {loading ? (
             <Loader />
           ) : (
@@ -101,14 +101,15 @@ function RecomendedSection() {
                     align="middle"
                     justify="center"
                     style={{
+                      
                       marginTop: "1%",
                       marginBottom: "1%",
                       padding: "1%",
                       paddingLeft: isSmallestScreen
                         ? "15%"
                         : isSmallScreen
-                        ? "10%"
-                        : "",
+                          ? "10%"
+                          : "",
                     }}
                   >
                     <FlipCard
@@ -120,6 +121,7 @@ function RecomendedSection() {
                       activityId={item._id}
                       noOfReviews={item.noOfReviews}
                       onClick={() => handleAddToCart(item)}
+                      
                     />
                   </Col>
                 ))}

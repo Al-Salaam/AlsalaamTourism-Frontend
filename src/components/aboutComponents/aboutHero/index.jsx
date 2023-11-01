@@ -49,7 +49,7 @@ const AboutHero = ({ description, videoSource }) => {
       
         <div onClick={openVideoModal} style={{ cursor: 'pointer' }}>
          
-          <img src={Services} style={{ width: "100%",height:"50vh" }} />
+          <img src={Services} style={{ width: "100%",height:"60vh" }} />
         </div>
 
       </Col>

@@ -95,7 +95,7 @@ const ThreeCircle = () => {
             onClick={() => handleCircleClick('left')}
           ></div>
         </Col>
-        <Col span={8} style={{ ...largerCircleStyle, backgroundImage: `url(${circleImages[currentTitleIndex]})` }} onClick={() => handleCircleClick('center')}>
+        <Col span={8} style={{ ...largerCircleStyle, backgroundImage: `url(${circleImages[currentTitleIndex]})` }} >
         </Col>
         <Col span={8} align="right">
           <div

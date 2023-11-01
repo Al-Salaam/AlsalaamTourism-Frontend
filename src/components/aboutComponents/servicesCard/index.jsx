@@ -18,7 +18,7 @@ const FlipCardServices = ({ frontData, backData }) => {
     transition: 'transform 0.5s',
     transformStyle: 'preserve-3d',
     transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
-    margin:"15%"
+    margin:"10%",
   };
 
   const frontStyle = {
