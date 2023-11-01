@@ -40,11 +40,25 @@ const cardData = [
 ];
 
 const ServicesSection = () => {
+
+
+    const titleStyle2 = {
+        fontFamily: 'Ubuntu',
+        fontSize: '120%',
+        fontWeight: 400,
+        lineHeight: '32px',
+        letterSpacing: '0.07em',
+        textAlign: 'start',
+        
+        
+      };
+
+
     return (
         <Row style={{ paddingTop: "5%" }}>
             <Col xs={24} sm={8} md={8} lg={8} style={{ paddingLeft: '16px' }}>
 
-                <div style={{ padding: '16px' }}>
+                <div style={{ ...titleStyle2,padding: '16px' }}>
                     <h1 style={{marginBottom:"10px"}}>Our Services</h1>
                     <p>Regardless of your location at any time, you can access all of our tour packages and enjoy the same top-quality service. You can also partake in all our offerings and promotions. This is because we are driven to make your comfort our obsession and your satisfaction our daily assignment.</p>
                 </div>

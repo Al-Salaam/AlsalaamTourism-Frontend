@@ -57,14 +57,16 @@ const AboutHero = ({ description, videoSource }) => {
     query: '(max-width: 1421px)', // Change this breakpoint as needed
   });
 
-  const isMobileView = useMediaQuery({
-    query: '(max-width: 562px)', // Change this breakpoint as needed
+ 
+
+  const isMobileView2 = useMediaQuery({
+    query: '(max-width: 1305px)', // Change this breakpoint as needed
   });
 
 
   const titleStyle = {
     fontFamily: 'Ubuntu',
-    fontSize: isMobileView ? "200%":"455%",
+    fontSize: isMobileView2 ? "220%" : "400%",
     fontWeight: 700,
     lineHeight: '72px',
     letterSpacing: '0.07em',
@@ -104,7 +106,7 @@ const AboutHero = ({ description, videoSource }) => {
         onCancel={closeVideoModal}
         footer={null}
         width={isMobile ? "" : "60vw"}
-        style={{ margin: "0 auto" }}
+        style={{...titleStyle2, margin: "0 auto" }}
       >
         <video id="videoElement" controls width="100%">
           <source src={"https://media.w3.org/2010/05/sintel/trailer_hd.mp4"} type="video/mp4" />

@@ -17,7 +17,7 @@ const contentStyle1 = {
 
 
 const col2Style = {
-    marginTop: "5%"
+    marginTop: "8%"
 }
 
 const ChooseUs = () => {
@@ -35,6 +35,19 @@ const ChooseUs = () => {
         query: '(max-width: 760px)', // Change this breakpoint as needed
     });
 
+
+    const titleStyle2 = {
+        fontFamily: 'Ubuntu',
+        fontSize: '120%',
+        fontWeight: 400,
+        lineHeight: '32px',
+        letterSpacing: '0.07em',
+        textAlign: 'start',
+        
+        
+
+      };
+
     return (
         <div style={{width: "99%"}}>
         <Row gutter={16}>
@@ -48,7 +61,7 @@ const ChooseUs = () => {
             </Col>
             <Col xs={24} sm={12} md={12} lg={12} xl={12} xxl={12}>
 
-                <div style={{ textAlign: isMobile ? "center" : "" }} >
+                <div style={{ ...titleStyle2, textAlign: isMobile ? "center" : "" }} >
                     <h1 style={col2Style}>Why Choose Us?</h1>
                     <h3 style={col2Style}>Best Practices</h3>
                     <p>At Al Salaam Tourism, we offer some of the most competitive, pocket-friendly prices around, while also delivering without compromising on our quality standards. This is due to our strong passion to provide cost-effective travel solutions that beat the prices, making sure that clients get premium value for their money.</p>
