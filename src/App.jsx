@@ -31,10 +31,13 @@ import FloatingWhatsapp from "./components/whatsappIcon";
 
 import Protected from "./helpers/protectedRoute/Protected";
 
+
 function App() {
+
   
-  const storedUser = JSON.parse(localStorage.getItem("user"));
-  const isSignedIn = storedUser?.user && storedUser?.user;
+      const storedUser =  JSON.parse(localStorage.getItem("user"));
+      const isSignedIn = storedUser?.user;
+    
   return (
     <div>
       <Routes>

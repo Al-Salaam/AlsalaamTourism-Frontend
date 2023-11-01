@@ -179,7 +179,7 @@ const BookNow = ({ activity }) => {
     }
   };
   
-  
+  const formattedRating = activity?.noOfReviews === 0 ? 0 : (activity?.ratings % 1 === 0 ? activity?.ratings?.toFixed(0) : activity?.ratings?.toFixed(1));
 
 
   return (
@@ -200,7 +200,7 @@ const BookNow = ({ activity }) => {
             halfIcon={<i className="fa fa-star-half-alt"></i>}
             fullIcon={<i className="fa fa-star"></i>}
             activeColor="#ffd700"
-          />  {activity?.noOfReviews === 0 ? 0 : activity?.ratings}/5 ({activity?.noOfReviews})</Col>
+          />  {formattedRating}/5 ({activity?.noOfReviews})</Col>
       </Row>
       <Row gutter={[40]} style={Styles.margin}>
         <Col span={24}><Title level={5}>{activity?.shortdescription}</Title></Col>
