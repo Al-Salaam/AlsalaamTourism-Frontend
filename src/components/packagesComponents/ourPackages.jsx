@@ -50,6 +50,18 @@ const Ourpackags = () => {
   const isTabletScreen = useMediaQuery({
     query: "(max-width: 1024px)",
   });
+
+
+  const isMobileScreen = useMediaQuery({
+    query: "(max-width: 669px)",
+  });
+
+  const isMobileScreen2 = useMediaQuery({
+    query: "(max-width: 511px)",
+  });
+
+
+
  const marginTopStyle = isTabletScreen ? '' : '-20%';
   const pageSize = 6;
   const navigate = useNavigate();
@@ -157,7 +169,11 @@ const Ourpackags = () => {
 
       width: "40%",
       borderBottom: "1px solid black",
-      borderRadius: "0"
+      borderRadius: "0",
+      marginTop:isMobileScreen ? (isMobileScreen2 ? "5%" : "3%") : "3%",
+      marginLeft:isMobileScreen ? (isMobileScreen2 ? "7%" : "2%") : "2%"
+      
+
     },
 
     filterFlex: {
@@ -210,8 +226,8 @@ const Ourpackags = () => {
   },[error, toast, message, dispatch])
 
   return (
-    <div style={{width:"99%"}}>
-      <Row gutter={[16, 16]} justif="center"><Col span={24} align="middle"> <Title level={2}>Our Packages</Title> <Title level={5}>We offer some of the most competitive, pocket-friendly prices around, while also delivering without compromising on our quality standards.</Title></Col> </Row>
+    <div style={{width:"98%", overflowX:"hidden"}}>
+      <Row gutter={[16, 16]} justif="center"><Col span={24} align="middle"> <Title level={2} style={{marginTop:"4%"}}>Our Packages</Title> <p>We offer some of the most competitive, pocket-friendly prices around, while also delivering without compromising on our quality standards.</p></Col> </Row>
       <Row gutter={[16, 16]}>
         <Col span={12}>
           <Input
@@ -222,7 +238,7 @@ const Ourpackags = () => {
             style={styles.width}
             bordered={false}
           />
-          <div style={{ margin: "5% 0", color: "#3B505A", fontSize: "14.57px", fontWeight: "400px" }}>
+          <div style={{ margin: "5% 0", color: "#3B505A", fontSize: "14.57px", fontWeight: "400px", marginLeft:isMobileScreen ? (isMobileScreen2 ? "7%" : "2%") : "2%", marginTop:isMobileScreen ? (isMobileScreen2 ? "8%" : "4%") : "4%" }}>
             Showing {startIndex + 1}-{Math.min(endIndex, filteredData.length)} of {filteredData.length} packages
           </div>
         </Col>
@@ -292,6 +308,7 @@ const Ourpackags = () => {
             {currentData.map((packag) => (
               <Col key={packag._id} xs={24} sm={12} md={8} lg={8} xl={8} >
                 <Card
+                style={{marginLeft:"3%", marginRight:"1%"}}
                   cover={
                     <Image
                       alt={packag.heading}
