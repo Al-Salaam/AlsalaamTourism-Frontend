@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { ComposableMap, Geographies, Geography,Annotation, } from "react-simple-maps";
 
+
 import "../map/style.css";
 import G from "../map/features.json"
 
@@ -20,12 +21,12 @@ const Map = () => (
         dx={-150}
         dy={100}
         connectorProps={{
-          stroke: "#3D4C84",
+          stroke: "black",
           strokeWidth: 2,
           strokeLinecap: "round"
         }}
       >
-        <text x="-2" textAnchor="end" alignmentBaseline="middle" fill="#3D4C84" style={{fontSize:"30px"}}>
+        <text x="-2" textAnchor="end" alignmentBaseline="middle" fill="black" style={{fontSize:"30px"}}>
           {"UAE"}
         </text>
       </Annotation>

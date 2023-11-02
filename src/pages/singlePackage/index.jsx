@@ -7,7 +7,7 @@ import ActSlid from "../../components/common/activitySlider"
 import CardSlider from "../../components/activityComponents/cardSlider/slider";
 import AverageRating from '../../components/singleActivity/avgRating';
 import RatingInput from '../../components/singleActivity/inputRating/index2';
-import Map from "../../../images/Map.png"
+// import Map from "../../../images/Map.png"
 import { useMediaQuery } from 'react-responsive';
 import Questions from '../../components/singleActivity/questions';
 import CarouselWithThumbnails from '../../components/singlePackage/carousal/index2';
@@ -22,6 +22,7 @@ import { useEffect } from 'react';
 import {  fetchPackagesById, fetchPackagesReviews } from '../../redux/actions/packagesAction';
 import { Loader } from '../../components/common/loader';
 import { fetchActivities } from '../../redux/actions/activityAction';
+import Map from "../../components/common/map"
 
 
 
@@ -68,8 +69,8 @@ const SinglePackage = () => {
                                     <AverageRating reviews={pakage?.noOfReviews} rating={pakage?.ratings} module={pakage} />
                                     <RatingInput pakage={pakage}/>
                                 </Col>
-                                <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={{ margin: "5% 0", padding: "0 2%", display: isSmallScreen ? "none" : "" }} align="middle">
-                                    <Image src={Map} />
+                                <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={{ margin: "1% 0", padding: "0 2%", display: isSmallScreen ? "none" : "" }} align="middle">
+                                   <Map/>
                                 </Col>
                             </Row>
                             <CardSlider reviews={reviews}/>
