@@ -55,12 +55,14 @@ const ActivityHeroSection = () => {
                     <Col xs={24} sm={24} md={12} lg={12} xl={12} align='middle'>
 
                         <Image
+                            preview={false}
                             src={A1} // Replace with your image URL
                             style={image1Style}
                         />
                     </Col>
                     <Col xs={24} sm={24} md={12} lg={12} xl={12} align='middle'>
                         <Image
+                            preview={false}
                             src={A2} // Replace with your image URL
                             style={image2Style}
 

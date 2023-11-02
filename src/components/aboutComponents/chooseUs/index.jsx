@@ -54,8 +54,8 @@ const ChooseUs = () => {
             <Col xs={24} sm={12} md={12} lg={12} xl={12} xxl={12}>
                 
                 <div style={contentStyle1}>
-                        <Image  src={Image1} width={breakPoint1?"35vw":"20vw"} />
-                        <Image  src={Image2}  width={breakPoint1?"35vw":"20vw"} style={{marginTop:"-50%",marginLeft:"25%"}}/>
+                        <Image preview={false} src={Image1} width={breakPoint1?"35vw":"20vw"} />
+                        <Image preview={false} src={Image2}  width={breakPoint1?"35vw":"20vw"} style={{marginTop:"-50%",marginLeft:"25%"}}/>
                 </div>
                 
             </Col>

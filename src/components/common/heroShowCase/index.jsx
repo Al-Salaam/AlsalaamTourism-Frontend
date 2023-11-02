@@ -28,7 +28,7 @@ function HeroShowCase() {
             <Col xs={24} sm={12} md={10} lg={10} xl={10}   style={{padding:"2%"}} align={"middle"} >
                 
                 <Title style={{...titleStyle,fontSize:isSmallScreen ? "10vw": "4vw",color:"white"}}>Dream | Explore | Discover</Title>
-                <p style={{...titleStyle,fontSize:isSmallScreen ? "3vw": "1.9vw",color:"white"}}>Get the best prices on all excurssions and activities across UAE.</p>
+                <p style={{...titleStyle,fontSize:isSmallScreen ? "3vw": "1.4vw",color:"white"}}>Get the best prices on all excurssions and activities across UAE.</p>
                 <div style={{ marginTop: "50px", marginRight: isSmallScreen ? "0%" : "68%",}}>
   <PrimaryButton width='180px' title={<Title style={{ fontSize: isSmallScreen ? "2vw" : "0.1vw", color: "white" }}><Link to="/activity" style={{ color: "white", fontSize: "16px" }}>Explore Now </Link></Title>} />
 </div>
