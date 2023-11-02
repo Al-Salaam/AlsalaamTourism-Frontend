@@ -222,7 +222,7 @@ const navlinkStyles = ({isActive}) => {
                 type="text"
                 onClick={showDrawer}
                 icon={
-                  <MenuOutlined style={{ fontSize: "24px", }} />
+                  <MenuOutlined style={{ fontSize: "24px", color:"white",marginRight:"20px" }} />
                 }
               />
               <Drawer

@@ -27,7 +27,7 @@ const FlipCard = (props) => {
     };
     const isSmallestScreen = useMediaQuery({ maxWidth: 430 });
 
-    const cardWidth = props.width || (isSmallestScreen ? "90%" : "70%");
+    const cardWidth = props.width || (isSmallestScreen ? "100%" : "95%");
     const formattedRating = props.noOfReviews === 0 ? 0 : (props.rate % 1 === 0 ? props.rate.toFixed(0) : props.rate?.toFixed(1));
     return (
         <div
