@@ -120,12 +120,12 @@ data.filter((item) => {
 
   return (
     <div style={{width:"99%",}}>
-      <Row justify="center" style={{ paddingTop: "10%", }}>
+      <Row justify="center" style={{ paddingTop: "30px", }}>
         <Col align="middle">
           <h1>Our Activities</h1>
         </Col>
       </Row>
-      <Row justify="center">
+      <Row justify="center" style={{marginTop:"1%"}}>
         <Col align="middle">
           <p>
             We offer some of the most competitive, pocket-friendly prices
@@ -185,7 +185,7 @@ data.filter((item) => {
             railStyle={{ backgroundColor: "lightgray" }}
           />
         </Col>
-        <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7}>
+        <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7} style={{marginBottom:isSmallScreen ? "5%" : "", marginTop:isSmallScreen?"3%":""}}>
           <Button
             onClick={() => handleButtonClick(null)} 
             style={{
