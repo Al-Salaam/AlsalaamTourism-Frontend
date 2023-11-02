@@ -57,7 +57,7 @@ const FlipCard = (props) => {
                         height: '400px',
                         position: 'relative',
                         backgroundImage: `url(${props.imageSrc})`, backgroundPosition: 'center', backgroundSize: 'cover',
-                        borderRadius:"25px"
+                        borderRadius:"10px"
                     }}
                 >
                     <h3
@@ -97,11 +97,11 @@ const FlipCard = (props) => {
                             />  {formattedRating}
                         </div>
                     </h3>
-                    <h3
+                    <div
                         style={{
                             position: 'absolute',
                             color: '#fff',
-                            padding: '3%',
+                            paddingTop: '1%',
                             bottom: '0',
                             left: '0',
                         
@@ -110,8 +110,7 @@ const FlipCard = (props) => {
                     
                         <Button
                             onClick={handleButtonClick}
-                            style={{
-                            }}
+                            style={{height:"50px",width:"60px",borderRadius:0,borderBottomLeftRadius:"10px" }}
                         >
                             <strong>+</strong>
                         </Button>
@@ -120,7 +119,7 @@ const FlipCard = (props) => {
                         </Button>
                        <h3>{props.cardType}</h3> 
                         <h4>{props.feature && "featured"}</h4>
-                    </h3>
+                    </div>
 
 
                 </div>
