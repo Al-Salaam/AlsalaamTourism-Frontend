@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 
 import { addtoWishlist } from '../../../redux/actions/wishlistAction';
 import { clearError, clearMessage } from '../../../redux/reducers/wishlistReducer';
-import axios from 'axios';
+
 import { https } from '../../../helpers/https';
 import { useNavigate } from 'react-router-dom';
 
@@ -61,9 +61,23 @@ const BookNow = ({ activity }) => {
 
   const dispatch = useDispatch();
   const { loading, error, message } = useSelector((state) => state.wishlist);
-  const [favoraite, setFavoraite] = useState();
+
+  
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+  const [favoraite, setFavoraite] = useState(false); // Initialize to false
+
+  // Function to check whether the item is in the wishlist
+  const checkWishlistStatus = () => {
+    const localStorageKey = `wishlist_${activity?._id}`;
+    const isItemInWishlist = localStorage.getItem(localStorageKey) === 'true';
+    setFavoraite(isItemInWishlist);
+  };
+
+  useEffect(() => {
+    // Check the initial wishlist status on component mount
+    checkWishlistStatus();
+  }, []);
   const add_to_Wishlist = () => {
     if (user) {
       const wishlistData = {
@@ -81,7 +95,7 @@ const BookNow = ({ activity }) => {
         // If not in the wishlist, add it and update local storage
         localStorage.setItem(localStorageKey, 'true');
         dispatch(addtoWishlist(wishlistData));
-        setFavoraite(checkItem);
+        setFavoraite(true);
       }
     } else {
       navigate('/login');
@@ -97,11 +111,11 @@ const BookNow = ({ activity }) => {
       toast.success(message)
       dispatch(clearMessage())
     }
-    const favorite = localStorage.getItem('favorite');
-    if (favorite === 'true') {
-      setFavoraite(true);
-    }
+    
   }, [error, toast, message, dispatch])
+
+
+
 
   const Styles = {
     margin: {
@@ -257,7 +271,7 @@ const BookNow = ({ activity }) => {
       </Row>
       <Row gutter={16} style={Styles.margin}>
         <Col xs={24} sm={24} md={24} lg={24} xl={12} align={isSmallScreen ? "middle" : ""}><PrimaryButton title={"Book Now"} clickHandler={handleBooking} /></Col>
-        <Col xs={24} sm={24} md={24} lg={24} xl={12}><Button disabled={loading} onClick={add_to_Wishlist} icon={<HeartFilled style={{ color: favoraite ? 'red' : '#000' }} />} style={{ border: "none", fontSize: "30px", color: "#3B505A", display: isSmallScreen ? "none" : "block" }}>Add to wish list</Button></Col>
+        <Col xs={24} sm={24} md={24} lg={24} xl={12}><Button disabled={loading} onClick={add_to_Wishlist} icon={<HeartFilled style={{  color: favoraite ? 'red' : '#000'}} />} style={{ border: "none", fontSize: "30px", color: "#3B505A", display: isSmallScreen ? "none" : "block" }}>Add to wish list</Button></Col>
       </Row>
     </div>
   );

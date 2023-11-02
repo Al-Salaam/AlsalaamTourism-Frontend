@@ -47,6 +47,8 @@ const Ourpackags = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [favoraite, setFavoraite] = useState()
   
+
+  
   const isTabletScreen = useMediaQuery({
     query: "(max-width: 1024px)",
   });
@@ -87,17 +89,7 @@ const Ourpackags = () => {
     setRatingFilter(value);
   };
 
-  const toggleFavorite = (packagId) => {
-    const updatedData = data.map((packagItem) => {
-      if (packagItem.id === packagId) {
-        return { ...packagItem, favorite: !packagItem.favorite };
-      }
-      return packagItem;
-    });
-    // Replace the data array with the updated data
-    // Implement your logic to update state or API here
-    console.log(updatedData);
-  };
+  
 
   const truncateDescription = (description, lines = 3) => {
     const lineHeight = 20; // You might need to adjust this based on your font size and line height
@@ -188,31 +180,40 @@ const Ourpackags = () => {
     }
   }
 
+  useEffect(() => {
+    const wishlistItems = {};
+    data.forEach((packag) => {
+      const localStorageKey = `wishlist_${packag._id}`;
+      wishlistItems[packag._id] = localStorage.getItem(localStorageKey) === 'true';
+    });
+    setWishlistItems(wishlistItems);
+  }, [data]);
+
+  const [wishlistItems, setWishlistItems] = useState({});
+
+  // Function to add an item to the wishlist
   const add_to_Wishlist = (itemId, itemType) => {
-    
-      const wishlistData = {
-        itemId:itemId,
-        itemType: itemType
+    const wishlistData = {
+      itemId: itemId,
+      itemType: itemType,
+    };
+    if (user) {
+      const localStorageKey = `wishlist_${itemId}`;
+      const checkItem = localStorage.getItem(localStorageKey) === 'true';
+
+      // Check if the item is already in the wishlist
+      if (checkItem) {
+        toast.error('Item is already in your wishlist.');
+      } else {
+        // If not in the wishlist, add it and update local storage
+        localStorage.setItem(localStorageKey, 'true');
+        setWishlistItems((prevItems) => ({ ...prevItems, [itemId]: true }));
+        dispatch(addtoWishlist(wishlistData));
       }
-      if(user) {
-        const localStorageKey = `wishlist_${itemId}`;
-        const checkItem = localStorage.getItem(localStorageKey) === 'true'
-        // Check if the item is already in the wishlist
-        if (checkItem) {
-          toast.error('Item is already in your wishlist.');
-        } else {
-          // If not in the wishlist, add it and update local storage
-          localStorage.setItem(localStorageKey, 'true');
-          dispatch(addtoWishlist(wishlistData));
-          setFavoraite(checkItem);
-        }
-      }else{
-        navigate('/login')
-      }
-      
-  
-    
-  }
+    } else {
+      navigate('/login');
+    }
+  };
   
   useEffect(() => {
     if(error){
@@ -224,6 +225,7 @@ const Ourpackags = () => {
       dispatch(clearMessage())
     }
   },[error, toast, message, dispatch])
+  
 
   return (
     <div style={{width:"98%", overflowX:"hidden"}}>
@@ -317,7 +319,7 @@ const Ourpackags = () => {
                   }
                 >
                   <Space style={{ position: 'absolute', top: 0, left: 0, padding: '8px' }}>
-                    <span style={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#0C111F57", height: "50px", borderRadius: "20px", width: "120px", color: "white" }}><img src={Star} style={{ marginTop: "12px" }} /><h2>{packag.noOfReviews === 0 ? 0 : packag.ratings}</h2></span>
+                    <span style={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#0C111F57", height: "50px", borderRadius: "20px", width: "120px", color: "white" }}><img src={Star} style={{ marginTop: "12px" }} /><h2>{packag?.noOfReviews === 0 ? 0 : (packag?.ratings % 1 === 0 ? packag?.ratings?.toFixed(0) : packag?.ratings?.toFixed(1))}</h2></span>
                   </Space>
                   <div
                     style={{
@@ -327,7 +329,7 @@ const Ourpackags = () => {
                       padding: '8px',
                     }}
                   >
-                    <HeartFilled onClick={() => add_to_Wishlist(packag._id, packag.itemType)} style={{ color: favoraite ? "Salmon" : "inherit", fontSize: "30px" }} />
+                    <HeartFilled onClick={() => add_to_Wishlist(packag._id, packag.itemType)} style={{ color: wishlistItems[packag._id] ? 'red' : 'inherit', fontSize: "30px" }} />
                   </div>
                   <br />
                   <Meta
