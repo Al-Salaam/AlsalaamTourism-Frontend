@@ -111,6 +111,7 @@ function Carousel({
         style={{
           maxWidth: width ? width : "600px",
           maxHeight: height ? height : "400px",
+          overflow:"hidden"
         }}
       >
         <Swipe
@@ -141,6 +142,7 @@ function Carousel({
                   style={{
                     maxWidth: width ? width : "600px",
                     maxHeight: height ? height : "400px",
+                    overflow:"hidden"
                   }}
                   onMouseDown={(e) => {
                     automatic && setIsPaused(true);
