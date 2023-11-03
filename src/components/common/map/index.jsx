@@ -1,13 +1,7 @@
  
 import React from "react";
 import ReactDOM from "react-dom";
-<<<<<<< HEAD
-import { ComposableMap, Geographies, Geography,Annotation, } from "react-simple-maps";
-
-
-=======
 import { ComposableMap, Geographies, Geography, Annotation } from "react-simple-maps";
->>>>>>> 106b52a (map and carousal fixed)
 import "../map/style.css";
 import G from "../map/features.json";
 
