@@ -71,7 +71,7 @@ const activityReducer = createSlice({
         })
         .addCase(fetchActivities.fulfilled ,(state, action) => {
             state.loading = false;
-            state.data = action.payload.data.activities;
+            state.data = action.payload.data;
         })
         .addCase(fetchActivities.rejected ,(state, action) => {
             state.loading = false;

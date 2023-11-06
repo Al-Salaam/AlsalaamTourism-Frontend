@@ -3,9 +3,9 @@ import { https } from "../../helpers/https";
 
 export const fetchActivities = createAsyncThunk(
     'activity/fetchActivities',
-    async (currentPage) => {
+    async () => {
         try {
-            const response = await https.get(`/activity?page=${currentPage}`);
+            const response = await https.get(`/activity/loadmore`);
             return response.data; // Update to match the response structure
         } catch (error) {
             throw error;
