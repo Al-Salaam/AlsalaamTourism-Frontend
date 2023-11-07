@@ -1,6 +1,6 @@
 import  { useState, useEffect } from 'react';
 import { Row, Col, Typography, List, Modal } from 'antd';
-import Services from "../../../../images/packagesHero1.png";
+import Services from "../../../../images/ourServices.jpeg";
 import { useMediaQuery } from 'react-responsive';
 
 const { Title } = Typography;
@@ -37,13 +37,21 @@ function ServicesShowCase(props) {
   const isMobileView = useMediaQuery({
     query: '(max-width: 425px)',
   })
+
+  const isSmallScreen = useMediaQuery({ maxWidth: 1198 });
+
+  const titleStyle = {
+    fontFamily: "Ubuntu",
+    
+   
+  };
   
   return (
     <>
       <Row >
-        <Col xs={24} sm={24} md={24} lg={12} xl={12} style={{ padding: "1%" }}>
-          <Title style={{marginLeft:"4%"}}>Our Services</Title>
-          <Title style={{ paddingLeft: "12%" }} level={4}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.</Title>
+        <Col xs={24} sm={24} md={24} lg={12} xl={12} style={{ padding: isSmallScreen?"0 0 0 9%":"4.5% 0 0 4%" }}>
+          <Title style={{ ...titleStyle,marginLeft:"-1rem"}}>Our Services</Title>
+          <p style={{ ...titleStyle, paddingLeft: "2%", fontSize:"18px", marginBottom:"2%" }} >Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.</p>
           <List
             style={{ paddingLeft: "12%" }}
             itemLayout="vertical"
@@ -52,7 +60,7 @@ function ServicesShowCase(props) {
               <List.Item>
                 <div>
                   <span style={{ marginRight: '8px' }}>&#8226;</span>
-                  <strong>{item.text1}</strong>
+                  <strong style={{...titleStyle}}>{item.text1}</strong>
                 </div>
               </List.Item>
             )}

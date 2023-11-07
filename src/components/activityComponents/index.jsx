@@ -118,16 +118,22 @@ data.filter((item) => {
 
   const isSmallScreen = useMediaQuery({ maxWidth: 430 });
 
+  const titleStyle = {
+    fontFamily: "Ubuntu",
+    
+   
+  };
+
   return (
     <div style={{width:"99%",}}>
       <Row justify="center" style={{ paddingTop: "30px", }}>
         <Col align="middle">
-          <h1>Our Activities</h1>
+          <h1 style={titleStyle}>Our Activities</h1>
         </Col>
       </Row>
       <Row justify="center" style={{marginTop:"1%"}}>
         <Col align="middle">
-          <p>
+          <p style={titleStyle}>
             We offer some of the most competitive, pocket-friendly prices
             around, while also delivering without compromising on our quality standards.
           </p>
@@ -160,10 +166,12 @@ data.filter((item) => {
         <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7}>
           <div
             style={{
+              ...titleStyle,
               width: "90%",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              
             }}
           >
             <h3>Price Range</h3>

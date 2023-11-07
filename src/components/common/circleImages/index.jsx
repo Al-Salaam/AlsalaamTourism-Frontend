@@ -86,6 +86,12 @@ function CircleComponent() {
 
   const isSmallScreen = useMediaQuery({ maxWidth: 800 });
 
+  const titleStyle = {
+    fontFamily: "Ubuntu",
+    
+   
+  };
+
   return (
     <Card style={{ paddingTop: '5%', background: 'linear-gradient(180deg, #70ADBB 0%, #018D97 100%)' }}>
       {isSmallScreen ? (
@@ -96,10 +102,10 @@ function CircleComponent() {
         <>
           <Row justify="center" style={{marginBottom:"5%"}}>
             <Col align="middle" span={10}>
-              <Title level={1} style={{ color: 'white' }}>
+              <Title level={1} style={{...titleStyle, color: 'white' }}>
                 That’s What Our Clients Say
               </Title>
-              <Title level={4} style={{ color: 'white' }}>
+              <Title level={4} style={{...titleStyle, color: 'white' }}>
                 We offer some of the most competitive, pocket-friendly prices around, while also delivering without compromising on our quality standards.
               </Title>
             </Col>
@@ -108,6 +114,7 @@ function CircleComponent() {
             <Col span={8} align="middle" style={{marginLeft:"-20%"}} >
               <div
                 style={{
+                  
                   ...circleStyles.smallCircle,
                   backgroundImage: `url(${circleData[0].image})`,
                   backgroundSize: 'cover',
@@ -136,8 +143,8 @@ function CircleComponent() {
               <div style={{marginLeft:"40%"}}>
               <div style={{ ...circleStyles.bigCircle, backgroundImage: `url(${centerImage})`, backgroundSize: 'cover' }}></div>
               <div style={{marginBottom:"10%"}}>
-              <h1 style={{color:"white"}}>{centerHeading}</h1>
-              <h2 style={{color:"white"}}>{centerDescription}</h2>
+              <h1 style={{...titleStyle,color:"white"}}>{centerHeading}</h1>
+              <h2 style={{...titleStyle,color:"white"}}>{centerDescription}</h2>
               </div>
               <p style={{color:"white"}}>{centerSummary}</p>
               </div>

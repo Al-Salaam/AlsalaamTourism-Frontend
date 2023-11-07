@@ -31,6 +31,12 @@ function  TopDealCarousel ()  {
     margin: '10px', 
     borderRadius:"30px"
   };
+
+  const titleStyle = {
+    fontFamily: "Ubuntu",
+    
+   
+  };
   
   return(
   
@@ -38,6 +44,7 @@ function  TopDealCarousel ()  {
     <Row xs={24} sm={24} md={24} xl={24} lg={24}>
       <Col xs={24} sm={24} md={24} xl={24} lg={24} align="middle">
         <Title style={{
+          ...titleStyle,
           color: "white",
           textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)"
         }}>TOP DEALS </Title>

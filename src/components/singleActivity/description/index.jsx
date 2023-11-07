@@ -39,12 +39,18 @@ const Description = ({activity}) => {
         },
     }
 
+
+    const titleStyle = {
+        fontFamily: "Ubuntu",
+        
+       
+      };
     return (
         <div>
             <Row gutter={16}>
                 <Col xs={24} sm={24} md={12} lg={6} xl={6} xxl={6} >
                     <Button
-                        style={selectedButton === 'button1' ? { ...styles.selectedButton, ...styles.h1 } : styles.button}
+                        style={selectedButton === 'button1' ? { ...styles.selectedButton, ...styles.h1, ...titleStyle, ...titleStyle} : styles.button}
                         onClick={() => setSelectedButton('button1')}
 
                     >
@@ -53,7 +59,7 @@ const Description = ({activity}) => {
                 </Col>
                 <Col xs={24} sm={24} md={12} lg={6} xl={6} xxl={6}>
                     <Button
-                        style={selectedButton === 'button2' ? { ...styles.selectedButton, ...styles.h1 } : styles.button}
+                        style={selectedButton === 'button2' ? { ...styles.selectedButton, ...styles.h1, ...titleStyle } : styles.button}
                         onClick={() => setSelectedButton('button2')}
                     >
                         Key Instructions
@@ -61,7 +67,7 @@ const Description = ({activity}) => {
                 </Col>
                 <Col xs={24} sm={24} md={12} lg={6} xl={6} xxl={6}>
                     <Button
-                        style={selectedButton === 'button3' ? { ...styles.selectedButton, ...styles.h1 } : styles.button}
+                        style={selectedButton === 'button3' ? { ...styles.selectedButton, ...styles.h1, ...titleStyle } : styles.button}
                         onClick={() => setSelectedButton('button3')}
                     >
                         Reservation Policy
@@ -79,7 +85,7 @@ const Description = ({activity}) => {
 
             <Row>
                 <Col span={24}>
-                    <Card style={{ marginTop: '20px' }}>
+                    <Card style={{...titleStyle, marginTop: '20px' }}>
                         {contentMap[selectedButton]}
                     </Card>
                 </Col>

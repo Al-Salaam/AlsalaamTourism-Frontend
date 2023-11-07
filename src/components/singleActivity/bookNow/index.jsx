@@ -195,14 +195,18 @@ const BookNow = ({ activity }) => {
   
   const formattedRating = activity?.noOfReviews === 0 ? 0 : (activity?.ratings % 1 === 0 ? activity?.ratings?.toFixed(0) : activity?.ratings?.toFixed(1));
 
-
+  const titleStyle = {
+    fontFamily: "Ubuntu",
+    
+   
+  };
   return (
     <div >
       <Row gutter={[40]} style={Styles.margin}>
-        <Col span={24}><Title level={1}>{activity?.name}</Title></Col>
+        <Col span={24}><Title level={1} style={titleStyle}>{activity?.name}</Title></Col>
       </Row>
       <Row gutter={[40]} style={Styles.margin}>
-        <Col span={12}><Title level={5}>From {activity?.price}.00 AED</Title></Col>
+        <Col span={12}><Title level={5} style={titleStyle}>From {activity?.price}.00 AED</Title></Col>
         <Col span={12} style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
           <ReactStars
             count={5}
@@ -217,7 +221,7 @@ const BookNow = ({ activity }) => {
           />  {formattedRating}/5 ({activity?.noOfReviews})</Col>
       </Row>
       <Row gutter={[40]} style={Styles.margin}>
-        <Col span={24}><Title level={5}>{activity?.shortdescription}</Title></Col>
+        <Col span={24}><Title level={5} style={titleStyle}>{activity?.shortdescription}</Title></Col>
       </Row>
       <Row>
         <Col span={24} style={Styles.margin} align={isSmallScreen ? "middle" : ""} ><DatePicker value={date} onChange={dateHandler} /></Col>
@@ -226,7 +230,7 @@ const BookNow = ({ activity }) => {
         <Col span={8}>
           <div style={textBoxStyle}>
 
-            <div style={placeholderStyle}><div ><h3>Adult</h3><p style={{ color: "gray" }}>Over 18+</p></div></div>
+            <div style={placeholderStyle}><div ><h3 style={titleStyle}>Adult</h3><p style={{...titleStyle, color: "gray" }}>Over 18+</p></div></div>
             <div style={operators}>
               <button style={buttonStyle} onClick={adultIncrement}>
                 +
@@ -241,13 +245,13 @@ const BookNow = ({ activity }) => {
         <Col span={8}>
           <div style={textBoxStyle}>
 
-            <div style={placeholderStyle}><div ><h3>Children</h3><p style={{ color: "gray" }}>Under 12</p></div></div>
+            <div style={placeholderStyle}><div ><h3 style={titleStyle}>Children</h3><p style={{...titleStyle, color: "gray" }}>Under 12</p></div></div>
             <div style={operators}>
               <button style={buttonStyle} onClick={childernIncrement}>
                 +
               </button>
               <div style={valueStyle}>{childern}</div>
-              <button style={buttonStyle} onClick={childernDecrement}>
+              <button style={buttonStyle} onClick={childernDecrement}>  
                 -
               </button>
             </div>
@@ -256,7 +260,7 @@ const BookNow = ({ activity }) => {
         <Col span={8}>
           <div style={textBoxStyle}>
 
-            <div style={placeholderStyle}><div ><h3>Infant</h3><p style={{ color: "gray" }}>Under 3</p></div></div>
+            <div style={placeholderStyle}><div ><h3 style={titleStyle}>Infant</h3><p style={{...titleStyle, color: "gray" }}>Under 3</p></div></div>
             <div style={operators}>
               <button style={buttonStyle} onClick={infantIncrement}>
                 +
@@ -271,7 +275,7 @@ const BookNow = ({ activity }) => {
       </Row>
       <Row gutter={16} style={Styles.margin}>
         <Col xs={24} sm={24} md={24} lg={24} xl={12} align={isSmallScreen ? "middle" : ""}><PrimaryButton title={"Book Now"} clickHandler={handleBooking} /></Col>
-        <Col xs={24} sm={24} md={24} lg={24} xl={12}><Button disabled={loading} onClick={add_to_Wishlist} icon={<HeartFilled style={{  color: favoraite ? 'red' : '#000'}} />} style={{ border: "none", fontSize: "30px", color: "#3B505A", display: isSmallScreen ? "none" : "block" }}>Add to wish list</Button></Col>
+        <Col xs={24} sm={24} md={24} lg={24} xl={12}><Button disabled={loading} onClick={add_to_Wishlist} icon={<HeartFilled style={{  color: favoraite ? 'red' : '#000'}} />} style={{...titleStyle, border: "none", fontSize: "30px", color: "#3B505A", display: isSmallScreen ? "none" : "block" }}>Add to wish list</Button></Col>
       </Row>
     </div>
   );

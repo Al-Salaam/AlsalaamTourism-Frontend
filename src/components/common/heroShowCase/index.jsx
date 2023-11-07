@@ -62,29 +62,13 @@ function HeroShowCase() {
             style={{
               marginTop: "50px",
               marginBottom:"10px",
-              marginRight: isSmallScreen ? "0%" : "68%",
-              textAlign:isSmallScreen ? "center":"left"
+              marginRight: isSmallScreen ? "8%" : "68%",
+              textAlign:isSmallScreen ? "center":"left",
+              
             }}
           >
-            <PrimaryButton
-              width="160px"
-              title={
-                <Title
-                  style={{
-                    fontSize: isSmallScreen ? "2vw" : "0.1vw",
-                    color: "white",
-                    
-                  }}
-                >
-                  <Link
-                    to="/activity"
-                    style={{ color: "white", fontSize: "16px" }}
-                  >
-                    Explore Now{" "}
-                  </Link>
-                </Title>
-              }
-            />
+           <Link to="/activity"><PrimaryButton title={<h3>Explore Now</h3>} /></Link>
+          
           </div>
         </Col>
 
