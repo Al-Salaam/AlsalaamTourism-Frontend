@@ -13,7 +13,7 @@ import ProfileComponent from "./overlays/profile";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserProfile } from "../../redux/actions/authAction";
 import { getAddToCartData } from "../../redux/reducers/activityReducer";
-import "./navbar.css"
+import "./navbar.css";
 
 const Navbar = ({ showOverlayMessage }) => {
   const dispatach = useDispatch();
@@ -29,48 +29,70 @@ const Navbar = ({ showOverlayMessage }) => {
     dispatach(fetchUserProfile());
   }, [dispatach]);
 
-const navlinkStyles = ({isActive}) => {
-
-       return{
-        // fontSize:isActive ? "30px" : "25px",
-        colorL:isActive ? "white" : "black",
-        backgroundColor:"transparent",
-        borderBottom: isActive ? "2px solid black" : null,
-        padding:"15%",
-        
-       }
-
-        
-
-}
+  const navlinkStyles = ({ isActive }) => {
+    return {
+      // fontSize:isActive ? "30px" : "25px",
+      colorL: isActive ? "white" : "black",
+      backgroundColor: "transparent",
+      borderBottom: isActive ? "2px solid black" : null,
+      padding: "15%",
+      fontFamily: "Ubuntu",
+      textShadow:
+        "0px 1.5589158535003662px 1.247132658958435px rgba(0, 0, 0, 0.0759), " +
+        "0px 3.7462916374206543px 2.99703311920166px rgba(0, 0, 0, 0.1091), " +
+        "0px 7.053934574127197px 5.643147945404053px rgba(0, 0, 0, 0.135), " +
+        "0px 12.583013534545898px 10.066411018371582px rgba(0, 0, 0, 0.1609), " +
+        "0px 23.535144805908203px 18.828115463256836px rgba(0, 0, 0, 0.1941), " +
+        "0px 56.334346771240234px 45.06747817993164px rgba(0, 0, 0, 0.27)",
+    };
+  };
 
   const items = [
     {
-      label: <NavLink to="/" style={navlinkStyles}>Home</NavLink>,
+      label: (
+        <NavLink to="/" style={navlinkStyles}>
+          Home
+        </NavLink>
+      ),
       key: "home",
     },
     {
-      label: <NavLink to="/activity" style={navlinkStyles} >Activites</NavLink>,
+      label: (
+        <NavLink to="/activity" style={navlinkStyles}>
+          Activites
+        </NavLink>
+      ),
       key: "activites",
     },
     {
-      label: <NavLink to="/packages" style={navlinkStyles} >Packages</NavLink>,
+      label: (
+        <NavLink to="/packages" style={navlinkStyles}>
+          Packages
+        </NavLink>
+      ),
       key: "packages",
     },
 
     {
-      label: <NavLink to="/contact" style={navlinkStyles} >Contact US</NavLink>,
+      label: (
+        <NavLink to="/contact" style={navlinkStyles}>
+          Contact US
+        </NavLink>
+      ),
       key: "Contact Us",
     },
     {
-      label: <NavLink to="/about" style={navlinkStyles}>About US</NavLink>,
+      label: (
+        <NavLink to="/about" style={navlinkStyles}>
+          About US
+        </NavLink>
+      ),
       key: "about",
     },
     {
       label: (
-        <NavLink >
-
-          <ShoppingCartOutlined style={{ fontSize: "28px", }}/>
+        <NavLink>
+          <ShoppingCartOutlined style={{ fontSize: "28px" }} />
 
           {cart.length > 0 && (
             <div
@@ -93,10 +115,6 @@ const navlinkStyles = ({isActive}) => {
               <span>{cart && cart.length}</span>
             </div>
           )}
-
-          
- 
-        
         </NavLink>
       ),
       key: "Shoping",
@@ -105,9 +123,11 @@ const navlinkStyles = ({isActive}) => {
       label:
         // user ? <Link  ><UserOutlined style={{ fontSize: "40px" }} /></Link> : null
         user ? (
-          <UserOutlined style={{ fontSize: "28px",color: "white"  }} />
+          <UserOutlined style={{ fontSize: "28px", color: "white" }} />
         ) : (
-          <NavLink to={"/login"} style={navlinkStyles}>Login</NavLink>
+          <NavLink to={"/login"} style={navlinkStyles}>
+            Login
+          </NavLink>
         ),
       key: "profile",
     },
@@ -175,8 +195,6 @@ const navlinkStyles = ({isActive}) => {
     }
   };
   const onClick = (e) => {
-    
-
     // Check if "Shoping" or "Profile" is clicked and pass different content accordingly
     if (e.key === "Shoping") {
       showOverlayMessage(<ShoppingComponent />);
@@ -199,7 +217,7 @@ const navlinkStyles = ({isActive}) => {
           padding: isMobile ? "10px" : "10px 50px",
           backgroundColor: navbarBackgroundColor,
           position: "fixed",
-          top: 0,
+          paddingTop: "27px",
           width: "100vw",
           zIndex: "10",
         }}
@@ -222,7 +240,13 @@ const navlinkStyles = ({isActive}) => {
                 type="text"
                 onClick={showDrawer}
                 icon={
-                  <MenuOutlined style={{ fontSize: "24px", color:"white",marginRight:"20px" }} />
+                  <MenuOutlined
+                    style={{
+                      fontSize: "24px",
+                      color: "white",
+                      marginRight: "20px",
+                    }}
+                  />
                 }
               />
               <Drawer
@@ -261,7 +285,9 @@ const navlinkStyles = ({isActive}) => {
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
                     <Link
                       to="/packages"
-                      onClick={(e) => onClickMobileDrawerLink({ key: "packages" })}
+                      onClick={(e) =>
+                        onClickMobileDrawerLink({ key: "packages" })
+                      }
                       style={{
                         color: current2 === "packages" ? "black" : "white",
                         fontSize: "18px",
@@ -306,7 +332,7 @@ const navlinkStyles = ({isActive}) => {
                         fontSize: "18px",
                       }}
                     >
-                      <ShoppingCartOutlined style={{ fontSize: "50px" }}/>
+                      <ShoppingCartOutlined style={{ fontSize: "50px" }} />
                     </Link>
                   </Col>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
@@ -329,14 +355,11 @@ const navlinkStyles = ({isActive}) => {
             <ConfigProvider
               theme={{
                 token: {
-                  colorPrimary:"#66AAB8",
+                  colorPrimary: "#66AAB8",
                   fontSize: 20,
-                  colorText:"white",
-                  
+                  colorText: "white",
                 },
               }}
-              
-
             >
               <Menu
                 onClick={onClick}
@@ -348,10 +371,8 @@ const navlinkStyles = ({isActive}) => {
                   width: "800px",
                   display: "flex",
                   justifyContent: "flex-end",
-                  border:"none"
-
+                  border: "none",
                 }}
-                
               />
             </ConfigProvider>
           )}

@@ -42,6 +42,13 @@ function RecomendedSection() {
       dispatch(clearMessage());
     }
   }, [dispatch, error, message]);
+
+  const titleStyle = {
+    fontFamily: "Ubuntu",
+    
+   
+  };
+
   return (
     <Row style={{ marginTop: "5%" }}>
       <Col
@@ -52,12 +59,12 @@ function RecomendedSection() {
         xl={10}
         align="middle"
         justify="center"
-        style={{ padding: "0 0 0 4%" }}
+        style={{ padding: isSmallScreen?"0 0 0 9%":"0 0 0 4%" }}
       >
-        <Title style={{ textAlign: "left" }}>Recommended For You</Title>
+        <Title style={{...titleStyle, textAlign: "left"  }}>Recommended For You</Title>
         <Title
           level={5}
-          style={{ textAlign: "left", paddingRight: "15%", paddingLeft: 5 }}
+          style={{...titleStyle, textAlign: "left", paddingRight: "15%", paddingLeft: 5 }}
         >
           We offer some of the most competitive, pocket-friendly prices around,
           while also delivering without compromising on our quality standards.

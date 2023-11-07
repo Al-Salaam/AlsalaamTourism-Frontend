@@ -13,11 +13,17 @@ function ThreeCardShowCase() {
     const isBreak = useMediaQuery({
         query: "(max-width: 1024px)", // Change this breakpoint as needed
     });
+
+    const titleStyle = {
+        fontFamily: "Ubuntu",
+        
+       
+      };
     return (
         <Row style={{ marginTop: 80, background: 'linear-gradient(180deg, #89A7B2 0%, #028B95 100%)', }}>
 
-            <Col span={24} align="middle" justify="center" style={{ marginTop: "-100px", paddingBottom: "5%" }}>
-                <Title level='5'>Destinations</Title>
+            <Col span={24} align="middle" justify="center" style={{ marginTop: "-80px", paddingBottom: "8%" }}>
+                <Title level={6} style={{...titleStyle}}>Destinations</Title>
                 {/* <Space>
                     <Image
                         src={Sec3img1}
@@ -41,7 +47,7 @@ function ThreeCardShowCase() {
                 </Space> */}
                 <Image  src={Destination} preview={false}/>
                 <Title level='5' style={{ marginTop: "5%" }}></Title>
-                <Link to="/destinations"><PrimaryButton title={<h4>View All</h4>} /></Link>
+                <Link to="/destinations"><PrimaryButton title={<h3>View All</h3>} /></Link>
             </Col>
 
         </Row>

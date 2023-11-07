@@ -80,12 +80,18 @@ const RatingInput = ({ activity }) => {
     }
   }
 
+  const titleStyle = {
+    fontFamily: "Ubuntu",
+    
+   
+  };
+
   return (
     <div >
       <Row gutter={16} style={{padding:"2% 0"}}>
         {/* First Row */}
         <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={styles.para}>
-          <p>Click the button to add a review</p>
+          <p style={titleStyle}>Click the button to add a review</p>
         </Col>
         <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} align={isSmallScreen ? "" : "right"}>
           <Button onClick={handleAddReviewClick} style={styles.button}>

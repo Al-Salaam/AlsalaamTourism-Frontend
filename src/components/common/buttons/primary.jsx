@@ -3,8 +3,8 @@ import { Button, Space, ConfigProvider } from "antd";
 
 const PrimaryButton = ({
   title,
-  width = "20em",
-  height = "40px",
+  width = "13em",
+  height = "45px",
   clickHandler,
 }) => (
   <ConfigProvider
@@ -24,7 +24,7 @@ const PrimaryButton = ({
         type="default"
         style={{
           backgroundColor: "#3B505A",
-          borderRadius: "20px",
+          borderRadius: "25px",
           width: width,
           height: height,
           fontFamily: "Ubuntu",

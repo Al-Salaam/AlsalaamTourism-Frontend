@@ -27,18 +27,30 @@ const FlipCard = (props) => {
     };
     const isSmallestScreen = useMediaQuery({ maxWidth: 430 });
 
+    const isSmallestScreen2 = useMediaQuery({ maxWidth: 830 });
+
     const cardWidth = props.width || (isSmallestScreen ? "100%" : "95%");
     const formattedRating = props.noOfReviews === 0 ? 0 : (props.rate % 1 === 0 ? props.rate.toFixed(0) : props.rate?.toFixed(1));
+
+
+    const titleStyle = {
+        fontFamily: "Ubuntu",
+        
+       
+      };
+
+
     return (
         <div
             style={{
-                
+                ...titleStyle,
                 width: cardWidth,
                 height: 400,
                 perspective: '1000px',
                 transformStyle: 'preserve-3d',
                 transition: 'transform 0.6s',
                 transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+
                 
             }}
             onMouseLeave={handleMouseLeave}
@@ -114,12 +126,25 @@ const FlipCard = (props) => {
                         >
                             <strong>+</strong>
                         </Button>
-                        <Button onClick={handleAddToCart} style={{marginLeft:"15px"}}>
-                            Add to card
-                        </Button>
+                       
                        <h3>{props.cardType}</h3> 
                         <h4>{props.feature && "featured"}</h4>
                     </div>
+
+                    <div 
+                    style={{
+                            position: 'absolute',
+                            color: '#fff',
+                            paddingTop: '1%',
+                            bottom: '0',
+                            right: '0',
+                            
+                        
+                        }}> 
+                    <Button onClick={handleAddToCart} style={{...titleStyle,marginLeft:"105px" , borderBottomRightRadius:"10px"}}>
+                            Add to card
+                        </Button>
+                        </div>
 
 
                 </div>

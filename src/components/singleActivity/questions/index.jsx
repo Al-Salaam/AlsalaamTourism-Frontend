@@ -33,6 +33,12 @@ const Questions = () => {
 
   const isSmallScreen = useMediaQuery({ maxWidth: 845 });
 
+
+  const titleStyle = {
+    fontFamily: "Ubuntu",
+    
+   
+  };
   return (
     <Row
       justify="center"
@@ -44,7 +50,7 @@ const Questions = () => {
     >
     <Col xs={23} sm={20} md={20} lg={20} xl={12}>
       <Col span={24} align="middle" style={{ margin: "2%" }}>
-        <h1 style={{ color: "white" }}>Frequently asked Questions</h1>
+        <h1 style={{...titleStyle, color: "white" }}>Frequently asked Questions</h1>
       </Col>
       <Col >
         {questionsAndAnswers.map((qa, index) => (
@@ -59,7 +65,7 @@ const Questions = () => {
              
             }}
             title={
-              <h3 style={{ color: "white", width: "20px", fontSize:isSmallScreen?"70%":"130%" }}>{qa.question}</h3>
+              <h3 style={{...titleStyle, color: "white", width: "20px", fontSize:isSmallScreen?"70%":"130%" }}>{qa.question}</h3>
             }
             extra={
               <Button
@@ -67,14 +73,16 @@ const Questions = () => {
                 icon={expanded[index] ? <MinusOutlined /> : <PlusOutlined />}
                 onClick={() => toggleAnswer(index)}
                 style={{
+                  
                   backgroundColor: "#3B505A",
                   color: "white",
                   marginRight: "-24px",
                 }}
               />
+              
             }
           >
-            {expanded[index] && <p>{qa.answer}</p>}
+            {expanded[index] && <p style={titleStyle}>{qa.answer}</p>}
           </Card>
         ))}
       </Col>

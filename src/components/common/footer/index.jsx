@@ -19,6 +19,12 @@ function Footer() {
         query: '(max-width: 525px)', // Change this breakpoint as needed
       });
     const isSmallestScreen = useMediaQuery({ maxWidth: 990 });
+
+    const titleStyle = {
+        fontFamily: "Ubuntu",
+        
+       
+      };
     return (
 
     <Row>
@@ -30,7 +36,7 @@ function Footer() {
             <Col><img src={Phone} /></Col>
             <Col><Title  style={{fontSize:isTablet?"11px":"15px"}}> <a
         href="tel:+971524928120"
-        style={{ textDecoration: "none", color: "#3B505A" }}
+        style={{...titleStyle, textDecoration: "none", color: "#3B505A" }}
       >
         Call on +971524928120
       </a></Title></Col>
@@ -42,23 +48,23 @@ function Footer() {
         <Col  xs={14} sm={10} md={14} lg={12} xl={8} align={"center"}> <Row align={"middle"} justify={"center"}>
             <Col><img src={Msg} /></Col><Col>
             <Title style={{fontSize:isTablet?"12px":"15px"}}>
-                 <a href="mailto:info@alsalaamtourism.com" style={{ textDecoration: "none", color: "#3B505A" }}>info@alsalaamtourism.com</a>
+                 <a href="mailto:info@alsalaamtourism.com" style={{...titleStyle, textDecoration: "none", color: "#3B505A" }}>info@alsalaamtourism.com</a>
                  </Title>
                  </Col></Row> </Col>
             </Row>
             <Row align={'middle'} style={{ backgroundColor: "#4CAAB8", padding: "1%" }} >
 
-                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"middle"} justify={"center"} ><img src={Phone} /><Title level={5} style={{color:"#FFFFFF"}}> Here for you</Title></Col>
-                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"center"}><img src={Gruntee} /><Title level={5} style={{color:"#FFFFFF"}}> Best Price Guarantee</Title></Col>
-                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"middle"} justify={"center"} ><img src={Offers} /><Title level={5}style={{color:"#FFFFFF"}}> Exclusive offers</Title></Col>
-                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"center"}><img src={Daimond} /><Title level={5}style={{color:"#FFFFFF"}}> New Finds Every Month</Title></Col>
+                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"middle"} justify={"center"} ><img src={Phone} /><Title level={5} style={{...titleStyle,color:"#FFFFFF"}}> Here for you</Title></Col>
+                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"center"}><img src={Gruntee} /><Title level={5} style={{...titleStyle,color:"#FFFFFF"}}> Best Price Guarantee</Title></Col>
+                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"middle"} justify={"center"} ><img src={Offers} /><Title level={5}style={{...titleStyle,color:"#FFFFFF"}}> Exclusive offers</Title></Col>
+                <Col xs={12} sm={12} md={12} lg={6} xl={6} align={"center"}><img src={Daimond} /><Title level={5}style={{...titleStyle,color:"#FFFFFF"}}> New Finds Every Month</Title></Col>
             </Row>
 
             <Row style={{ color: "white", padding: "5%", backgroundImage: `url(${Background})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                 <Col xs={24} sm={24} md={24} lg={6} xl={6} >
 
                     <Row style={{ marginBottom: "5%" }}><Col><img src={Logo} /></Col></Row>
-                    <Row style={{ marginBottom: "5%" }}><Col>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.</Col></Row>
+                    <Row style={{ marginBottom: "5%" }}><Col style={titleStyle}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.</Col></Row>
                     <Row><Col span={4}><img src={Instagram} style={{ backgroundColor: "#3B505A", borderRadius: "50%", padding: "5%" }} /></Col><Col span={4}><img src={Facebook} style={{ backgroundColor: "#3B505A", borderRadius: "50%", padding: "5%" }} /></Col><Col span={4}><img src={Twitter} style={{ backgroundColor: "#3B505A", borderRadius: "50%", padding: "5%" }} /></Col><Col span={6}><img src={Youtube} style={{ backgroundColor: "#3B505A", borderRadius: "50%", padding: "5%" }} /></Col></Row>
 
                 </Col>
@@ -67,39 +73,39 @@ function Footer() {
 
 
                 <Col xs={24} sm={24} md={12} lg={6} xl={6} style={{ paddingLeft: isSmallestScreen ? "" :"15%",paddingTop:isSmallestScreen ? "5%" :"" }}  >
-                    <Row style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }} ><Link to="/" style={{ color: "white", fontSize: "16px" }}>Home</Link></Col></Row>
-                    <Row style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/activity" style={{ color: "white", fontSize: "16px" }}>Activites</Link></Col></Row>
-                    <Row style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/packages" style={{ color: "white", fontSize: "16px" }}>Packages</Link></Col></Row>
-                    <Row style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/" style={{ color: "white", fontSize: "16px" }}>Our Partner</Link></Col></Row>
-                    <Row style={{margin:isSmallestScreen? "2% 0" :""}} ><Col><Link to="/" style={{ color: "white", fontSize: "16px" }}>Services</Link></Col></Row>
+                    <Row style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }} ><Link to="/" style={{...titleStyle, color: "white", fontSize: "16px" }}>Home</Link></Col></Row>
+                    <Row style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/activity" style={{...titleStyle, color: "white", fontSize: "16px" }}>Activites</Link></Col></Row>
+                    <Row style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/packages" style={{...titleStyle, color: "white", fontSize: "16px" }}>Packages</Link></Col></Row>
+                    <Row style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/" style={{...titleStyle, color: "white", fontSize: "16px" }}>Our Partner</Link></Col></Row>
+                    <Row style={{margin:isSmallestScreen? "2% 0" :""}} ><Col><Link to="/" style={{...titleStyle, color: "white", fontSize: "16px" }}>Services</Link></Col></Row>
 
                 </Col>
 
                 <Col xs={24} sm={24} md={12} lg={6} xl={6} style={{ paddingLeft: isSmallestScreen ? "" :"5%",paddingTop:isSmallestScreen ? "5%" :"" }} >
-                <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/about" style={{ color: "white", fontSize: "16px", }}>About US</Link></Col></Row>
-                    <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px", }}>Blogs</Link></Col></Row>
-                    <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/contact" style={{ color: "white", fontSize: "16px" }}>Contact US</Link></Col></Row>
-                    <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{ color: "white", fontSize: "16px" }}>Carrer</Link></Col></Row>
+                <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/about" style={{...titleStyle, color: "white", fontSize: "16px", }}>About US</Link></Col></Row>
+                    <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{...titleStyle, color: "white", fontSize: "16px", }}>Blogs</Link></Col></Row>
+                    <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/contact" style={{...titleStyle, color: "white", fontSize: "16px" }}>Contact US</Link></Col></Row>
+                    <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{...titleStyle, color: "white", fontSize: "16px" }}>Carrer</Link></Col></Row>
 
                 </Col>
 
                 <Col xs={24} sm={24} md={12} lg={6} xl={6} align={"middle"} justify={"center"} >
                     <Row style={{ marginBottom: "5%",marginTop:isSmallestScreen ? "10%":"" }} align={"left"} justify={"left"}>
                         <Col >
-                            <h2 style={{ color: "white" }}>Subscribe to our newsLetter</h2>
+                            <h2 style={{...titleStyle, color: "white" }}>Subscribe to our newsLetter</h2>
 
                         </Col>
                     </Row>
                     <Row style={{ marginBottom: "10%" }} align={"left"} justify={"left"}>
                         <Col>
-                            <Title style={{ color: "white" }} level={5}>Get special offers, and more from Al Salaam</Title>
+                            <Title style={{...titleStyle, color: "white" }} level={5}>Get special offers, and more from Al Salaam</Title>
 
                         </Col>
                     </Row>
 
                     <Row align={"left"} justify={"left"}>
                         <Col span={18}>
-                            <Input placeholder="Input your email here" />
+                            <Input style={titleStyle} placeholder="Input your email here" />
                         </Col>
                         <Col span={6}>
                             <ConfigProvider
