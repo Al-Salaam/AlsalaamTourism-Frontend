@@ -99,7 +99,7 @@ const Navbar = ({ showOverlayMessage }) => {
               className="notification-count"
               style={{
                 position: "absolute",
-                top: "-8px",
+                top: "8px",
                 right: "-8px",
                 backgroundColor: "red",
                 color: "white",
@@ -125,9 +125,7 @@ const Navbar = ({ showOverlayMessage }) => {
         user ? (
           <UserOutlined style={{ fontSize: "28px", color: "white" }} />
         ) : (
-          <NavLink to={"/login"} style={navlinkStyles}>
-            Login
-          </NavLink>
+          <NavLink to={"/login"} style={navlinkStyles}><UserOutlined style={{ fontSize: "25px" }} /></NavLink>
         ),
       key: "profile",
     },
@@ -206,9 +204,7 @@ const Navbar = ({ showOverlayMessage }) => {
   const isMobile = useMediaQuery({
     query: "(max-width: 1024px)", // Change this breakpoint as needed
   });
-  const isNavShort = useMediaQuery({
-    query: "(max-width: 1209)", // Change this breakpoint as needed
-  });
+
 
   return (
     <>

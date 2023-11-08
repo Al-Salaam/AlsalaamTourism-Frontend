@@ -16,7 +16,7 @@ import { useMediaQuery } from 'react-responsive';
 const {Title} = Typography;
 function Footer() {
     const isTablet = useMediaQuery({
-        query: '(max-width: 525px)', // Change this breakpoint as needed
+        query: '(max-width: 675px)', 
       });
     const isSmallestScreen = useMediaQuery({ maxWidth: 990 });
 
@@ -33,8 +33,8 @@ function Footer() {
 
                 <Col  xs={10} sm={10} md={10} lg={10} xl={10}align={"middle"} justify={"center"} >
         <Row align={"middle"} justify={"end"}>
-            <Col><img src={Phone} /></Col>
-            <Col><Title  style={{fontSize:isTablet?"11px":"15px"}}> <a
+            <Col><img src={Phone} style={{width:isTablet?".8rem":"1.2rem"}} /></Col>
+            <Col><Title  style={{fontSize:isTablet?".6rem":"1rem"}}> <a
         href="tel:+971524928120"
         style={{...titleStyle, textDecoration: "none", color: "#3B505A" }}
       >
@@ -46,9 +46,9 @@ function Footer() {
                 
                 
         <Col  xs={14} sm={10} md={14} lg={12} xl={8} align={"center"}> <Row align={"middle"} justify={"center"}>
-            <Col><img src={Msg} /></Col><Col>
-            <Title style={{fontSize:isTablet?"12px":"15px"}}>
-                 <a href="mailto:info@alsalaamtourism.com" style={{...titleStyle, textDecoration: "none", color: "#3B505A" }}>info@alsalaamtourism.com</a>
+            <Col><img src={Msg} style={{width:isTablet?".8rem":"1.2rem"}}/></Col><Col>
+            <Title style={{fontSize:isTablet?".7rem":"1rem"}}>
+                 <a href="mailto:info@alsalaamtourism.com" style={{ textDecoration: "none", color: "#3B505A" }}>info@alsalaamtourism.com</a>
                  </Title>
                  </Col></Row> </Col>
             </Row>

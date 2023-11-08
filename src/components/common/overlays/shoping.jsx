@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Row, Col, Divider, Image, Typography, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { getAddToCartData, removeFromCart } from "../../../redux/reducers/activityReducer";
-import { CloseOutlined } from "@ant-design/icons";
+import { CloseCircleOutlined, ShoppingCartOutlined} from "@ant-design/icons";
 import { Link } from "react-router-dom";
+
 
 const ShoppingComponent = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,10 @@ const ShoppingComponent = () => {
   return (
     <div style={{ padding: "20px" }}>
       {cart.length === 0 ? (
-        <h1 style={{textAlign:'center',marginTop:'100px'}}>Your cart is empty</h1>
+        <>
+        <ShoppingCartOutlined style={{fontSize:"150px",textAlign:'center',justifyContent:"center",marginLeft:"80px"}}/>
+        <h2 style={{textAlign:'center',marginTop:'10px'}}>Your Cart is Empty</h2>
+        </>
       ) : (
         <>
           {cart.map((item) => (
@@ -38,12 +42,13 @@ const ShoppingComponent = () => {
                 <Col xs={24} sm={24} md={12} lg={12} xl={12} align="middle">
                   <Image src={item.image} alt="image" width={150} height={150} style={{objectFit:'contain'}} />
                 </Col>
-                <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{marginTop:"20px"}}>
                   <Title level={3}>{item?.title}</Title>
-                  <Title level={5}>{item?.price} AED</Title>
+                  <Title level={4} style={{marginTop:"-10px"}}>{item?.price} AED</Title>
                   <Space>
                     <Link to={`/activity/${item.activityId}` } >View Details</Link>
-                    <CloseOutlined
+              
+                    <CloseCircleOutlined 
                       style={{
                         color: "red",
                         cursor: "pointer",
@@ -60,10 +65,10 @@ const ShoppingComponent = () => {
           ))}
           <Row gutter={16}>
             <Col span={12} align="middle">
-              <Title level={5}>SubTotal</Title>
+              <h1>SubTotal</h1>        
             </Col>
-            <Col span={12} align="middle">
-              <Title level={5}>{subtotal} AED</Title>
+            <Col span={12} align="left" style={{marginTop:"5px"}}>
+              <h2 style={{color:"#3B505A"}}>{subtotal} AED</h2>
             </Col>
           </Row>
         </>
