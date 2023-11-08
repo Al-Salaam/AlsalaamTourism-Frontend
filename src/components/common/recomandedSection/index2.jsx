@@ -124,7 +124,7 @@ const FlipCard = (props) => {
                             onClick={handleButtonClick}
                             style={{height:"50px",width:"60px",borderRadius:0,borderBottomLeftRadius:"10px" }}
                         >
-                            <strong>+</strong>
+                            <h1>+</h1>
                         </Button>
                        
                        <h3>{props.cardType}</h3> 

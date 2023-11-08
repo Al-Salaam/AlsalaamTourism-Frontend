@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import image1 from "../../../../images/image1.png";
 import image2 from "../../../../images/image2.png";
 import image3 from "../../../../images/image3.png";
+import Image1 from "../../../../images/threeImages.webp"
 import { useMediaQuery } from "react-responsive";
 import PrimaryButton from "../buttons/primary";
 const { Title } = Typography;
@@ -73,7 +74,7 @@ function HeroShowCase() {
         </Col>
 
         <Col xs={23} sm={12} md={12} lg={12} xl={12}>
-          <Space>
+          {/* <Space>
             <Image
               preview={false}
               src={image1}
@@ -84,7 +85,7 @@ function HeroShowCase() {
                 top: 0,
                 left: "30%",
                 position: "relative",
-                maxWidth: "95%",
+                maxWidth: "195%",
               }}
             />
             <Image
@@ -112,7 +113,8 @@ function HeroShowCase() {
                 maxWidth: "95%",
               }}
             />
-          </Space>
+          </Space> */}
+          <img src={Image1} width={"100%"}/>
         </Col>
       </Row>
     </>

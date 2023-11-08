@@ -1,11 +1,11 @@
 import  { useState } from 'react';
 import { Card, Row, Col, Typography } from 'antd';
-import Client1 from "../../../../images/client1.png"
-import Client2 from "../../../../images/client2.png"
-import Client3 from "../../../../images/client3.png"
-import Client4 from "../../../../images/client4.png"
-import Client5 from "../../../../images/client5.png"
-import Client6 from "../../../../images/client6.png"
+import Client1 from "../../../../images/cl1.jpg"
+import Client5 from "../../../../images/clt1.avif"
+import Client3 from "../../../../images/cl3.jpg"
+import Client4 from "../../../../images/cl4.jpg"
+import Client2 from "../../../../images/clt2.avif"
+import Client6 from "../../../../images/clt3.avif"
 import { useMediaQuery } from 'react-responsive';
 import ThreeCircleComponent from './threeCircles';
 
@@ -43,36 +43,36 @@ const circleData = [
   },
   {
     image: Client2,
-    heading: 'Title 2',
-    description: 'Description for Image 2',
+    heading: 'Maryam ALi',
+    description: 'berlin, Germany',
   },
   {
     image: Client3,
-    heading: 'Title 3',
-    description: 'Description for Image 3',
+    heading: 'Jhon walter',
+    description: 'Toranto, Canada',
   },
   {
     image: Client4,
-    heading: 'Title 3',
-    description: 'Description for Image 3',
+    heading: 'Karherine winslet',
+    description: 'California, USA',
   },
   {
     image: Client5,
-    heading: 'Title 3',
-    description: 'Description for Image 3',
+    heading: 'Mosa Ahmad',
+    description: 'Doha, Qatar',
   },
   {
     image: Client6,
-    heading: 'Title 3',
-    description: 'Description for Image 3',
+    heading: 'Viktoria kate',
+    description: 'london, England',
   },
 ];
 
 function CircleComponent() {
-  const [centerImage, setCenterImage] = useState(circleData[0].image);
-  const [centerHeading, setCenterHeading] = useState(circleData[0].heading);
-  const [centerDescription, setCenterDescription] = useState(circleData[0].description);
-  const [centerSummary, setCenterSummary] = useState(circleData[0].summary);
+  const [centerImage, setCenterImage] = useState(circleData[5].image);
+  const [centerHeading, setCenterHeading] = useState(circleData[5].heading);
+  const [centerDescription, setCenterDescription] = useState(circleData[5].description);
+  const [centerSummary, setCenterSummary] = useState(circleData[5].summary);
 
 
 

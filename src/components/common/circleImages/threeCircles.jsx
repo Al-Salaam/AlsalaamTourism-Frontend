@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Row, Col, Typography } from 'antd';
-import image1 from "../../../../images/threeCircel1.png";
-import image2 from "../../../../images/threeCircle2.png";
-import image3 from "../../../../images/threeCircle3.png";
-import image4 from "../../../../images/threeCircle5.png";
+import Client1 from "../../../../images/cl1.jpg"
+import Client5 from "../../../../images/clt1.avif"
+import Client3 from "../../../../images/cl3.jpg"
+import Client4 from "../../../../images/cl4.jpg"
+import Client2 from "../../../../images/clt2.avif"
+import Client6 from "../../../../images/clt3.avif"
 
 const {Title}=Typography;
 
@@ -57,10 +59,12 @@ const largerCircleStyle = {
 };
 
 const circleImages = [
-  image1,
-  image2,
-  image3,
-  image4,
+  Client1,
+  Client2,
+  Client3,
+  Client4,
+  Client5,
+  Client6
 ];
 
 const ThreeCircle = () => {
