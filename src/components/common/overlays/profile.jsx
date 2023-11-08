@@ -10,20 +10,20 @@ const ProfileComponent = ({loading, user}) => {
     <>
       {loading ? "loading..." : (
         <>
-          <Row gutter={16} style={{ marginTop: "100px" }}>
-            <Col span={12} align={"middle"}>
-              <Image src={user?.photo} alt={"image"} />
+          <Row  style={{ marginTop: "80px" }}>
+            <Col span={8} align={"middle"}>
+              <Image src={user?.photo} alt={"image"} style={{width:"70px",height:"70px"}} />
             </Col>
-            <Col span={12} align={"middle"}>
+            <Col span={12} align={"left"}>
               <Title level={3} >{user?.name}</Title>
             </Col>
           </Row>
-          <Divider />
-          <Row gutter={16}>
-            <Col span={12} align={"middle"}>
+          <Divider/>
+          <Row >
+            <Col span={8} align={"middle"}>
               <Image src={dashboardIcon} alt={"icon"} />
             </Col>
-            <Col span={12} align={"middle"}>
+            <Col span={12} align={"left"}>
               <Link to={'/user-panel/user-form'}>
               <Title style={{cursor: 'pointer'}} level={5}>Dashboard</Title>
               </Link>
