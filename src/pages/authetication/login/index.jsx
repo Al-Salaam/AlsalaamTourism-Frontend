@@ -15,44 +15,69 @@ import { Link, useNavigate } from 'react-router-dom';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const isSmallScreen = useMediaQuery({ maxWidth: 990 });
+  const isSmallestScreen = useMediaQuery({ maxWidth: 525 });
   const { Title } = Typography;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {loading ,isAuthenticated , error, message} = useSelector((state) => state.auth);
+  const { loading, isAuthenticated, error, message } = useSelector((state) => state.auth);
   const handleLogin = (e) => {
     e.preventDefault();
+    let isValid = true;
+
+    // Check if email is empty
+    if (email.trim() === '') {
+      setEmailError('Email cannot be empty');
+      isValid = false;
+    } else {
+      setEmailError('');
+    }
+
+    // Check if password is empty
+    if (password.trim() === '') {
+      setPasswordError('Password cannot be empty');
+      isValid = false;
+    } else {
+      setPasswordError('');
+    }
+
+    if (!isValid) {
+      // If any field is empty, don't proceed with login
+      return;
+    }
     const credentials = {
       email, password
     }
-   dispatch(login(credentials))
+    dispatch(login(credentials))
   };
 
-useEffect(() => {
-  if(error) {
-    toast.error(error.message);
-    dispatch(clearError())
-  }
-  if(message){
-    toast.success(message)
-    dispatch(clearMessage());
-  }
-  if(isAuthenticated){
-    navigate('/')
-  }
+  useEffect(() => {
+    if (error) {
+      toast.error(error.message);
+      dispatch(clearError())
+    }
+    if (message) {
+      toast.success(message)
+      dispatch(clearMessage());
+    }
+    if (isAuthenticated) {
+      navigate('/')
+    }
 
-},[toast, error, message, dispatch, isAuthenticated, navigate])
+  }, [toast, error, message, dispatch, isAuthenticated, navigate])
 
-  
+
 
   return (
-    <div className={styles.mainRow} style={{marginBottom:"-10%"}}>
+    <div className={styles.mainRow} style={{ marginBottom: "-10%" }}>
       <Row>
         <Col xs={24} sm={24} md={24} lg={12} xl={12} className={styles.col1}>
-          <div>
+          <div style={{ margin: "auto", width: isSmallestScreen ? "85%" : '50%' }}>
             <Row gutter={16}>
               <Col xs={24} sm={24} md={24} lg={24} xl={24} style={{ margin: "5% 0" }} align="middle" >
-                    <Title level={2}>Login</Title>
+                <Title level={2}>Login</Title>
               </Col>
             </Row>
             <Row gutter={16} style={{ margin: "5% 0" }}>
@@ -68,10 +93,11 @@ useEffect(() => {
                   onChange={(e) => setEmail(e.target.value)}
 
                 />
+                 {emailError && <p style={{ color: 'salmon' }}>{emailError}</p>}
               </Col>
             </Row>
 
-            
+
 
             <Row gutter={16} style={{ margin: "5% 0" }}>
               <Col span={24}>
@@ -85,6 +111,7 @@ useEffect(() => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+                  {passwordError && <p style={{ color: 'salmon' }}>{passwordError}</p>}
               </Col>
             </Row>
 
@@ -110,7 +137,7 @@ useEffect(() => {
                   style={{
                     backgroundColor: '#3B505A',
                     borderRadius: '20px',
-                    width: '20em',
+                    width: isSmallestScreen ? '50vw' : '20vw',
                     height: '3em',
                     color: 'white',
                   }}
@@ -128,16 +155,17 @@ useEffect(() => {
                 </Divider>
                 {/* <LoginWithGoogle title={'Login with google'} /> */}
                 <Link to="/signup">
-                <Button 
-                style={{
-                    backgroundColor: '#5498A2',
-                    borderRadius: '20px',
-                    width: '20em',
-                    height: '3em',
-                    color: 'white'}}>
-                      Sign Up
-                    </Button>
-                    </Link>
+                  <Button
+                    style={{
+                      backgroundColor: '#5498A2',
+                      borderRadius: '20px',
+                      width: isSmallestScreen ? '50vw' : '20vw',
+                      height: '3em',
+                      color: 'white'
+                    }}>
+                    Sign Up
+                  </Button>
+                </Link>
               </Col>
             </Row>
           </div>

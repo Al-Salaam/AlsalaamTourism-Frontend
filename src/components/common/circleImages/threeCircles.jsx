@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Row, Col, Typography } from 'antd';
-import image1 from "../../../../images/threeCircel1.png";
-import image2 from "../../../../images/threeCircle2.png";
-import image3 from "../../../../images/threeCircle3.png";
-import image4 from "../../../../images/threeCircle5.png";
+import Client1 from "../../../../images/cl1.jpg"
+import Client5 from "../../../../images/clt1.avif"
+import Client3 from "../../../../images/cl3.jpg"
+import Client4 from "../../../../images/cl4.jpg"
+import Client2 from "../../../../images/clt2.avif"
+import Client6 from "../../../../images/clt3.avif"
 
 const {Title}=Typography;
 
@@ -11,22 +13,32 @@ const titles = [
   {
     title: 'Ripon Ahmed',
     description: 'Temperley, Argentina',
-    summary:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    summary:"Highly recommended! We've used Alsalaam Tourism multiple times, and each experience has been seamless, from booking to the actual journey."
   },
   {
-    title: 'Ali Ahmed',
-    description: 'abc, Argentina',
-    summary:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    title: 'Dawood Moosa',
+    description: 'Doha, Qatar',
+    summary:"Exceptional service! Alsalaam Tourism made our UAE trip unforgettable with their expert guidance and personalized itineraries"
   },
   {
-    title: 'Ashar Ahmed',
-    description: 'xyz, Argentina',
-    summary:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    title: 'Jhon walter',
+    description: 'Toranto, Canada',
+    summary:"Outstanding customer support! Alsalaam Tourism's team went above and beyond to ensure our desert safari adventure was perfect."
   },
   {
-    title: 'Taqi Ahmed',
-    description: 'pqr, Argentina',
-    summary:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    title: 'Karherine winslet',
+    description: 'California, USA',
+    summary:"Smooth transactions and great value for money with Alsalaam Tourism. Their diverse tour options cater to all interests."
+  },
+  {
+    title: 'Viktoria kate',
+    description: 'london, England',
+    summary:"Professional and friendly staff! Alsalaam Tourism made our family trip to Abu Dhabi hassle-free, allowing us to focus on enjoying the city."
+  },
+  {
+    title: 'Maryam ALi',
+    description: 'California, USA',
+    summary:"Alsalaam Tourism exceeded our expectations. Their local insights and attention to detail made our Dubai vacation truly remarkable."
   },
 ];
 
@@ -40,8 +52,8 @@ const circleStyle = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  width: '90px',
-  height: '80px',
+  width: '60px',
+  height: '60px',
   backgroundColor: 'lightblue',
   borderRadius: '50%',
   cursor: 'pointer',
@@ -52,19 +64,21 @@ const circleStyle = {
 
 const largerCircleStyle = {
   ...circleStyle,
-  width: '110px',
-  height: '110px',
+  height: '90px',
+  width:"90px"
 };
 
 const circleImages = [
-  image1,
-  image2,
-  image3,
-  image4,
+  Client1,
+  Client5,
+  Client3,
+  Client4,
+  Client2,
+  Client6
 ];
 
 const ThreeCircle = () => {
-  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(5);
 
   const handleCircleClick = (direction) => {
     let newIndex;
@@ -95,7 +109,10 @@ const ThreeCircle = () => {
             onClick={() => handleCircleClick('left')}
           ></div>
         </Col>
-        <Col span={8} style={{ ...largerCircleStyle, backgroundImage: `url(${circleImages[currentTitleIndex]})` }} >
+        <Col span={8}  align="middle" >
+          <div style={{ ...largerCircleStyle, backgroundImage: `url(${circleImages[currentTitleIndex]})` }}>
+
+          </div>
         </Col>
         <Col span={8} align="right">
           <div

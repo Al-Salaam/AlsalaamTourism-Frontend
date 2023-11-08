@@ -228,7 +228,7 @@ const Ourpackags = () => {
   
 
   return (
-    <div style={{width:"99%", overflowX:"hidden"}}>
+    <div style={{width:"95%", overflowX:"hidden", margin:"auto"}}>
       <Row gutter={[16, 16]} justif="center"><Col span={24} align="middle"> <Title level={2} style={{marginTop:"1%"}}>Our Packages</Title> <p>We offer some of the most competitive, pocket-friendly prices around, while also delivering without compromising on our quality standards.</p></Col> </Row>
       <Row gutter={[16, 16]}>
         <Col span={12}>

@@ -17,6 +17,10 @@ const SignUp = () => {
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [fullNameError, setFullNameError] = useState('');
+    const [userNameError, setUserNameError] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
     const isSmallScreen = useMediaQuery({ maxWidth: 990 });
     const { Title } = Typography;
     const navigate = useNavigate();
@@ -24,13 +28,49 @@ const SignUp = () => {
     const { loading, error, message } = useSelector((state) => state.auth);
     const handleLogin = (e) => {
         e.preventDefault();
+        let isValid = true;
+         
+        if (name.trim() === '') {
+            setFullNameError('Full name cannot be empty');
+            isValid = false;
+        } else {
+            setFullNameError('');
+        }
+
+        // Check if password is empty
+        if (username.trim() === '') {
+            setUserNameError('Password cannot be empty');
+            isValid = false;
+        } else {
+            setUserNameError('');
+        }
+        // Check if email is empty
+        if (email.trim() === '') {
+            setEmailError('Email cannot be empty');
+            isValid = false;
+        } else {
+            setEmailError('');
+        }
+
+        // Check if password is empty
+        if (password.trim() === '') {
+            setPasswordError('Password cannot be empty');
+            isValid = false;
+        } else {
+            setPasswordError('');
+        }
+
+        if (!isValid) {
+            // If any field is empty, don't proceed with login
+            return;
+        }
         const credentials = {
             name, username, email, password
         }
         dispatch(signup(credentials))
     };
 
-   
+
 
     useEffect(() => {
         if (error) {
@@ -71,6 +111,7 @@ const SignUp = () => {
                                     className={styles.grayBackground}
                                     onChange={(e) => setName(e.target.value)}
                                 />
+                                {fullNameError && <p style={{ color: 'salmon' }}>{fullNameError}</p>}
                             </Col>
                         </Row>
 
@@ -87,6 +128,7 @@ const SignUp = () => {
                                     className={styles.grayBackground}
                                     onChange={(e) => setUsername(e.target.value)}
                                 />
+                                {userNameError && <p style={{ color: 'salmon' }}>{userNameError}</p>}
                             </Col>
                         </Row>
 
@@ -104,6 +146,7 @@ const SignUp = () => {
                                     onChange={(e) => setEmail(e.target.value)}
 
                                 />
+                                {emailError && <p style={{ color: 'salmon' }}>{emailError}</p>}
                             </Col>
                         </Row>
 
@@ -122,6 +165,7 @@ const SignUp = () => {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
+                                {passwordError && <p style={{ color: 'salmon' }}>{passwordError}</p>}
                             </Col>
                         </Row>
 
@@ -171,7 +215,7 @@ const SignUp = () => {
                                 <Divider plain style={{ borderWidth: 5, borderColor: 'lightGray' }}>
                                     OR
                                 </Divider>
-                                <LoginWithGoogle  title={'Login with google'} />
+                                <LoginWithGoogle title={'Login with google'} />
                             </Col>
                         </Row>
                     </div>
