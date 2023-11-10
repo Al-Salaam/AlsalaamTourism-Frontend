@@ -30,15 +30,28 @@ import ThanksMessage from "./pages/actionMessage/thanks";
 import FloatingWhatsapp from "./components/whatsappIcon";
 
 import Protected from "./helpers/protectedRoute/Protected";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchUserProfile } from "./redux/actions/authAction";
 
 
 function App() {
-  
+      const dispatch = useDispatch();
+
+      const {isAuthenticated } = useSelector((state) => state.auth)
+      useEffect(() => {
+        dispatch(fetchUserProfile())
+      },[dispatch])
   
       const storedUser =  JSON.parse(localStorage.getItem("user"));
       const isSignedIn = storedUser?.user;
     
+      useEffect(() => {
+        if(isAuthenticated) {
+          dispatch(fetchUserProfile())
+        }
+      
+      },[dispatch, isAuthenticated])
   return (
     <div>
       <Routes>
