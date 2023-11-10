@@ -158,7 +158,19 @@ const BookNow = ({ activity }) => {
     alignItems: "center",
     margin: "1%"
   };
+ // Calculate total price based on rates and quantities
+ const calculateTotalPrice = () => {
+  const adultRate = activity?.adults || 0;
+  const childrenRate = activity?.children || 0;
+  const infantRate = activity?.infants || 0;
 
+  const adultPrice = adults * adultRate;
+  const childrenPrice = childern * childrenRate;
+  const infantPrice = infant * infantRate;
+  const basePrice = activity?.price || 0;
+
+  return basePrice + adultPrice + childrenPrice + infantPrice;
+};
 
 
   const handleBooking = async () => {
@@ -174,7 +186,7 @@ const BookNow = ({ activity }) => {
           adults: adults,
           children: childern,
           infants: infant,
-          totalAmount: activity?.price,
+          totalAmount: calculateTotalPrice(),
           paymentStatus: "pending"
         };
   
@@ -206,7 +218,7 @@ const BookNow = ({ activity }) => {
         <Col span={24}><Title level={1} style={titleStyle}>{activity?.name}</Title></Col>
       </Row>
       <Row gutter={[40]} style={Styles.margin}>
-        <Col span={12}><Title level={5} style={titleStyle}>From {activity?.price}.00 AED</Title></Col>
+        <Col span={12}><Title level={5} style={titleStyle}>From {calculateTotalPrice().toFixed(2)} AED</Title></Col>
         <Col span={12} style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
           <ReactStars
             count={5}
