@@ -30,10 +30,11 @@ import ThanksMessage from "./pages/actionMessage/thanks";
 import FloatingWhatsapp from "./components/whatsappIcon";
 
 import Protected from "./helpers/protectedRoute/Protected";
+import { useDispatch } from "react-redux";
 
 
 function App() {
-
+  
   
       const storedUser =  JSON.parse(localStorage.getItem("user"));
       const isSignedIn = storedUser?.user;
