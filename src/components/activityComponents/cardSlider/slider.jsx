@@ -41,7 +41,7 @@ const CardSlider = ({reviews}) => {
                             </Row>
 
                             <Row gutter={10} style={{marginTop:"30px"}}>
-                                <Col xs={8} sm={8} md={12} lg={12} xl={4}><Image src= {imog} style={{width:"70px",height:"70px", borderRadius:"100%",border:"2px solid #4FAEAB"}}/></Col>
+                                <Col xs={8} sm={8} md={12} lg={12} xl={4}><Image src= {item?.user?.photo} style={{width:"70px",height:"70px", borderRadius:"100%",border:"2px solid #4FAEAB"}}/></Col>
                                 <Col xs={12} sm={12} md={12} lg={12} xl={10}><Title level={4}> {item?.name}</Title></Col>
                                 <Col xs={24} sm={24} md={24} lg={24} xl={10}><Rate allowHalf={true} disabled value={item?.rating} count={5} style={{color:"#4FAEAB"}}/></Col>
                             </Row>
