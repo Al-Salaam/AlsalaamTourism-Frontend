@@ -10,6 +10,7 @@ import PrimaryButton from "../buttons/primary";
 const { Title } = Typography;
 function HeroShowCase() {
   const isSmallScreen = useMediaQuery({ maxWidth: 562 });
+  const isSmallScreen1 = useMediaQuery({ maxWidth: 768 });
 
   const titleStyle = {
     fontFamily: "Ubuntu",
@@ -27,17 +28,19 @@ function HeroShowCase() {
     <>
       <Row
         className={styles.hero}
-        style={{ paddingTop: isSmallScreen ? "25%" : "" ,}}
+        style={{ paddingTop: isSmallScreen ? "25%" : "" }}
       >
         <Col
-          xs={19}
-          sm={12}
+          xs={24}
+          sm={24}
           md={10}
           lg={10}
           xl={10}
-          style={{ padding: "2%", marginLeft:"48px"}}
+          
+          style={{ padding:"2%", marginLeft:isSmallScreen1? null : "48px",}}
          
         >
+          
           <Title
             style={{
               ...titleStyle,
@@ -73,7 +76,7 @@ function HeroShowCase() {
           </div>
         </Col>
 
-        <Col xs={23} sm={12} md={12} lg={12} xl={12}>
+        <Col xs={23} sm={24} md={12} lg={12} xl={12}>
           {/* <Space>
             <Image
               preview={false}
