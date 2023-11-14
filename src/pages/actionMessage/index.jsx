@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import PrimaryButton from "../../components/common/buttons/primary";
 import BG from "../../../images/payment.png";
 import Title from "antd/es/typography/Title";
+import { Link } from "react-router-dom";
 
 const ActionMessage = (props) => {
   const containerStyle = {
@@ -41,7 +42,10 @@ const ActionMessage = (props) => {
             </Col>
           </Row>
           <Row xs={24} sm={24} md={24} lg={24} xl={24} justify="center" style={{ margin: "4% 0 25% 0" }}>
-            <PrimaryButton title={"ok"} width="120px" />
+          <Link to={'/user-panel/booking-history'}>
+          <PrimaryButton title={"ok"} width="120px" />
+          </Link>
+            
           </Row>
         </Col>
       </Row>
