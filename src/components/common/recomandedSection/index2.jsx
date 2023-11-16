@@ -4,6 +4,8 @@ import PrimaryButton from '../buttons/primary';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 import ReactStars from "react-rating-stars-component";
+import { IoEye } from "react-icons/io5";
+import { FaCartShopping } from "react-icons/fa6";
 
 const { Meta } = Card;
 
@@ -122,9 +124,9 @@ const FlipCard = (props) => {
                     
                         <Button
                             onClick={handleButtonClick}
-                            style={{height:"50px",width:"60px",borderRadius:0,borderBottomLeftRadius:"10px" }}
+                            style={{height:"40px",width:"50px",borderRadius:0,borderBottomLeftRadius:"10px" }}
                         >
-                            <h1>+</h1>
+                            <IoEye style={{fontSize: '20px', color:'gray'}}/>
                         </Button>
                        
                        <h3>{props.cardType}</h3> 
@@ -141,8 +143,8 @@ const FlipCard = (props) => {
                             
                         
                         }}> 
-                    <Button onClick={handleAddToCart} style={{...titleStyle,marginLeft:"105px" , borderBottomRightRadius:"10px"}}>
-                            Add to card
+                    <Button onClick={handleAddToCart} style={{...titleStyle,height:"40px",width:"50px", marginLeft:"105px" ,borderRadius:'0', borderBottomRightRadius:"10px"}}>
+                    <FaCartShopping style={{fontSize: '20px', color:'gray'}} />
                         </Button>
                         </div>
 
