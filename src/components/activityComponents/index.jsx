@@ -125,7 +125,7 @@ data.filter((item) => {
   };
 
   return (
-    <div style={{width:"99%",}}>
+    <div style={{width:"99%"}}>
       <Row justify="center" style={{ paddingTop: "30px", }}>
         <Col align="middle">
           <h1 style={titleStyle}>Our Activities</h1>
@@ -269,8 +269,8 @@ data.filter((item) => {
         )}
       </Row>
       {displayedData.length < filteredData.length && (
-        <Row>
-          <Col align="middle" span={24}>
+        <Row style={{marginTop:isSmallScreen?"30px":"30px", marginBottom:"2px"}}>
+          <Col align="middle" span={24} >
             <PrimaryButton clickHandler={loadMoreItems} title={"Load More"} />
           </Col>
         </Row>

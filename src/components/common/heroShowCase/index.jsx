@@ -64,8 +64,8 @@ function HeroShowCase() {
           </p>
           <div
             style={{
-              marginTop: "50px",
-              marginBottom:"10px",
+              marginTop:isSmallScreen?"40px": "50px",
+              marginBottom:isSmallScreen?"30px":"10px",
               marginRight: isSmallScreen ? "8%" : "68%",
               textAlign:isSmallScreen ? "center":"left",
               
