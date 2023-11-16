@@ -3,10 +3,10 @@ import Title from 'antd/es/typography/Title';
 import { useMediaQuery } from 'react-responsive';
 import deal1 from  "../../../../images/Rectangle 57.png";
 import deal2 from  "../../../../images/Rectangle 58.png";
-import deal3 from "../../../../images/desDubai.png";
-import deal4 from  "../../../../images/fujairahver.png";
-import deal5 from "../../../../images/destinationMain.png";
-import deal6 from "../../../../images/desAbuDhabi.png";
+import deal3 from "../../../../images/TopDeals3.png";
+import deal4 from  "../../../../images/TopDeals4.png";
+import deal5 from "../../../../images/TopDeals5.png";
+import deal6 from "../../../../images/TopDeals6.png";
 import topDealBg from "../../../../images/topDealBg.png";
 
 const carouselStyle = {
