@@ -1,12 +1,24 @@
 import React from "react";
 import { Button, Space, ConfigProvider } from "antd";
+import { useMediaQuery } from "react-responsive";
 
-const PrimaryButton = ({
-  title,
+
+
+function PrimaryButton  ({
+  
+  title, 
   width = "13em",
   height = "45px",
   clickHandler,
-}) => (
+}) 
+
+{
+
+
+  const isMobile = useMediaQuery({
+    query: "(max-width: 1024px)", // Change this breakpoint as needed
+});
+return(
   <ConfigProvider
     theme={{
       token: {
@@ -28,8 +40,8 @@ const PrimaryButton = ({
           width: width,
           height: height,
           fontFamily: "Ubuntu",
-          fontSize: "100%",
-          fontWeight: 600,
+          fontSize: isMobile?"75%":"100%",
+          fontWeight:isMobile? 600: 600,
           textAlign:"center",
           textShadow:
             "0px 1.5589158535003662px 1.247132658958435px rgba(0, 0, 0, 0.0759), " +
@@ -55,5 +67,6 @@ const PrimaryButton = ({
     </Space>
   </ConfigProvider>
 );
+}
 
 export default PrimaryButton;
