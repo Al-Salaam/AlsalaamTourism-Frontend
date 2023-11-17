@@ -3,7 +3,10 @@ import { Row, Col, Modal } from 'antd';
 import  { useState, useEffect } from 'react';
 import PrimaryButton from "../../common/buttons/primary"
 import { useMediaQuery } from 'react-responsive';
-import Services from "../../../../images/newdest.png";
+// import Services from "../../../../images/newdest.png";
+import About from "../../../../images/about3.png"
+
+
 
 
 const AboutHero = ({ description, videoSource }) => {
@@ -86,9 +89,9 @@ const AboutHero = ({ description, videoSource }) => {
     <Row   >
       
       <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{borderBottom:isVideoBorder ? "0px":"3px white solid" , paddingBottom: isTablet ? "20px" : "", color: "white", background: 'linear-gradient(180deg, #70ADBB 0%, #018D97 100%)', padding: isMobile ? "10% 7% 7% 7%" : "7% 7% 7% 2% ",}}>
-        <div><h1 style={{ ...titleStyle , marginTop: isMobile ? "10%" : "1%" }}>About Alsalaam</h1></div>
+        <div><h1 style={{ ...titleStyle , marginTop: isMobile ? "10%" : "8%" }}>About Alsalaam</h1></div>
         <div><p style={{ ...titleStyle2, margin: "4%", fontSize: isTablet ? "15px" : "15px", marginBottom: isTablet ? "10px" : "10px", lineHeight:isMobile?"120%":"120%", marginRight:"8%"}}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions. We enjoy a stellar reputation of excellence in Dubai's tourism sector. We place the needs of our clients first and go the extra mile in ensuring our customer’s travel experience is laced with comfort and beautiful memories that endure for a lifetime.</p></div>
-        <div style={{ marginTop:isMobile?"5%":"4%", marginLeft:"1%"}}><PrimaryButton title={"Explore Destination"} width="160px" /></div>
+        <div style={{ marginTop:isMobile?"5%":"4%", marginLeft:"1%"}}><PrimaryButton title={<h3>Explore Destination</h3>} width="200px" /></div>
       </Col>
 
     
@@ -96,7 +99,7 @@ const AboutHero = ({ description, videoSource }) => {
       
         <div onClick={openVideoModal} style={{ cursor: 'pointer' }}>
          
-          <img src={Services} style={{ width: "100%",height:"60vh" }} />
+          <img src={About} style={{ width: "100%",height:"65vh" }} />
         </div>
 
       </Col>
