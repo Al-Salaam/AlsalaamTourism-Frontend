@@ -46,7 +46,7 @@ const Description = ({activity}) => {
        
       };
     return (
-        <div>
+        <div style={{margin:'0 10px 0 40px'}}>
             <Row gutter={16}>
                 <Col xs={24} sm={24} md={12} lg={6} xl={6} xxl={6} >
                     <Button

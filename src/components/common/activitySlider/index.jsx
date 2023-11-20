@@ -3,7 +3,7 @@ import { Card, Row, Col, Button, Image, Rate, Typography } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import FlipCard from '../recomandedSection/index2';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { useMediaQuery } from 'react-responsive';
 const itemsPerPage = 3;
 
 const  ActivitySlider = ({ data, auto = false, showTitle = true, showDescription = true, showButtons = true }) => {
@@ -11,7 +11,52 @@ const  ActivitySlider = ({ data, auto = false, showTitle = true, showDescription
     const [currentPage, setCurrentPage] = useState(0);
     const [autoMode, setAutoMode] = useState(auto);
     const [isCardClicked, setIsCardClicked] = useState(false);
+    const isSmallScreen = useMediaQuery({ maxWidth: 950 });
+    const isSmallest = useMediaQuery({ maxWidth: 950 });
 
+    const [isLeftHovered, setLeftHovered] = useState(false);
+    const [isRightHovered, setRightHovered] = useState(false);
+  
+    const handleLeftMouseEnter = () => {
+      setLeftHovered(true);
+    };
+  
+    const handleLeftMouseLeave = () => {
+      setLeftHovered(false);
+    };
+  
+    const handleRightMouseEnter = () => {
+      setRightHovered(true);
+    };
+  
+    const handleRightMouseLeave = () => {
+      setRightHovered(false);
+    };
+  
+    const iconStyles = {
+        transition: 'color 0.3s, background-color 0.3s',
+        fontSize: '30px',
+        width: '50px',
+        height: '50px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      };
+  
+    const leftIconStyles = {
+      ...iconStyles,
+      color: isLeftHovered ? 'white' : 'initial',
+      backgroundColor: isLeftHovered ?'#3B505A' : 'initial',
+      borderRadius:"50%"
+    };
+  
+    const rightIconStyles = {
+      ...iconStyles,
+      color: isRightHovered ? 'white' : 'initial',
+      backgroundColor: isRightHovered ? '#3B505A' : 'initial',
+      borderRadius:"50%"
+    };
+  
     useEffect(() => {
         let intervalId;
 
@@ -68,21 +113,32 @@ const  ActivitySlider = ({ data, auto = false, showTitle = true, showDescription
 
     return (
         <Row style={{ margin: "2% 0" }}>
-            {showTitle ? <Col xs={24} sm={24} md={12} lg={8} xl={8} xxl={8} style={{ marginTop: '20px', textAlign: 'center' }}>
-                <Title level={3}>Explore Other Activities</Title>
+            {showTitle ? <Col xs={24} sm={12} md={7} lg={8} xl={8} xxl={8} style={{ margin: '20px 0 0 20px', textAlign: isSmallest ?'left':'left' }}>
+                <Title level={1} style={{fontWeight:"bold"}}>Explore Other Activities</Title>
             </Col> : "" }
 
-            {showDescription ? <Col xs={24} sm={24} md={12} lg={8} xl={8} xxl={8} style={{ marginTop: '20px', textAlign: 'center' }}>
-                <Title level={5}>At Al salaam Tours & Travels, we provide excellent solutions for taking full advantage of the exciting activities</Title>
+            {showDescription ? <Col xs={24} sm={24} md={10} lg={10} xl={6} xxl={6} style={{ marginTop: '20px', textAlign: isSmallest ?'center':'left' }}>
+                <Title level={4} style={{color:"GrayText"}}>At Al salaam Tours & Travels, we provide excellent solutions for taking full advantage of the exciting activities</Title>
             </Col> : "" }
             
-            {showButtons ? <Col xs={24} sm={24} md={12} lg={8} xl={8} xxl={8} style={{ marginTop: '20px', textAlign: 'center' }}>
-                <Button onClick={() => setCurrentPage((prevPage) => (prevPage - 1 + data?.length) % data?.length)} style={{ backgroundColor: "white", color: "3B505A", borderRadius: "100%", fontSize: "50px", border: "none" }}>
-                    <ArrowLeftOutlined />
-                </Button>
-                <Button onClick={() => setCurrentPage((prevPage) => (prevPage + 1) % data?.length)} style={{ backgroundColor: "white", color: "3B505A", borderRadius: "100%", fontSize: "50px", border: "none" }}>
-                    <ArrowRightOutlined />
-                </Button>
+            {showButtons ? <Col xs={24} sm={24} md={6} lg={5} xl={9} xxl={9} style={{ marginTop: '20px', textAlign: isSmallest ?'center':'right',marginBottom:"20px" }}>
+            <Button onClick={() => setCurrentPage((prevPage) => (prevPage - 1 + data?.length) % data?.length)} style={{ borderRadius: "100%", fontSize: "5px", border: "none" }}>
+      
+          <ArrowLeftOutlined
+            style={leftIconStyles}
+            onMouseEnter={handleLeftMouseEnter}
+            onMouseLeave={handleLeftMouseLeave}
+          />
+        
+      </Button>
+
+      <Button onClick={() => setCurrentPage((prevPage) => (prevPage + 1) % data?.length)} style={{  borderRadius: "100%", fontSize: "5px", border: "none" }}>
+        <ArrowRightOutlined
+          style={rightIconStyles}
+          onMouseEnter={handleRightMouseEnter}
+          onMouseLeave={handleRightMouseLeave}
+        />
+      </Button>
             </Col> : ""}
             
             <Col span={24}>

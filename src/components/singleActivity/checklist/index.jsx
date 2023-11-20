@@ -9,7 +9,7 @@ const Checklist = ({ title, activity, columns }) => {
   const Sentences = activity?.[0]?.split(',') ?? [];
 
   return (
-    <div>
+    <div  style={{margin:'0 30px 0 40px'}}>
       <h1 style={{ margin: "5% 0" }}>{title}</h1>
       <Row gutter={[16, 16]}>
         {Sentences?.map((paragraph, index) => (

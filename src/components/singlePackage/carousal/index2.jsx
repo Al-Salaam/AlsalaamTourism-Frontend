@@ -15,7 +15,7 @@ const styles = {
         maxHeight:"600px"
     },
     mainImage: {
-        width:"90vw",
+        width:"92.5vw",
         height:"600px",
         objectFit: 'cover',
         
@@ -23,7 +23,7 @@ const styles = {
     thumbnails: {
         position: 'absolute',
         top: "30%",
-        right: 0,
+        right: "2%",
         display: 'flex',
         flexDirection: 'column',
     },
@@ -41,9 +41,9 @@ const styles = {
         textAlign: 'center',
         marginTop: '10px',
         color:"#4FAEAB",
-        fontSize:"30px",
+        fontSize:"15px",
         backgroundColor:"white",
-        borderRadius:"10px"
+        borderRadius:"5px"
     },
 };
 

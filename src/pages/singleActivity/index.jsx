@@ -43,6 +43,8 @@ function SingleActivity() {
         dispatch(fetchActivitiesReviews(id))
     }, [dispatch, id])
     const isSmallScreen = useMediaQuery({ maxWidth: 950 });
+    const isSmallest = useMediaQuery({ maxWidth: 375 });
+    const isSmallest1 = useMediaQuery({ maxWidth: 767 });
     return (
         <div style={{padding:"0 auto",overflowX:"hidden"}}>
             {loading ? <Loader /> : (
@@ -53,7 +55,7 @@ function SingleActivity() {
                         </Col>
 
                         <Col xs={24} sm={24} md={12} lg={12} xl={12} >
-                            <Carousel data={activity?.images} thumbnails={true} width="100%" thumbnailWidth="200px" slideNumberStyle={slideNumberStyle} slideNumber={true} />
+                            <Carousel data={activity?.images} thumbnails={true} mainImageMargin= {isSmallest1? "":"2vh 5vw 2vh 5vw" }width="1000px" thumbnailWidth="200px" slideNumberStyle={slideNumberStyle} slideNumber={true} />
                             <Stats activity={activity} />
                             <div style={{ marginLeft:"20px" }}>
                             <Itenary />
@@ -77,35 +79,38 @@ function SingleActivity() {
                             <Questions />
                         </Col>
                     </Row>
-                    <Row>
+                    <Row style={{margin:'0 30px 0 30px'}}>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={{ margin: "5% 0", padding: "0 2%" }}>
                             <AverageRating reviews={activity?.noOfReviews} rating={activity?.ratings}  module={activity}/>
                             <RatingInput activity={activity}/>
                         </Col>
-                        <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={{ margin: "5% 0", padding: "0 2%", display: isSmallScreen ? "none" : "" }} align="middle">
+                        <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={{ margin: "1% 0", padding: "0 2%", display: isSmallScreen ? "none" : "" }} align="middle">
                             <Map2/>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col span={24} style={{ margin: "0 5% 0 0" }} >
+                   
+                        
+                    <div style={{margin:'0 50px 0 50px'}}>
                             <CardSlider  reviews={reviews}/>
-                        </Col>
-                        <Col span={24} style={{ margin: "5% 0", padding: "0 2%", display: isSmallScreen ? "" : "none" }} align="middle">
+                       </div>
+                       <Row>
+                        <Col span={24} style={{ margin: "4% 0", padding: "0 2%", display: isSmallScreen ? "" : "none" }} align="middle">
                             <Map2/>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col span={24}>
+                    
+
+                        <Col span={24} style={{margin:isSmallest ? '20px 20px 20px 20px':'0 40px 0 40px'}}>
                             <ActivitySlider data={data} auto= {true}/>
                         </Col>
-                    </Row>
-                    <Row >
+                   
+                   
                         <Col span={24}  >
                         
                             <Footer />
                           
                         </Col>
-                    </Row>
+                    
                 </div>
             )}
 

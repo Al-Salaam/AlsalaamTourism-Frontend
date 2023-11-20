@@ -242,13 +242,14 @@ function FormCard({ pakage }) {
             onClick={handleFormSubmit}
             disabled={loading}
             style={{
-              width: "20vw",
+              width: "180px",
               backgroundColor: "#3B505A",
               color: "white",
               borderRadius: "30px",
+              height:"40px"
             }}
           >
-            {loading ? "loading..." : "Submit"}
+            {loading ? "loading..." : "Submit Your Enquiry"}
           </Button>
         </div>
       </div>

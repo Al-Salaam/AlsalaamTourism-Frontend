@@ -23,6 +23,7 @@ function Carousel({
   thumbnails,
   thumbnailWidth,
   showNavBtn = true,
+  mainImageMargin
 }) {
   //Initialize States
   const [slide, setSlide] = useState(0);
@@ -202,6 +203,8 @@ function Carousel({
                     style={{
                       borderRadius: radius,
                       objectFit: slideImageFit ? slideImageFit : "cover",
+                      // margin:"2vh 5vw 2vh 5vw"
+                      margin: mainImageMargin 
                     }}
                   />
                   {isPaused && (

@@ -14,7 +14,7 @@ function Itenary() {
     const { Title } = Typography
 
     return (
-        <>
+        <div style={{margin:'30px 30px 0 40px'}}>
             <Title level={1} style={titleStyle}>Itinerary</Title>
             <Space direction="vertical"  style={{ padding: '20px', }}>
                 {/* First Row */}
@@ -47,7 +47,7 @@ function Itenary() {
                     </Col>
                 </Row>
             </Space>
-        </>
+        </div>
 
 
     )

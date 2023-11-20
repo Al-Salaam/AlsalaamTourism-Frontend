@@ -213,7 +213,7 @@ const BookNow = ({ activity }) => {
    
   };
   return (
-    <div >
+    <div style={{margin:'0 30px 0 40px'}}>
       <Row gutter={[40]} style={Styles.margin}>
         <Col span={24}><Title level={1} style={titleStyle}>{activity?.name}</Title></Col>
       </Row>
