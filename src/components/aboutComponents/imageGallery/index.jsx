@@ -69,7 +69,7 @@ const ImageGallery = ({images}) => {
   return (
     <>
     <Row style={{margin:"2% 1%"}}>
-      <Col  xs={24} sm={24} md={12} lg={12} xl={12} align={isMobile ? "middle" :""}><h1 style={StyleOur}>Our Gallery</h1> <p style={StyleOur}>We bring to the fore all our expertise to make your journey very comfortable.</p></Col>
+      <Col  xs={24} sm={24} md={12} lg={12} xl={12} align={isMobile ? "middle" :""}><h1 style={StyleOur}>Our Gallery</h1> <p style={{...StyleOur, marginTop:"2%", marginBottom:"0%"}}>We bring to the fore all our expertise to make your </p> <p style={StyleOur}>journey very comfortable.</p></Col>
       {/* <Col  xs={24} sm={24} md={12} lg={12} xl={12} align={isMobile ? "middle" :"right"}><PrimaryButton width='200px'title={"Open Gallery"}/></Col> */}
     </Row>
     <div style={containerStyle}>
