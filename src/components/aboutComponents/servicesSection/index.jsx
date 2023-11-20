@@ -3,6 +3,7 @@ import FlipCardServices from '../servicesCard';
 import Icon1 from "../../../../images/service1.png"
 import Icon2 from "../../../../images/serviceicon2.png"
 import Icon3 from "../../../../images/service3.png"
+import { useMediaQuery } from 'react-responsive';
 const cardData = [
     {
         id: 1,
@@ -41,6 +42,9 @@ const cardData = [
 
 const ServicesSection = () => {
 
+    const isHeading = useMediaQuery({
+        query: '(max-width: 575px)'
+      });
 
     const titleStyle2 = {
         fontFamily: 'Ubuntu',
@@ -48,10 +52,14 @@ const ServicesSection = () => {
         fontWeight: 400,
         lineHeight: '32px',
         letterSpacing: '0.07em',
-        textAlign: 'start',
+        textAlign:isHeading? 'center': 'start',
+        marginLeft: isHeading?"":"4%"
         
         
       };
+
+      
+    
 
 
     return (
@@ -66,7 +74,7 @@ const ServicesSection = () => {
             <Col xs={24} sm={16} md={16} lg={16}  style={{ background: 'linear-gradient(to bottom, #70ADBB 50%, #70ADBB 50%, #FFFFFF 50%, #FFFFFF 100%)' }}>
                 <Row >
                 {cardData.map((data) => (
-                    <Col xs={24} sm={8} md={8} lg={8} style={{margin:"0 auto"}}>
+                    <Col xs={24} sm={8} md={8} lg={8} style={{margin:"0 auto"}} key={1}>
                      <FlipCardServices key={data.id} frontData={data.frontData} backData={data.backData} />
                     </Col>
                 ))}

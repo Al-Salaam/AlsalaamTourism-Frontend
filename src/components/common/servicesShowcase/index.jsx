@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Row, Col, Typography, List, Modal } from "antd";
 import Services from "../../../../images/ourServices.jpeg";
 import { useMediaQuery } from "react-responsive";
-import style from "./style.css";
+
 
 const { Title } = Typography;
 
@@ -76,7 +76,7 @@ function ServicesShowCase(props) {
             itemLayout="vertical"
             dataSource={data}
             renderItem={(item) => (
-              <List.Item className={style}>
+              <List.Item style={{ paddingLeft: "12%", borderBottom: "none" }}>
                 <div>
                   <span style={{ marginRight: "8px" }}>&#8226;</span>
                   <strong style={{ ...titleStyle }}>{item.text1}</strong>

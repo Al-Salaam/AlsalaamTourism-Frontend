@@ -139,7 +139,7 @@ data.filter((item) => {
           </p>
         </Col>
       </Row>
-      <Row gutter={16} align="middle" style={{ paddingTop: "5%" }}>
+      <Row gutter={16} align="middle" style={{ paddingTop: "5%",justifyContent:"space-between" }}>
         <Col
           span={6}
           align="middle"
@@ -193,7 +193,9 @@ data.filter((item) => {
             railStyle={{ backgroundColor: "lightgray" }}
           />
         </Col>
-        <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={7} style={{marginBottom:isSmallScreen ? "5%" : "", marginTop:isSmallScreen?"3%":""}}>
+        <Col span={6} align="middle" xs={24} sm={24} md={8} lg={8} xl={5}  style={{marginBottom:isSmallScreen ? "5%" : "", marginTop:isSmallScreen?"3%":""}}>
+        <Row gutter={16}>
+        <Col xs={8} sm={8} md={8} lg={8} xl={7}>
           <Button
             onClick={() => handleButtonClick(null)} 
             style={{
@@ -205,7 +207,9 @@ data.filter((item) => {
           >
             All
           </Button>
+          </Col>
           
+          <Col xs={8} sm={8} md={8} lg={8} xl={7}>
           <Button
             onClick={() => handleButtonClick("tour")} 
             style={{
@@ -218,6 +222,8 @@ data.filter((item) => {
           >
             Tour
           </Button>
+          </Col>
+          <Col xs={8} sm={8} md={8} lg={2} xl={7}>
           <Button
             onClick={() => handleButtonClick("activity")} 
             style={{
@@ -225,11 +231,13 @@ data.filter((item) => {
               borderRadius: 0,
               borderBottom: activeButton === "activity" ? "2px solid #3B505A" : "none",
               color: activeButton === "activity" ? "#3B505A" : "#696969",
-              marginLeft: "10%",
+              marginLeft: "4%",
             }}
           >
             Activity
           </Button>
+          </Col>
+          </Row>
         </Col>
       </Row>
       <Row gutter={16}>

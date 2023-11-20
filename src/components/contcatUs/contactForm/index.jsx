@@ -160,7 +160,7 @@ const MyForm = () => {
             </Title>
           </Col>
           <Row style={{ marginBottom: "30px"}} >
-            <Col xs={24} sm={12} md={2} lg={2} xl={2} align= {isMobileScreen?"middle":"end"} >
+            <Col xs={24} sm={24} md={2} lg={2} xl={2} align= {isMobileScreen?"middle":"end"} >
               <img src={formcall} alt="Phone" />
             </Col>
 
@@ -181,11 +181,11 @@ const MyForm = () => {
             </Col>
           </Row>
           <Row style={{ marginBottom: "30px" }}>
-            <Col xs={24} sm={12} md={2} lg={2} xl={2} align= {isMobileScreen?"middle":"end"}>
+            <Col xs={24} sm={24} md={2} lg={2} xl={2} align= {isMobileScreen?"middle":"end"}>
               <img src={Formmsg} alt="Phone" />
             </Col>
 
-            <Col xs={24} sm={16} md={14} lg={14} xl={10} align= {isMobileScreen?"middle":"end"}>
+            <Col xs={24} sm={24} md={14} lg={14} xl={10} align= {isMobileScreen?"middle":"end"}>
               <Title
                 level={5}
                 style={{
@@ -202,11 +202,11 @@ const MyForm = () => {
             </Col>
           </Row>
           <Row style={{ marginBottom: "30px"}}>
-            <Col xs={24} sm={12} md={2} lg={2} xl={2} align= {isMobileScreen?"middle":"end"}>
+            <Col xs={24} sm={24} md={2} lg={2} xl={2} align= {isMobileScreen?"middle":"end"}>
               <img src={FormLoc} alt="Location" />
             </Col>
 
-            <Col xs={24} sm={20} md={20} lg={20} xl={20} align= {isMobileScreen?"start":"end"}>
+            <Col xs={24} sm={24} md={20} lg={20} xl={20} align= {isMobileScreen?"center":"end"}>
               <Title                
                 style={{
                   color: "#FFF",
