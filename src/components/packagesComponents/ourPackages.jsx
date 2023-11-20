@@ -229,7 +229,16 @@ const Ourpackags = () => {
 
   return (
     <div style={{width:"95%", overflowX:"hidden", margin:"auto"}}>
-      <Row gutter={[16, 16]} justif="center"><Col span={24} align="middle"> <Title level={2} style={{marginTop:"1%"}}>Our Packages</Title> <p>We offer some of the most competitive, pocket-friendly prices around, while also delivering without compromising on our quality standards.</p></Col> </Row>
+      <Row gutter={[16, 16]} justif="center"><Col span={24} align="middle"> <Title level={1} style={{marginTop:"1%",fontWeight:"bold"}}>Our Packages</Title> 
+      {isMobileScreen?
+    <p>We offer some of the most competitive,pocket-friendly prices around,
+    while also delivering without compromising on our quality standards.</p> : 
+      <>
+      <p>We offer some of the most competitive,pocket-friendly prices around,</p>
+       <p> while also delivering without compromising on our quality standards.</p>
+       </>
+      }
+      </Col> </Row>
       <Row gutter={[16, 16]}>
         <Col span={12}>
           <Input
@@ -310,26 +319,32 @@ const Ourpackags = () => {
             {currentData.map((packag) => (
               <Col key={packag._id} xs={24} sm={12} md={8} lg={8} xl={8} >
                 <Card
-                style={{marginLeft:"3%", marginRight:"1%"}}
+                style={{marginLeft:"3%", marginRight:"4%",marginBottom:'20px'}}
                   cover={
                     <Image
                       alt={packag.heading}
                       src={packag.images[0].url}
+                      style={{borderRadius:'35px 35px 0 0',boxShadow: '0 20px 20px rgba(0, 0, 0, 0.1)' }}
                     />
                   }
                 >
                   <Space style={{ position: 'absolute', top: 0, left: 0, padding: '8px' }}>
-                    <span style={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#0C111F57", height: "50px", borderRadius: "20px", width: "120px", color: "white" }}><img src={Star} style={{ marginTop: "12px" }} /><h2>{packag?.noOfReviews === 0 ? 0 : (packag?.ratings % 1 === 0 ? packag?.ratings?.toFixed(0) : packag?.ratings?.toFixed(1))}</h2></span>
+                    <span style={{ display: "flex", justifyContent: "space-between",
+                     alignItems: "center", backgroundColor: "#0C111F57", height: "40px", borderRadius: "40px", 
+                     width: "110px", color: "white",padding:'5px 20px 5px 0' }}>
+                      <img src={Star} style={{ marginTop: "20px",justifyContent:"center"}} /><h2>
+                        {packag?.noOfReviews === 0 ? 0 : (packag?.ratings % 1 === 0 ? packag?.ratings?.toFixed(0) 
+                        : packag?.ratings?.toFixed(1))}</h2></span>
                   </Space>
                   <div
                     style={{
                       position: 'absolute',
                       top: 0,
                       right: 0,
-                      padding: '8px',
+                      padding: '20px',
                     }}
                   >
-                    <HeartFilled onClick={() => add_to_Wishlist(packag._id, packag.itemType)} style={{ color: wishlistItems[packag._id] ? 'red' : 'inherit', fontSize: "30px" }} />
+                    <HeartFilled onClick={() => add_to_Wishlist(packag._id, packag.itemType)} style={{ color: wishlistItems[packag._id] ? 'red' : '#738fac', fontSize: "30px",}} />
                   </div>
                   <br />
                   <Meta
@@ -338,10 +353,10 @@ const Ourpackags = () => {
                   />
 
 
-                  <Row style={{marginTop:30}} xs={24} sm={24} md={24} lg={24} xl={24}>
-                    <Col span={24}><Title level={5}>Duration</Title></Col>
+                  <Row style={{marginTop:30,backgroundColor:'#f7f7f7',borderRadius:'20px'}} xs={24} sm={24} md={24} lg={24} xl={24}>
+                    <Col span={24}><Title level={5} style={{margin:'5px'}}>Duration</Title></Col>
                     <Col  xs={24} sm={24} md={24} lg={12} xl={16} >
-                      <div style={{display:"inline-flex"}} >
+                      <div style={{display:"inline-flex",margin:'5px'}} >
                       <img src={Time} style={{marginRight:"5px"}}/>  <p>{packag.duration}</p>
                       </div>
                     </Col>

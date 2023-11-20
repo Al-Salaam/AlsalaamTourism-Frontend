@@ -28,9 +28,9 @@ function CommonHero(prop) {
     const titleStyle = {
         color: '#FFF',
         fontFamily: 'Ubuntu',
-        fontSize: isSmallScreen ? '8vw' : '3vw',
+        fontSize: isSmallScreen ? '8vw' : '4vw',
         fontStyle: 'normal',
-        fontWeight: 700,
+        fontWeight: 'bold',
         lineHeight: '112%', 
         letterSpacing: '4.48px',
         marginBottom: '10px', 
@@ -52,7 +52,7 @@ function CommonHero(prop) {
     return (
         <div style={containerStyle}>
             <Row >
-                <Col xs={24} sm={24} md={24} lg={24} xl={24} style={{ padding: "2%" }}>
+                <Col xs={24} sm={24} md={24} lg={24} xl={24} style={{ padding: "3%" }}>
                     <div style={titleContainerStyle}>
                         <Title style={titleStyle}>{prop.title1}</Title>
                         <Title style={subTitleStyle}>{prop.title2}</Title>

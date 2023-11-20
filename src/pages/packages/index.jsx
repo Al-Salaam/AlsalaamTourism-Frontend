@@ -9,7 +9,7 @@ const Packags = () => {
 
   return (<>
     <CommonHero image = {HeroImage} title1={"Explore Our Trips"}/>
-    <div style={{margin:"auto auto auto -10px"}}>
+    <div style={{margin:"20px 20px 20px 20px"}}>
     <Ourpackags />
     </div>
     <div style={{marginBottom:"-10%"}}>

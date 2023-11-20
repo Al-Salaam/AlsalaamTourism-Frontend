@@ -28,22 +28,23 @@ const CardSlider = ({reviews}) => {
 
         const cardStyle = {
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Add the box shadow style here
-            marginLeft:"10px"
+            marginLeft:"10px",
+            marginTop:"10px"
         };
         return (
             <Row gutter={20}>
                 {cardsToShow?.map((item) => (
-                    <Col key={item?._id} xs={22} sm={22} md={12} lg={8} xl={8} xxl={8}>
+                    <Col key={item?._id} xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>
                         <Card style={cardStyle}>
-
+                      
                             <Row  xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
-                                <Col span={24}> <p>{item?.comment}</p></Col>
+                                <Col span={24}> <h3 style={{color:"gray"}}>{item?.comment}</h3></Col>
                             </Row>
 
                             <Row gutter={10} style={{marginTop:"30px"}}>
-                                <Col xs={8} sm={8} md={12} lg={12} xl={4}><Image src= {item?.user?.photo} style={{width:"70px",height:"70px", borderRadius:"100%",border:"2px solid #4FAEAB"}}/></Col>
+                                <Col xs={8} sm={8} md={12} lg={12} xl={5}><Image src= {item?.user?.photo} style={{width:"70px",height:"70px", borderRadius:"100%",border:"2px solid #4FAEAB"}}/></Col>
                                 <Col xs={12} sm={12} md={12} lg={12} xl={10}><Title level={4}> {item?.name}</Title></Col>
-                                <Col xs={24} sm={24} md={24} lg={24} xl={10}><Rate allowHalf={true} disabled value={item?.rating} count={5} style={{color:"#4FAEAB"}}/></Col>
+                                <Col xs={24} sm={24} md={24} lg={24} xl={9}><Rate allowHalf={true} disabled value={item?.rating} count={5} style={{color:"#4FAEAB"}}/></Col>
                             </Row>
                         </Card>
                     </Col>

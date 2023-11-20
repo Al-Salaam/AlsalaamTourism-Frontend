@@ -76,7 +76,11 @@ const RatingInput = ({ activity }) => {
     },
     submit: {
       color: "white",
-      backgroundColor: "#3B505A"
+      backgroundColor: "#3B505A",
+      width:"170px",
+      height:"50px",
+      borderRadius:"30px",
+      fontSize:"23px"
     }
   }
 
@@ -120,7 +124,7 @@ const RatingInput = ({ activity }) => {
             {/* Third Row */}
             <Col xs={24} sm={24} md={12} lg={12} xl={12} align={isSmallScreen ? "middle" : ""} >
 
-              <Rate allowHalf={true} value={rating} onChange={handleRatingChange} />
+              <Rate allowHalf={true} value={rating} onChange={handleRatingChange} style={{fontSize:"40px"}} />
             </Col>
             <Col xs={24} sm={24} md={12} lg={12} xl={12} align={isSmallScreen ? "middle" : ""}>
               <Button disabled={loading} style={styles.submit} onClick={handleSubmitReview}>

@@ -61,6 +61,7 @@ const   RatingInput = ({ pakage }) => {
             fontSize: "16px",
             color: "#696969",
             fontWeight: "400px",
+          
 
         },
         button: {
@@ -69,14 +70,21 @@ const   RatingInput = ({ pakage }) => {
             color: "#3B505A",
             fontSize: "20px",
             fontWeight: '700px'
+            
         },
         textArea: {
             backgroundColor: "#EFF0F2",
             border: "none"
+            
         },
         submit: {
             color: "white",
-            backgroundColor: "#3B505A"
+            backgroundColor: "#3B505A",
+            width:"170px",
+            height:"50px",
+            borderRadius:"30px",
+            fontSize:"23px"
+            
         }
     }
 
@@ -114,7 +122,7 @@ const   RatingInput = ({ pakage }) => {
                         {/* Third Row */}
                         <Col xs={24} sm={24} md={12} lg={12} xl={12} align={isSmallScreen ? "middle" : ""} >
 
-                            <Rate allowHalf={true} value={rating} onChange={handleRatingChange} />
+                            <Rate allowHalf={true} value={rating} onChange={handleRatingChange} style={{fontSize:"40px"}}/>
                         </Col>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12} align={isSmallScreen ? "middle" : ""}>
                             <Button disabled={loading} style={styles.submit} onClick={handleSubmitReview}>
