@@ -4,7 +4,7 @@ import { Row, Col, Rate, Progress } from 'antd';
 const AverageRating = ({rating ,reviews ,module}) => {
   const totalRatings = reviews || 0; // Total number of ratings
   const averageRating = rating || 0; // Average rating
-
+  const formattedRating = totalRatings === 0 ? 0 : (averageRating % 1 === 0 ? averageRating?.toFixed(0) : averageRating?.toFixed(1));
   // Calculate the percentage distribution for each rating level
   const percentagePerRating = Array.from({ length: 5 }, (_, index) => {
     // Calculate the percentage for each rating level
@@ -14,7 +14,7 @@ const AverageRating = ({rating ,reviews ,module}) => {
     }, 0);
     return (ratingCount / totalRatings) * 100;
   });
-
+  
   return (
     <Row gutter={16} align="middle">
       {/* First Column */}
@@ -26,7 +26,7 @@ const AverageRating = ({rating ,reviews ,module}) => {
             disabled
             style={{ fontSize: 24, color: 'gold' }}
           />
-          <span style={{ marginLeft: 8, fontSize: 50 }}>{totalRatings === 0 ? 0 : averageRating}</span>
+          <span style={{ marginLeft: 8, fontSize: 50 }}>{formattedRating}</span>
         </div>
       </Col>
 
@@ -42,6 +42,7 @@ const AverageRating = ({rating ,reviews ,module}) => {
                   percent={percentagePerRating[index]}
                   status="active"
                   strokeColor={"#3B505A"}
+                  format={() => `${percentagePerRating[index].toFixed(1)}%`}
                 />
               </div>
             );
