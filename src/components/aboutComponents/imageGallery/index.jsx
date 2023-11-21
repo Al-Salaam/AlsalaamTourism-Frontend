@@ -44,8 +44,9 @@ const ImageGallery = ({images}) => {
     margin: '5px',
     marginLeft: isMobile?"":'10px',
     marginRight:isMobile?"": '80px',
-    marginTop: '20px',
-    marginBottom: '20px',
+    marginTop:isMobile?"2px": '5px',
+    marginBottom:isMobile?"2px": '9px',
+    
   };
   
   const halfHeightStyle = {
@@ -87,7 +88,7 @@ const ImageGallery = ({images}) => {
           <Image src={images[2]} width="100%" height="100%"/>
           </div>
         </div>
-        <div style={{...columnStyle, marginTop:"0.7%"}}>
+        <div style={{...columnStyle, marginTop:"0.5%"}}>
           <div style={{height:"68%"}}>
           <Image src={images[3]} width="100%" height="99%"/>
           </div>
