@@ -31,7 +31,6 @@ const Navbar = ({ showOverlayMessage }) => {
 
   const navlinkStyles = ({ isActive }) => {
     return {
-      // fontSize:isActive ? "30px" : "25px",
       colorL: isActive ? "white" : "black",
       backgroundColor: "transparent",
       borderBottom: isActive ? "2px solid black" : null,
@@ -351,7 +350,8 @@ const Navbar = ({ showOverlayMessage }) => {
             <ConfigProvider
               theme={{
                 token: {
-                  colorPrimary: "#66AAB8",
+                  colorPrimary:"#66aab8",
+                  lineWidth:-1,
                   fontSize: 20,
                   colorText: "white",
                 },

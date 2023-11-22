@@ -24,7 +24,7 @@ const withNavbar = (WrappedComponent) => {
     });
 
     const isSmall = useMediaQuery({
-      query: '(max-width: 380px)', // Change this breakpoint as needed
+      query: '(max-width: 767px)', // Change this breakpoint as needed
     });
 
     // Styling
@@ -38,8 +38,8 @@ const withNavbar = (WrappedComponent) => {
         backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent black
         zIndex: 4, // Place it below the box
       },
-      box: { position: 'fixed', top: '64px', right: isManue ? "-120px" : '50px', width: isSmall ? "90vw" : '400px', height: '300px', backgroundColor: '#FFFFFF', color: 'black', margin: "0 150px", zIndex: 5, borderRadius: "10px" },
-      button: { backgroundColor: "#3B505A", border: "none", position: "absolute", bottom: "10px", right: "10px", color: "white", borderRadius: "40%", height: "30px", width: "30px" }
+      box: { position: 'fixed',padding:"0 5px", top: '110px', right: isManue ? "-135px" : '50px', width: isSmall ? "90vw" : '400px', height:isSmall ? "50vh" : '350px', backgroundColor: '#FFFFFF', color: 'black', margin: "0 150px", zIndex: 5, borderRadius: "10px" },
+      button: { backgroundColor: "#3B505A", border: "none", position: "absolute", bottom: "10px", right: "10px", color: "white", borderRadius: "50%", height: "30px", width: "30px" }
     }
 
     return (

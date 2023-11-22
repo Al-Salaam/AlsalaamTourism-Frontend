@@ -8,23 +8,23 @@ import TopDealCarousel from "../../components/common/topDealCarousel";
 
 
 function Home() {
-    
+
 
     return (
         <>
-        
-            <HeroShowCase  />
-            <div style={{margin:"40px 40px 30px 40px"}}>
-            <ServicesShowCase videoSrc="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" /></div>
+
+            <HeroShowCase />
+            <div style={{ margin: "40px 40px 30px 40px" }}>
+                <ServicesShowCase videoSrc="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" /></div>
             <ThreeCardShowCase />
-          
+
             <RecomendedSection />
-            <div style={{margin:"80px 0 80px 0"}}>
-            <TopDealCarousel/>
+            <div style={{ margin: "80px 0 80px 0" }}>
+                <TopDealCarousel />
             </div>
-            <div style={{marginBottom:"-10%"}}>
-    <Footer />
-    </div>
+            <div style={{ marginBottom: "-10%" }}>
+                <Footer />
+            </div>
         </>
     )
 }
