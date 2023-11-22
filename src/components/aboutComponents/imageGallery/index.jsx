@@ -7,6 +7,9 @@ const ImageGallery = ({images}) => {
   const isMobile = useMediaQuery({
     query: '(max-width: 501px)', // Change this breakpoint as needed
   });
+  const is_Medium_Screen = useMediaQuery({
+    query: '(max-width: 1123px)', // Change this breakpoint as needed
+  });
   const containerStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -89,7 +92,7 @@ const ImageGallery = ({images}) => {
           </div>
         </div>
         <div style={{...columnStyle, marginTop:"0.5%"}}>
-          <div style={{height:"68%"}}>
+          <div style={{height:"68%",marginTop:is_Medium_Screen ? "6px" : ""}}>
           <Image src={images[3]} width="100%" height="99%"/>
           </div>
           <div style={{height:"40%", marginTop:"5%"}}>

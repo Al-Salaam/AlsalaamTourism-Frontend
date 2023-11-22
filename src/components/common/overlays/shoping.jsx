@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Row, Col, Divider, Image, Typography, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { getAddToCartData, removeFromCart } from "../../../redux/reducers/activityReducer";
-import { CloseCircleOutlined, ShoppingCartOutlined} from "@ant-design/icons";
+import { CloseCircleOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 
@@ -28,27 +28,27 @@ const ShoppingComponent = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100%", }}>
       {cart.length === 0 ? (
         <>
-        <ShoppingCartOutlined style={{fontSize:"150px",textAlign:'center',justifyContent:"center",marginLeft:"80px"}}/>
-        <h2 style={{textAlign:'center',marginTop:'10px'}}>Your Cart is Empty</h2>
+          <ShoppingCartOutlined style={{ fontSize: "50px" }} />
+          <h3 style={{ textAlign: 'center', marginTop: '10px' }}>Your Cart is Empty</h3>
         </>
       ) : (
         <>
           {cart.map((item) => (
-            <div key={item?.activityId}>
+            <div key={item?.activityId} style={{}}>
               <Row gutter={16} style={{ marginBottom: "20px" }}>
                 <Col xs={24} sm={24} md={12} lg={12} xl={12} align="middle">
-                  <Image src={item.image} alt="image" width={150} height={150} style={{objectFit:'contain'}} />
+                  <Image src={item.image} alt="image" width={150} height={150} style={{ objectFit: 'contain' }} />
                 </Col>
-                <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{marginTop:"20px"}}>
-                  <Title level={3}>{item?.title}</Title>
-                  <Title level={4} style={{marginTop:"-10px"}}>{item?.price} AED</Title>
+                <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{ marginTop: "20px" }}>
+                  <Title level={4}>{item?.title}</Title>
+                  <Title level={4} style={{ marginTop: "-10px" }}>{item?.price} AED</Title>
                   <Space>
-                    <Link to={`/activity/${item.activityId}` } >View Details</Link>
-              
-                    <CloseCircleOutlined 
+                    <Link to={`/activity/${item.activityId}`} >View Details</Link>
+
+                    <CloseCircleOutlined
                       style={{
                         color: "red",
                         cursor: "pointer",
@@ -61,16 +61,14 @@ const ShoppingComponent = () => {
                 </Col>
               </Row>
               <Divider />
+             
             </div>
           ))}
-          <Row gutter={16}>
-            <Col span={12} align="middle">
-              <h1>SubTotal</h1>        
-            </Col>
-            <Col span={12} align="left" style={{marginTop:"5px"}}>
-              <h2 style={{color:"#3B505A"}}>{subtotal} AED</h2>
-            </Col>
-          </Row>
+         
+          <div style={{textAlign:"left"}}>
+          <h5>SubTotal</h5>
+          <h5 style={{color:"#3B505A"}}>{subtotal} AED</h5>
+          </div>
         </>
       )}
     </div>
