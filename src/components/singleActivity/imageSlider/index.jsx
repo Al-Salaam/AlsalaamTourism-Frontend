@@ -249,11 +249,11 @@ function Carousel({
         <div
           className="thumbnails"
           id="thumbnail-div"
-          style={{ maxWidth: width, }}
+          style={{ maxWidth: width, marginTop:"30px" }}
         >
           {data?.map((item, index) => {
             return (
-              <div className="card" style={{ margin: "0 5px" }} >
+              <div className="card" style={{ margin: "0 4px" }} >
                 <img
                   width={thumbnailWidth ? thumbnailWidth : "100px"}
                   src={item?.url}
