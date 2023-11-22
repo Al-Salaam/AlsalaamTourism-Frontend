@@ -84,7 +84,7 @@ const Description = ({activity}) => {
             </Row>
 
             <Row>
-                <Col span={24}>
+                <Col xs={22} sm={24} md={24} lg={24} xl={24}>
                     <Card style={{...titleStyle, marginTop: '20px' }}>
                         {contentMap[selectedButton]}
                     </Card>

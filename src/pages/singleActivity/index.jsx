@@ -55,7 +55,7 @@ function SingleActivity() {
                         </Col>
 
                         <Col xs={24} sm={24} md={12} lg={12} xl={12} >
-                            <Carousel data={activity?.images} thumbnails={true} mainImageMargin= {isSmallest1? "":"2vh 5vw 2vh 5vw" }width="1000px" thumbnailWidth="200px" slideNumberStyle={slideNumberStyle} slideNumber={true} />
+                            <Carousel data={activity?.images} thumbnails={true} mainImageMargin= {isSmallest1? "":"2vh 5vw 2vh 5vw" } width="900px" thumbnailWidth="100px" slideNumberStyle={slideNumberStyle} slideNumber={true} />
                             <Stats activity={activity} />
                             <div style={{ marginLeft:"20px" }}>
                             <Itenary />

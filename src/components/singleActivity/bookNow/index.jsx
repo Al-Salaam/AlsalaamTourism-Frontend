@@ -59,6 +59,8 @@ const BookNow = ({ activity }) => {
 
   const isSmallScreen = useMediaQuery({ maxWidth: 950 });
 
+  const isSmallview = useMediaQuery({ maxWidth: 1000 });
+
   const dispatch = useDispatch();
   const { loading, error, message } = useSelector((state) => state.wishlist);
 
@@ -147,10 +149,10 @@ const BookNow = ({ activity }) => {
     backgroundColor: "white"
   };
 
-  const isSmallScreen1 = useMediaQuery({ maxWidth: 562 });
+  const isSmallScreen1 = useMediaQuery({ maxWidth: 425 });
   const textBoxStyle = {
 
-    width: isSmallScreen1 ? "100px" : "140px",
+    width: isSmallScreen1 ? "120px" : "130px",
     border: '1px solid #ccc',
     borderRadius: '5px',
     display: 'flex',
@@ -215,11 +217,11 @@ const BookNow = ({ activity }) => {
   return (
     <div style={{margin:'0 30px 0 40px'}}>
       <Row gutter={[40]} style={Styles.margin}>
-        <Col span={24}><Title level={1} style={titleStyle}>{activity?.name}</Title></Col>
+        <Col xs={24} sm={24} md={24} lg={24} xl={12}><Title level={2} style={titleStyle}>{activity?.name}</Title></Col>
       </Row>
       <Row gutter={[40]} style={Styles.margin}>
-        <Col span={12}><Title level={5} style={titleStyle}>From {calculateTotalPrice().toFixed(2)} AED</Title></Col>
-        <Col span={12} style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+        <Col xs={24} sm={24} md={24} lg={24} xl={12}><Title level={5} style={titleStyle}>From {calculateTotalPrice().toFixed(2)} AED</Title></Col>
+        <Col xs={24} sm={24} md={24} lg={24} xl={12} style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
           <ReactStars
             count={5}
             value={activity?.noOfReviews === 0 ? 0 : activity?.ratings}
@@ -236,10 +238,10 @@ const BookNow = ({ activity }) => {
         <Col span={24}><Title level={5} style={titleStyle}>{activity?.shortdescription}</Title></Col>
       </Row>
       <Row>
-        <Col span={24} style={Styles.margin} align={isSmallScreen ? "middle" : ""} ><DatePicker value={date} onChange={dateHandler} /></Col>
+        <Col xs={18} sm={24} md={14} lg={24} xl={12} style={Styles.margin} align={isSmallScreen ? "middle" : ""} ><DatePicker value={date} style={{marginLeft:isSmallview?"0%":"2%", marginRight:"0%"}} onChange={dateHandler} /></Col>
       </Row>
       <Row gutter={16} style={Styles.margin}>
-        <Col span={8}>
+        <Col xs={12} sm={8} md={12} lg={8} xl={8}>
           <div style={textBoxStyle}>
 
             <div style={placeholderStyle}><div ><h3 style={titleStyle}>Adult</h3><p style={{...titleStyle, color: "gray" }}>Over 18+</p></div></div>
@@ -254,7 +256,7 @@ const BookNow = ({ activity }) => {
             </div>
           </div>
         </Col>
-        <Col span={8}>
+        <Col xs={12} sm={8} md={12} lg={8} xl={8}>
           <div style={textBoxStyle}>
 
             <div style={placeholderStyle}><div ><h3 style={titleStyle}>Children</h3><p style={{...titleStyle, color: "gray" }}>Under 12</p></div></div>
@@ -269,7 +271,7 @@ const BookNow = ({ activity }) => {
             </div>
           </div>
         </Col>
-        <Col span={8}>
+        <Col xs={24} sm={8} md={24} lg={8} xl={8}>
           <div style={textBoxStyle}>
 
             <div style={placeholderStyle}><div ><h3 style={titleStyle}>Infant</h3><p style={{...titleStyle, color: "gray" }}>Under 3</p></div></div>

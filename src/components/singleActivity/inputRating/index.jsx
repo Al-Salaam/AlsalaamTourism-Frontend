@@ -130,11 +130,11 @@ const RatingInput = ({ activity }) => {
             </Col>
           </Row>
 
-          <Row gutter={[16]} style={{padding:"2% 0"}}>
+          <Row gutter={[16]} style={{padding:"3% 0"}}>
             {/* Third Row */}
             <Col xs={24} sm={24} md={12} lg={12} xl={12} align={isSmallScreen ? "middle" : ""} >
 
-              <Rate allowHalf={true} value={rating} onChange={handleRatingChange} style={{fontSize:"40px"}} />
+              <Rate allowHalf={true} value={rating} onChange={handleRatingChange} style={{fontSize:"40px",}} />
             </Col>
             <Col xs={24} sm={24} md={12} lg={12} xl={12} align={isSmallScreen ? "middle" : ""}>
               <Button disabled={loading} style={styles.submit} onClick={handleSubmitReview}>

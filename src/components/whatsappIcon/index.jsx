@@ -1,16 +1,24 @@
 import { useEffect, useRef } from "react";
 import lottie from "lottie-web";
 import whatsappAnimation from "../../whatsapp.json";
+import { useMediaQuery } from "react-responsive";
 
-const floatingWhatsappStyle = {
-  position: 'fixed',
-  bottom: '20px',
-  right: '40px',
-  borderRadius: '50%',
-  cursor: 'pointer',
-};
+
 
 function FloatingWhatsapp() {
+
+  const isMobile = useMediaQuery({
+    query: '(max-width: 501px)', // Change this breakpoint as needed
+  });
+
+  const floatingWhatsappStyle = {
+    position: 'fixed',
+    bottom: isMobile?"65px":'35px',
+    right:isMobile?"1px": '20px',
+    borderRadius: '40%',
+    cursor: 'pointer',
+  };
+
   const animationContainer = useRef(null);
 
   useEffect(() => {
