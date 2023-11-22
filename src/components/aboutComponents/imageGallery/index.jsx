@@ -14,10 +14,11 @@ const ImageGallery = ({images}) => {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    marginTop: "40px",
-    marginBottom: "80px",
+    marginTop:isMobile?"20px": "40px",
+    marginBottom:isMobile?"20px": "80px",
     marginLeft:isMobile?"": "2.5%",
     marginRight:isMobile?"": "8%",
+    
 
   };
   
@@ -67,13 +68,15 @@ const ImageGallery = ({images}) => {
   const StyleOur = {
     marginLeft:"4%",
     marginRight:"",
-    fontFamily: "Ubuntu"
+    fontFamily: "Ubuntu",
+ 
+
   }
 
   return (
     <>
     <Row style={{margin:"2% 1%"}}>
-      <Col  xs={24} sm={24} md={12} lg={12} xl={12} align={isMobile ? "middle" :""}><h1 style={StyleOur}>Our Gallery</h1> <p style={{...StyleOur, marginTop:"2%", marginBottom:"0%"}}>We bring to the fore all our expertise to make your </p> <p style={StyleOur}>journey very comfortable.</p></Col>
+      <Col  xs={24} sm={24} md={12} lg={12} xl={12} align={isMobile ? "middle" :""}><h1 style={StyleOur}>Our Gallery</h1> <p style={{...StyleOur, marginTop:"2%", marginBottom:"0%",fontSize:isMobile?"":"20px"}}>We bring to the fore all our expertise to make your </p> <p style={{marginLeft:"4%",marginRight:"",fontFamily: "Ubuntu",fontSize:isMobile?"":"20px"}}>journey very comfortable.</p></Col>
       {/* <Col  xs={24} sm={24} md={12} lg={12} xl={12} align={isMobile ? "middle" :"right"}><PrimaryButton width='200px'title={"Open Gallery"}/></Col> */}
     </Row>
     <div style={containerStyle}>

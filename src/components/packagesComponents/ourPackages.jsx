@@ -240,7 +240,7 @@ const Ourpackags = () => {
       }
       </Col> </Row>
       <Row gutter={[16, 16]}>
-        <Col span={12}>
+        <Col xs={24} sm={12} md={8} lg={8} xl={8}>
           <Input
             placeholder="Search packags"
             prefix={<SearchOutlined />}
@@ -319,7 +319,7 @@ const Ourpackags = () => {
             {currentData.map((packag) => (
               <Col key={packag._id} xs={24} sm={12} md={8} lg={8} xl={8} >
                 <Card
-                style={{marginLeft:"3%", marginRight:"4%",marginBottom:'20px'}}
+                style={{marginLeft:"3%", marginRight:"4%",marginBottom:'20px',borderRadius:'35px 35px 0 0'}}
                   cover={
                     <Image
                       alt={packag.heading}
@@ -353,7 +353,7 @@ const Ourpackags = () => {
                   />
 
 
-                  <Row style={{marginTop:30,backgroundColor:'#f7f7f7',borderRadius:'20px'}} xs={24} sm={24} md={24} lg={24} xl={24}>
+                  <Row style={{marginTop:30,backgroundColor:'#f7f7f7',borderRadius:'20px',padding:"5px"}} xs={24} sm={24} md={24} lg={24} xl={24}>
                     <Col span={24}><Title level={5} style={{margin:'5px'}}>Duration</Title></Col>
                     <Col  xs={24} sm={24} md={24} lg={12} xl={16} >
                       <div style={{display:"inline-flex",margin:'5px'}} >
@@ -361,7 +361,7 @@ const Ourpackags = () => {
                       </div>
                     </Col>
                     <Link to={`/packages/${packag._id}`}>
-                    <Col xs={24} sm={24} md={24} lg={12} xl={16} align="right" style={{ marginTop: marginTopStyle }} >
+                    <Col xs={24} sm={24} md={24} lg={12} xl={16} align="right" style={{ marginTop: marginTopStyle,marginBottom:"5px" }} >
                       <PrimaryButton title={"View Details"}width='140%' />
                     </Col>
                     </Link>

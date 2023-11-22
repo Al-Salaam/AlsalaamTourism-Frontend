@@ -16,7 +16,7 @@ function ActivityPage() {
     return (
         <>
             <ActivityHeroSection />
-            <div style={{margin:isSmallScreen? "12px 30px":"40px 60px 60px 75px"}}>
+            <div style={{margin:isSmallScreen? "40px 10px 60px 10px":"40px 60px 60px 75px"}}>
             <OurActivity />
             </div>
             <div style={{margin:"0 0 50px 0"}}>

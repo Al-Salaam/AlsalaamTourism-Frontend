@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import { clearError, clearMessage } from '../../../redux/reducers/personalInformationReducer';
 import { fetchUserProfile } from '../../../redux/actions/authAction';
 import {Loader} from '../../common/loader'
+import { useMediaQuery } from 'react-responsive';
 const UserForm = () => {
 
   // state for Location
@@ -103,12 +104,12 @@ const UserForm = () => {
 
   const cardStyle = {
     /* width: isSmallScreen ? "350px" : "800px", */
-    height: "hug",
+    
     gap: "30px",
     boxShadow: "0px 20px 25px -5px #0000001A, 0px 10px 10px 0px #0000000A",
     /*  paddingLeft: isSmallScreen ? "0px" : "30px", */
     marginTop: "40px",
-    marginBottom: "40px",
+    
     fontFamily: "Ubuntu",
   };
 
@@ -126,8 +127,8 @@ const UserForm = () => {
     border: "1px solid #ccc",
     fontFamily: "Ubuntu",
     outline: "none",
-    width: "300px", // Fixed width
-    height: "47px", // Hug height
+    // width: "300px", // Fixed width
+    // height: "47px", // Hug height
     fontSize: "16px",
     padding: "13px 0px 13px 9px", // Padding values
     borderRadius: "5px", // Border radius
@@ -135,11 +136,12 @@ const UserForm = () => {
   };
 
 
-
+  const isSmallScreen = useMediaQuery({ maxWidth: 430 });
   return (
     <>
     {loading ? <Loader /> : (
       <>
+      <Row>
       <Col
         xs={24}
         md={12}
@@ -147,7 +149,7 @@ const UserForm = () => {
         lg={12}
         xl={12}
         style={{ display: "flex", flexDirection: "column", marginBottom: "20px" }}
-      > <h1>Settings</h1> </Col>
+      > <h1>Settings</h1> </Col></Row>
 
       <Card style={cardStyle}>
         <Row style={{ marginBottom: "50px" }}>
@@ -164,17 +166,17 @@ const UserForm = () => {
           xl={24}>
 
           {/* LEFT SIDE */}
-          <Col>
+          <Col >
             <Row>
-              <img src={user?.photo} alt='USER IMAGE' style={{ borderRadius: "100%", width: '200px', height: "200px" }} />
+              <img src={user?.photo} alt='USER IMAGE' style={{ borderRadius: "100%", width:isSmallScreen?'100px': '200px', height: isSmallScreen?'100px': '200px' }} />
             </Row>
-            <Row>
+            {/* <Row>
               <h3 style={{ marginLeft: "45px", marginBottom: "20px" }}>Edit Profile</h3>
-            </Row>
+            </Row> */}
           </Col>
 
           {/*  RIGHT SIDE */}
-          <Col>
+          <Col xs={24}sm={24}md={24}lg={8}xl={8} style={{marginTop:"20px"}}>
             {/*  Row 1 */}
             <Row gutter={30} xs={24}
               md={24}
@@ -232,7 +234,7 @@ const UserForm = () => {
               <Col
                 xs={24}
                 md={24}
-                sm={24}
+                sm={12}
                 lg={12}
                 xl={12}
                 style={{ display: "flex", flexDirection: "column" }}
@@ -379,7 +381,7 @@ const UserForm = () => {
                 <input
                   type='text'
                   id=""
-                  placeholder='Enter the State/Province/Region'
+                  placeholder='Enter the State/Province'
                   style={inputStyle}
                   value={stateProvinceRegion}
                   onChange={(e) => setStateProvinceRegion(e.target.value)}

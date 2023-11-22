@@ -9,7 +9,7 @@ function CommonHero(prop) {
 
     const containerStyle = {
         position: 'relative',
-        height: isSmallScreen? '50vh': '70vh',
+        height: isSmallScreen? '40vh': '70vh',
         backgroundImage: `url(${prop.image})`,
         padding: '4% 0 5%',
         backgroundSize: 'cover',
@@ -20,10 +20,6 @@ function CommonHero(prop) {
         
     };
 
-    const titleContainerStyle = {
-        
-        
-    };
 
     const titleStyle = {
         color: '#FFF',
@@ -53,7 +49,7 @@ function CommonHero(prop) {
         <div style={containerStyle}>
             <Row >
                 <Col xs={24} sm={24} md={24} lg={24} xl={24} style={{ padding: "3%" }}>
-                    <div style={titleContainerStyle}>
+                    <div>
                         <Title style={titleStyle}>{prop.title1}</Title>
                         <Title style={subTitleStyle}>{prop.title2}</Title>
                     </div>
