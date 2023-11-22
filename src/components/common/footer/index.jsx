@@ -13,8 +13,39 @@ import Facebook from "../../../../images/facebook.png";
 import Twitter from "../../../../images/twitter.png";
 import Instagram from "../../../../images/instagram.png";
 import { useMediaQuery } from 'react-responsive';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-hot-toast';
+import { createNewsLetter } from '../../../redux/actions/newsLetterAction';
+import { clearError, clearMessage } from '../../../redux/reducers/newsLetterReducer';
 const {Title} = Typography;
 function Footer() {
+    const [email , setEmail] = useState();
+    const dispatch = useDispatch();
+
+    const {loading, error, message} = useSelector((state) => state.newsLetter)
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(!email){
+            toast.error('Please Enter your email')
+            return;
+        }
+        dispatch(createNewsLetter(email))
+        setEmail('')
+        
+    }
+
+    useEffect(() => {
+        if(error){
+            toast.error(error.message)
+            dispatch(clearError())
+        }
+        if(message){
+            toast.success(message)
+            dispatch(clearMessage())
+        }
+    }, [error, toast, message, dispatch])
+
     const isTablet = useMediaQuery({
         query: '(max-width: 675px)', 
       });
@@ -107,7 +138,7 @@ function Footer() {
 
                     <Row align={"left"} justify={"left"}>
                         <Col span={18}>
-                            <Input style={titleStyle} placeholder="Input your email here" />
+                            <Input style={titleStyle} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Input your email here" />
                         </Col>
                         <Col span={6}>
                             <ConfigProvider
@@ -122,7 +153,7 @@ function Footer() {
                             >
                                 <Space>
 
-                                    <Button style={{ border: "none", color: "white" }} icon={<SendOutlined />} size={5} />
+                                    <Button disabled={loading} onClick={handleSubmit} style={{ border: "none", color: "white" }} icon={<SendOutlined />} size={5} />
                                 </Space>
                             </ConfigProvider>
 

@@ -8,6 +8,7 @@ import wishlistReducer from "./reducers/wishlistReducer"
 import contactReducer from "./reducers/contactReducer";
 import bookingReducer from "./reducers/bookingReducer";
 import inquiryReducer from "./reducers/inquiryReducer";
+import newsLetterReducer from "./reducers/newsLetterReducer";
 
 
 
@@ -20,6 +21,7 @@ export const store = configureStore({
         wishlist: wishlistReducer,
         contactus: contactReducer,
         booking: bookingReducer,
-        inquiry: inquiryReducer
+        inquiry: inquiryReducer,
+        newsLetter: newsLetterReducer
     }
 })

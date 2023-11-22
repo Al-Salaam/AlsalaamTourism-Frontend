@@ -5,15 +5,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createActivitiesReviews } from '../../../redux/actions/activityAction';
 import { clearError, clearMessage } from '../../../redux/reducers/activityReducer';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const RatingInput = ({ activity }) => {
 
   const dispatch = useDispatch();
   const { loading, error, message } = useSelector((state) => state.activity);
+  const {user } = useSelector((state) => state.auth);
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [rating, setRating] = useState(0);
   const [reviewText, setReviewText] = useState('');
-
+  const navigate = useNavigate();
   const isSmallScreen = useMediaQuery({ maxWidth: 950 });
 
   const handleAddReviewClick = () => {
@@ -30,15 +32,23 @@ const RatingInput = ({ activity }) => {
 
   const handleSubmitReview = (e) => {
     e.preventDefault();
-    const ratingData = {
-      rating: rating,
-      comment: reviewText
+    if (!rating || !reviewText){
+      toast.error('Please provide both a rating and a review text.')
+    }else if (!user){
+      navigate('/login')
+    }else{
+      const ratingData = {
+        rating: rating,
+        comment: reviewText
+      }
+      
+      dispatch(createActivitiesReviews({ id: activity._id, ratingData }))
+  
+      setRating(0);
+      setReviewText('');
     }
-    console.log(ratingData)
-    dispatch(createActivitiesReviews({ id: activity._id, ratingData }))
 
-    setRating(0);
-    setReviewText('');
+    
 
   };
 
