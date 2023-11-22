@@ -37,7 +37,7 @@ const FlipCard = (props) => {
   };
   const isSmallestScreen = useMediaQuery({ maxWidth: 430 });
 
-  const isSmallestScreen2 = useMediaQuery({ maxWidth: 830 });
+  const isSmallestScreen2 = useMediaQuery({ maxWidth: 375 });
 
   const cardWidth = props.width || (isSmallestScreen ? "100%" : "95%");
   const formattedRating =
@@ -99,7 +99,7 @@ const FlipCard = (props) => {
               right: "0",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px",margin:"12px 0 0 0" }}>
               <ReactStars
                 count={props.noOfReviews === 0 ? 1 : props.rate}
                 value={props.noOfReviews === 0 ? 1 : props.rate}
@@ -202,7 +202,7 @@ const FlipCard = (props) => {
               right: "0",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px",margin:"12px 0 0 0" }}>
               <ReactStars
                 count={props.noOfReviews === 0 ? 1 : props.rate}
                 value={props.noOfReviews === 0 ? 1 : props.rate}
@@ -246,7 +246,8 @@ const FlipCard = (props) => {
             }}
           >
             <Link to={`/activity/${props.activityId}`}>
-              <PrimaryButton title={"View Details"} width={"150px"} />
+
+              <PrimaryButton title={isSmallestScreen2?"View":"View Details"} width={isSmallestScreen2?"75px":"150px"} height={isSmallestScreen2?"40px":""} />
             </Link>
           </h3>
         </div>

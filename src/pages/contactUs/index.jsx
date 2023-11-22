@@ -23,7 +23,7 @@ function ContactUS ()  {
 
     <ContactForm/>
 
-    <div style={{marginBottom:"-10%"}}>
+    <div style={{marginBottom:"-30%"}}>
     <Footer />
     </div>
     </>

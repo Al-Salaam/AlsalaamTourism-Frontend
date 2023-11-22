@@ -109,7 +109,7 @@ function About() {
 
 
   return (
-    <div style={{overflowX: "hidden", overflowY:"hidden"}}>
+    <div style={{}}>
       <AboutHero
         description="This is a sample video description."
         videoSource="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
@@ -154,7 +154,7 @@ function About() {
 
       <CircleComponent />
       <ImageGallery images={images} />
-      <div >
+      <div style={{marginBottom:"-30%"}}>
         <Footer />
       </div>
     </div>

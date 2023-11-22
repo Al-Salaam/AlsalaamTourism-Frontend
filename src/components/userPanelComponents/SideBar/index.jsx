@@ -21,6 +21,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserProfile, logoutUser } from '../../../redux/actions/authAction';
 import toast from 'react-hot-toast';
 import { clearError, clearMessage } from '../../../redux/reducers/authReducer';
+import { useMediaQuery } from 'react-responsive';
 
 const { Content, Sider } = Layout;
 
@@ -78,10 +79,11 @@ const SideBar = () => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
-
+  const isSmallScreen = useMediaQuery({ maxWidth: 430 });
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider
+      
         trigger={null}
         collapsible
         collapsed={collapsed}
@@ -91,6 +93,7 @@ const SideBar = () => {
           height: '100%',
           zIndex: 1,
           background: 'linear-gradient(45deg, #70ADBB, #018D97)',
+         
         }}
       >
         <div className="logo">
@@ -103,7 +106,7 @@ const SideBar = () => {
             }}
             alt="Logo"
           />
-          <Layout style={{ marginLeft: collapsed ? '67px' : '187px' }}>
+          <Layout style={{ marginLeft: collapsed ? '67px' : '187px'}}>
             <div
               style={{
                 padding: 0,

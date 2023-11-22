@@ -213,9 +213,9 @@ const SignUp = () => {
                         <Row gutter={8} align="center">
                             <Col>
                                 <Divider plain style={{ borderWidth: 5, borderColor: 'lightGray' }}>
-                                    OR
+                                    {/* OR */}
                                 </Divider>
-                                <LoginWithGoogle title={'Login with google'} />
+                                {/* <LoginWithGoogle title={'Login with google'} /> */}
                             </Col>
                         </Row>
                     </div>
