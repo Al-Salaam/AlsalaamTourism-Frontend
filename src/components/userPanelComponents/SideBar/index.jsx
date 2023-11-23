@@ -22,6 +22,7 @@ import { fetchUserProfile, logoutUser } from '../../../redux/actions/authAction'
 import toast from 'react-hot-toast';
 import { clearError, clearMessage } from '../../../redux/reducers/authReducer';
 import { useMediaQuery } from 'react-responsive';
+import { Header } from 'antd/es/layout/layout';
 
 const { Content, Sider } = Layout;
 
@@ -54,7 +55,7 @@ const SideBar = () => {
 
   const skeletonLoaderStyle = {
     display: 'flex',
-    margin: '10px 0 10px 15px',
+    margin: '15px 0 10px 15px',
     color: 'white',
   };
 
@@ -79,8 +80,122 @@ const SideBar = () => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
-  const isSmallScreen = useMediaQuery({ maxWidth: 430 });
+  const isSmallScreen = useMediaQuery({ maxWidth: 450 });
   return (
+    <>
+       {isSmallScreen && 
+ <Layout style={{ minHeight: '100vh' }}>
+ <Header
+   style={{
+     background: 'linear-gradient(45deg, #70ADBB, #018D97)',
+     padding: 0,
+     display: 'flex',
+     justifyContent: 'space-between',
+     alignItems: 'center',
+   }}
+ >
+   <div style={{display:"flex",alignItems:"center",marginLeft:"3%"}}>
+     <img
+       src={ Logo}
+       style={{
+         width: '40px',
+         height: '40px',
+       
+       }}
+       alt="Logo"
+     />
+   </div>
+
+   {loading ? (
+            <div style={skeletonLoaderStyle}>
+              <div style={imageStyle}></div>
+              <div>
+                <div style={textStyle}></div>
+                <div style={textStyle}></div>
+              </div>
+            </div>
+          ) : (
+   <div>        
+   <div style={{ display: 'flex', alignItems: 'center', color: 'white', justifyContent:"space-between", margin: '0 0 0 1%' }}>
+  <img src={user?.photo} style={{ width: '45px', height: '45px', borderRadius: '50%' }} alt="User" />
+  <div style={{ marginLeft: '15px', display: 'flex', flexDirection: 'column' }}>
+    <h2 style={{marginTop:"65px"}}>{user?.name}</h2>
+    <h4 style={{marginTop:"-40px" }}>Since: {formatDate(user?.createdAt)}</h4>
+  </div>
+</div>      
+   </div>
+          )}
+   {/* <div>
+     <Button
+       type="text"
+       icon={<MenuOutlined />}
+       onClick={() => setCollapsed(!collapsed)}
+       style={{
+         fontSize: '10px',
+         width: 24,
+         height: 24,
+         backgroundColor: 'white',
+         border: '1px solid #018D97',
+         margin: '10px 15px',
+       }}
+     />
+   </div> */}
+ </Header>
+ <Layout>
+   <Content style={{
+     margin: '0px',
+     padding: 10,
+     minHeight: 280,
+     background: 'white',
+   }}>
+     <div
+       style={{
+         overflowX: 'auto',
+         whiteSpace: 'nowrap',
+         display: 'flex',
+       }}
+     >
+       <Menu
+         mode="horizontal"
+         selectedKeys={[pathname]}
+         style={{
+           backgroundColor: 'transparent',
+           color: 'black',
+          
+           transition: 'margin-left 0.3s ease',
+           display: 'inline-block',
+         }}
+       >
+         <Menu.Item key="/user-panel/user-form" icon={<SettingOutlined />}>
+           <Link to="/user-panel/user-form">Settings</Link>
+         </Menu.Item>
+         <Menu.Item key="/user-panel/booking-history" icon={<ClockCircleOutlined />}>
+           <Link to="/user-panel/booking-history">Booking History</Link>
+         </Menu.Item>
+         <Menu.Item key="/user-panel/wishlist" icon={<TagOutlined />}>
+           <Link to="/user-panel/wishlist">Wishlist</Link>
+         </Menu.Item>
+         <Menu.Item key="/user-panel/inquiry" icon={<InboxOutlined />}>
+           <Link to="/user-panel/inquiry">Inquiry</Link>
+         </Menu.Item>
+         <Menu.Item key="/user-panel/back" icon={<FastBackwardOutlined />}>
+           <Link to="/">Back</Link>
+         </Menu.Item>
+         <Menu.Item onClick={logoutFunction} key="logout" icon={<LogoutOutlined />}>
+           Logout
+         </Menu.Item>
+       </Menu>
+     </div>
+     {/* Conditionally render components based on the pathname */}
+     {pathname === '/user-panel/inquiry' && <Inbox />}
+     {pathname === '/user-panel/booking-history' && <BookingHistory />}
+     {pathname === '/user-panel/wishlist' && <Wishlist />}
+     {pathname === '/user-panel/user-form' && <UserForm />}
+   </Content>
+ </Layout>
+</Layout>
+}
+    {!isSmallScreen && 
     <Layout style={{ minHeight: '100vh' }}>
       <Sider
       
@@ -195,6 +310,9 @@ const SideBar = () => {
         </Content>
       </Layout>
     </Layout>
+}
+    </>
+    
   );
 };
 
