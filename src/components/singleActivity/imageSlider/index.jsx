@@ -197,16 +197,17 @@ function Carousel({
                     </div>
                   </div>
                   <img
-                    src={item?.url}
-                    alt={''}
-                    className="carousel-image"
-                    style={{
-                      borderRadius: radius,
-                      objectFit: slideImageFit ? slideImageFit : "cover",
-                      // margin:"2vh 5vw 2vh 5vw"
-                      margin: mainImageMargin 
-                    }}
-                  />
+  src={item?.url}
+  alt={''}
+  className="carousel-image"
+  style={{
+    borderRadius: radius,
+    objectFit: slideImageFit ? slideImageFit : "cover",
+    maxWidth: "100%", 
+    height: "auto", 
+    margin: mainImageMargin,
+  }}
+/>
                   {isPaused && (
                     <div
                       className="pause-icon pause"
@@ -246,32 +247,28 @@ function Carousel({
       </div>
       {thumbnails && (
 
-        <div
-          className="thumbnails"
-          id="thumbnail-div"
-          style={{ maxWidth: width, marginTop:"30px" }}
-        >
-          {data?.map((item, index) => {
-            return (
-              <div className="card" style={{ margin: "0 4px" }} >
-                <img
-                  width={thumbnailWidth ? thumbnailWidth : "100px"}
-                  src={item?.url}
-                  alt={''}
-                  className="thumbnail"
-                  id={`thumbnail-${index}`}
-                  key={index}
-                  onClick={(e) => {
-                    setSlide(index);
-                    setChange(!change);
+<div className="thumbnails" id="thumbnail-div" style={{ maxWidth: width, marginTop: "30px", display: 'flex', overflowX: 'auto' }}>
+{data?.map((item, index) => {
+  return (
+    <div className="card" style={{ margin: "0 4px" }} key={index}>
+      <img
+        width={thumbnailWidth ? thumbnailWidth : "100px"}
+        src={item?.url}
+        alt={''}
+        className="thumbnail"
+        id={`thumbnail-${index}`}
+        onClick={() => {
+          setSlide(index);
+          setChange(!change);
+        }}
+        height={isSmallScreen ? "50px" : "100px"}
+        style={{ cursor: 'pointer' }}
+      />
+    </div>
+  );
+})}
+</div>
 
-                  }}
-                  height={isSmallScreen ? "50px" : "100px"}
-                />
-              </div>
-            );
-          })}
-        </div>
 
       )}
     </div>

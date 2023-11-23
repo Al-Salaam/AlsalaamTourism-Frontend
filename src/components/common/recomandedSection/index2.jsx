@@ -64,6 +64,7 @@ const FlipCard = (props) => {
   return (
     <div style={cardStyle} onMouseLeave={handleMouseLeave}>
       {!isFlipped && (
+        
         <div
           style={{
             display: "flex",
@@ -79,6 +80,7 @@ const FlipCard = (props) => {
             borderRadius: "10px",
           }}
         >
+        <Link to={`/activity/${props.activityId}`}>
           <h3
             style={{
               position: "absolute",
@@ -88,8 +90,10 @@ const FlipCard = (props) => {
               left: "0",
             }}
           >
+             
             {props.title1}
           </h3>
+          </Link>
           <h3
             style={{
               position: "absolute",
@@ -163,7 +167,9 @@ const FlipCard = (props) => {
               <FaCartShopping style={{ fontSize: "20px", color: "gray" }} />
             </Button>
           </div>
+          
         </div>
+       
       )}
 
       {isFlipped && (

@@ -75,7 +75,7 @@ const Navbar = ({ showOverlayMessage }) => {
     {
       label: (
         <NavLink to="/contact" style={navlinkStyles}>
-          Contact US
+          Contact Us
         </NavLink>
       ),
       key: "Contact Us",
@@ -83,7 +83,7 @@ const Navbar = ({ showOverlayMessage }) => {
     {
       label: (
         <NavLink to="/about" style={navlinkStyles}>
-          About US
+          About Us
         </NavLink>
       ),
       key: "about",
@@ -218,7 +218,7 @@ const Navbar = ({ showOverlayMessage }) => {
         }}
       >
         <Col xs={4} sm={4} md={4} lg={4} xl={4} xxl={4}>
-          <img src={Logo} height={60} />
+         <Link to="/"><img src={Logo} height={60} /></Link> 
         </Col>
         <Col
           xs={20}
@@ -302,7 +302,7 @@ const Navbar = ({ showOverlayMessage }) => {
                         fontSize: "18px",
                       }}
                     >
-                      Contact US
+                      Contact Us
                     </Link>
                   </Col>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
@@ -314,7 +314,7 @@ const Navbar = ({ showOverlayMessage }) => {
                         fontSize: "18px",
                       }}
                     >
-                      About US
+                      About Us
                     </Link>
                   </Col>
                   <Col span={24} align="middle" style={{ margin: "5% 0" }}>
