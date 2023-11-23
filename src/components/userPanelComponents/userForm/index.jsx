@@ -148,7 +148,7 @@ const UserForm = () => {
         sm={24}
         lg={12}
         xl={12}
-        style={{ display: "flex", flexDirection: "column", marginBottom: "20px" }}
+        style={{ display: "flex", flexDirection: "column",  }}
       > <h1>Settings</h1> </Col></Row>
 
       <Card style={cardStyle}>
