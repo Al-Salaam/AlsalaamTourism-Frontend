@@ -218,7 +218,7 @@ const Navbar = ({ showOverlayMessage }) => {
         }}
       >
         <Col xs={4} sm={4} md={4} lg={4} xl={4} xxl={4}>
-          <img src={Logo} height={60} />
+         <Link to="/"> <img src={Logo} height={60} /></Link>
         </Col>
         <Col
           xs={20}
