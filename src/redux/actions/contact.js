@@ -8,7 +8,7 @@ export const contactAsync = createAsyncThunk(
             const response = await https.post(`/contact`, contactData);
             return response.data; // Update to match the response structure
         } catch (error) {
-            throw error;
+            throw error?.response?.data?.message;
         }
     }
 );

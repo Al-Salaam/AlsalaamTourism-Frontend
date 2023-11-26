@@ -7,6 +7,6 @@ export const getBookingDetailsForUsers = createAsyncThunk('booking/getBookingDet
         const response = await https.get('/bookings/user');
         return response.data;
     } catch (error) {
-        throw error;
+        throw error?.response?.data?.message;
     }
 })

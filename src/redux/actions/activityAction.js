@@ -8,7 +8,7 @@ export const fetchActivities = createAsyncThunk(
             const response = await https.get(`/activity/loadmore`);
             return response.data; // Update to match the response structure
         } catch (error) {
-            throw error;
+            throw error?.response?.data?.message;
         }
     }
 );
@@ -18,7 +18,7 @@ export const fetchActivityById = createAsyncThunk('activity/fetchActivityById', 
         const response = await https.get(`/activity/${id}`);
         return response.data;
     } catch (error) {
-        throw error
+        throw error?.response?.data?.message;
     }
 })
 
@@ -30,7 +30,7 @@ export const fetchActivitiesReviews = createAsyncThunk(
             const response = await https.get(`/activity/${activityId}/reviews`);
             return response.data; // Update to match the response structure
         } catch (error) {
-            throw error;
+            throw error?.response?.data?.message;
         }
     }
 );
@@ -42,7 +42,7 @@ export const createActivitiesReviews = createAsyncThunk(
             const response = await https.put(`/activity/${id}/review`, ratingData);
             return response.data; // Update to match the response structure
         } catch (error) {
-            throw error;
+            throw error?.response?.data?.message;
         }
     }
 );

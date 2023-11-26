@@ -8,7 +8,7 @@ export const addLocation = createAsyncThunk(
             const response = await https.put(`/addlocation`, locationData);
             return response.data; // Update to match the response structure
         } catch (error) {
-            throw error;
+            throw error?.response?.data?.message;
         }
     }
 );
@@ -22,7 +22,7 @@ export const addPersonalInfo = createAsyncThunk(
             const response = await https.put(`/updateperfonalinfo`, personalData);
             return response.data; // Update to match the response structure
         } catch (error) {
-            throw error;
+            throw error?.response?.data?.message;
         }
     }
 );
@@ -35,7 +35,7 @@ export const changePasswordAction = createAsyncThunk(
             const response = await https.put(`/auth/change-password`, passData);
             return response.data; // Update to match the response structure
         } catch (error) {
-            throw error;
+            throw error?.response?.data?.message;
         }
     }
 );

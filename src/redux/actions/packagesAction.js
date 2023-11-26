@@ -8,7 +8,7 @@ export const fetchPackages = createAsyncThunk(
             const response = await https.get(`/pakages?page=${currentPage}`);
             return response.data; // Update to match the response structure
         } catch (error) {
-            throw error;
+            throw error?.response?.data?.message;
         }
     }
 );
@@ -30,7 +30,7 @@ export const fetchPackagesReviews = createAsyncThunk(
             const response = await https.get(`/pakages/${id}/reviews`);
             return response.data; // Update to match the response structure
         } catch (error) {
-            throw error;
+            throw error?.response?.data?.message;
         }
     }
 );
@@ -42,7 +42,7 @@ export const createPackagesReviews = createAsyncThunk(
             const response = await https.put(`/pakages/${id}/reviews`, ratingData);
             return response.data; // Update to match the response structure
         } catch (error) {
-            throw error;
+            throw error?.response?.data?.message;
         }
     }
 );

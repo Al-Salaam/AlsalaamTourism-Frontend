@@ -6,7 +6,7 @@ export const createInquiryForUser = createAsyncThunk('inquiry/createInquiryForUs
         const response = await https.post(`/packages/${packageId}/inquiry`, inquiryData);
         return response.data;
     } catch (error) {
-        throw error;
+        throw error?.response?.data?.message;
     }
 });
 
@@ -16,6 +16,6 @@ export const getInquiryForUser = createAsyncThunk('inquiry/getInquiryForUser', a
         const response = await https.get('/packages/inquiry/user');
         return response.data;
     } catch (error) {
-        throw error;
+        throw error?.response?.data?.message;
     }
 });
