@@ -13,7 +13,7 @@ export const signup = createAsyncThunk('auth/signup', async (credentials) => {
 
         return user;
     } catch (error) {
-        throw error;
+        throw error?.response?.data?.message;;
     }
 })
 
@@ -27,7 +27,7 @@ export const login = createAsyncThunk('auth/login', async (credentials) => {
         localStorage.setItem('user', JSON.stringify(user));
         return user;
     } catch (error) {
-        throw error;
+        throw error?.response?.data?.message;;
     }
 })
 

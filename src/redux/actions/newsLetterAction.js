@@ -8,7 +8,7 @@ export const createNewsLetter = createAsyncThunk(
             const response = await https.post(`/subscribe`, {email});
             return response.data; // Update to match the response structure
         } catch (error) {
-            throw error;
+            throw error?.response?.data?.message;
         }
     }
 );
