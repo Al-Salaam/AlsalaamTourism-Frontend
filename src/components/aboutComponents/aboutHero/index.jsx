@@ -90,20 +90,20 @@ const AboutHero = ({ description, videoSource }) => {
 
   return (
    
-    <Row   >
+    <Row >
       
-      <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{borderBottom:isVideoBorder ? "0px":"3px white solid" , paddingBottom: isTablet ? "20px" : "", color: "white", background: 'linear-gradient(180deg, #70ADBB 0%, #018D97 100%)', padding: isMobile ? "10% 7% 7% 7%" : "7% 7% 7% 2% ",}}>
+      <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{  paddingBottom: isTablet ? "20px" : "", color: "white", background: 'linear-gradient(180deg, #70ADBB 0%, #018D97 100%)', padding: isMobile ? "10% 7% 7% 7%" : "7% 7% 7% 2% ",}}>
         <div><h1 style={{ ...titleStyle , marginTop: isMobile ? "10%" : "8%" }}>About Alsalaam</h1></div>
         <div><p style={{ ...titleStyle2, margin: "4%", fontSize: isTablet ? "15px" : "15px", marginBottom: isTablet ? "10px" : "10px", lineHeight:isMobile?"120%":"120%", marginRight:"8%"}}>Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions. We enjoy a stellar reputation of excellence in Dubai's tourism sector. We place the needs of our clients first and go the extra mile in ensuring our customer’s travel experience is laced with comfort and beautiful memories that endure for a lifetime.</p></div>
         <div style={{ marginTop:isMobile?"5%":"4%", marginLeft:"1%"}}><PrimaryButton title={<h3>Explore Destination</h3>} width="200px" /></div>
       </Col>
 
     
-      <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+      <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{backgroundColor:"#301E16"}}>
       
-        <div onClick={openVideoModal} style={{ cursor: 'pointer' }}>
+        <div onClick={openVideoModal} style={{ cursor: 'pointer',}}>
          
-          <img src={About} style={{ width:isMobileViewhero? "100%": "100%",height:isMobileViewhero?"83vh":"65vh" }} />
+          <img src={About} style={{ width:isMobileViewhero? "100%": "100%",height:isMobileViewhero?"105vh":"90%" }} />
         </div>
 
       </Col>
