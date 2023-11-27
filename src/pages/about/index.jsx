@@ -25,6 +25,7 @@ import ChooseUs from "../../components/aboutComponents/chooseUs";
 import ImageGallery from "../../components/aboutComponents/imageGallery";
 import BG from "../../../images/MeetBG.png";
 import { useMediaQuery } from "react-responsive";
+import { Helmet } from "react-helmet";
 
 
 
@@ -109,6 +110,19 @@ function About() {
 
 
   return (
+    <>
+      <Helmet>
+        <title>{`About Us - Al Salaam Tourism`}</title>
+        <meta name="description" content={'Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.'} />
+        <meta property="og:title" content={'About Us - Al Salaam Tourism'} />
+        <meta property="og:description" content={'Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.'} />
+        <meta property="og:image" content={''} />
+        <meta property="og:url" content={`https://www.alsalaamtourism.com/about`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={'About Us - Al Salaam Tourism'} />
+        <meta name="twitter:description" content={'Al Salaam Tourism is a customer-oriented organization offering professional, world-class tourism solutions.'} />
+        <meta name="twitter:image" content={''} />
+    </Helmet>
     <div style={{}}>
       <AboutHero
         description="This is a sample video description."
@@ -160,6 +174,8 @@ function About() {
         <Footer />
       </div>
     </div>
+    </>
+    
   );
 }
 
