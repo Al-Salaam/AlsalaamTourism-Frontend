@@ -153,7 +153,9 @@ function About() {
       </div>
 
       <CircleComponent />
+      <div style={{overflow:'hidden', overflowY:"hidden"}}>
       <ImageGallery images={images} />
+      </div>
       <div style={{marginBottom:"-30%"}}>
         <Footer />
       </div>
