@@ -1,5 +1,5 @@
 import { Row, Col, Image, Space } from "antd";
-import A1 from "../../../../images/activity1.png";
+import A1 from "../../../../images/activityhero2.png";
 import A2 from "../../../../images/activityTwo.png";
 
 import { useMediaQuery } from "react-responsive";
