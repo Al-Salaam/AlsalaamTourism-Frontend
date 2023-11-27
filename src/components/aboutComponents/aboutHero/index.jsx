@@ -66,6 +66,10 @@ const AboutHero = ({ description, videoSource }) => {
     query: '(max-width: 1305px)', // Change this breakpoint as needed
   });
 
+  const isMobileViewhero = useMediaQuery({
+    query: '(max-width: 1280px)', // Change this breakpoint as needed
+  });
+
 
   const titleStyle = {
     fontFamily: 'Ubuntu',
@@ -99,7 +103,7 @@ const AboutHero = ({ description, videoSource }) => {
       
         <div onClick={openVideoModal} style={{ cursor: 'pointer' }}>
          
-          <img src={About} style={{ width: "100%",height:"65vh" }} />
+          <img src={About} style={{ width:isMobileViewhero? "100%": "100%",height:isMobileViewhero?"83vh":"65vh" }} />
         </div>
 
       </Col>
