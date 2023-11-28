@@ -35,7 +35,7 @@ function ImageWithText({ imageUrl, mainText, rotatedText }) {
       
       <div>
       <div style={rotatedTextStyle}>{mainText} </div>
-      <img src={imageUrl} alt="Image" width={"100%"} />
+      <img src={imageUrl} alt="Al Salaam Tourism-about us 4" width={"100%"} />
       <div style={mainTextStyle}>{rotatedText}</div>
       </div>
     </div>

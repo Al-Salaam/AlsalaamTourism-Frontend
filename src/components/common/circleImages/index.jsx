@@ -37,36 +37,42 @@ const circleStyles = {
 const circleData = [
   {
     image: Client1,
+    alt:"Al Salaam Tourism-about us 5",
     heading: "Ripon Ahmed",
     description: "Temperley, Argentina",
     summary:"Highly recommended! We've used Alsalaam Tourism multiple times, and each experience has been seamless, from booking to the actual journey."
   },
   {
     image: Client2,
+    alt:"Al Salaam Tourism-about us 6",
     heading: 'Maryam ALi',
     description: 'berlin, Germany',
     summary:"Exceptional service! Alsalaam Tourism made our UAE trip unforgettable with their expert guidance and personalized itineraries"
   },
   {
     image: Client3,
+    alt:"Al Salaam Tourism-about us 7",
     heading: 'Jhon walter',
     description: 'Toranto, Canada',
     summary:"Outstanding customer support! Alsalaam Tourism's team went above and beyond to ensure our desert safari adventure was perfect."
   },
   {
     image: Client4,
+    alt:"Al Salaam Tourism-about us 8",
     heading: 'Karherine winslet',
     description: 'California, USA',
     summary:"Smooth transactions and great value for money with Alsalaam Tourism. Their diverse tour options cater to all interests."
   },
   {
     image: Client5,
+    alt:"Al Salaam Tourism-about us 9",
     heading: 'Mosa Ahmad',
     description: 'Doha, Qatar',
     summary:"Professional and friendly staff! Alsalaam Tourism made our family trip to Abu Dhabi hassle-free, allowing us to focus on enjoying the city."
   },
   {
     image: Client6,
+    alt:"Al Salaam Tourism-about us 10",
     heading: 'Viktoria kate',
     description: 'london, England',
     summary: "Alsalaam Tourism exceeded our expectations. Their local insights and attention to detail made our Dubai vacation truly remarkable."

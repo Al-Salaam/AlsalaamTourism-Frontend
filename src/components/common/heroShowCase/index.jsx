@@ -117,7 +117,7 @@ function HeroShowCase() {
               }}
             />
           </Space> */}
-          <img src={Image1} width={"100%"}/>
+          <img src={Image1} alt="Al Salaam Tourism 1" width={"100%"}/>
         </Col>
       </Row>
     </>

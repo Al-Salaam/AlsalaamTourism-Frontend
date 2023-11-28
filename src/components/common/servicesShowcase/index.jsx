@@ -93,6 +93,7 @@ function ServicesShowCase(props) {
             </video> */}
             <img
               src={Services}
+              alt="Al Salaam Tourism 2"
               style={{
                 width: isMobileView ? "99%" : "100%",
                 height: isMobileView ? "95%" : "100%",
@@ -112,7 +113,7 @@ function ServicesShowCase(props) {
         style={{ margin: "0 auto" }}
       >
         <video id="videoElement" controls width="100%">
-          <source src={props.videoSrc} type="video/mp4" />
+          <source src={props.videoSrc} type="Home-Al Salaam mp4Video" />
           Your browser does not support the video tag.
         </video>
       </Modal>

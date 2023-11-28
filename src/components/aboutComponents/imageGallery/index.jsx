@@ -83,35 +83,35 @@ const ImageGallery = ({images}) => {
       <div style={rowStyle}>
         <div style={columnStyle}>
           <div style={halfHeightStyle}>
-            <Image src={images[0]} width="100%" height="100%"/>
+            <Image src={images[0]} alt='Al Salaam Tourism-about us 11' width="100%" height="100%"/>
           </div>
           <div style={halfHeightStyle}>
-          <Image src={images[1]} width="100%" height="100%"/>
+          <Image src={images[1]} alt='Al Salaam Tourism-about us 12' width="100%" height="100%"/>
           </div>
         </div>
         <div style={columnStyle}>
           <div style={smallBoxStyle}>
-          <Image src={images[2]} width="100%" height="100%"/>
+          <Image src={images[2]} alt='Al Salaam Tourism-about us 13' width="100%" height="100%"/>
           </div>
         </div>
         <div style={{...columnStyle, marginTop:"0.5%"}}>
           <div style={{height:"68%",marginTop:is_Medium_Screen ? "6px" : ""}}>
-          <Image src={images[3]} width="100%" height="99%"/>
+          <Image src={images[3]} alt='Al Salaam Tourism-about us 14' width="100%" height="99%"/>
           </div>
           <div style={{height:"40%", marginTop:"5%"}}>
-          <Image src={images[4]} width="100%" height="99%"/>
+          <Image src={images[4]} alt='Al Salaam Tourism-about us 15' width="100%" height="99%"/>
           </div>
         </div>
         <div style={bigBoxStyle}>
           <div style={halfHeightStyle}>
-          <Image src={images[5]} width="100%" height="100%"/>
+          <Image src={images[5]} alt='Al Salaam Tourism-about us 16' width="100%" height="100%"/>
           </div>
           <div style={{display:"flex"}}>
           <div style={thirdHeightStyle}>
-          <Image src={images[6]} width="100%" />
+          <Image src={images[6]} alt='Al Salaam Tourism-about us 17' width="100%" />
           </div>
           <div style={thirdHeightStyle}>
-          <Image src={images[7]} width="100%" />
+          <Image src={images[7]} alt='Al Salaam Tourism-about us 18' width="100%" />
           </div>
           </div>
         </div>
