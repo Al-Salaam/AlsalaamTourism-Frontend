@@ -103,7 +103,7 @@ const AboutHero = ({ description, videoSource }) => {
       
         <div onClick={openVideoModal} style={{ cursor: 'pointer',}}>
          
-          <img src={About} style={{ width:isMobileViewhero? "100%": "100%",height:isMobileViewhero?"105vh":"90%" }} />
+          <img src={About} alt='Al Salaam Tourism-about us 1' style={{ width:isMobileViewhero? "100%": "100%",height:isMobileViewhero?"105vh":"90%" }} />
         </div>
 
       </Col>

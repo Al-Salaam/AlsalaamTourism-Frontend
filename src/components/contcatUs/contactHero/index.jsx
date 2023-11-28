@@ -20,10 +20,7 @@ function ContactHero() {
         
     };
 
-    const titleContainerStyle = {
-        
-        
-    };
+   
 
     const titleStyle = {
         color: '#FFF',
@@ -53,7 +50,7 @@ function ContactHero() {
         <div style={containerStyle}>
             <Row >
                 <Col xs={24} sm={24} md={24} lg={24} xl={24} style={{ padding: "2%" }}>
-                    <div style={titleContainerStyle}>
+                    <div >
                         <Title style={titleStyle}>Contact Us</Title>
                         <Title style={subTitleStyle}>We'd love to hear from you</Title>
                     </div>

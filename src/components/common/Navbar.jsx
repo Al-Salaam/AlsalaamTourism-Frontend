@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUserProfile } from "../../redux/actions/authAction";
 import { getAddToCartData } from "../../redux/reducers/activityReducer";
 import "./navbar.css";
+import TourismLogo1 from "../../../images/TourismLogo1.png"
 
 const Navbar = ({ showOverlayMessage }) => {
   const dispatach = useDispatch();
@@ -218,7 +219,7 @@ const Navbar = ({ showOverlayMessage }) => {
         }}
       >
         <Col xs={4} sm={4} md={4} lg={4} xl={4} xxl={4}>
-         <Link to="/"> <img src={Logo} height={60} /></Link>
+         <Link to="/"> <img src={TourismLogo1} height={60} /></Link>
         </Col>
         <Col
           xs={20}

@@ -161,7 +161,7 @@ const MyForm = () => {
           </Col>
           <Row style={{ marginBottom: "30px"}} >
             <Col xs={24} sm={24} md={2} lg={2} xl={2} align= {isMobileScreen?"middle":"end"} >
-              <img src={formcall} alt="Phone" />
+              <img src={formcall} alt="Al Salaam Tourism-contact us 1" />
             </Col>
 
             <Col xs={24} sm={24} md={12} lg={12} xl={9} align="middle" >
@@ -182,7 +182,7 @@ const MyForm = () => {
           </Row>
           <Row style={{ marginBottom: "30px" }}>
             <Col xs={24} sm={24} md={2} lg={2} xl={2} align= {isMobileScreen?"middle":"end"}>
-              <img src={Formmsg} alt="Phone" />
+              <img src={Formmsg} alt="Al Salaam Tourism-contact us 2" />
             </Col>
 
             <Col xs={24} sm={24} md={14} lg={14} xl={10} align= {isMobileScreen?"middle":"end"}>
@@ -203,7 +203,7 @@ const MyForm = () => {
           </Row>
           <Row style={{ marginBottom: "30px"}}>
             <Col xs={24} sm={24} md={2} lg={2} xl={2} align= {isMobileScreen?"middle":"end"}>
-              <img src={FormLoc} alt="Location" />
+              <img src={FormLoc} alt="Al Salaam Tourism-contact us 3" />
             </Col>
 
             <Col xs={24} sm={24} md={20} lg={20} xl={20} align= {isMobileScreen?"center":"end"}>
