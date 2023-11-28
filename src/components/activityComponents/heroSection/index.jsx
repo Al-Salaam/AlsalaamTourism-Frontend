@@ -87,6 +87,7 @@ const ActivityHeroSection = () => {
               preview={false}
               src={A1} // Replace with your image URL
               style={image1Style}
+              alt="al salaam tourism-activity 1"
             />
           </Col>
           <Col xs={24} sm={24} md={12} lg={12} xl={12} align="middle">
@@ -94,6 +95,7 @@ const ActivityHeroSection = () => {
               preview={false}
               src={A2} // Replace with your image URL
               style={image2Style}
+              alt="al salaam tourism-activity 2"
             />
           </Col>
         </Row>

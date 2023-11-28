@@ -1,21 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Row, Col, Card, Input, Select, Button, Space, Image, Pagination, Typography } from 'antd';
+import { useEffect, useState } from 'react';
+import { Row, Col, Card, Input, Select, Space, Image, Pagination, Typography } from 'antd';
 import {
   SearchOutlined,
-  HeartOutlined,
-  HeartFilled,
-  StarOutlined,
+  HeartFilled, 
 } from '@ant-design/icons';
-
-import P1 from "../../../images/p1.png"
-import P2 from "../../../images/p2.png"
-import P3 from "../../../images/p3.png"
-import P4 from "../../../images/p4.png"
-import P5 from "../../../images/p5.png"
-import P6 from "../../../images/p6.png"
-import P7 from "../../../images/p7.png"
-import P8 from "../../../images/p8.png"
-import P9 from "../../../images/p9.png"
 
 import Star from "../../../images/packStar.png"
 import Time from "../../../images/time.png"
@@ -30,11 +18,7 @@ import toast from 'react-hot-toast';
 import { clearError, clearMessage } from '../../redux/reducers/wishlistReducer';
 import { useMediaQuery } from "react-responsive";
 
-
-
 const { Meta } = Card;
-const { Option } = Select;
-
 
 const Ourpackags = () => {
   const dispatch = useDispatch();
@@ -45,7 +29,6 @@ const Ourpackags = () => {
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [ratingFilter, setRatingFilter] = useState('desc');
   const [currentPage, setCurrentPage] = useState(1);
-  const [favoraite, setFavoraite] = useState()
   
 
   
@@ -322,7 +305,7 @@ const Ourpackags = () => {
                 style={{marginLeft:"3%", marginRight:"4%",marginBottom:'20px',borderRadius:'35px 35px 0 0'}}
                   cover={
                     <Image
-                      alt={packag.heading}
+                      alt={`${packag.heading}-al salaam tourism`}
                       src={packag.images[0].url}
                       style={{borderRadius:'35px 35px 0 0',boxShadow: '0 20px 20px rgba(0, 0, 0, 0.1)' }}
                     />

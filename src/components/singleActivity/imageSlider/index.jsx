@@ -23,7 +23,8 @@ function Carousel({
   thumbnails,
   thumbnailWidth,
   showNavBtn = true,
-  mainImageMargin
+  mainImageMargin,
+  heading,
 }) {
   //Initialize States
   const [slide, setSlide] = useState(0);
@@ -198,7 +199,7 @@ function Carousel({
                   </div>
                   <img
                     src={item?.url}
-                    alt={''}
+                    alt={`${heading}-al salaam tourism`}
                     className="carousel-image"
                     style={{
                       borderRadius: radius,
@@ -257,7 +258,7 @@ function Carousel({
                 <img
                   width={thumbnailWidth ? thumbnailWidth : "100px"}
                   src={item?.url}
-                  alt={''}
+                  alt={`${heading}-al salaam tourism`}
                   className="thumbnail"
                   id={`thumbnail-${index}`}
                   key={index}
