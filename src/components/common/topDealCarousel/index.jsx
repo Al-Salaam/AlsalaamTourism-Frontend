@@ -61,7 +61,7 @@ function TopDealCarousel() {
             <div key={index}>
               <div className="carousel-slide" style={carouselStyle}>
                 {images.map((image, subIndex) => (
-                  <img key={subIndex} style={imageStyle} src={image} alt={`Image ${subIndex + 1}`} />
+                  <img key={subIndex} style={imageStyle} src={image} alt={`Top Deal-al salaam tourism`} />
                 ))}
               </div>
             </div>

@@ -83,6 +83,7 @@ function SingleActivity() {
                   thumbnailWidth="100px"
                   slideNumberStyle={slideNumberStyle}
                   slideNumber={true}
+                  heading={activity?.name}
                 />
                 <Stats activity={activity} />
                 <div style={{ marginLeft: "20px" }}>
