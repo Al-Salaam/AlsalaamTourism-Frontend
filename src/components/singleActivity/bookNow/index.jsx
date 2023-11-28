@@ -235,7 +235,7 @@ const BookNow = ({ activity }) => {
           />  {formattedRating}/5 ({activity?.noOfReviews})</Col>
       </Row>
       <Row gutter={[40]} style={Styles.margin}>
-        <Col span={24}><Title level={5} style={titleStyle}>{activity?.shortdescription}</Title></Col>
+        <Col span={24}><Title level={5} style={titleStyle}>{activity?.shortDescription}</Title></Col>
       </Row>
       <Row>
         <Col xs={18} sm={24} md={14} lg={24} xl={12} style={Styles.margin} align={isSmallScreen ? "middle" : ""} ><DatePicker value={date} style={{marginLeft:isSmallview?"0%":"2%", marginRight:"0%"}} onChange={dateHandler} /></Col>

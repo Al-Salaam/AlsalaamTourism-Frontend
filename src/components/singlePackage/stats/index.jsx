@@ -41,7 +41,7 @@ const StatsSinglePackage = ({pakage}) => {
             </Col>
             <Col xs={12} sm={12} md={6} lg={6} xl={6} align={"middle"}>
                 <h3 style={styles.heading}><img src={Img3}  style={styles.imgMarg}/>Group Size</h3>
-                <p style={styles.para}>{pakage?.groupsize} People</p>
+                <p style={styles.para}>{pakage?.groupSize} People</p>
             </Col>
             <Col xs={12} sm={12} md={6} lg={6} xl={6} align={"middle"}>
                 <h3 style={styles.heading}><img src={Img4} style={styles.imgMarg} />Languages</h3>

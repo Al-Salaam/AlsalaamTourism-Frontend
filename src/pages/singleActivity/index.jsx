@@ -54,14 +54,14 @@ function SingleActivity() {
     <>
     <Helmet>
         <title>{`${activity?.name} - Al Salaam Tourism`}</title>
-        <meta name="description" content={activity?.shortdescription} />
+        <meta name="description" content={activity?.shortDescription} />
         <meta property="og:title" content={activity?.name} />
-        <meta property="og:description" content={activity?.shortdescription} />
+        <meta property="og:description" content={activity?.shortDescription} />
         <meta property="og:image" content={activity?.images[0]?.url} />
         <meta property="og:url" content={`https://www.alsalaamtourism.com/${activity?.slug}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={activity?.name} />
-        <meta name="twitter:description" content={activity?.shortdescription} />
+        <meta name="twitter:description" content={activity?.shortDescription} />
         <meta name="twitter:image" content={activity?.images[0]?.url} />
       </Helmet>
       <div style={{ padding: "0 auto", overflowX: "hidden" }}>
