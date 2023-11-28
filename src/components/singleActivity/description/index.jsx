@@ -6,8 +6,8 @@ const Description = ({activity}) => {
     const [selectedButton, setSelectedButton] = useState('button1'); // Initially select 'button1'
     const contentMap = {
         button1: activity?.description,
-        button2: activity?.keyinstructions,
-        button3: activity?.reservationpolicy,
+        button2: activity?.keyInstructions,
+        button3: activity?.reservationPolicy,
         button4: activity?.benifits,
     };
 

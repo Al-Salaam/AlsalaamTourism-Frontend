@@ -220,7 +220,7 @@ const FlipCard = (props) => {
           </h3>
 
           <h3 style={{ margin: "auto", padding: "5%" }}>
-            {props.shortdescription}
+            {props.shortDescription}
           </h3>
 
           <div

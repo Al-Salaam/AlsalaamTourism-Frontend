@@ -50,7 +50,7 @@ const Stats = ({activity}) => {
             </Col>
             <Col xs={12} sm={12} md={12} lg={12} xl={6} align={"middle"}>
                 <h3 style={styles.heading}><img src={Img3}  style={styles.imgMarg}/>Group Size</h3>
-                <p style={styles.para}>{activity?.groupsize} People</p>
+                <p style={styles.para}>{activity?.groupSize} People</p>
             </Col>
             <Col xs={12} sm={12} md={12} lg={12} xl={6} align={"middle"}>
                 <h3 style={styles.heading}><img src={Img4} style={styles.imgMarg} />Languages</h3>

@@ -133,7 +133,7 @@ const Wishlist = () => {
 
                     <Col xs={24} sm={24} md={12} lg={11} xl={11}>
                       <h2>{item?.name}</h2>
-                      <h3 style={{ color: "gray", marginTop: "5px" }}>{item?.shortdescription}</h3>
+                      <h3 style={{ color: "gray", marginTop: "5px" }}>{item?.shortDescription}</h3>
                     </Col>
 
 
