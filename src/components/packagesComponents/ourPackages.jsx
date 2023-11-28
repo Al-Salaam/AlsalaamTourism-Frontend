@@ -53,6 +53,10 @@ const Ourpackags = () => {
     query: "(max-width: 1024px)",
   });
 
+  const for_Card_Stats = useMediaQuery({
+    query: "(max-width: 1319px)",
+  });
+
 
   const isMobileScreen = useMediaQuery({
     query: "(max-width: 669px)",
@@ -64,7 +68,7 @@ const Ourpackags = () => {
 
 
 
- const marginTopStyle = isTabletScreen ? '' : '-20%';
+ const marginTopStyle = isTabletScreen ? '' : '';
   const pageSize = 6;
   const navigate = useNavigate();
   useEffect(() => {
@@ -354,17 +358,23 @@ const Ourpackags = () => {
 
 
                   <Row style={{marginTop:30,backgroundColor:'#f7f7f7',borderRadius:'20px',padding:"5px"}} xs={24} sm={24} md={24} lg={24} xl={24}>
+                    <Col xs={24} sm={24} md={24} lg={24} xl={12} style={{display:"flex",justifyContent:for_Card_Stats ? "flex-start":"center",alignItems:"center"}}>
+                      <div>
                     <Col span={24}><Title level={5} style={{margin:'5px'}}>Duration</Title></Col>
-                    <Col  xs={24} sm={24} md={24} lg={12} xl={16} >
+                    <Col  xs={24} sm={24} md={24} lg={24} xl={24} >
                       <div style={{display:"inline-flex",margin:'5px'}} >
                       <img src={Time} style={{marginRight:"5px"}}/>  <p>{packag.duration}</p>
                       </div>
                     </Col>
-                    <Link to={`/packages/${packag._id}`}>
-                    <Col xs={24} sm={24} md={24} lg={12} xl={16} align="right" style={{ marginTop: marginTopStyle,marginBottom:"5px" }} >
-                      <PrimaryButton title={"View Details"}width='140%' />
+                    </div>
                     </Col>
-                    </Link>
+                    <Col xs={24} sm={24} md={24} lg={24} xl={12} style={{display:"flex",justifyContent:for_Card_Stats ? "flex-start":"center",alignItems:"center"}}  >
+                    <Link to={`/packages/${packag._id}`}>
+                    
+                      <PrimaryButton title={"View Details"} width='120%' />
+                      </Link>
+                    </Col>
+                    
                     
                   </Row>
                 </Card>
