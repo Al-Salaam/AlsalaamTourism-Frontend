@@ -13,9 +13,9 @@ export const fetchPackages = createAsyncThunk(
     }
 );
 
-export const fetchPackagesById = createAsyncThunk('packages/fetchPackagesById', async (id) => {
+export const fetchPackagesById = createAsyncThunk('packages/fetchPackagesById', async (slug) => {
     try {
-        const response = await https.get(`/pakages/${id}`);
+        const response = await https.get(`/pakages/slug/${slug}`);
         return response.data;
     } catch (error) {
         throw error

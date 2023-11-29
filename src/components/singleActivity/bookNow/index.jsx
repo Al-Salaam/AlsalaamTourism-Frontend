@@ -17,9 +17,9 @@ import { useNavigate } from 'react-router-dom';
 
 const BookNow = ({ activity }) => {
   const { Title } = Typography;
-  const [adults, setAdults] = useState(0);
-  const [childern, setChildern] = useState(0);
-  const [infant, setInfant] = useState(0);
+  const [adults, setAdults] = useState(1);
+  const [childern, setChildern] = useState(1);
+  const [infant, setInfant] = useState(1);
   const [date, setDate] = useState('');
 
 

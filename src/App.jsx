@@ -123,7 +123,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/packages" element={<Packages />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/packages/:id" element={<SinglePackage />} />
+        <Route path="/packages/:slug" element={<SinglePackage />} />
       </Routes>
       <Toaster />
       {/* <WhatsAppOutlined style={{color:"red"}}/> */}
