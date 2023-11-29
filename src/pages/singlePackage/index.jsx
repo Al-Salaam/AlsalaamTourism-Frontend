@@ -33,14 +33,15 @@ const SinglePackage = () => {
   const dispatch = useDispatch();
   const { pakage, loading, reviews } = useSelector((state) => state.package);
   const { data } = useSelector((state) => state.activity);
-  const { id } = useParams();
-  useEffect(() => {
-    dispatch(fetchPackagesReviews(id));
-    dispatch(fetchPackagesById(id));
-  }, [dispatch, id]);
+  const { slug } = useParams();
   useEffect(() => {
     dispatch(fetchActivities());
-  }, [dispatch]);
+    dispatch(fetchPackagesById(slug));
+  }, [dispatch, slug]);
+  useEffect(() => {
+  if(pakage && pakage._id)
+    dispatch(fetchPackagesReviews(pakage._id));
+  }, [dispatch, pakage]);
   const isSmallScreen = useMediaQuery({ maxWidth: 950 });
   const isSmallestScreen = useMediaQuery({ maxWidth: 495 });
   const isSmallest = useMediaQuery({ maxWidth: 375 });

@@ -431,7 +431,7 @@ const Ourpackags = () => {
                         <p>{packag.duration}</p>
                       </div>
                     </Col>
-                    <Link to={`/packages/${packag._id}`}>
+                    <Link to={`/packages/${packag?.slug}`}>
                       <Col
                         xs={24}
                         sm={24}
