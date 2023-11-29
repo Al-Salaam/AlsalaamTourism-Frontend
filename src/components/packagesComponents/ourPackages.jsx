@@ -147,18 +147,18 @@ const Ourpackags = () => {
         categoryFilter === "All" ? true : packag.category === categoryFilter
       )
       .filter((packag) => {
-        const searchQuery = search.trim().toLowerCase();
+        const searchQuery = search?.trim()?.toLowerCase();
         return (
           searchQuery === "" ||
-          packag.title.toLowerCase().includes(searchQuery) ||
-          packag.description.toLowerCase().includes(searchQuery)
+          packag.title?.toLowerCase()?.includes(searchQuery) ||
+          packag.description?.toLowerCase()?.includes(searchQuery)
 
           // Add more fields to search if necessary
         );
       })
-      .sort((a, b) =>
-        ratingFilter === "asc" ? a.rating - b.rating : b.rating - a.rating
-      );
+      // .sort((a, b) =>
+      //   ratingFilter === "asc" ? a.rating - b.rating : b.rating - a.rating
+      // );
 
   // Calculate currentData based on filteredData and currentPage
   // const startIndex = (currentPage - 1) * pageSize;
