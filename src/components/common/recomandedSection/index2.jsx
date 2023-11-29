@@ -91,7 +91,7 @@ const FlipCard = (props) => {
             borderRadius: "10px",
           }}
         >
-          <Link Link to={`/activity/${props.activityId}`}>
+          <Link Link to={`/activity/${props.activitySlug}`}>
           <h3
             style={{
               position: "absolute",
