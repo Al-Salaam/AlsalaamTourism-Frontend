@@ -1,7 +1,7 @@
 import { Row, Col, Image } from "antd";
 import withNavbar from "../../components/common/HOCNabar";
 import CommonHero from "../../components/common/heroShowCase/commonHero";
-import HeroImage from "../../../images/abuDhabi.png";
+import HeroImage from "../../../images/singlePkgImg.png";
 import Footer from "../../components/common/footer";
 import ActSlid from "../../components/common/activitySlider";
 import CardSlider from "../../components/activityComponents/cardSlider/slider";
