@@ -9,6 +9,7 @@ import { Loader } from "../common/loader";
 import { useMediaQuery } from "react-responsive";
 import { toast } from "react-hot-toast";
 import { addToCart, clearError, clearMessage } from "../../redux/reducers/activityReducer";
+import { Link } from "react-router-dom";
 
 function OurActivity() {
   const [selectedPriceFilter, setSelectedPriceFilter] = useState(null);
@@ -257,6 +258,7 @@ data.filter((item) => {
                 justify="center"
                 style={{ margin: "2% 0" }}
               >
+              
                 <FlipCard
                   cardType={item.category}
                   imageSrc={item.images[0]?.url}
@@ -271,6 +273,7 @@ data.filter((item) => {
                   noOfReviews={item.noOfReviews}
                   onClick={() => handleAddToCart(item)}
                 />
+               
               </Col>
             ))}
           </>

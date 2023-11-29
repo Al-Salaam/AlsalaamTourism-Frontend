@@ -48,7 +48,7 @@ const styles = {
 };
 
 
-const CarouselWithThumbnails = ({ images, style }) => {
+const CarouselWithThumbnails = ({ images, style,pakage }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [thumbnailRange, setThumbnailRange] = useState([0, 2]); // Initially display 3 thumbnails at a time
   
@@ -79,7 +79,7 @@ const CarouselWithThumbnails = ({ images, style }) => {
                 }}
                 onClick={() => handleThumbnailClick(index + thumbnailRange[0])}
               >
-                <img src={item?.url} alt={`Thumbnail ${index + thumbnailRange[0]}`} height="50px" width="50px" />
+                <img src={item?.url}  alt={`${pakage?.heading} - al salaam tourism`} height="50px" width="50px" />
               </div>
             ))}
             <div  style={styles.imageCounter}>
@@ -90,7 +90,7 @@ const CarouselWithThumbnails = ({ images, style }) => {
             <img
               key={index}
               src={item?.url}
-              alt={`Image ${index}`}
+              alt={`${pakage?.heading} - al salaam tourism`}
               style={{
                 ...styles.mainImage,
                 display: index === currentIndex ? 'block' : 'none',

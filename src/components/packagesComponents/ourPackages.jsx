@@ -369,7 +369,7 @@ const Ourpackags = () => {
                   }}
                   cover={
                     <Image
-                      alt={`${packag.heading}-al salaam tourism`}
+                      alt={`${packag.heading} - al salaam tourism`}
                       src={packag.images[0].url}
                       style={{
                         borderRadius: "35px 35px 0 0",
