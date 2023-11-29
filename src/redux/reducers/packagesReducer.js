@@ -26,10 +26,10 @@ const packagesReducer = createSlice({
             })
             .addCase(fetchPackages.fulfilled, (state, action) => {
                 state.loading = false;
-                state.data = action.payload.data.pakages;
-                state.page = action.payload.data.page;
-                state.totalPages = action.payload.data.totalPages;
-                state.totalPakages = action.payload.data.totalPakages;
+                state.data = action?.payload?.data?.pakages;
+                state.page = action?.payload?.data?.page;
+                state.totalPages = action?.payload?.data?.totalPages;
+                state.totalPakages = action?.payload?.data?.totalPakages;
             })
             .addCase(fetchPackages.rejected, (state, action) => {
                 state.loading = false;

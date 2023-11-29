@@ -13,9 +13,9 @@ export const fetchActivities = createAsyncThunk(
     }
 );
 
-export const fetchActivityById = createAsyncThunk('activity/fetchActivityById', async (id) => {
+export const fetchActivityById = createAsyncThunk('activity/fetchActivityById', async (slug) => {
     try {
-        const response = await https.get(`/activity/${id}`);
+        const response = await https.get(`/activity/slug/${slug}`);
         return response.data;
     } catch (error) {
         throw error?.response?.data?.message;

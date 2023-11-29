@@ -102,7 +102,7 @@ const  ActivitySlider = ({ data, auto = false, showTitle = true, showDescription
                     return (
                         <Col align="middle" key={item?._id} xs={24} sm={24} md={24} lg={12} xl={8} xxl={8} style={{padding:"1%"}}>
                             <div onClick={handleCardClick}> {/* Add onClick handler to the card */}
-                                <FlipCard style={{ border: "red 1px solid" }} imageSrc={item?.images[0]?.url} title1={item?.name} rate={item?.ratings} price={item?.price} shortDescription={item?.shortDescription} activityId={item?._id} noOfReviews={item?.noOfReviews} />
+                                <FlipCard style={{ border: "red 1px solid" }} imageSrc={item?.images[0]?.url} title1={item?.name} rate={item?.ratings} price={item?.price} shortDescription={item?.shortDescription} activitySlug={item?.slug} noOfReviews={item?.noOfReviews} />
                             </div>
                         </Col>
                     );

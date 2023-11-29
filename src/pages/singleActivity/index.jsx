@@ -38,15 +38,18 @@ function SingleActivity() {
   const { loading, activity, reviews, data } = useSelector(
     (state) => state.activity
   );
-  const { id } = useParams();
+  const { slug } = useParams();
   useEffect(() => {
     dispatch(fetchActivities());
-    dispatch(fetchActivityById(id));
-  }, [dispatch, id]);
+    dispatch(fetchActivityById(slug));
+  }, [dispatch, slug]);
 
   useEffect(() => {
-    dispatch(fetchActivitiesReviews(id));
-  }, [dispatch, id]);
+    if (activity && activity._id) {
+      dispatch(fetchActivitiesReviews(activity._id));
+    }
+  }, [dispatch, activity]);
+  
   const isSmallScreen = useMediaQuery({ maxWidth: 950 });
   const isSmallest = useMediaQuery({ maxWidth: 375 });
   const isSmallest1 = useMediaQuery({ maxWidth: 767 });

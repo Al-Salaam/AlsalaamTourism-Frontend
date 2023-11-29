@@ -267,7 +267,7 @@ data.filter((item) => {
                   shortDescription={item.shortDescription}
                   descBack={item.descBack}
                   feature={item.feature}
-                  activityId={item._id}
+                  activitySlug={item.slug}
                   noOfReviews={item.noOfReviews}
                   onClick={() => handleAddToCart(item)}
                 />

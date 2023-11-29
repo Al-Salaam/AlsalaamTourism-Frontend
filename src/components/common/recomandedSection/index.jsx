@@ -125,7 +125,7 @@ function RecomendedSection() {
                       rate={item.ratings}
                       price={item.price}
                       shortDescription={item.shortDescription}
-                      activityId={item._id}
+                      activitySlug={item.slug}
                       noOfReviews={item.noOfReviews}
                       onClick={() => handleAddToCart(item)}
                       
