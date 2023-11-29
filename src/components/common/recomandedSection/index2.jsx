@@ -245,7 +245,7 @@ const FlipCard = (props) => {
               right: "0",
             }}
           >
-            <Link to={`/activity/${props.activityId}`}>
+            <Link to={`/activity/${props.activitySlug}`}>
 
               <PrimaryButton title={isSmallestScreen2?"View":"View Details"} width={isSmallestScreen2?"75px":"150px"} height={isSmallestScreen2?"40px":""} />
             </Link>
