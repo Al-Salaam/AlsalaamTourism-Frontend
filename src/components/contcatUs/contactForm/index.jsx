@@ -91,7 +91,7 @@ const MyForm = () => {
 
   const isMobileScreen2 = useMediaQuery({ maxWidth: 900 });
 
-  const isScreen = useMediaQuery({ maxWidth: 1300 });
+  const isScreen = useMediaQuery({ maxWidth: 1480 });
 
   return (
     <Row
@@ -228,7 +228,7 @@ const MyForm = () => {
                   fontStyle: "normal",
                   fontWeight: 400,
                   lineHeight: "normal",
-                  marginRight: isScreen ? "" : "21%",
+                  marginRight: isScreen ? "10%" : "21%",
                 }}
               >
                 info@alsalaamtourism.com
