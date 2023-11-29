@@ -34,7 +34,7 @@ const Map = () => (
           strokeLinecap: "round"
         }}
       >
-        <text x="-2" textAnchor="end" alignmentBaseline="middle" fill="#3D4C84" style={{ fontSize: "30px" }}>
+        <text x="-2" textAnchor="end" alignmentBaseline="middle" fill="#3D4C84" style={{ fontSize: "30px", fontFamily:"ubuntu" }}>
           {"UAE"}
         </text>
       </Annotation>

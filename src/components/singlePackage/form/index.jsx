@@ -80,6 +80,7 @@ function FormCard({ pakage }) {
     width: "155px",
     height: "50px",
     margin: isSmallestScreen ? "5% 0" : "5%",
+    fontFamily: "ubuntu"
   };
 
   const labelStyle = {
@@ -87,6 +88,7 @@ function FormCard({ pakage }) {
     fontWeight: "bold",
     color: "#696969",
     margin: isSmallestScreen ? "5% 0" : "5%",
+    fontFamily: "ubuntu"
   };
 
   const cardStyle = {
@@ -119,6 +121,7 @@ function FormCard({ pakage }) {
                 border: "1px solid lightgray",
                 backgroundColor: "white",
                 borderRadius: "7px",
+                fontFamily: "ubuntu"
               }}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -196,7 +199,7 @@ function FormCard({ pakage }) {
               <PhoneInput
                 internationalIcon={"false"}
                 placeholder="Phone Number*"
-                style={{ width: "160px" }}
+                style={{ width: "160px",}}
                 value={phone}
                 onChange={(phone) => setPhone(phone)}
               />
@@ -219,6 +222,7 @@ function FormCard({ pakage }) {
               fontSize: "100%",
               fontWeight: "bold",
               color: "#696969",
+              fontFamily:"ubuntu"
             }}
           >
             Special Requirements
@@ -246,7 +250,8 @@ function FormCard({ pakage }) {
               backgroundColor: "#3B505A",
               color: "white",
               borderRadius: "30px",
-              height:"40px"
+              height:"40px",
+              fontFamily:"ubuntu"
             }}
           >
             {loading ? "loading..." : "Submit Your Enquiry"}

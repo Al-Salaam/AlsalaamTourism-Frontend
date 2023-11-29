@@ -51,7 +51,7 @@ function ThreeCardShowCase() {
                 </Space> */}
                 <Image  src={Destination} alt='Al Salaam Tourism 3' preview={false}/>
               
-                <div style={{}}><Link to="/destinations"><PrimaryButton title={<h3>View All</h3>} /></Link></div>
+                <div><Link to="/destinations"><PrimaryButton title={<h3>View All</h3>} /></Link></div>
             </Col>
 
         </Row>

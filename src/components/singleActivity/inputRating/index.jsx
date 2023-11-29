@@ -71,6 +71,7 @@ const RatingInput = ({ activity }) => {
       fontSize: "16px",
       color: "#696969",
       fontWeight: "400px",
+      fontFamily: "Ubuntu",
 
     },
     button: {
@@ -78,11 +79,13 @@ const RatingInput = ({ activity }) => {
       border: "none",
       color: "#3B505A",
       fontSize: "20px",
-      fontWeight: '700px'
+      fontWeight: '700px',
+      fontFamily: "Ubuntu",
     },
     textArea: {
       backgroundColor: "#EFF0F2",
-      border: "none"
+      border: "none",
+      fontFamily: "Ubuntu",
     },
     submit: {
       color: "white",
@@ -90,22 +93,19 @@ const RatingInput = ({ activity }) => {
       width:"170px",
       height:"50px",
       borderRadius:"30px",
-      fontSize:"23px"
+      fontSize:"23px",
+      fontFamily: "Ubuntu",
     }
   }
 
-  const titleStyle = {
-    fontFamily: "Ubuntu",
-    
-   
-  };
+
 
   return (
     <div >
       <Row gutter={16} style={{padding:"2% 0"}}>
         {/* First Row */}
         <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} style={styles.para}>
-          <p style={titleStyle}>Click the button to add a review</p>
+          <p>Click the button to add a review</p>
         </Col>
         <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12} align={isSmallScreen ? "" : "right"}>
           <Button onClick={handleAddReviewClick} style={styles.button}>

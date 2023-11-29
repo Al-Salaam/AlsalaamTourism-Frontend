@@ -16,7 +16,7 @@ const Checklist = ({ title, activity, columns }) => {
           <Col key={index} xs={24} sm={smValue}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <img src={imageSrc} />
-              <p style={{ marginLeft: "10px" }}>{paragraph}</p>
+              <p style={{ marginLeft: "10px", fontFamily:"ubuntu" }}>{paragraph}</p>
             </div>
           </Col>
         ))}

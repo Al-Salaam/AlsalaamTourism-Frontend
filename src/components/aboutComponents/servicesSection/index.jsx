@@ -86,7 +86,7 @@ const ServicesSection = () => {
               sm={8}
               md={8}
               lg={8}
-              style={{ margin: "0 auto" }}
+              style={{ margin: "0 auto", fontFamily:"ubuntu" }}
               key={1}
             >
               <FlipCardServices

@@ -76,7 +76,7 @@ function ServicesShowCase(props) {
             itemLayout="vertical"
             dataSource={data}
             renderItem={(item) => (
-              <List.Item style={{ paddingLeft: "12%", borderBottom: "none" }}>
+              <List.Item style={{ paddingLeft:isSmallScreen?"18%": "", borderBottom: "none" }}>
                 <div>
                   <span style={{ marginRight: "8px" }}>&#8226;</span>
                   <strong style={{ ...titleStyle }}>{item.text1}</strong>

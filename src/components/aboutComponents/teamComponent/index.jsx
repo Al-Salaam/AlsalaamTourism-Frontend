@@ -9,6 +9,7 @@ const containerStyle = {
   justifyContent:"center",
   margin:"2%",
   
+  
 };
 
 const rotatedTextStyle = {
@@ -17,6 +18,7 @@ const rotatedTextStyle = {
   marginLeft:"-300px",
   marginBottom:"-30px",
   color:"#2C2727",
+  
   // border:"5px solid gray"
 };
 

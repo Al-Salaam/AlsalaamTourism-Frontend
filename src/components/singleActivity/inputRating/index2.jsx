@@ -69,6 +69,7 @@ const RatingInput = ({ pakage }) => {
             fontSize: "16px",
             color: "#696969",
             fontWeight: "400px",
+            fontFamily:"ubuntu"
           
 
         },
@@ -77,12 +78,14 @@ const RatingInput = ({ pakage }) => {
             border: "none",
             color: "#3B505A",
             fontSize: "20px",
-            fontWeight: '700px'
+            fontWeight: '700px',
+            fontFamily:"ubuntu"
             
         },
         textArea: {
             backgroundColor: "#EFF0F2",
-            border: "none"
+            border: "none",
+            fontFamily:"ubuntu"
             
         },
         submit: {
@@ -91,7 +94,8 @@ const RatingInput = ({ pakage }) => {
             width:"170px",
             height:"50px",
             borderRadius:"30px",
-            fontSize:"23px"
+            fontSize:"23px",
+            fontFamily:"ubuntu"
             
         }
     }

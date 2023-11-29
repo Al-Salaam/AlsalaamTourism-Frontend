@@ -110,11 +110,11 @@ function Footer() {
                     <Row style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/activity" style={{...titleStyle, color: "white", fontSize: "16px" }}>Activites</Link></Col></Row>
                     <Row style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/packages" style={{...titleStyle, color: "white", fontSize: "16px" }}>Packages</Link></Col></Row>
                     {/* <Row style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"15%" }}><Link to="/" style={{...titleStyle, color: "white", fontSize: "16px" }}>Our Partner</Link></Col></Row> */}
-                    <Row style={{margin:isSmallestScreen? "2% 0" :""}} ><Col><Link to="/" style={{...titleStyle, color: "white", fontSize: "16px" }}>Services</Link></Col></Row>
+                    {/* <Row style={{margin:isSmallestScreen? "2% 0" :""}} ><Col><Link to="/" style={{...titleStyle, color: "white", fontSize: "16px" }}>Services</Link></Col></Row> */}
 
                 </Col>
 
-                <Col xs={24} sm={24} md={12} lg={6} xl={6} style={{ paddingLeft: isSmallestScreen ? "" :"5%",paddingTop:isSmallestScreen ? "5%" :"" }} >
+                <Col xs={24} sm={24} md={12} lg={6} xl={6} style={{ paddingLeft: isSmallestScreen ? "" :"5%", }} >
                 <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/about" style={{...titleStyle, color: "white", fontSize: "16px", }}>About US</Link></Col></Row>
                     {/* <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}} ><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/" style={{...titleStyle, color: "white", fontSize: "16px", }}>Blogs</Link></Col></Row> */}
                     <Row justify={"start"} style={{margin:isSmallestScreen? "2% 0" :""}}><Col style={{ marginBottom: isSmallestScreen ? "" :"5%" }}><Link to="/contact" style={{...titleStyle, color: "white", fontSize: "16px" }}>Contact US</Link></Col></Row>
@@ -160,7 +160,7 @@ function Footer() {
                         </Col>
                     </Row>
                 </Col>
-                <Col span={24}  style={{position:"relative",bottom: isMobileScreen ? "-10px" : "-50px"}} >Copyright @2023</Col>    
+                <Col span={24}  style={{position:"relative",bottom: isMobileScreen ? "-10px" : "-50px", fontFamily:"ubuntu"}} >Copyright @2023</Col>    
             </Row>
                 
         </Col>

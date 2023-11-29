@@ -172,8 +172,11 @@ const Ourpackags = () => {
       width: "40%",
       borderBottom: "1px solid black",
       borderRadius: "0",
-      marginTop: isMobileScreen ? (isMobileScreen2 ? "5%" : "3%") : "3%",
-      marginLeft: isMobileScreen ? (isMobileScreen2 ? "7%" : "2%") : "2%",
+      marginTop:isMobileScreen ? (isMobileScreen2 ? "5%" : "3%") : "3%",
+      marginLeft:isMobileScreen ? (isMobileScreen2 ? "7%" : "2%") : "2%",
+      
+      
+
     },
 
     filterFlex: {
@@ -234,65 +237,33 @@ const Ourpackags = () => {
   }, [error, toast, message, dispatch]);
 
   return (
-    <div style={{ width: "95%", overflowX: "hidden", margin: "auto" }}>
-      <Row gutter={[16, 16]} justif="center">
-        <Col span={24} align="middle">
-          {" "}
-          <Title level={1} style={{ marginTop: "1%", fontWeight: "bold" }}>
-            Our Packages
-          </Title>
-          {isMobileScreen ? (
-            <p>
-              We offer some of the most competitive,pocket-friendly prices
-              around, while also delivering without compromising on our quality
-              standards.
-            </p>
-          ) : (
-            <>
-              <p>
-                We offer some of the most competitive,pocket-friendly prices
-                around,
-              </p>
-              <p>
-                {" "}
-                while also delivering without compromising on our quality
-                standards.
-              </p>
-            </>
-          )}
-        </Col>{" "}
-      </Row>
+    <div style={{width:"95%", overflowX:"hidden", margin:"auto",}}>
+      <Row gutter={[16, 16]} justif="center"><Col span={24} align="middle"> <Title level={1} style={{marginTop:"1%",fontWeight:"bold",fontFamily:"ubuntu"}}>Our Packages</Title> 
+      <div style={{fontFamily:'ubuntu'}}>
+      {isMobileScreen?
+    <p>We offer some of the most competitive,pocket-friendly prices around,
+    while also delivering without compromising on our quality standards.</p> : 
+      <>
+      <p>We offer some of the most competitive,pocket-friendly prices around,</p>
+       <p> while also delivering without compromising on our quality standards.</p>
+       </>
+      }
+      </div>
+      </Col> </Row>
       <Row gutter={[16, 16]}>
         <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+        
           <Input
-            placeholder="Search packags"
+            placeholder="Search packages"
             prefix={<SearchOutlined />}
             value={search}
             onChange={handleSearchChange}
             style={styles.width}
             bordered={false}
           />
-          <div
-            style={{
-              margin: "5% 0",
-              color: "#3B505A",
-              fontSize: "14.57px",
-              fontWeight: "400",
-              marginLeft: isMobileScreen
-                ? isMobileScreen2
-                  ? "7%"
-                  : "2%"
-                : "2%",
-              marginTop: isMobileScreen
-                ? isMobileScreen2
-                  ? "8%"
-                  : "4%"
-                : "4%",
-            }}
-          >
-            Showing {(currentPage - 1) * pageSize + 1}-
-            {Math.min(currentPage * pageSize, totalPakages)} of {totalPakages}{" "}
-            packages
+          
+          <div style={{ margin: "5% 0", color: "#3B505A", fontFamily:"ubuntu", fontSize: "14.57px", fontWeight: "400px", marginLeft:isMobileScreen ? (isMobileScreen2 ? "7%" : "2%") : "2%", marginTop:isMobileScreen ? (isMobileScreen2 ? "8%" : "4%") : "4%" }}>
+            Showing {startIndex + 1}-{Math.min(endIndex, filteredData.length)} of {filteredData.length} packages
           </div>
         </Col>
 
@@ -432,8 +403,8 @@ const Ourpackags = () => {
                   </div>
                   <br />
                   <Meta
-                    title={packag.heading}
-                    description={truncateDescription(packag.description)}
+                    title={<span style={{fontFamily:"ubuntu"}}>{packag.heading}</span>}
+                    description={<span style={{fontFamily:"ubuntu"}}>{truncateDescription(packag.description)}</span>}
                   />
 
                   <Row
@@ -450,12 +421,12 @@ const Ourpackags = () => {
                     xl={24}
                   >
                     <Col span={24}>
-                      <Title level={5} style={{ margin: "5px" }}>
+                      <Title level={5} style={{ margin: "5px", fontFamily:"ubuntu" }}>
                         Duration
                       </Title>
                     </Col>
                     <Col xs={24} sm={24} md={24} lg={12} xl={16}>
-                      <div style={{ display: "inline-flex", margin: "5px" }}>
+                      <div style={{ display: "inline-flex", margin: "5px", fontFamily:"ubuntu" }}>
                         <img src={Time} style={{ marginRight: "5px" }} />{" "}
                         <p>{packag.duration}</p>
                       </div>
