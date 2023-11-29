@@ -199,7 +199,7 @@ function Carousel({
                   </div>
                   <img
                     src={item?.url}
-                    alt={`${heading}-al salaam tourism`}
+                    alt={`${heading} - al salaam tourism`}
                     className="carousel-image"
                     style={{
                       borderRadius: radius,
@@ -258,7 +258,7 @@ function Carousel({
                 <img
                   width={thumbnailWidth ? thumbnailWidth : "100px"}
                   src={item?.url}
-                  alt={`${heading}-al salaam tourism`}
+                  alt={`${heading} - al salaam tourism`}
                   className="thumbnail"
                   id={`thumbnail-${index}`}
                   key={index}

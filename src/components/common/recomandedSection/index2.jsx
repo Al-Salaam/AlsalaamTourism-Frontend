@@ -60,6 +60,18 @@ const FlipCard = (props) => {
     transition: "transform 0.9s",
     transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
   };
+  const linkStyle = {
+    position: "absolute",
+    top: "60%",
+    left: "50%",
+    // bottom:"30%",
+    transform: "translate(-50%, -70%)",
+    fontSize:"2000%",
+    textDecoration: "none",
+    color:"transparent", 
+   
+   
+  };
 
   return (
     <div style={cardStyle} onMouseLeave={handleMouseLeave}>
@@ -79,6 +91,7 @@ const FlipCard = (props) => {
             borderRadius: "10px",
           }}
         >
+          <Link Link to={`/activity/${props.activityId}`}>
           <h3
             style={{
               position: "absolute",
@@ -115,6 +128,10 @@ const FlipCard = (props) => {
               {formattedRating}
             </div>
           </h3>
+          <div style={linkStyle}>
+        <p>(L)</p>       
+      </div>
+      </Link>
           <div
             style={{
               position: "absolute",

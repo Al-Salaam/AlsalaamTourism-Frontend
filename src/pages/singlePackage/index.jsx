@@ -66,7 +66,7 @@ const SinglePackage = () => {
             <Col span={24}>
               <CommonHero title1={"Single Package"} image={HeroImage} />
 
-              <CarouselWithThumbnails images={pakage && pakage?.images} />
+              <CarouselWithThumbnails images={pakage && pakage?.images} pakage={pakage} />
               <Row
                 style={{
                   width: isSmallestScreen ? "100vw" : "92.5vw",
