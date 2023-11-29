@@ -25,7 +25,7 @@ const Packags = () => {
         <meta name="twitter:image" content={''} />
       </Helmet>
     <CommonHero image = {HeroImage} title1={"Explore Our Trips"}/>
-    <div style={{margin:isMobileScreen?"20px 0px 20px 0px":"20px 20px 20px 20px"}}>
+    <div style={{margin:isMobileScreen?"20px 0px 20px 0px":"20px 20px 20px 20px", }}>
     <Ourpackags />
     </div>
     <div style={{marginBottom:"-30%"}}>

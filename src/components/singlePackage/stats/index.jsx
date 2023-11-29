@@ -13,11 +13,13 @@ const styles = {
         color: "#2C2727",
         display: "flex",
         alignItems: "center",
-        justifyContent:"center"
+        justifyContent:"center",
+        fontFamily: "ubuntu"
     },
     para: {
         color: "#2C2727",
-        textAlign: "center"
+        textAlign: "center",
+        fontFamily: "ubuntu"
     },
     imgMarg:{
         margin:"0 10px",

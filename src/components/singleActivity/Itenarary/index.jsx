@@ -20,7 +20,7 @@ function Itenary() {
                 {/* First Row */}
                 <Row gutter={[16, 0]}>
                     <Col span={4} xs={4} sm={4} md={4} lg={4} xl={4}>
-                        <Image src={Img1} alt="Image 1" width="70px" />
+                        <Image src={Img1} alt="Image 1" width="70px" preview={false} />
                     </Col>
                     <Col span={16} xs={16} sm={16} md={16} lg={16} xl={16} >
                        <Title level={5}  style={{...titleStyle, marginTop:"50px",marginLeft:"-35px"}}>Meet our guide at the pick-up point</Title>
@@ -33,14 +33,14 @@ function Itenary() {
                         <Title level={5} style={{...titleStyle, marginTop:"55px",marginRight:"-35px"}}>Embark on an exquisite and memorable tour/activity with our expert guide.</Title>
                     </Col>
                     <Col span={4} xs={4} sm={4} md={4} lg={4} xl={4}>
-                        <Image src={Img2} alt="Image 2" width="70px" />
+                        <Image src={Img2} alt="Image 2" width="70px" preview={false}/>
                     </Col>
                 </Row>
 
                 {/* Third Row */}
                 <Row gutter={[16, 0]}>
                     <Col span={4} xs={4} sm={4} md={4} lg={4} xl={4}>
-                        <Image src={Img3} alt="Image 3" width="70px" />
+                        <Image src={Img3} alt="Image 3" width="70px" preview={false}/>
                     </Col>
                     <Col span={16} xs={16} sm={16} md={16} lg={16} xl={16}>
                         <Title level={5} style={{...titleStyle, marginTop:"50px",marginLeft:"-35px"}}>Return to hotel.</Title>

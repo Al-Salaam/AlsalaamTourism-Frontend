@@ -153,7 +153,7 @@ function About() {
               lg={12}
               xl={index === imageCardData.length - 1 ? 24 : 8}
               key={index}
-              style={{ marginTop: "30px" }}
+              style={{ marginTop: "30px" , }}
             >
               <ImageCard
                 key={index}

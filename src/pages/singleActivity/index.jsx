@@ -91,11 +91,12 @@ function SingleActivity() {
                 <Stats activity={activity} />
                 <div style={{ marginLeft: "20px" }}>
                   <Itenary />
-                  <div style={{ display: isSmallScreen ? "none" : "" }}>
+                  <div style={{ display: isSmallScreen ? "none" : "" , fontFamily:"ubuntu" }}>
                     <Checklist
                       activity={activity?.highlights}
                       columns={1}
                       title={"Highlights"}
+                      
                     />
                   </div>
                 </div>
@@ -103,6 +104,7 @@ function SingleActivity() {
               <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                 <BookNow activity={activity} />
                 <Description activity={activity} />
+                <div style={{fontFamily:"ubuntu"}}>
                 <Checklist
                   activity={activity?.included}
                   columns={2}
@@ -114,7 +116,8 @@ function SingleActivity() {
                   columns={1}
                   title={"Excluded"}
                 />
-                <div style={{ display: isSmallScreen ? "" : "none" }}>
+                </div>
+                <div style={{ display: isSmallScreen ? "" : "none", fontFamily:"ubuntu" }}>
                   <Checklist
                     activity={activity?.highlights}
                     columns={1}
@@ -136,7 +139,7 @@ function SingleActivity() {
                 lg={12}
                 xl={12}
                 xxl={12}
-                style={{ margin: "5% 0", padding: "0 2%" }}
+                style={{ margin: "5% 0", padding: "0 2%", }}
               >
                 <AverageRating
                   reviews={activity?.noOfReviews}
@@ -173,6 +176,7 @@ function SingleActivity() {
                   margin: "4% 0",
                   padding: "0 2%",
                   display: isSmallScreen ? "" : "none",
+                  
                 }}
                 align="middle"
               >

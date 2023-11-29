@@ -27,7 +27,8 @@ const TabsSinglePackage = ({pakage}) => {
         button: {
             backgroundColor: "white",
             border: "none",
-            color: "black"
+            color: "black",
+            fontFamily: "ubuntu"
         },
         selectedButton: {
             backgroundColor: "white",
@@ -37,6 +38,7 @@ const TabsSinglePackage = ({pakage}) => {
         h1: {
             fontSize: "18px",
             fontWeight: "bold",
+            fontFamily: "ubuntu"
         },
     }
 
@@ -81,7 +83,7 @@ const TabsSinglePackage = ({pakage}) => {
 
             <Row>
                 <Col span={24}>
-                    <Card style={{margin:isSmallest ? '0 0 0 20px':'0'}}>
+                    <Card style={{margin:isSmallest ? '0 0 0 20px':'0', fontFamily:"ubuntu"}}>
                         {contentMap[selectedButton]}
                     </Card>
                 </Col>

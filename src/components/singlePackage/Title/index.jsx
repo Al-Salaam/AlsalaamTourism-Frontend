@@ -9,8 +9,8 @@ const SinglePackaeTitle =  ({pakage}) => {
     return(
 
         <Row>
-         <Col span={24} align={isSmallest?"center":"left"}><Title level={2} style={{fontWeight:'bold'}}> {pakage?.heading} </Title></Col>
-         <Col span={24} align={isSmallest?"center":"left"}><Rate disabled allowHalf={true} value={pakage?.noOfReviews === 0 ? 0 : pakage?.ratings} /> <Title level={5}>{formattedRating}/ 5 - ({pakage?.noOfReviews})</Title> </Col>
+         <Col span={24} align={isSmallest?"center":"left"}><Title level={2} style={{fontWeight:'bold',fontFamily:"ubuntu"}}> {pakage?.heading} </Title></Col>
+         <Col span={24} align={isSmallest?"center":"left"}><Rate disabled allowHalf={true} value={pakage?.noOfReviews === 0 ? 0 : pakage?.ratings} /> <Title level={5} style={{fontWeight:'bold',fontFamily:"ubuntu"}}>{formattedRating}/ 5 - ({pakage?.noOfReviews})</Title> </Col>
         </Row>
     )
 } 

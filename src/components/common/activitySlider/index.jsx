@@ -41,6 +41,7 @@ const  ActivitySlider = ({ data, auto = false, showTitle = true, showDescription
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        
       };
   
     const leftIconStyles = {
@@ -100,7 +101,7 @@ const  ActivitySlider = ({ data, auto = false, showTitle = true, showDescription
                 {cardIndexes.map((index) => {
                     const item = data[index];
                     return (
-                        <Col align="middle" key={item?._id} xs={24} sm={24} md={24} lg={12} xl={8} xxl={8} style={{padding:"1%"}}>
+                        <Col align="middle" key={item?._id} xs={24} sm={24} md={24} lg={12} xl={8} xxl={8} style={{padding:"1%", }}>
                             <div onClick={handleCardClick}> {/* Add onClick handler to the card */}
                                 <FlipCard style={{ border: "red 1px solid" }} imageSrc={item?.images[0]?.url} title1={item?.name} rate={item?.ratings} price={item?.price} shortDescription={item?.shortDescription} activitySlug={item?.slug} noOfReviews={item?.noOfReviews} />
                             </div>
@@ -114,11 +115,11 @@ const  ActivitySlider = ({ data, auto = false, showTitle = true, showDescription
     return (
         <Row style={{ margin: "2% 0" }}>
             {showTitle ? <Col xs={24} sm={12} md={7} lg={8} xl={8} xxl={8} style={{ margin: '20px 0 0 20px', textAlign: isSmallest ?'left':'left' }}>
-                <Title level={1} style={{fontWeight:"bold"}}>Explore Other Activities</Title>
+                <Title level={1} style={{fontWeight:"bold",fontFamily:"ubuntu"}}>Explore Other Activities</Title>
             </Col> : "" }
 
             {showDescription ? <Col xs={24} sm={24} md={10} lg={10} xl={6} xxl={6} style={{ marginTop: '20px', textAlign: isSmallest ?'center':'left' }}>
-                <Title level={4} style={{color:"GrayText"}}>At Al salaam Tours & Travels, we provide excellent solutions for taking full advantage of the exciting activities</Title>
+                <Title level={4} style={{color:"GrayText", fontFamily:"ubuntu"}}>At Al salaam Tours & Travels, we provide excellent solutions for taking full advantage of the exciting activities</Title>
             </Col> : "" }
             
             {showButtons ? <Col xs={24} sm={24} md={6} lg={5} xl={9} xxl={9} style={{ marginTop: '20px', textAlign: isSmallest ?'center':'right',marginBottom:"20px" }}>

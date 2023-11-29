@@ -122,13 +122,14 @@ function CircleComponent() {
             </Col>
           </Row>
           <Row justify="center" >
-            <Col span={8} align="middle" style={{marginLeft:"-20%"}} >
+            <Col span={8} align="middle" style={{marginLeft:"-20%", }} >
               <div
                 style={{
                   
                   ...circleStyles.smallCircle,
                   backgroundImage: `url(${circleData[0].image})`,
                   backgroundSize: 'cover',
+                  
                 }}
                 onClick={() => handleCircleClick(0)}
               ></div>
@@ -138,6 +139,7 @@ function CircleComponent() {
                   backgroundImage: `url(${circleData[1].image})`,
                   backgroundSize: 'cover',
                   marginRight: '-50%',
+                  
                 }}
                 onClick={() => handleCircleClick(1)}
               ></div>

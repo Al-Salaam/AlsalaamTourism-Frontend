@@ -14,14 +14,17 @@ const styles = {
         color: "#2C2727",
         display: "flex",
         alignItems: "center",
-        justifyContent:"center"
+        justifyContent:"center",
+        fontFamily: "Ubuntu",
     },
     para: {
         color: "#2C2727",
-        textAlign: "center"
+        textAlign: "center",
+        fontFamily: "Ubuntu",
     },
     imgMarg:{
         margin:"0 10px",
+        
         
     }
 }
@@ -31,11 +34,7 @@ const styles = {
 
 const Stats = ({activity}) => {
 
-    const titleStyle = {
-    fontFamily: "Ubuntu",
-    
-   
-  };
+
 
     return (
 

@@ -41,7 +41,7 @@ return(
           height: height,
           fontFamily: "Ubuntu",
           fontSize: isMobile?"75%":"100%",
-          fontWeight:isMobile? 600: 600,
+          fontWeight:isMobile? 600: 550,
           textAlign:"center",
           textShadow:
             "0px 1.5589158535003662px 1.247132658958435px rgba(0, 0, 0, 0.0759), " +

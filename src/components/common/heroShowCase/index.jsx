@@ -13,7 +13,7 @@ function HeroShowCase() {
   const isSmallScreen1 = useMediaQuery({ maxWidth: 768 });
 
   const titleStyle = {
-    fontFamily: "Ubuntu",
+    fontFamily: 'Ubuntu', 
     marginRight: isSmallScreen ? "-2%" : "8%",
     textShadow:
       "0px 1.5589158535003662px 1.247132658958435px rgba(0, 0, 0, 0.0759), " +

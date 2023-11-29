@@ -37,11 +37,7 @@ function TopDealCarousel() {
  
   };
 
-  const titleStyle = {
-    fontFamily: "Ubuntu",
-    
-   
-  };
+
   
 
   return (
@@ -52,7 +48,8 @@ function TopDealCarousel() {
             <Title style={{
               color: "white",
               textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
-              marginTop:"30px"
+              marginTop:"30px",
+              fontFamily:"ubuntu"
             }}>TOP DEALS</Title>
           </Col>
         </Row>
