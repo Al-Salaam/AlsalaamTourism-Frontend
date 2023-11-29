@@ -161,9 +161,9 @@ const Ourpackags = () => {
       // );
 
   // Calculate currentData based on filteredData and currentPage
-  // const startIndex = (currentPage - 1) * pageSize;
-  // const endIndex = startIndex + pageSize;
-  // const currentData = filteredData.slice(startIndex, endIndex);
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+  const currentData = filteredData.slice(startIndex, endIndex);
 
   // styling
 
