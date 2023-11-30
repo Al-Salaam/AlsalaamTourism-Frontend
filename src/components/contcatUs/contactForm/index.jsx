@@ -1,5 +1,7 @@
 import { Row, Col, Typography, Input } from "antd";
 import formcall from "../../../../images/formcall.svg";
+import Contact from "../../../../images/ContactUS.png"
+import contact2 from "../../../../images/contact2.png"
 import Formmsg from "../../../../images/formmsg.svg";
 import FormLoc from "../../../../images/formLoc.svg";
 import PrimaryButton from "../../common/buttons/primary";
@@ -91,7 +93,9 @@ const MyForm = () => {
 
   const isMobileScreen2 = useMediaQuery({ maxWidth: 900 });
 
-  const isScreen = useMediaQuery({ maxWidth: 1480 });
+  const isScreen = useMediaQuery({ maxWidth: 767 });
+
+  const isScreen2 = useMediaQuery({ maxWidth: 1200 });
 
   return (
     <Row
@@ -104,6 +108,7 @@ const MyForm = () => {
         marginBottom: "50px",
         backgroundColor: "white",
         borderRadius: "15px",
+        marginLeft:isScreen2?"":"80px"
       }}
     >
       {/* Left Side */}
@@ -124,163 +129,27 @@ const MyForm = () => {
           ...formContainerStyle,
         }}
       >
-        <Col
-          xs={24}
-          sm={24}
-          md={24}
-          xl={15}
-          lg={18}
-          style={{
-            background: "linear-gradient(to bottom, #70ADBB, #018D97)",
-            flex: 1,
-            padding: "4% 0 0 4%",
-            boxShadow: "2px 2px 4px rgba(0, 0, 0, 1)",
-            position: "relative",
-            borderRadius: "15px 15px 0 0",
-          }}
-        >
-          <Col xs={24} sm={24} md={18} lg={19} xl={22} align="middle">
-            <Title
-              level={3}
-              style={{
-                color: "white",
-                fontFamily: "Ubuntu",
-                fontSize: "30px",
-                fontStyle: "normal",
-                fontWeight: "700",
-                lineHeight: "100%",
-                marginRight: isScreen ? "" : "12%",
-              }}
-            >
-              Contact Information
-            </Title>
-          </Col>
-          <Col xs={24} sm={24} md={15} lg={15} xl={18} align="middle">
-            <Title
-              style={{
-                color: "#C9C9C9",
-                fontFamily: "Ubuntu",
-                fontSize: "18px",
-                fontStyle: "normal",
-                fontWeight: "400",
-                lineHeight: "140%",
-                marginBottom: "30px",
-                marginLeft: "1%",
-              }}
-            >
-              Here’s how you can reach us.
-            </Title>
-          </Col>
-          <Row style={{ marginBottom: "30px" }}>
-            <Col
+      { isScreen?
+       <Col
               xs={24}
               sm={24}
-              md={2}
-              lg={2}
-              xl={2}
+              md={24}
+              lg={24}
+              xl={24}
               align={isMobileScreen ? "middle" : "end"}
             >
-              <img src={formcall} alt="Al Salaam Tourism-contact us 1" />
-            </Col>
-
-            <Col xs={24} sm={24} md={12} lg={14} xl={12} align="middle">
-              <Title
-                level={5}
-                style={{
-                  color: "#FFF",
-                  fontFamily: "Ubuntu",
-                  fontSize: "16px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "normal",
-                }}
-              >
-                +971 4 320 5652
-              </Title>
-            </Col>
-          </Row>
-          <Row style={{ marginBottom: "30px" }}>
-            <Col
+              <img src={contact2} alt="Al Salaam Tourism-contact us 1" style={{height:isMobileScreen2?"95%":"101%", width:isMobileScreen2?"100%":"70%"}}/>
+            </Col>   : <Col
               xs={24}
               sm={24}
-              md={2}
-              lg={2}
-              xl={2}
+              md={24}
+              lg={24}
+              xl={24}
               align={isMobileScreen ? "middle" : "end"}
             >
-              <img src={Formmsg} alt="Al Salaam Tourism-contact us 2" />
-            </Col>
-
-            <Col
-              xs={24}
-              sm={24}
-              md={14}
-              lg={16}
-              xl={17}
-              align={isMobileScreen ? "middle" : "end"}
-            >
-              <Title
-                level={5}
-                style={{
-                  color: "#FFF",
-                  fontFamily: "Ubuntu",
-                  fontSize: "16px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "normal",
-                  marginRight: isScreen ? "10%" : "21%",
-                }}
-              >
-                info@alsalaamtourism.com
-              </Title>
-            </Col>
-          </Row>
-          <Row style={{ marginBottom: "30px" }}>
-            <Col
-              xs={24}
-              sm={24}
-              md={2}
-              lg={2}
-              xl={2}
-              align={isMobileScreen ? "middle" : "end"}
-            >
-              <img src={FormLoc} alt="Al Salaam Tourism-contact us 3" />
-            </Col>
-
-            <Col
-              xs={24}
-              sm={24}
-              md={20}
-              lg={18}
-              xl={18}
-              align={isMobileScreen ? "center" : "end"}
-            >
-              <Title
-                style={{
-                  color: "#FFF",
-                  fontFamily: "Ubuntu",
-                  fontSize: "16px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "normal",
-                }}
-              >
-                office 17, Awazel Building, Ras Al Khor 2 Manama St, Dubai, UAE.
-              </Title>
-            </Col>
-          </Row>
-          <Row
-            xs={24}
-            sm={24}
-            md={24}
-            lg={24}
-            xl={24}
-            style={{ justifyContent: "flex-end" }}
-          >
-            <div style={circleStyle}></div>
-            <div style={circleStyle2}></div>
-          </Row>
-        </Col>
+              <img src={Contact} alt="Al Salaam Tourism-contact us 1" style={{height:isMobileScreen2?"95%":"101%", width:isMobileScreen2?"100%":"70%"}}/>
+            </Col>  
+          }
       </Col>
 
       {/* Right Side */}
@@ -308,7 +177,7 @@ const MyForm = () => {
             fontWeight: "500",
             lineHeight: "20px",
             marginRight: isSmallestScreen ? "" : "10px",
-            marginLeft: isSmallestScreen ? "5px" : "0px",
+            marginLeft: isSmallestScreen ? "5px" : "20px",
           }}
         >
           <Col xs={23} sm={24} md={18} xl={9} lg={10}>
@@ -325,7 +194,7 @@ const MyForm = () => {
                 border: "none",
                 borderBottom: "2px solid #ccc",
                 outline: "none",
-                width: "100%",
+                width: "110%",
                 marginTop: "8%",
                 fontSize: "16px",
               }}
@@ -353,7 +222,7 @@ const MyForm = () => {
                 fontFamily: "Ubuntu",
                 borderBottom: "2px solid #ccc",
                 outline: "none",
-                width: "100%",
+                width: "110%",
                 marginTop: "8%",
                 fontSize: "16px",
               }}
@@ -373,7 +242,7 @@ const MyForm = () => {
             fontWeight: "500",
             lineHeight: "20px",
             marginRight: isSmallestScreen ? "" : "10px",
-            marginLeft: isSmallestScreen ? "5px" : "0px",
+            marginLeft: isSmallestScreen ? "5px" : "20px",
           }}
         >
           <Col xs={23} sm={24} md={18} xl={9} lg={10}>
@@ -389,7 +258,7 @@ const MyForm = () => {
                 border: "none",
                 borderBottom: "2px solid #ccc",
                 outline: "none",
-                width: "100%",
+                width: "110%",
                 marginTop: "8%",
                 fontSize: "16px",
               }}
@@ -416,7 +285,7 @@ const MyForm = () => {
                 border: "none",
                 borderBottom: "2px solid #ccc",
                 outline: "none",
-                width: "100%",
+                width: "110%",
                 marginTop: "8%",
                 fontSize: "16px",
               }}
@@ -436,7 +305,7 @@ const MyForm = () => {
             fontWeight: "500",
             lineHeight: "20px",
             marginRight: isSmallestScreen ? "" : "10px",
-            marginLeft: isSmallestScreen ? "5px" : "0px",
+            marginLeft: isSmallestScreen ? "5px" : "20px",
           }}
         >
           <Col xs={12} sm={13} md={9} xl={6} lg={9}>
@@ -451,7 +320,7 @@ const MyForm = () => {
                 border: "none",
                 borderBottom: "2px solid #ccc",
                 outline: "none",
-                width:isMobileScreen2?"250%": "370%",
+                width:isMobileScreen2?"230%": "340%",
                 marginTop: "8%",
                 fontSize: "12px",
               }}

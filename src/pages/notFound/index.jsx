@@ -33,7 +33,7 @@ const isMobile = useMediaQuery({
         <Title level={3} style={styles.text}>ERROR</Title>
         <Title level={5} style={{...styles.text,fontSize: isMobile ? "49vw": "2000%"}}>404</Title>
         <Title level={5} style={{...styles.text,marginLeft: isMobile ? "" : "300px",fontSize:"24px"}}><div style={{lineHeight:"35px",margin:isMobile ? "" :"25% auto"}}>Something Went <br/> Wrong</div></Title>
-        <Title level={5} style={{...styles.text, textAlign:"center",marginTop:"15%"}}><a style={styles.text}><h3 style={{color:"white",padding:"0",margin:"0",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>Back<img width={"50px"} src = {Arrow}/></h3></a></Title>
+        <Title level={5} style={{...styles.text, textAlign:"center",marginTop:"15%"}}><a href='/' style={styles.text}><h3 style={{color:"white",padding:"0",margin:"0",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>Back<img width={"50px"} src = {Arrow}/></h3></a></Title>
       </Col>
     </Row>
   );
