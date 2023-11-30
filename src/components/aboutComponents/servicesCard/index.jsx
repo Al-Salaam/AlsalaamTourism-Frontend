@@ -15,10 +15,10 @@ const FlipCardServices = ({ frontData, backData }) => {
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    transition: 'transform 0.5s ease',
+    transition: 'transform 0.5s',
     transformStyle: 'preserve-3d',
-    transform: `rotateY(${isFlipped ? '180deg' : '0deg'})`,
-    margin: '10%',
+    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+    margin:"10%",
   };
 
   const frontStyle = {
@@ -27,11 +27,11 @@ const FlipCardServices = ({ frontData, backData }) => {
     width: '100%',
     height: '100%',
     backfaceVisibility: 'hidden',
-    display: 'flex',
+    display:"flex",
     flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transform: 'rotateY(0deg)',
+    alignItems:"center",
+    justifyContent:"center"
+    
   };
 
   const backStyle = {
@@ -40,14 +40,14 @@ const FlipCardServices = ({ frontData, backData }) => {
     width: '100%',
     height: '100%',
     backfaceVisibility: 'hidden',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     transform: 'rotateY(180deg)',
+    display:"flex",
+    alignItems:"center",
+    justifyContent:"center"
   };
 
   return (
-    <div style={cardStyle} onMouseEnter={flipCard} onMouseLeave={flipCard}>
+    <div style={cardStyle} onClick={flipCard}>
       <div style={isFlipped ? backStyle : frontStyle}>
         {isFlipped ? (
           <>
@@ -57,6 +57,7 @@ const FlipCardServices = ({ frontData, backData }) => {
           <>
             <img src={frontData.icon} alt="icon" />
             <h2>{frontData.heading}</h2>
+            
           </>
         )}
       </div>

@@ -66,12 +66,12 @@ function Footer() {
 
                 <Col  xs={10} sm={10} md={10} lg={10} xl={10}align={"middle"} justify={"center"} >
         <Row align={"middle"} justify={"end"}>
-            <Col><img src={Phone} style={{width:isTablet?".8rem":"1.2rem"}} alt='al salaam tourism' /></Col>
-            <Col><Title  style={{fontSize:isTablet?".6rem":"1rem"}}> <a
+            <Col><img src={Phone} style={{width:isTablet?".8rem":"1.2rem",marginBottom:isTablet?"":"7px"}} alt='al salaam tourism' /></Col>
+            <Col><Title  style={{fontSize:isTablet?".7rem":"1rem"}}> <a
         href="tel:+971524928120"
         style={{...titleStyle, textDecoration: "none", color: "#3B505A" }}
       >
-        Call on +971524928120
+         +971524928120
       </a></Title></Col>
       </Row>
       </Col>
@@ -79,7 +79,7 @@ function Footer() {
                 
                 
         <Col  xs={14} sm={10} md={14} lg={12} xl={8} align={"center"}> <Row align={"middle"} justify={"center"}>
-            <Col><img src={Msg} style={{width:isTablet?".8rem":"1.2rem"}} alt='al salaam tourism'/></Col><Col>
+            <Col><img src={Msg} style={{width:isTablet?".8rem":"1.2rem",marginBottom:isTablet?"":"5px"}} alt='al salaam tourism'/></Col><Col>
             <Title style={{fontSize:isTablet?".7rem":"1rem"}}>
                  <a href="mailto:info@alsalaamtourism.com" style={{ textDecoration: "none", color: "#3B505A" }}>info@alsalaamtourism.com</a>
                  </Title>
