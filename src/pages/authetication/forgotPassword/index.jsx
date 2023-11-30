@@ -1,72 +1,41 @@
-import  { useEffect, useState } from 'react';
-import { Button, Checkbox, Row, Col, Typography, Divider } from 'antd';
+import { Button, Row, Col, Typography } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import styles from './login.module.css';
 import Eclipse from '../../../../images/eclipse1.png';
 import Woman from '../../../../images/forget.png';
-
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../../redux/actions/authAction';
-import toast from 'react-hot-toast';
+import { forgetPassword } from '../../../redux/actions/authAction';
+import { toast } from 'react-hot-toast';
 import { clearError, clearMessage } from '../../../redux/reducers/authReducer';
-import { Link, useNavigate } from 'react-router-dom';
 
  function ForgotPassword () {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
   const isSmallScreen = useMediaQuery({ maxWidth: 990 });
   const isSmallestScreen = useMediaQuery({ maxWidth: 525 });
   const { Title } = Typography;
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading, isAuthenticated, error, message } = useSelector((state) => state.auth);
-  const handleLogin = (e) => {
+  const {loading , error, message} = useSelector((state) => state.auth);
+  const handleSubmit = (e) => {
     e.preventDefault();
-    let isValid = true;
-
-    // Check if email is empty
-    if (email.trim() === '') {
-      setEmailError('Email cannot be empty');
-      isValid = false;
-    } else {
-      setEmailError('');
+    if(!email){
+      toast.error('Please Enter the Email');
+    }else{
+      dispatch(forgetPassword(email))
     }
-
-    // Check if password is empty
-    if (password.trim() === '') {
-      setPasswordError('Password cannot be empty');
-      isValid = false;
-    } else {
-      setPasswordError('');
-    }
-
-    if (!isValid) {
-      // If any field is empty, don't proceed with login
-      return;
-    }
-    const credentials = {
-      email, password
-    }
-    dispatch(login(credentials))
-  };
+    
+  }
 
   useEffect(() => {
-    if (error) {
+    if(error){
       toast.error(error.message);
       dispatch(clearError())
     }
-    if (message) {
-      toast.success(message)
-      dispatch(clearMessage());
+    if(message){
+      toast.success(message);
+      dispatch(clearMessage())
     }
-    if (isAuthenticated) {
-      navigate('/')
-    }
-
-  }, [toast, error, message, dispatch, isAuthenticated, navigate])
-
+  },[error,message, dispatch, toast])
 
 
   return (
@@ -94,7 +63,7 @@ import { Link, useNavigate } from 'react-router-dom';
                   style={{height:"50px"}}
 
                 />
-                 {emailError && <p style={{ color: 'salmon' }}>{emailError}</p>}
+                
               </Col>
             </Row>
 
@@ -104,7 +73,7 @@ import { Link, useNavigate } from 'react-router-dom';
                 <Button
                   disabled={loading}
                   className={styles.mainButton}
-                  onClick={handleLogin}
+                  onClick={handleSubmit}
                   style={{
                     backgroundColor: '#3B505A',
                     borderRadius: '20px',
@@ -115,7 +84,7 @@ import { Link, useNavigate } from 'react-router-dom';
                     fontSize:"15px"
                   }}
                 >
-                  {loading ? "loading..." : "Send Reset Link"}
+                  {loading ? "sending..." : "Send Reset Link"}
                 </Button>
               </Col>
             </Row>
@@ -123,7 +92,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
             <Row gutter={8} align="center">
               <Col>
-                 <Title level={5} style={{color:"#007074",marginTop:"10px"}}>Back to Login</Title>
+                 <Title level={5} style={{color:"#007074",marginTop:"10px"}}><a href='/login'>Back to Login</a></Title>
               </Col>
             </Row>
           </div>

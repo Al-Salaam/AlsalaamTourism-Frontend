@@ -60,3 +60,14 @@ export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
         throw error?.response?.data?.message;
     }
 });
+
+
+export const forgetPassword = createAsyncThunk('auth/forgetPassword', async (email) => {
+    try {
+        // Make a GET request to your logout endpoint
+        const response = await https.post('/auth/forgetpassword', {email});
+        return  response?.data;
+    } catch (error) {
+        throw error?.response?.data?.message;
+    }
+});
