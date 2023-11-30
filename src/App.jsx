@@ -33,6 +33,7 @@ import Protected from "./helpers/protectedRoute/Protected";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchUserProfile } from "./redux/actions/authAction";
+import ForgotPassword from "./pages/authetication/forgotPassword";
 
 
 function App() {
@@ -108,6 +109,8 @@ function App() {
             </Protected>
           }
         />
+        
+        <Route path="/forget-password" element={<ForgotPassword />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Home />} />
