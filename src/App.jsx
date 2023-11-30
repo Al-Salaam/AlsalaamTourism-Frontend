@@ -34,6 +34,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchUserProfile } from "./redux/actions/authAction";
 import ForgotPassword from "./pages/authetication/forgotPassword";
+import ResetPassword from "./pages/authetication/resetPassword";
 
 
 function App() {
@@ -109,7 +110,7 @@ function App() {
             </Protected>
           }
         />
-        
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/forget-password" element={<ForgotPassword />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
