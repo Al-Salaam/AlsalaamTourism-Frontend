@@ -71,3 +71,13 @@ export const forgetPassword = createAsyncThunk('auth/forgetPassword', async (ema
         throw error?.response?.data?.message;
     }
 });
+
+export const resetPassword = createAsyncThunk('auth/resetPassword', async ({token, password}) => {
+    try {
+        // Make a GET request to your logout endpoint
+        const response = await https.put(`/auth/resetpassword/${token}`, {password});
+        return  response?.data;
+    } catch (error) {
+        throw error?.response?.data?.message;
+    }
+});

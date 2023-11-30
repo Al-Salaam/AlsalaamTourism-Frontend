@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { fetchUserProfile, forgetPassword, login, logoutUser, signup } from "../actions/authAction";
+import { fetchUserProfile, forgetPassword, login, logoutUser, resetPassword, signup } from "../actions/authAction";
 
 const initialState = {
     loading: false,
@@ -92,6 +92,18 @@ const authReducer = createSlice({
                 state.message = action.payload.message;
             })
             .addCase( forgetPassword.rejected,(state, action)=> {
+                state.loading = false;
+                state.error = action.error
+            })
+
+            .addCase(resetPassword.pending,(state)=> {
+                state.loading = true;
+            })
+            .addCase( resetPassword.fulfilled,(state, action)=> {
+                state.loading = false;
+                state.message = action.payload.message;
+            })
+            .addCase( resetPassword.rejected,(state, action)=> {
                 state.loading = false;
                 state.error = action.error
             })
