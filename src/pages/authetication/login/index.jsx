@@ -121,7 +121,7 @@ const Login = () => {
                 <Checkbox>Remember me</Checkbox>
               </Col>
               <Col span={12} align="right">
-                <a style={{ color: '#007074' }} href="#">
+                <a style={{ color: '#007074' }} href="/forget-password">
                   Forgot password
                 </a>
               </Col>
