@@ -110,8 +110,9 @@ function App() {
             </Protected>
           }
         />
-        <Route path="/reset-password" element={<ResetPassword />} />
+        
         <Route path="/forget-password" element={<ForgotPassword />} />
+        <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Home />} />
