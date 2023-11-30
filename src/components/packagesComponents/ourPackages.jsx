@@ -425,7 +425,7 @@ const Ourpackags = () => {
                         Duration
                       </Title>
                     </Col>
-                    <Col xs={24} sm={24} md={24} lg={12} xl={16}>
+                    <Col xs={24} sm={24} md={24} lg={24} xl={12}>
                       <div style={{ display: "inline-flex", margin: "5px", fontFamily:"ubuntu" }}>
                         <img src={Time} style={{ marginRight: "5px" }} />{" "}
                         <p>{packag.duration}</p>
@@ -436,8 +436,8 @@ const Ourpackags = () => {
                         xs={24}
                         sm={24}
                         md={24}
-                        lg={12}
-                        xl={16}
+                        lg={24}
+                        xl={12}
                         align="right"
                         style={{
                           marginTop: marginTopStyle,
