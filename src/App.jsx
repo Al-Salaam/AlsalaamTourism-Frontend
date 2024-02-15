@@ -41,12 +41,16 @@ function App() {
       const dispatch = useDispatch();
 
       const {isAuthenticated } = useSelector((state) => state.auth)
-      useEffect(() => {
-        dispatch(fetchUserProfile())
-      },[dispatch])
+      // useEffect(() => {
+      //   dispatch(fetchUserProfile())
+      // },[dispatch])
   
-      const storedUser =  JSON.parse(localStorage.getItem("user"));
-      const isSignedIn = storedUser?.user;
+      // const storedUser =  JSON.parse(localStorage.getItem("user"));
+      // const isSignedIn = storedUser?.user;
+
+      const storedToken = localStorage.getItem("accessToken");
+      const isSignedIn = storedToken !== null; // Check if the token exists
+
     
       useEffect(() => {
         if(isAuthenticated) {

@@ -24,7 +24,8 @@ export const login = createAsyncThunk('auth/login', async (credentials) => {
 
         // Axios automatically throws an error for non-2xx responses
         const user = response.data;
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('accessToken', user.accessToken);
+        localStorage.setItem('refreshToken', user.refreshToken);
         return user;
     } catch (error) {
         throw error?.response?.data?.message;;
@@ -52,9 +53,7 @@ export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
         // Make a GET request to your logout endpoint
         const response = await https.get('/logout');
 
-        // Clear user data from local storage after successful logout
-        localStorage.removeItem('user'); // Assuming 'user' is the key under which user data is stored
-
+        
         return response?.data;
     } catch (error) {
         throw error?.response?.data?.message;

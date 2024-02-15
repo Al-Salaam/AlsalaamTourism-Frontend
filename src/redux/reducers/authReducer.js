@@ -49,6 +49,7 @@ const authReducer = createSlice({
                 state.isAuthenticated = true;
                 state.user = action.payload.user;
                 state.message = action.payload.message;
+                localStorage.setItem('user', JSON.stringify(action.payload.user));
             })
             .addCase(login.rejected, (state, action) => {
                 state.loading = false;
@@ -61,7 +62,7 @@ const authReducer = createSlice({
             })
             .addCase(fetchUserProfile.fulfilled,(state, action) => {
                 state.loading = false;
-                state.user = action.payload.user;
+                state.user = action.payload?.user;
 
             })
             .addCase(fetchUserProfile.rejected,(state, action) => {
@@ -78,6 +79,9 @@ const authReducer = createSlice({
                 state.message = action.payload.message;
                 state.isAuthenticated = false;
                 state.user = null;
+                localStorage.removeItem('user'); // Assuming 'user' is the key under which user data is stored
+                localStorage.removeItem('accessToken');
+                localStorage.removeItem('refreshToken');
             })
             .addCase(logoutUser.rejected,(state, action) => {
                 state.loading = false;
