@@ -10,7 +10,33 @@ import bookingReducer from "./reducers/bookingReducer";
 import inquiryReducer from "./reducers/inquiryReducer";
 import newsLetterReducer from "./reducers/newsLetterReducer";
 
-
+const initialState = {
+    loading: false,
+    error: null,
+    message: null,
+    isAuthenticated: false,
+    user: null,
+  };
+  
+  // Function to load the state from localStorage
+  const loadState = () => {
+    if (typeof window === 'undefined') {
+      // Server-side, return initial state
+      return initialState;
+    }
+  
+    try {
+      const serializedState = localStorage.getItem('user');
+      if (serializedState === null) {
+        return initialState; // When there is no state in localStorage, return the initial state
+      }
+      return { ...initialState, user: JSON.parse(serializedState), isAuthenticated: true }; // Parse the JSON string and set it as initial state
+    } catch (err) {
+      console.error('Error loading state: ', err);
+      return initialState; 
+    }
+  };
+  
 
 export const store = configureStore({
     reducer:{
@@ -23,5 +49,8 @@ export const store = configureStore({
         booking: bookingReducer,
         inquiry: inquiryReducer,
         newsLetter: newsLetterReducer
-    }
+    },
+    preloadedState: {
+        auth: loadState(),
+      }
 })
