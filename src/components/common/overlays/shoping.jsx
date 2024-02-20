@@ -46,7 +46,7 @@ const ShoppingComponent = () => {
                   <Title level={4}>{item?.title}</Title>
                   <Title level={4} style={{ marginTop: "-10px" }}>{item?.price} AED</Title>
                   <Space>
-                    <Link to={`/activity/${item.activityId}`} >View Details</Link>
+                    <Link to={`/activity/${item.slug}`} >View Details</Link>
 
                     <CloseCircleOutlined
                       style={{

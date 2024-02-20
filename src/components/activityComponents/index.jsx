@@ -28,8 +28,8 @@ function OurActivity() {
         activityId: activity._id,
         title: activity.name,
         price: activity.price,
-        image: activity.images[0].url
-      
+        image: activity.images[0].url,
+        slug: activity.slug
     };
 
   
