@@ -25,9 +25,10 @@ function RecomendedSection() {
       title: activity.name,
       price: activity.price,
       image: activity.images[0].url,
+      slug: activity.slug,
       // Add other relevant data
     };
-
+  
     // Dispatch the addToCart action with the cart item data
     dispatch(addToCart(cartItem));
   };

@@ -21,13 +21,13 @@ const ProfileComponent = ({loading, user}) => {
           </Row>
           <Divider/>
           </div>
-            <div style={{display:"flex",justifyContent:"center",alignItems:"center",marginTop:"40px"}}>
+            <div style={{display:"flex",alignItems:"center",marginTop:"35px", marginLeft: "40px"}}>
           <Row >
             
             <Col span={24} align={"left"}>
               <Link to={'/user-panel/user-form'}>
              
-              <Title style={{cursor: 'pointer'}} level={5}> <Image src={dashboardIcon} alt={"icon"} preview={false}/>Dashboard</Title>
+              <Title style={{cursor: 'pointer'}} level={5}> <Image style={{width: '40px' , height: "40px", objectFit: "contain"}} src={dashboardIcon} alt={"icon"} preview={false}/> <span style={{fontSize: "20px", marginLeft: "10px"}}> Dashboard </span></Title>
               </Link>
             </Col>
           </Row>

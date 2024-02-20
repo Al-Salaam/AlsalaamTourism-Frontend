@@ -1,10 +1,15 @@
-import React from 'react';
-import { Row, Col, Rate, Progress } from 'antd';
+import React from "react";
+import { Row, Col, Rate, Progress } from "antd";
 
-const AverageRating = ({rating ,reviews ,module}) => {
+const AverageRating = ({ rating, reviews, module }) => {
   const totalRatings = reviews || 0; // Total number of ratings
   const averageRating = rating || 0; // Average rating
-  const formattedRating = totalRatings === 0 ? 0 : (averageRating % 1 === 0 ? averageRating?.toFixed(0) : averageRating?.toFixed(1));
+  const formattedRating =
+    totalRatings === 0
+      ? 0
+      : averageRating % 1 === 0
+      ? averageRating?.toFixed(0)
+      : averageRating?.toFixed(1);
   // Calculate the percentage distribution for each rating level
   const percentagePerRating = Array.from({ length: 5 }, (_, index) => {
     // Calculate the percentage for each rating level
@@ -14,17 +19,17 @@ const AverageRating = ({rating ,reviews ,module}) => {
     }, 0);
     return (ratingCount / totalRatings) * 100;
   });
-  
+
   return (
     <Row gutter={16} align="middle">
       {/* First Column */}
       <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           <Rate
             allowHalf={true}
             defaultValue={totalRatings === 0 ? 0 : averageRating}
             disabled
-            style={{ fontSize: 24, color: 'gold' }}
+            style={{ fontSize: 24, color: "gold" }}
           />
           <span style={{ marginLeft: 8, fontSize: 50 }}>{formattedRating}</span>
         </div>
@@ -42,7 +47,12 @@ const AverageRating = ({rating ,reviews ,module}) => {
                   percent={percentagePerRating[index]}
                   status="active"
                   strokeColor={"#3B505A"}
-                  format={() => `${percentagePerRating[index].toFixed(1)}%`}
+                  format={() => {
+                    const percentage = percentagePerRating[index];
+                    return isNaN(percentage)
+                      ? "0%"
+                      : `${percentage.toFixed(1)}%`;
+                  }}
                 />
               </div>
             );
