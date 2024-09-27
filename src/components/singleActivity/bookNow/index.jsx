@@ -220,7 +220,9 @@ const BookNow = ({ activity }) => {
         <Col xs={24} sm={24} md={24} lg={24} xl={12}><Title level={2} style={titleStyle}>{activity?.name}</Title></Col>
       </Row>
       <Row gutter={[40]} style={Styles.margin}>
-        <Col xs={24} sm={24} md={24} lg={24} xl={12}><Title level={5} style={titleStyle}>From {calculateTotalPrice().toFixed(2)} AED</Title></Col>
+{/*         To Show Prices From Backend in the Activity Menu */}
+{/*         <Col xs={24} sm={24} md={24} lg={24} xl={12}><Title level={5} style={titleStyle}>From {calculateTotalPrice().toFixed(2)} AED</Title></Col> */}
+        <Col xs={24} sm={24} md={24} lg={24} xl={12}><Title level={5} style={titleStyle}>From 0 AED</Title></Col>
         <Col xs={24} sm={24} md={24} lg={24} xl={12} style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
           <ReactStars
             count={5}
