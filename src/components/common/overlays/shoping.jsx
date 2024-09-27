@@ -44,6 +44,7 @@ const ShoppingComponent = () => {
                 </Col>
                 <Col xs={24} sm={24} md={12} lg={12} xl={12} style={{ marginTop: "20px" }}>
                   <Title level={4}>{item?.title}</Title>
+                  {/*<Title level={4} style={{ marginTop: "-10px" }}>{item?.price} AED</Title>*/}
                   <Title level={4} style={{ marginTop: "-10px" }}>{item?.price} AED</Title>
                   <Space>
                     <Link to={`/activity/${item.slug}`} >View Details</Link>
